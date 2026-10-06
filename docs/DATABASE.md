@@ -1,0 +1,266 @@
+# Database
+
+> Status: **Draft v0.2**
+> This app has **two data stores**: the static paint catalog (JSON in Git) and user data (Convex). Don't add catalog tables to Convex without a new entry in DECISIONS.md.
+
+## 1. Database Engine
+
+Database:
+- **Catalog:** JSON files in `data/catalog/`, validated with Zod and compiled to `public/catalog.json`
+- **User data:** Convex (document database with a TypeScript schema)
+
+Hosting:
+- Catalog: Cloudflare Pages (static file)
+- User data: Convex Cloud (free plan)
+
+---
+
+## 2. Naming Conventions
+
+Tables (Convex):
+camelCase plural, e.g., `users`, `userPaints`
+
+Fields:
+camelCase, e.g., `paintId`, `createdAt`
+
+Primary Keys:
+- Convex: automatic `_id` (`Id<"tableName">`)
+- Catalog: human-readable **slug** string IDs (see §3)
+
+Foreign Keys:
+`<entity>Id`, e.g., `userId: Id<"users">`, `paintId: string` (catalog slug)
+
+Timestamps:
+- Convex provides `_creationTime` automatically
+- Add `updatedAt: number` (ms since epoch) where updates matter
+
+Indexes:
+`by_<field>` / `by_<field1>_<field2>`, e.g., `by_user_paint`
+
+---
+
+## 3. Catalog Schema (JSON in Git)
+
+### Brand
+```ts
+{
+  id: string;          // "citadel" — immutable slug
+  name: string;        // "Citadel"
+  manufacturer: string;// "Games Workshop"
+  website?: string;
+}
+```
+
+### Product Line
+```ts
+{
+  id: string;          // "citadel-contrast"
+  brandId: string;     // "citadel"
+  name: string;        // "Contrast"
+}
+```
+
+### Paint
+```ts
+{
+  id: string;          // "citadel-base-mephiston-red" — immutable, globally unique
+  brandId: string;
+  lineId: string;
+  name: string;        // "Mephiston Red"
+  sku?: string;        // manufacturer code if known
+  hex: string;         // "#9A1115" — approximate, uppercase, 6 digits
+  type: PaintType;
+  finish?: "matte" | "satin" | "gloss" | "metallic";
+  discontinued?: boolean;
+  aliases?: string[];  // old names / alt spellings for search
+  curatedEquivalents?: string[]; // optional manual overrides (paint IDs)
+  hueOverride?: HueFamily;       // fix a misclassified hue family
+}
+
+type PaintType =
+  | "base" | "layer" | "shade" | "wash" | "contrast" | "speedpaint"
+  | "dry" | "technical" | "metallic" | "air" | "ink" | "primer" | "other";
+```
+
+### Hue families
+```ts
+// 12-hue artist's color wheel + neutral (DECISIONS 009):
+type HueFamily =
+  | "red" | "red-orange" | "orange" | "yellow-orange" | "yellow" | "yellow-green"
+  | "green" | "blue-green" | "blue" | "blue-violet" | "violet" | "red-violet"
+  | "neutral";          // low chroma: whites, greys, blacks
+type ValueBand = "light" | "mid" | "dark";
+```
+
+### Type families (for equivalents)
+Equivalents compare paints within the same **type family** by default (the user can toggle "Show all types"):
+| Type family | Paint types |
+|---|---|
+| `opaque` | base, layer, dry, air, primer |
+| `tint` | contrast, speedpaint |
+| `wash` | shade, wash, ink |
+| `metallic` | metallic (or any paint with `finish: "metallic"`) |
+| `special` | technical, other: no automatic equivalents; curated only |
+
+The mapping lives in `src/features/matching/type-families.ts`.
+Classification (build time, in `src/features/matching/classify-hue.ts`):
+- Convert hex → LCh (OKLCh)
+- Chroma below a threshold → `neutral`
+- Otherwise map hue angle to one of the 12 wheel segments (segment boundaries are documented constants)
+- `ValueBand` from lightness (L)
+- `hueOverride` in the source data wins
+
+### Generated `catalog.json` (build output)
+The build adds:
+- `lab: [L, a, b]` — precomputed for each paint (used for Delta-E)
+- `hue: HueFamily` — computed (or override)
+- `value: ValueBand` — computed
+- `version` — content hash for cache-busting and update detection
+
+### ID rules
+- Format: `<brandId>-<line-slug>-<name-slug>` (kebab-case, ASCII)
+- **IDs never change once published.** Renamed paints keep their ID and get the old name added to `aliases`.
+- Paints are never deleted; set `discontinued: true`
+- The build fails if an existing ID disappears (compare against the previous `catalog.json`)
+
+---
+
+## 4. Convex Tables (User Data)
+
+### users
+Purpose:
+One row per signed-in person; links the auth identity to app data.
+
+Fields:
+- `_id`
+- `tokenIdentifier: string` — from the auth provider (unique)
+- `name?: string`
+- `email?: string`
+- `_creationTime`
+
+> Auth is Clerk. `tokenIdentifier` comes from the Clerk JWT via `ctx.auth.getUserIdentity()`. The row is created by `users.store` after first sign-in.
+
+### userPaints
+Purpose:
+A user's relationship to a catalog paint (owned or wishlist).
+
+Fields:
+- `_id`
+- `userId: Id<"users">`
+- `paintId: string` — catalog paint ID
+- `owned: boolean`
+- `wishlisted: boolean` — both may be true (e.g., own one pot, want a replacement)
+- `updatedAt: number` — **client** timestamp of the latest change (used for offline last-write-wins)
+
+No quantity, notes or "running low" fields in MVP. The row is deleted when both flags become false.
+- `_creationTime`
+
+### Convex schema (reference)
+```ts
+// convex/schema.ts
+import { defineSchema, defineTable } from "convex/server";
+import { v } from "convex/values";
+
+export default defineSchema({
+  users: defineTable({
+    tokenIdentifier: v.string(),
+    name: v.optional(v.string()),
+    email: v.optional(v.string()),
+  }).index("by_token", ["tokenIdentifier"]),
+
+  userPaints: defineTable({
+    userId: v.id("users"),
+    paintId: v.string(),
+    owned: v.boolean(),
+    wishlisted: v.boolean(),
+    updatedAt: v.number(),
+  })
+    .index("by_user", ["userId"])
+    .index("by_user_paint", ["userId", "paintId"]),
+});
+```
+
+---
+
+## 5. Relationships
+
+- users → userPaints: one user has many userPaints
+- userPaints → catalog paint: many-to-one via `paintId` (soft reference; not enforced by the database)
+- brand → productLine → paint (inside the catalog)
+
+---
+
+## 6. Constraints
+
+Required:
+- Catalog: `id`, `brandId`, `lineId`, `name`, `hex`, `type`
+- userPaints: `userId`, `paintId`, `owned`, `wishlisted`, `updatedAt`
+
+Unique:
+- Catalog `id` (enforced by the build script)
+- `users.tokenIdentifier` (enforced in code: look up via index before insert)
+- One `userPaints` row per (`userId`, `paintId`), enforced in the mutation via `by_user_paint`. Owned and wishlisted are independent flags on that one row.
+
+Foreign Keys:
+- `userPaints.userId` → `users._id`
+- `userPaints.paintId` → catalog paint `id` (validated in the mutation against an allow-list or format regex)
+
+---
+
+## 7. Indexes
+
+| Index | Reason |
+|---|---|
+| `users.by_token` | Resolve the current user from the auth identity |
+| `userPaints.by_user` | Load the full collection (owned and wishlist lists are filtered client-side; a user has at most a few hundred rows) |
+| `userPaints.by_user_paint` | Upsert/toggle a single paint |
+
+---
+
+## 8. Data Validation
+
+- Catalog: Zod schema; `hex` matches `^#[0-9A-F]{6}$`; `brandId`/`lineId` must exist; IDs are unique; `hueOverride` must be a valid HueFamily
+- Convex: argument validators on every function; `paintId` matches `^[a-z0-9-]{3,100}$`
+- Strings are trimmed; `notes` (if added) is capped at 500 characters
+
+---
+
+## 9. Soft Delete
+
+Catalog: yes, via `discontinued: true` (never delete).
+Convex: no. Removing a paint from a collection deletes the `userPaints` row.
+
+---
+
+## 10. Auditing
+
+Not needed for MVP. `_creationTime` and `updatedAt` are enough. Catalog history comes from Git.
+
+---
+
+## 11. Sensitive Data
+
+Sensitive fields:
+- `users.email`, `users.name`
+
+Protection:
+- Never returned to other users
+- Not logged
+- Deleted when the account is deleted (see SECURITY.md)
+
+---
+
+## 12. Migration Rules
+
+Schema changes must:
+1. Be documented here first
+2. Use optional fields or a backfill when changing Convex schema (Convex validates existing docs on deploy)
+3. Be tested against the dev deployment
+4. Not break existing production data or paint IDs
+
+---
+
+## 13. Seed Data
+
+- Catalog: `data/catalog/*.json` is the real data. **TBD:** data source and licensing for hex values.
+- Dev user data: `convex/seed.ts` (dev only) creates a test user with ~20 owned and ~10 wishlist paints

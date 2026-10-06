@@ -1,0 +1,44 @@
+# Roadmap
+
+> Status: **Draft v0.2**. Order within NOW follows the build sequence.
+
+## NOW (MVP)
+- Project scaffold: Vite + React + TS, shadcn/ui converted to plain CSS files, design tokens (`tokens.css`), TanStack Router, ESLint/Prettier, Vitest
+- Catalog pipeline: `data/catalog` schema, validator, `catalog.json` build
+- Seed catalog: Citadel, The Army Painter, Vallejo, AK Interactive, Scale75, Pro Acryl
+- Paints tab: smart search (name, hex, brand, hue) + filters (URL state)
+- Hue-family classification at build time
+- Paint detail + computed equivalents (CIEDE2000)
+- PWA: manifest, icons, service worker, offline catalog, update prompt, iOS install banner
+- Clerk auth (email code) + Convex `users`
+- Own / Want toggles (independent) + My Paints tab
+- Offline outbox for Own/Want changes
+- Settings: sign out, delete account, about/data sources
+- Deploy to Cloudflare Pages + Convex production
+- Private beta with friends
+
+## NEXT
+- Visual color picker for color search
+- Dark mode
+- Curated equivalents overriding computed matches
+- Quantity, notes and "running low" per paint
+- More brands (Two Thin Coats, Kimera, Reaper…)
+- Public launch (privacy page, polish)
+
+## LATER
+- Barcode scanning to add paints (camera)
+- Pick a color from a photo (client-side only)
+- Painting recipes and schemes (lists of paints for a model or army)
+- Share a collection or wishlist via a read-only link
+- Export collection (CSV)
+
+## DEFERRED
+- Desktop-optimized layout (left rail, two-pane)
+- Community-submitted catalog corrections in the app (for now, use GitHub issues/PRs)
+
+## NOT PLANNED
+- Native iOS/Android apps
+- Payments, subscriptions, ads
+- Social features (follows, comments, public profiles)
+- Price tracking or store inventory
+- Hosting manufacturer images or marketing copy
