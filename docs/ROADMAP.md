@@ -16,6 +16,7 @@
 - Offline outbox for Own/Want changes
 - Settings: sign out, delete account, about/data sources
 - Deploy to Cloudflare Pages + Convex production
+- Ask PaintPad for permission to use the derived hex data (DECISIONS 015); before anything public
 - Private beta with friends
 
 ## NEXT

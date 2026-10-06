@@ -14,7 +14,8 @@ A mobile-first PWA for miniature painters: search paints across brands, find cro
 
 ## Commands
 - `npm run dev`: start the frontend (run `npx convex dev` in a second terminal)
-- `npm run check`: lint + typecheck + tests (catalog validation is added with the catalog pipeline)
+- `npm run check`: lint + typecheck + tests + catalog validation
+- `npm run catalog:ids`: record new paint IDs in `data/catalog/published-ids.json` (needed before new paints validate)
 - `npm run build`: production build
 
 ## Workflow

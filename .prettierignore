@@ -4,3 +4,4 @@ package-lock.json
 src/routeTree.gen.ts
 convex/_generated
 *.md
+data/catalog/published-ids.json

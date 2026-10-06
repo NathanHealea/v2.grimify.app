@@ -75,7 +75,7 @@ Trade-off: no SQL; higher vendor lock-in (mitigated: the backend is open source 
 ## Decision 004 — Paint catalog as static JSON in Git (not in the database)
 
 Date: 2026-10-05
-Status: Proposed
+Status: Accepted
 
 Context:
 The catalog is a few thousand public, rarely changing records. It must work offline, and search and color matching should be instant.
@@ -305,3 +305,49 @@ Keeps navigation in thumb reach on phones and where desktop users expect it, wit
 Consequences:
 Positive: one nav component; the left rail TBD is closed; keyboard focus order is the same at every breakpoint.
 Trade-off: on phones the nav is announced and focused before the content even though it sits at the bottom (mitigate with a skip link if testing shows it is a problem). The app shell needs a 640px media query, and the sticky header must sit below the bar on tablet and desktop. The active item is a Primary-filled pill (DESIGN_SYSTEM §11).
+
+---
+
+## Decision 015 — Seed catalog from the earlier Grimify dataset (PaintPad-derived)
+
+Date: 2026-10-06
+Status: Accepted
+
+Context:
+DATABASE §13 left the data source and licensing for paint hex values TBD. The earlier Grimify project has a catalog of about 2,900 paints across Citadel, The Army Painter, Vallejo, AK Interactive, Scale75 and Green Stuff World (`../grimify/scripts/data/`). Its own `REFERENCES.md` records that about 95% of the documented hex values were scraped from PaintPad.app in April 2026; Scale75's source isn't documented. PaintPad's terms of use could not be found (`paintpad.app/terms` returned 404 on 2026-10-06).
+
+Decision:
+Seed `data/catalog/` from the earlier Grimify dataset. Record its provenance per brand in `data/catalog/SOURCES.md` (SECURITY §9). Ask PaintPad for permission to use the derived hex values before the app is public (ROADMAP NOW). If permission is refused, re-source the hex values; paint IDs stay unchanged.
+
+Alternatives:
+- Manufacturer sources only: authoritative where published, but most manufacturers don't publish hex values
+- Sample colors by hand from swatch photos: slow, inconsistent, and still derived from someone's photos
+- Defer the catalog until a licensed source is found: blocks every catalog-dependent MVP item
+
+Reason:
+The data already exists, is broad, and has documented provenance for most brands. The permission question can be settled before launch without changing paint IDs or user data.
+
+Consequences:
+Positive: the seed catalog can be imported now.
+Trade-off: the catalog republishes third-party compiled data whose terms are unknown. That's a risk until PaintPad answers. The import needs a one-time conversion (old IDs like `cit-1` and types like `Fanatic` don't follow DATABASE §3), and Pro Acryl, a launch brand, isn't in the dataset.
+
+---
+
+## Decision 016 — Committed ledger of published paint IDs
+
+Date: 2026-10-06
+Status: Accepted
+
+Context:
+Paint IDs are permanent (DATABASE §3), so the build has to fail when a published ID disappears. DATABASE §3 said to compare against the previous `catalog.json`, but `catalog.json` is generated on every build and isn't committed, so CI has nothing to compare against.
+
+Decision:
+`data/catalog/published-ids.json` lists every published paint ID and is committed. Validation fails if a listed ID is missing from the source files, and if a source paint ID isn't listed yet. `npm run catalog:ids` adds new IDs; nothing removes them.
+
+Alternatives:
+- Commit the generated `catalog.json`: merge conflicts on every data change and large diffs
+- Download the deployed `catalog.json` during the build: needs network in CI and has nothing to compare against on the first deploy
+
+Consequences:
+Positive: removed IDs fail locally and in CI; every new permanent ID is visible in review.
+Trade-off: adding paints takes one extra command. An ID recorded on a branch that is abandoned never merges, so it does no harm.

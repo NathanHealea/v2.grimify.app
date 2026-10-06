@@ -1,7 +1,7 @@
 {
   "name": "grimify",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "engines": {
     "node": ">=24"
@@ -10,9 +10,11 @@
     "@radix-ui/react-slot": "1.4.0",
     "@tanstack/react-router": "1.170.41",
     "convex": "1.46.0",
+    "culori": "4.0.2",
     "lucide-react": "1.52.0",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "zod": "4.6.5"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
@@ -21,6 +23,7 @@
     "@testing-library/dom": "10.4.2",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
+    "@types/culori": "4.0.1",
     "@types/node": "24.19.1",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
@@ -40,13 +43,16 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run catalog:build && tsc -b && vite build",
     "preview": "vite preview",
     "lint": "eslint . && stylelint \"src/**/*.css\"",
     "typecheck": "tsc -b",
     "test": "vitest run",
     "format": "prettier --write .",
-    "check": "npm run lint && npm run typecheck && npm test"
+    "check": "npm run lint && npm run typecheck && npm test && npm run catalog:validate",
+    "catalog:validate": "node scripts/build-catalog.ts --validate",
+    "catalog:build": "node scripts/build-catalog.ts --build",
+    "catalog:ids": "node scripts/build-catalog.ts --record-ids"
   },
   "allowScripts": {
     "fsevents@2.3.3": true

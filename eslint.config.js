@@ -65,6 +65,12 @@ export default defineConfig([
     },
   },
   {
+    // Build scripts run in Node and report to the terminal.
+    files: ["scripts/**/*.ts"],
+    languageOptions: { globals: globals.node },
+    rules: { "no-console": "off" },
+  },
+  {
     files: ["**/*.js"],
     extends: [tseslint.configs.disableTypeChecked],
     languageOptions: { globals: globals.node },

@@ -75,3 +75,6 @@ GEMINI.md
 .aider*
 .github/copilot-instructions.md
 .mcp.json
+
+# --- Generated catalog (npm run catalog:build) ---
+public/catalog.json

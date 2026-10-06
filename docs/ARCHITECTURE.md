@@ -167,10 +167,12 @@ grimify/
 │   └── catalog/             # source-of-truth paint data (one file per brand)
 │       ├── citadel.json
 │       ├── army-painter.json
-│       └── vallejo.json
+│       ├── vallejo.json
+│       └── published-ids.json  # ledger of permanent paint IDs (DECISIONS 016)
 ├── scripts/
-│   └── build-catalog.ts     # validate + emit public/catalog.json
-├── public/                  # static assets, icons, generated catalog.json
+│   ├── build-catalog.ts     # CLI: --validate | --build | --record-ids
+│   └── catalog/             # pure validate / compile / ledger logic + tests
+├── public/                  # static assets, icons, generated catalog.json (gitignored)
 ├── src/
 │   ├── routes/              # TanStack Router file routes
 │   ├── styles/
@@ -181,7 +183,7 @@ grimify/
 │   │   ├── ui/              # shadcn/ui, converted: button.tsx + button.css, card.tsx + card.css…
 │   │   └── …                # app components, each with its own .css (paint-row.tsx + paint-row.css)
 │   ├── features/
-│   │   ├── catalog/         # loading, query parsing, search, filters
+│   │   ├── catalog/         # schema.ts (shared with scripts/), loading, query parsing, search, filters
 │   │   ├── matching/        # color distance, equivalents, hue classification
 │   │   ├── collection/      # owned / wishlist, offline outbox + cache
 │   │   └── pwa/             # install banner, update prompt, offline status

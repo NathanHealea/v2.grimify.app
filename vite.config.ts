@@ -13,6 +13,6 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     setupFiles: ["./src/test/setup.ts"],
-    include: ["src/**/*.test.{ts,tsx}", "lint/**/*.test.js"],
+    include: ["src/**/*.test.{ts,tsx}", "lint/**/*.test.js", "scripts/**/*.test.ts"],
   },
 });

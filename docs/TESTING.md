@@ -129,8 +129,10 @@ Prioritize:
 | Lint | `npm run lint` |
 | Type check | `npm run typecheck` (`tsc -b`) |
 | Validate catalog | `npm run catalog:validate` |
+| Build catalog only | `npm run catalog:build` (writes `public/catalog.json`) |
+| Record new paint IDs | `npm run catalog:ids` |
 | Build | `npm run build` (runs `catalog:build` first) |
-| All checks | `npm run check` (lint + typecheck + test; `catalog:validate` is added with the catalog pipeline) |
+| All checks | `npm run check` (lint + typecheck + test + `catalog:validate`) |
 
 ---
 

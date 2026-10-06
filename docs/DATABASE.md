@@ -41,6 +41,13 @@ Indexes:
 
 ## 3. Catalog Schema (JSON in Git)
 
+### Source files
+One file per brand, `data/catalog/<brandId>.json`, holding that brand and its lines and paints. Lines and paints don't repeat `brandId`; the build adds it from the file, so it can't disagree with the file. `data/catalog/published-ids.json` is the ledger of published paint IDs (DECISIONS 016).
+```jsonc
+{ "brand": { /* Brand */ }, "lines": [ /* Product Line, without brandId */ ], "paints": [ /* Paint, without brandId */ ] }
+```
+The Zod schema and generated types live in `src/features/catalog/schema.ts`; the build is `scripts/build-catalog.ts`.
+
 ### Brand
 ```ts
 {
@@ -112,16 +119,18 @@ Classification (build time, in `src/features/matching/classify-hue.ts`):
 
 ### Generated `catalog.json` (build output)
 The build adds:
-- `lab: [L, a, b]` — precomputed for each paint (used for Delta-E)
-- `hue: HueFamily` — computed (or override)
-- `value: ValueBand` — computed
-- `version` — content hash for cache-busting and update detection
+- `brandId` on each line and paint, from the file it came from
+- `lab: [L, a, b]` — CIELAB with a D65 white point (culori `lab65`, which CIEDE2000 uses), rounded to 2 decimals
+- `hue: HueFamily` — computed (or override); added by the hue-classification item
+- `value: ValueBand` — computed; added by the hue-classification item
+- `version` — first 16 hex characters of a SHA-256 over the rest of the output, for cache-busting and update detection
+Brands, lines and paints are sorted by ID, so the same data always gives the same file and `version`.
 
 ### ID rules
 - Format: `<brandId>-<line-slug>-<name-slug>` (kebab-case, ASCII)
 - **IDs never change once published.** Renamed paints keep their ID and get the old name added to `aliases`.
 - Paints are never deleted; set `discontinued: true`
-- The build fails if an existing ID disappears (compare against the previous `catalog.json`)
+- The build fails if an ID in `data/catalog/published-ids.json` disappears, and if a paint ID isn't recorded there yet; `npm run catalog:ids` records new IDs (DECISIONS 016)
 
 ---
 
@@ -262,5 +271,5 @@ Schema changes must:
 
 ## 13. Seed Data
 
-- Catalog: `data/catalog/*.json` is the real data. **TBD:** data source and licensing for hex values.
+- Catalog: `data/catalog/*.json` is the real data, seeded from the earlier Grimify dataset (mostly PaintPad-derived hex values; DECISIONS 015). Provenance per brand goes in `data/catalog/SOURCES.md`.
 - Dev user data: `convex/seed.ts` (dev only) creates a test user with ~20 owned and ~10 wishlist paints
