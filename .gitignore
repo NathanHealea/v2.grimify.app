@@ -1,8 +1,77 @@
-node_modules
-dist
-coverage
-.env.local
-.env*.local
+# --- Node.js & Tooling ---
+node_modules/
+bower_components/
+jspm_packages/
+web_modules/
+build/
+dist/
+tmp/
+.cache/
+parcel-cache/
+.nyc_output/
+coverage/
+*.lcov
+*.tsbuildinfo
+*.tgz
+
+# --- Convex ---
 .convex
+
+# --- IDEs & Editors ---
+.vscode/
+.idea/
+*.sublime-*
+
+# --- Logs & Reports ---
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+report.tap
+report.xml
+junit.xml
+server_report.xml
+client_report.xml
+report.*.json
+
+# --- Environment & Misc ---
+.env
+.env.*
+!.env.example
 .DS_Store
+Thumbs.db
+bak
+local
+node_repl_history
+.yarn-integrity
+.eslintcache
+.stylelintcache
+.lock-wscript
+.grunt
+.dynamodb/
+.fusebox/
+.tern-port
+
+# --- Frameworks & Static Site Generators ---
+.next/
+out/
+.nuxt/
+output/
+.vuepress/dist
+
+# --- Generated locally ---
 graphify-out
+
+# --- AI Assistants ---
+# CLAUDE.md, AGENTS.md and .claude/ are tracked on purpose: they hold the project's agent instructions and skills.
+CLAUDE.local.md
+GEMINI.md
+.cursor/
+.cursorrules
+.cursorignore
+.windsurfrules
+.aider*
+.github/copilot-instructions.md
+.mcp.json
