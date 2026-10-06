@@ -4,3 +4,5 @@ coverage
 .env.local
 .env*.local
 .convex
+.DS_Store
+graphify-out
