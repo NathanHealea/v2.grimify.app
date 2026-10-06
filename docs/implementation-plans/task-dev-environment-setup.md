@@ -1,14 +1,14 @@
 ---
 type: task
 slug: dev-environment-setup
-status: staged
+status: released
 branch: task/dev-environment-setup
 worktree_path: ../grimify-v2-worktrees/task-dev-environment-setup
 created: 2026-10-06
 approved: 2026-10-06
 version: 0.0.2
-tag:
-merge_commit:
+tag: v0.0.2
+merge_commit: 480a08c (squash of task/dev-environment-setup)
 ---
 
 # Dev environment setup
@@ -83,3 +83,4 @@ No unit tests: the change is configuration, dependencies and docs. Verification 
 - 2026-10-06 — Work done on two chore branches; owner chose to stage and release them as one work item. Branches combined on `task/dev-environment-setup`.
 - 2026-10-06 — Staged. `npm ci`, then `lint`, `typecheck`, `test` (26 tests in 5 files), `build` and `prettier --check` all exit 0; AC1–AC5 checked (AC2 deployment half from the earlier `convex dev` run). Version 0.0.2; no changelog. No remote; review is the local branch.
 - 2026-10-06 — Branch rebuilt as a linear series (merge commit dropped, agent-skills plugin commit added). Re-ran `npm ci`, `check` (26 tests in 5 files), `build` and `prettier --check`; all exit 0.
+- 2026-10-06 — Released. Squash-merged to `main` as `480a08c`, tagged `v0.0.2` and pushed to origin. Worktree and branch removed.
