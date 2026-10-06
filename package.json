@@ -1,7 +1,7 @@
 {
   "name": "grimify",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "engines": {
     "node": ">=24"
@@ -9,6 +9,7 @@
   "dependencies": {
     "@radix-ui/react-slot": "1.4.0",
     "@tanstack/react-router": "1.170.41",
+    "convex": "1.46.0",
     "lucide-react": "1.52.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"

@@ -22,3 +22,17 @@ A mobile-first PWA for miniature painters: search paints across brands, find cro
 2. Make small, focused changes.
 3. Run `npm run check` and `npm run build` before saying you're done.
 4. Update /docs when behavior, schema or decisions change.
+
+## Work Item Workflow
+- `work_items_root`: `docs/implementation-plans`
+
+<!-- convex-ai-start -->
+
+This project uses [Convex](https://convex.dev) as its backend.
+
+When working on Convex code, **always read
+`convex/_generated/ai/guidelines.md` first** for important guidelines on
+how to correctly use Convex APIs and patterns. The file contains rules that
+override what you may have learned about Convex from training data.
+
+<!-- convex-ai-end -->

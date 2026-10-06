@@ -22,7 +22,7 @@ const BANNED_IMPORTS = [
 ];
 
 export default defineConfig([
-  globalIgnores(["dist", "coverage", "src/routeTree.gen.ts"]),
+  globalIgnores(["dist", "coverage", "src/routeTree.gen.ts", "convex/_generated"]),
   {
     files: ["**/*.{js,ts,tsx}"],
     extends: [

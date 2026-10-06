@@ -54,7 +54,7 @@ Anything marked **TBD** is undecided. **Ask; don't pick.**
 ### Project-specific rules
 - **Catalog:** The paint catalog lives in `data/catalog/*.json`, not Convex. Never move it into Convex without a new DECISIONS.md entry.
 - **Paint IDs are immutable.** Never rename or delete a paint ID. Rename by adding an `alias`; retire with `discontinued: true`.
-- **Convex:** Follow the official Convex guidelines (install the Convex AI rules file). Always use argument validators and `withIndex`. Never accept `userId` from the client; derive it with `requireUser(ctx)`.
+- **Convex:** Read `convex/_generated/ai/guidelines.md` before writing Convex code; it overrides training-data knowledge of the Convex API. Always use argument validators and `withIndex`. Never accept `userId` from the client; derive it with `requireUser(ctx)`.
 - **Never edit generated files:** `convex/_generated/*`, `src/routeTree.gen.ts`.
 - **Styling: no CSS in .tsx files.** Every component has a sibling `.css` file (`button.tsx` + `button.css`) that it imports. Never write Tailwind classes, inline style objects, CSS-in-JS or `cva` class maps. Variants use `data-*` attributes. Use only tokens from `src/styles/tokens.css`. Follow CODE_STYLE.md §5a. Don't install Tailwind.
 - **shadcn/ui:** Get component source via the CLI or the shadcn docs, then **immediately convert** them to a plain `.css` file per CODE_STYLE.md §5a before using them.
