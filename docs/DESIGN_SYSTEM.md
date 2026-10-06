@@ -62,6 +62,19 @@ Based on the shadcn "neutral" theme, defined as CSS custom properties in `src/st
 | Warning | `#D97706` | `#F59E0B` |
 | Error | `#DC2626` | `#EF4444` |
 | Accent (brand) | none: Primary is the accent | none |
+| Primary foreground *(Proposed)* | `#FAFAFA` | `#171717` |
+| Primary hover *(Proposed)* | Primary mixed 90% with Background | same |
+| Secondary hover *(Proposed)* | Secondary mixed 80% with Background | same |
+| Focus ring *(Proposed)* | `#737373` | `#A3A3A3` |
+| Error foreground *(Proposed)* | `#FFFFFF` | `#0A0A0A` |
+
+Token names: `--color-primary`, `--color-primary-foreground`, `--color-primary-hover`, `--color-secondary`, `--color-secondary-hover`, `--color-background`, `--color-surface`, `--color-text`, `--color-muted-text`, `--color-border`, `--color-ring`, `--color-success`, `--color-warning`, `--color-error`, `--color-error-foreground`.
+
+Contrast notes (WCAG 2.1 AA):
+- The light focus ring is `#737373` (4.74:1 on white), not shadcn's `#A3A3A3` (2.52:1, under the 3:1 non-text minimum in SC 1.4.11).
+- Error foreground is near-black in dark mode: white on `#EF4444` is 3.76:1, under 4.5:1 for text.
+- **Open:** Muted Text on Secondary is 4.35:1, under 4.5:1. Don't put muted text on Secondary surfaces until this is resolved.
+- **Open:** Border on Background is 1.26:1. When a border is the only thing marking an input's boundary, it needs 3:1 (SC 1.4.11). Resolve before the Input component ships.
 
 Rules:
 - No brand accent hue. Interactive emphasis uses Primary (near-black / near-white), so no UI color competes with paint swatches.
@@ -89,6 +102,8 @@ Same as body (no display font; keeps the clean look and works offline)
 | Body | 16px / 400 / 24px (inputs must be ≥16px to prevent iOS zoom) |
 | Small | 13px / 400 / 18px |
 
+Token names *(Proposed)*: `--font-sans`; `--text-h1|h2|h3|body|small`; `--leading-h1|h2|h3|body|small`; `--weight-regular|semibold|bold`.
+
 ---
 
 ## 5. Spacing
@@ -111,6 +126,21 @@ Tokens: `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-pill`
 
 ---
 
+## 6a. Sizing, Layering and Motion *(Proposed)*
+
+| Token | Value | Use |
+|---|---|---|
+| `--border-width` | 1px | all borders |
+| `--focus-ring-width` / `--focus-ring-offset` | 2px / 2px | global `:focus-visible` in `base.css` |
+| `--touch-target` / `--touch-target-sm` | 44px / 36px | control heights (see §8) |
+| `--header-height` / `--tab-bar-height` | 56px / 56px | app shell |
+| `--content-max-width` | 1024px | centered content on wide screens (§14) |
+| `--z-header` / `--z-tab-bar` / `--z-sheet` / `--z-toast` | 10 / 10 / 50 / 100 | stacking order |
+| `--duration-fast` / `--easing-standard` | 150ms / ease-out | hover and state transitions |
+| `--opacity-disabled` | 0.5 | disabled controls |
+
+---
+
 ## 7. Shadows
 
 - Small `--shadow-sm`: cards at rest (`0 1px 2px rgb(0 0 0 / 0.05)`)
@@ -128,7 +158,7 @@ Use shadcn `<Button>` variants only.
 - Danger: `destructive` (e.g., Delete account)
 - Disabled: built-in disabled styles; keep the label visible
 - Loading: show a spinner icon and keep the button width; disable while pending
-- Minimum touch target: 44×44px
+- Minimum touch target: 44×44px (`--touch-target`). Exception: the `sm` size (36px, `--touch-target-sm`) is allowed for secondary controls only.
 
 Own/Want toggles: icon toggle buttons (e.g., check and heart/bookmark), filled when active, with an `aria-pressed` state.
 
@@ -208,7 +238,7 @@ Small "Offline" pill in the header.
 ## 13. Icons
 
 Icon Library: lucide-react (shadcn default)
-Default Size: 20px (24px in the tab bar)
+Default Size: 20px (24px in the tab bar); tokens `--icon-size`, `--icon-size-tab`
 Icon Style: Outline (stroke 2); filled variant only for active toggles
 
 ---

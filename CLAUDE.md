@@ -1,4 +1,4 @@
-# Paint Toolbox
+# Grimify
 
 A mobile-first PWA for miniature painters: search paints across brands, find cross-brand equivalents, and track owned and wishlisted paints.
 
@@ -9,12 +9,12 @@ A mobile-first PWA for miniature painters: search paints across brands, find cro
 ## Quick facts
 - Stack: Vite + React + TypeScript, TanStack Router, shadcn/ui (Radix) + plain CSS files (no Tailwind), vite-plugin-pwa, Convex, Clerk, Cloudflare Pages
 - Paint catalog = JSON in `data/catalog/` (NOT in Convex). Paint IDs never change.
-- Styling: every component has a matching `.css` file (e.g., `button.tsx` + `button.css`). **No styling in .tsx files**: no Tailwind classes, no inline `style`, no CSS-in-JS.
+- Styling: every component has a matching `.css` file (e.g., `button.tsx` + `button.css`). **No styling in .tsx files**: no Tailwind classes, no inline `style`, no CSS-in-JS. One exception: `style` may pass a data value as a CSS custom property, e.g., `style={{ "--swatch-color": paint.hex }}`.
 - Anything marked **TBD** in /docs is undecided. Ask; don't guess.
 
 ## Commands
 - `npm run dev`: start the frontend (run `npx convex dev` in a second terminal)
-- `npm run check`: lint + typecheck + tests + catalog validation
+- `npm run check`: lint + typecheck + tests (catalog validation is added with the catalog pipeline)
 - `npm run build`: production build
 
 ## Workflow

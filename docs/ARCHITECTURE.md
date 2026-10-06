@@ -155,7 +155,7 @@ Clerk issues the session JWT → Convex verifies it (auth.config.ts).
 ## 7. Project Structure
 
 ```text
-paint-toolbox/
+grimify/
 ├── convex/                  # Convex backend
 │   ├── _generated/          # generated — never edit
 │   ├── schema.ts
@@ -185,12 +185,12 @@ paint-toolbox/
 │   │   ├── matching/        # color distance, equivalents, hue classification
 │   │   ├── collection/      # owned / wishlist, offline outbox + cache
 │   │   └── pwa/             # install banner, update prompt, offline status
-│   ├── lib/                 # shared utils (cn, formatters)
+│   ├── lib/                 # shared utils (formatters)
 │   ├── types/               # shared TS types (Paint, Brand…)
 │   └── main.tsx
+├── lint/                    # local ESLint rule + lint config tests
 ├── tests/
-│   ├── unit/
-│   └── e2e/
+│   └── e2e/                 # unit tests are colocated (TESTING.md §4)
 ├── docs/
 └── package.json
 ```

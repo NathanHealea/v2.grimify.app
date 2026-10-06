@@ -45,7 +45,7 @@ Follow ARCHITECTURE.md §7.
 ## 4. Imports
 
 - Use the `@/` alias for `src/` (e.g., `import { Button } from "@/components/ui/button"`)
-- Order: external packages → `@/` imports → relative imports (enforced by the linter or formatter)
+- Order: external packages → `@/` imports → relative imports (enforced by `eslint-plugin-simple-import-sort`)
 - Use `import type` for type-only imports
 - No barrel `index.ts` files that re-export everything (they slow builds and cause cycles)
 
@@ -80,7 +80,7 @@ Rules:
 - Use native CSS nesting, `:focus-visible`, `@media` queries with the breakpoint values in DESIGN_SYSTEM.md
 - No `!important` (except in the reduced-motion reset)
 
-Example:
+Example (abridged; the real files are `src/components/ui/button.tsx` and `button.css`):
 ```tsx
 // src/components/ui/button.tsx
 import * as React from "react";
@@ -113,30 +113,30 @@ export function Button({ variant = "default", size = "md", asChild, className, .
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  min-height: 44px;
+  min-height: var(--touch-target);
   padding: 0 var(--space-4);
-  border: 1px solid transparent;
+  border: var(--border-width) solid transparent;
   border-radius: var(--radius-md);
   font: inherit;
-  font-weight: 600;
+  font-weight: var(--weight-semibold);
   background: var(--color-primary);
   color: var(--color-primary-foreground);
   cursor: pointer;
 
-  &:hover { background: var(--color-primary-hover); }
-  &:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }
-  &:disabled { opacity: 0.5; cursor: not-allowed; }
+  &:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
+  &:hover:not(:disabled) { background: var(--color-primary-hover); }
 
   &[data-variant="secondary"]   { background: var(--color-secondary); color: var(--color-text); }
   &[data-variant="outline"]     { background: transparent; border-color: var(--color-border); color: var(--color-text); }
   &[data-variant="ghost"]       { background: transparent; color: var(--color-text); }
-  &[data-variant="destructive"] { background: var(--color-error); color: #fff; }
+  &[data-variant="destructive"] { background: var(--color-error); color: var(--color-error-foreground); }
 
-  &[data-size="sm"]   { min-height: 36px; padding: 0 var(--space-3); font-size: var(--text-small); }
-  &[data-size="lg"]   { min-height: 52px; padding: 0 var(--space-6); }
-  &[data-size="icon"] { width: 44px; padding: 0; }
+  &[data-size="sm"]   { min-height: var(--touch-target-sm); padding: 0 var(--space-3); font-size: var(--text-small); }
+  &[data-size="lg"]   { min-height: calc(var(--touch-target) + var(--space-2)); padding: 0 var(--space-6); }
+  &[data-size="icon"] { width: var(--touch-target); padding: 0; }
 }
 ```
+Focus rings come from the global `:focus-visible` rule in `base.css`; components only override it when needed. `sm` (36px) is for secondary controls only (DESIGN_SYSTEM §8).
 
 ### Adding a new shadcn component
 1. Get the component source: `npx shadcn@latest add <component>` if the CLI works without Tailwind in the project. Otherwise copy the source from the shadcn/ui docs, or build it directly on the matching Radix primitive, using shadcn as the reference.
@@ -195,8 +195,9 @@ Rules:
 
 Formatter: Prettier (default config, `printWidth: 100`) for TS and CSS
 CSS linter: Stylelint (`stylelint-config-standard`) with a rule that disallows hex colors outside `tokens.css`
-TSX lint rule: forbid the `style` prop except for CSS custom properties (custom ESLint rule or `react/forbid-component-props` / `react/forbid-dom-props`)
-Linter: ESLint (typescript-eslint, react-hooks, `@tanstack/eslint-plugin-router`, `@convex-dev/eslint-plugin` if available)
+TSX lint rule: `local/style-prop-custom-properties-only` (`lint/style-prop-custom-properties-only.js`) allows `style` only as an object literal of `--custom-property` keys
+Stylelint: hex colors, named colors, color functions and `px` lengths are rejected outside `tokens.css` (`px` stays allowed in media queries); class names are kebab-case with optional BEM `__element`
+Linter: ESLint (typescript-eslint type-checked, react-hooks, `@tanstack/eslint-plugin-router`, simple-import-sort, `@convex-dev/eslint-plugin` if available); `no-restricted-imports` blocks Tailwind, cva, clsx, tailwind-merge, CSS-in-JS, React Router and Next
 Type Checking: `tsc -b` (strict)
 Pre-commit (optional): lint-staged + simple-git-hooks
 

@@ -72,6 +72,7 @@ PWA audit: Lighthouse (Chrome DevTools or `@lhci/cli` in CI, optional)
 src/**/*.test.ts(x)     # unit tests colocated next to the code
 convex/**/*.test.ts     # Convex integration tests (convex-test)
 scripts/**/*.test.ts    # catalog build/validation tests
+lint/**/*.test.js       # local ESLint rule + Stylelint config tests
 tests/
 └── e2e/                # Playwright specs
     ├── catalog.spec.ts
@@ -129,7 +130,7 @@ Prioritize:
 | Type check | `npm run typecheck` (`tsc -b`) |
 | Validate catalog | `npm run catalog:validate` |
 | Build | `npm run build` (runs `catalog:build` first) |
-| All checks | `npm run check` (lint + typecheck + test + catalog:validate) |
+| All checks | `npm run check` (lint + typecheck + test; `catalog:validate` is added with the catalog pipeline) |
 
 ---
 

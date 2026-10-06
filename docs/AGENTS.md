@@ -5,7 +5,7 @@
 ## 1. Project Context
 
 Project:
-Paint Toolbox (working name; see PRD.md)
+Grimify (see PRD.md)
 
 Purpose:
 A free, installable mobile PWA for miniature painters to search paints across brands (Citadel, The Army Painter, Vallejo…), find cross-brand color equivalents, and track owned and wishlisted paints.

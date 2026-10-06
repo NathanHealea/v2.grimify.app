@@ -1,14 +1,14 @@
 ---
 type: task
 slug: project-scaffold
-status: planned
+status: released
 branch: task/project-scaffold
-worktree_path:
+worktree_path: ../grimify-v2-worktrees/task-project-scaffold
 created: 2026-10-05
 approved: 2026-10-05
-version:
-tag:
-merge_commit:
+version: 0.0.1
+tag: v0.0.1
+merge_commit: squash of task/project-scaffold, tagged v0.0.1
 ---
 
 # Project scaffold
@@ -158,32 +158,32 @@ Unit tests sit next to the code (TESTING §4). Lint-tooling tests go in a new to
 
 ## Implementation plan
 
-0. [ ] **Prerequisite (approved 2026-10-05):** initial commit of `CLAUDE.md` + `docs/` on `main`, so the worktree has a base.
-1. [ ] Create `package.json` (name `paint-toolbox`, `"type": "module"`, `"engines": { "node": ">=24" }`, `private: true`), `.nvmrc` (`24`) and `.gitignore` (`node_modules`, `dist`, `coverage`, `.env.local`, `.env*.local`). Install the dependency list with exact versions. Touches `package.json`, `package-lock.json`, `.nvmrc`, `.gitignore`.
-2. [ ] TypeScript configs follow Vite's project-reference layout. `tsconfig.json` references `tsconfig.app.json` (`src/`; `strict`; `jsx: react-jsx`; `@/*` paths) and `tsconfig.node.json` (`vite.config.ts`, `lint/`). Add a type declaration letting `CSSProperties` accept `--*` keys, needed for `--swatch-color`. Touches `tsconfig*.json`, `src/types/css.d.ts`, `src/vite-env.d.ts`.
-3. [ ] Configure Vite and Vitest. In `vite.config.ts`, the TanStack router plugin (`autoCodeSplitting`) goes **before** `react()`, and the `@` alias uses `fileURLToPath`. The `test` block sets `environment: "jsdom"` and `setupFiles`, and includes `src/**/*.test.{ts,tsx}` and `lint/**/*.test.js`. Touches `vite.config.ts`, `src/test/setup.ts` (imports `@testing-library/jest-dom/vitest`).
-4. [ ] Styles. `tokens.css` holds the token table above, with dark values under `@media (prefers-color-scheme: dark)`. `base.css` is a minimal reset plus `html`/`body` font, color and background, heading sizes, `:focus-visible` default and a `prefers-reduced-motion` reset (the only `!important`). `index.css` imports both. Touches `src/styles/tokens.css`, `base.css`, `index.css`.
-5. [ ] HTML entry, `main.tsx` and router factory. `index.html` gets `lang="en"`, `viewport-fit=cover`, two `theme-color` metas (light `#FFFFFF`, dark `#0A0A0A`) and `<title>Paint Toolbox</title>`. `createAppRouter(history?)` lives in `src/router.ts` so tests can use memory history. Touches `index.html`, `src/main.tsx`, `src/router.ts`.
-6. [ ] Routes: `__root.tsx` renders `<AppShell><Outlet/></AppShell>`; `index.tsx` redirects to `/paints` in `beforeLoad`; `paints/index.tsx` (a folder, so `$paintId.tsx` can sit beside it later without becoming a layout route), `my-paints.tsx` and `settings.tsx` each render a `PageHeader` and a short placeholder line. Generate `src/routeTree.gen.ts` with the router plugin and commit it, because `tsc -b` runs before `vite build` and needs it. Touches `src/routes/*`, `src/routeTree.gen.ts`.
-7. [ ] App shell and page header. `AppShell` contains `<main>` plus the tab bar `<nav aria-label="Main">`, with a `<ul>` of TanStack `Link`s, lucide icons (`aria-hidden`) and text labels. The active style hangs off the attribute `Link` sets for the active route, never a class map. The header is sticky with `padding-top: env(safe-area-inset-top)`. The tab bar is fixed with `padding-bottom: env(safe-area-inset-bottom)`. `main` gets bottom padding equal to the tab bar height plus the bottom inset. Icons: `Palette`, `BookMarked`, `Settings` (names checked against lucide at implementation). Touches `src/components/app-shell.tsx/.css`, `src/components/page-header.tsx/.css`.
-8. [ ] Button: port from the current shadcn button source onto `@radix-ui/react-slot`, per CODE_STYLE §5a. Every raw value in the doc example becomes a token (`--touch-target`, `--border-width`, `--color-error-foreground`, `--opacity-disabled`, …). Touches `src/components/ui/button.tsx`, `button.css`.
-9. [ ] Prettier: `printWidth: 100`. Ignore `src/routeTree.gen.ts`, `dist`, `package-lock.json`. Touches `.prettierrc.json`, `.prettierignore`.
-10. [ ] Stylelint: `stylelint-config-standard` plus the rules below, then write T14–T15. Touches `stylelint.config.js`, `lint/stylelint-config.test.js`.
+0. [x] **Prerequisite (approved 2026-10-05):** initial commit of `CLAUDE.md` + `docs/` on `main`, so the worktree has a base.
+1. [x] Create `package.json` (name `paint-toolbox`, `"type": "module"`, `"engines": { "node": ">=24" }`, `private: true`), `.nvmrc` (`24`) and `.gitignore` (`node_modules`, `dist`, `coverage`, `.env.local`, `.env*.local`). Install the dependency list with exact versions. Touches `package.json`, `package-lock.json`, `.nvmrc`, `.gitignore`.
+2. [x] TypeScript configs follow Vite's project-reference layout. `tsconfig.json` references `tsconfig.app.json` (`src/`; `strict`; `jsx: react-jsx`; `@/*` paths) and `tsconfig.node.json` (`vite.config.ts`, `lint/`). Add a type declaration letting `CSSProperties` accept `--*` keys, needed for `--swatch-color`. Touches `tsconfig*.json`, `src/types/css.d.ts`, `src/vite-env.d.ts`.
+3. [x] Configure Vite and Vitest. In `vite.config.ts`, the TanStack router plugin (`autoCodeSplitting`) goes **before** `react()`, and the `@` alias uses `fileURLToPath`. The `test` block sets `environment: "jsdom"` and `setupFiles`, and includes `src/**/*.test.{ts,tsx}` and `lint/**/*.test.js`. Touches `vite.config.ts`, `src/test/setup.ts` (imports `@testing-library/jest-dom/vitest`).
+4. [x] Styles. `tokens.css` holds the token table above, with dark values under `@media (prefers-color-scheme: dark)`. `base.css` is a minimal reset plus `html`/`body` font, color and background, heading sizes, `:focus-visible` default and a `prefers-reduced-motion` reset (the only `!important`). `index.css` imports both. Touches `src/styles/tokens.css`, `base.css`, `index.css`.
+5. [x] HTML entry, `main.tsx` and router factory. `index.html` gets `lang="en"`, `viewport-fit=cover`, two `theme-color` metas (light `#FFFFFF`, dark `#0A0A0A`) and `<title>Paint Toolbox</title>`. `createAppRouter(history?)` lives in `src/router.ts` so tests can use memory history. Touches `index.html`, `src/main.tsx`, `src/router.ts`.
+6. [x] Routes: `__root.tsx` renders `<AppShell><Outlet/></AppShell>`; `index.tsx` redirects to `/paints` in `beforeLoad`; `paints/index.tsx` (a folder, so `$paintId.tsx` can sit beside it later without becoming a layout route), `my-paints.tsx` and `settings.tsx` each set `staticData.title` and render a short placeholder line. Generate `src/routeTree.gen.ts` with the router plugin and commit it, because `tsc -b` runs before `vite build` and needs it. Touches `src/routes/*`, `src/routeTree.gen.ts`.
+7. [x] App shell and header. *(Revised: the header lives in `AppShell` and reads the title from route `staticData`; no separate `PageHeader` component.)* `AppShell` contains `<main>` plus the tab bar `<nav aria-label="Main">`, with a `<ul>` of TanStack `Link`s, lucide icons (`aria-hidden`) and text labels. The active style hangs off the attribute `Link` sets for the active route, never a class map. The header is sticky with `padding-top: env(safe-area-inset-top)`. The tab bar is fixed with `padding-bottom: env(safe-area-inset-bottom)`. `main` gets bottom padding equal to the tab bar height plus the bottom inset. Icons: `Palette`, `BookMarked`, `Settings` (names checked against lucide at implementation). Touches `src/components/app-shell.tsx/.css`.
+8. [x] Button: port from the current shadcn button source onto `@radix-ui/react-slot`, per CODE_STYLE §5a. Every raw value in the doc example becomes a token (`--touch-target`, `--border-width`, `--color-error-foreground`, `--opacity-disabled`, …). Touches `src/components/ui/button.tsx`, `button.css`.
+9. [x] Prettier: `printWidth: 100`. Ignore `src/routeTree.gen.ts`, `dist`, `coverage`, `package-lock.json` and `*.md` (so hand-written docs are not reflowed). Touches `.prettierrc.json`, `.prettierignore`.
+10. [x] Stylelint: `stylelint-config-standard` plus the rules below, then write T14–T15. Touches `stylelint.config.js`, `lint/stylelint-config.test.js`.
     - **Applies to all CSS:** `color-no-hex`, `color-named: "never"`, `function-disallowed-list` (rgb, rgba, hsl, hsla, oklch, lab, lch), and `unit-disallowed-list: ["px"]` with media features ignored.
     - **Override for `src/styles/tokens.css`:** turns all four of those rules off.
     - **`selector-class-pattern`:** allows BEM class names (`block__element`).
-11. [ ] ESLint flat config plus the local rule, then write T11–T13. Touches `eslint.config.js`, `lint/style-prop-custom-properties-only.js`, `lint/style-prop-custom-properties-only.test.js`.
+11. [x] ESLint flat config plus the local rule, then write T11–T13. Touches `eslint.config.js`, `lint/style-prop-custom-properties-only.js`, `lint/style-prop-custom-properties-only.test.js`.
     - **Configs:** `@eslint/js` recommended, `typescript-eslint` recommended type-checked, `react-hooks` recommended, `@tanstack/eslint-plugin-router` recommended, `simple-import-sort`.
     - **Rules:** `no-console` (allow `warn` and `error`), `no-restricted-imports` with the list in R7, and `local/style-prop-custom-properties-only`.
     - **Ignores:** `dist`, `src/routeTree.gen.ts`.
-12. [ ] Tests T1–T10. Touches `src/router.test.tsx`, `src/components/app-shell.test.tsx`, `src/components/ui/button.test.tsx`.
-13. [ ] Scripts and verification. Run `npm run check && npm run build`, then check AC6 and AC7 with a scratch file and delete it. Touches `package.json`.
+12. [x] Tests T1–T10. Touches `src/router.test.tsx`, `src/components/app-shell.test.tsx`, `src/components/ui/button.test.tsx`.
+13. [x] Scripts and verification. Run `npm run check && npm run build`, then check AC6 and AC7 with a scratch file and delete it. Touches `package.json`.
     - **`lint`:** `eslint . && stylelint "src/**/*.css"`.
     - **`typecheck`:** `tsc -b`.
     - **`test`:** `vitest run`.
     - **`check`:** `npm run lint && npm run typecheck && npm test`.
     - **`build`:** `tsc -b && vite build`.
-14. [ ] Doc updates. Touches the docs listed.
+14. [x] Doc updates. Touches the docs listed.
     - **DESIGN_SYSTEM §3–§7 and §13:** token names, plus the Proposed tokens with their labels.
     - **CODE_STYLE §5a:** the example uses tokens only.
     - **CODE_STYLE §10:** names simple-import-sort and the local rule.
@@ -216,3 +216,10 @@ Unit tests sit next to the code (TESTING §4). Lint-tooling tests go in a new to
 
 - 2026-10-05 — Planned.
 - 2026-10-05 — Approved. Initial commit allowed; DECISIONS 006 to be marked Accepted; Button `sm` kept at 36px for secondary controls.
+- 2026-10-05 — Implementation started in worktree `../grimify-v2-worktrees/task-project-scaffold` on `task/project-scaffold`. No remote; push steps are skipped.
+- 2026-10-05 — Steps 1–7 done. Drift: `PageHeader` folded into `AppShell`; titles come from route `staticData` so the page has one header landmark. Steps 6 and 7 share a commit because the routes and shell depend on each other's types. T1–T5 written early and passing; added `src/test/render-route.tsx` helper and explicit Testing Library cleanup (Vitest globals are off). `npm audit`: 7 high findings, all one `braces` advisory reached through Stylelint (dev-only, no fixed version available).
+- 2026-10-05 — Steps 8–14 done. `npm ci` → `npm run check` (26 tests in 5 files) and `npm run build` exit 0; Prettier clean. AC6 and AC7 checked with scratch files (removed). Drift: T14 split into two tests (component CSS rejected / `tokens.css` allowed); lint tests run in the node environment; the test setup stubs `window.scrollTo`, which jsdom lacks; `only-throw-error` allows `Response` for TanStack's `throw redirect()`. Not yet verified: AC1–AC5 (manual in a browser and on an iPhone in standalone mode). `npm ci` warns that `fsevents` install scripts are not approved; left for the owner to decide.
+- 2026-10-05 — Owner approved the `fsevents` install script (`node-gyp rebuild`). Recorded in `package.json` `allowScripts`, pinned to 2.3.3; an fsevents version bump will prompt again.
+- 2026-10-06 — Product renamed to Grimify at the owner's request (Decision 013): package name, lockfile, `<title>`, CLAUDE.md, AGENTS.md, PRD and the ARCHITECTURE tree. Out of the original scope; the plan text above still says `paint-toolbox`.
+- 2026-10-06 — Staged. `npm ci`, then `lint`, `typecheck`, `test` (26 tests in 5 files), `build` and `prettier --check` all exit 0. Self-review fixed CLAUDE.md's description of `npm run check`. Version 0.0.1; no changelog in the repo. No remote, so nothing was pushed; review is the local branch `task/project-scaffold`. AC1–AC5 still need a manual check.
+- 2026-10-06 — Released. Owner approved the review and confirmed AC1–AC5. Squash-merged 18 commits from `task/project-scaffold` into `main` as 0.0.1, tagged `v0.0.1`. Worktree and branch removed.

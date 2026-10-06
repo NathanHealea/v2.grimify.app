@@ -6,7 +6,7 @@
 ## 1. Product Overview
 
 Product Name:
-**TBD** (working name: "Paint Toolbox")
+**Grimify** (Decision 013)
 
 One-Line Description:
 A free, installable mobile web app for miniature painters to browse paints across brands, find cross-brand equivalents, and track which paints they own or want.

@@ -1,0 +1,103 @@
+/* The only file allowed to hold raw values (CODE_STYLE §5a). Sources: DESIGN_SYSTEM.md. */
+
+:root {
+  /* Color: light */
+  --color-primary: #171717;
+  --color-primary-foreground: #fafafa;
+  --color-primary-hover: color-mix(in oklab, var(--color-primary) 90%, var(--color-background));
+  --color-secondary: #f5f5f5;
+  --color-secondary-hover: color-mix(in oklab, var(--color-secondary) 80%, var(--color-background));
+  --color-background: #fff;
+  --color-surface: #fff;
+  --color-text: #0a0a0a;
+  --color-muted-text: #737373;
+  --color-border: #e5e5e5;
+
+  /* shadcn's #A3A3A3 ring is 2.52:1 on white, under the WCAG 1.4.11 minimum of 3:1. */
+  --color-ring: #737373;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-error-foreground: #fff;
+
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", roboto, sans-serif;
+  --text-h1: 24px;
+  --text-h2: 20px;
+  --text-h3: 16px;
+  --text-body: 16px;
+  --text-small: 13px;
+  --leading-h1: 32px;
+  --leading-h2: 28px;
+  --leading-h3: 24px;
+  --leading-body: 24px;
+  --leading-small: 18px;
+  --weight-regular: 400;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 5%);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%);
+
+  /* Sizing */
+  --border-width: 1px;
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --touch-target: 44px;
+  --touch-target-sm: 36px;
+  --icon-size: 20px;
+  --icon-size-tab: 24px;
+  --header-height: 56px;
+  --tab-bar-height: 56px;
+  --content-max-width: 1024px;
+
+  /* Layering */
+  --z-header: 10;
+  --z-tab-bar: 10;
+  --z-sheet: 50;
+  --z-toast: 100;
+
+  /* Motion and state */
+  --duration-fast: 150ms;
+  --easing-standard: ease-out;
+  --opacity-disabled: 0.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #fafafa;
+    --color-primary-foreground: #171717;
+    --color-secondary: #262626;
+    --color-background: #0a0a0a;
+    --color-surface: #171717;
+    --color-text: #fafafa;
+    --color-muted-text: #a3a3a3;
+    --color-border: #262626;
+    --color-ring: #a3a3a3;
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+
+    /* White on #EF4444 is 3.76:1, under AA for text; near-black is 5.26:1. */
+    --color-error-foreground: #0a0a0a;
+  }
+}

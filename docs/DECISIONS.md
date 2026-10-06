@@ -123,7 +123,7 @@ Trade-off: an extra external service; users live in Clerk and are mirrored into 
 ## Decision 006 — TanStack Router
 
 Date: 2026-10-05
-Status: Proposed
+Status: Accepted
 
 Context:
 The main screen is a filterable list; filter state should live in the URL.
@@ -264,3 +264,19 @@ Alternatives:
 Consequences:
 Positive: clean TSX; styles live in one predictable place; no build-time CSS framework.
 Trade-off: new shadcn components must be converted by hand (or by the agent) after adding them; AI tools default to Tailwind, so AGENTS.md, CODE_STYLE.md and lint rules must enforce this; global class names need the `ui-` / component-name prefix convention.
+
+---
+
+## Decision 013 — Product name: Grimify
+
+Date: 2026-10-06
+Status: Accepted
+
+Context:
+The PRD left the product name TBD, and the scaffold used "Paint Toolbox" as a placeholder.
+
+Decision:
+The product is named Grimify. The package name is `grimify`, and the name appears in the page title and project docs.
+
+Consequences:
+The PWA manifest, icons and any Cloudflare Pages project use Grimify when those items land. The repository directory is already `grimify-v2`.
