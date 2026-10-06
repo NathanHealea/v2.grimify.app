@@ -1,14 +1,14 @@
 ---
 type: task
 slug: catalog-pipeline
-status: staged
+status: released
 branch: task/catalog-pipeline
 worktree_path: ../grimify-v2-worktrees/task-catalog-pipeline
 created: 2026-10-06
 approved: 2026-10-06
-version:
-tag:
-merge_commit:
+version: 0.1.1
+tag: v0.1.1
+merge_commit: 53fdee6 (squash of task/catalog-pipeline)
 ---
 
 # Catalog pipeline
@@ -198,3 +198,4 @@ Pure logic lives in `scripts/catalog/` and is tested there with in-memory fixtur
   - Error lines print repo-relative paths (`data/catalog/x.json paints[0].hex: …`).
   - `npm ci` warns that `esbuild@0.27.0` install scripts aren't in `allowScripts`. That predates this item (it comes through `convex` and the router plugin) and is left for the owner.
 - 2026-10-06 — Staged. `npm run check` (44 tests in 8 files; catalog valid) and `npm run build` exit 0; Prettier clean. Version 0.1.1; no changelog in the repo. Not pushed: the owner's rules keep pushes to the release step, so review is the local branch `task/catalog-pipeline`. Known limitation for the reviewer: a curated equivalent pointing into a file that fails to parse entirely is reported as "does not exist" until that file is fixed.
+- 2026-10-06 — Released. Owner approved the review after trying it on a local dev server. Squash-merged 12 commits from `task/catalog-pipeline` into `main` as 0.1.1 (53fdee6), tagged `v0.1.1`. Worktree and branch removed.
