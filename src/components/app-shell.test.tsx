@@ -30,6 +30,24 @@ describe("AppShell", () => {
     expect(current.map((link) => link.textContent)).toEqual(["My Paints"]);
   });
 
+  it("places the Main navigation before the header and main", async () => {
+    renderRoute("/paints");
+
+    const nav = await findMainNav();
+    const header = screen.getByRole("banner");
+    const main = screen.getByRole("main");
+    expect(nav.compareDocumentPosition(header) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(nav.compareDocumentPosition(main) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(header.compareDocumentPosition(main) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+
+  it("renders exactly one Main navigation", async () => {
+    renderRoute("/settings");
+
+    await findMainNav();
+    expect(screen.getAllByRole("navigation", { name: "Main" })).toHaveLength(1);
+  });
+
   it("hides tab icons from assistive tech", async () => {
     renderRoute("/paints");
 

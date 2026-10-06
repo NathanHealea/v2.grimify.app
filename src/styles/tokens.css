@@ -72,7 +72,7 @@
 
   /* Layering */
   --z-header: 10;
-  --z-tab-bar: 10;
+  --z-tab-bar: 20;
   --z-sheet: 50;
   --z-toast: 100;
 

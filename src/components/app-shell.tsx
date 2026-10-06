@@ -21,10 +21,6 @@ export function AppShell({ children }: Props) {
 
   return (
     <div className="app-shell">
-      <header className="app-shell__header">
-        {title && <h1 className="app-shell__title">{title}</h1>}
-      </header>
-      <main className="app-shell__main">{children}</main>
       <nav className="app-shell__tabs" aria-label="Main">
         <ul className="app-shell__tab-list">
           {TABS.map(({ to, label, Icon }) => (
@@ -37,6 +33,10 @@ export function AppShell({ children }: Props) {
           ))}
         </ul>
       </nav>
+      <header className="app-shell__header">
+        {title && <h1 className="app-shell__title">{title}</h1>}
+      </header>
+      <main className="app-shell__main">{children}</main>
     </div>
   );
 }

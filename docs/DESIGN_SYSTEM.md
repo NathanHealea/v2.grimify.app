@@ -135,7 +135,7 @@ Tokens: `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-pill`
 | `--touch-target` / `--touch-target-sm` | 44px / 36px | control heights (see §8) |
 | `--header-height` / `--tab-bar-height` | 56px / 56px | app shell |
 | `--content-max-width` | 1024px | centered content on wide screens (§14) |
-| `--z-header` / `--z-tab-bar` / `--z-sheet` / `--z-toast` | 10 / 10 / 50 / 100 | stacking order |
+| `--z-header` / `--z-tab-bar` / `--z-sheet` / `--z-toast` | 10 / 20 / 50 / 100 | stacking order; the nav bar sits above the sticky header it overlaps on tablet and desktop |
 | `--duration-fast` / `--easing-standard` | 150ms / ease-out | hover and state transitions |
 | `--opacity-disabled` | 0.5 | disabled controls |
 
@@ -213,12 +213,13 @@ Position by breakpoint (§14):
 Look:
 - "Floating" means detached from the screen edges: Surface background, `1px solid var(--color-border)`, `--shadow-md` (border only in dark mode, per §7), `--radius-pill` *(Proposed)*.
 - Height `--tab-bar-height`. Each item shows a 24px icon (`--icon-size-tab`) and a visible text label; items are at least 44×44px.
-- Active item: `aria-current="page"` and a filled pill: `--color-primary` background, `--radius-pill`, icon and label in `--color-primary-foreground`. Inactive items: `--color-muted-text` on the bar, no background.
+- Active item: `aria-current="page"` and a filled pill: `--color-primary` background, `--radius-pill`, icon and label in `--color-primary-foreground`. Inactive items: `--color-muted-text` on the bar, no background. The active style is keyed on `[aria-current="page"]`, not a router class or data attribute, so the look and the announced state can't disagree.
+- Focus ring: drawn outside the item with the global positive offset, on the Surface. On the pill the dark-mode ring (`#A3A3A3` on `#FAFAFA`) is about 2.4:1, under 3:1. The bar's `--space-1` padding leaves room for the ring.
 - Contrast (SC 1.4.11, 1.4.3): pill vs. Surface 17.9:1 light / 17.2:1 dark; label on pill 17.2:1; inactive label 4.74:1 light / 7.11:1 dark. Don't use a Secondary background as the marker (1.09:1 on Surface).
 - Fallback if the filled pill competes with swatches: an outline pill (Primary border, no fill, Primary text), which still passes 3:1.
 
 Behavior:
-- Page content is never hidden behind the bar: `main` is padded by the bar height, its inset and the safe-area inset on the side the bar sits (bottom on mobile, top on tablet and desktop).
+- Page content is never hidden behind the bar. On mobile, `main` is padded at the bottom by the bar height, its inset and the bottom safe-area inset. On tablet and desktop, the sticky header grows its top padding by the strip the bar floats in (top safe-area inset, inset, bar height, inset), so its background covers that strip and content never scrolls past above the header.
 - The bar is a `<nav aria-label="Main">` that comes before `<main>` in the DOM at every breakpoint, so keyboard focus order matches the desktop layout. Moving it to the bottom on mobile is CSS only.
 - No show/hide on scroll in MVP *(Proposed)*.
 
