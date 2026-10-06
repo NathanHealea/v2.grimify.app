@@ -1,14 +1,14 @@
 ---
 type: story
 slug: floating-nav-bar
-status: staged
+status: released
 branch: story/floating-nav-bar
 worktree_path: ../grimify-v2-worktrees/story-floating-nav-bar
 created: 2026-10-06
 approved: 2026-10-06
-version:
-tag:
-merge_commit:
+version: 0.1.0
+tag: v0.1.0
+merge_commit: 405267e (squash of story/floating-nav-bar)
 ---
 
 # Floating nav bar
@@ -128,3 +128,4 @@ Unit tests stay colocated in `src/components/app-shell.test.tsx` and use the exi
 - 2026-10-06 — Implementation started in worktree `../grimify-v2-worktrees/story-floating-nav-bar` on `story/floating-nav-bar`.
 - 2026-10-06 — Steps 1–6 done. T1 was confirmed to fail against the old DOM order before passing. `npm run check` (28 tests in 5 files), `npm run build` and `prettier --check .` exit 0. Drift: steps 3 and 4 share one commit because they edit the same rules in `app-shell.css` and neither is coherent alone. The bar's total height (padding and border included) is `--tab-bar-height`, so items are 46px tall; the stacked icon and label on mobile have no gap to fit. Stylelint required `width >= 640px` range notation and the `inset` shorthand. Not yet verified: AC1–AC8 by hand; no dev server was started (owner starts them).
 - 2026-10-06 — Staged. `npm run check` (28 tests in 5 files), `npm run build` and `prettier --check .` exit 0. Self-review fix: a `--space-1` gap between items, because flush items let a focus ring overlap the neighboring active pill (R7). Version 0.1.0; no changelog in the repo. Not pushed: the owner's rules keep pushes to the release step, so review is the local branch `story/floating-nav-bar`. AC1–AC8 still need a manual check.
+- 2026-10-06 — Released. Owner approved the review after a local browser check. Squash-merged 9 commits from `story/floating-nav-bar` into `main` as 0.1.0 (405267e), tagged `v0.1.0`. Worktree and branch removed. AC5 (installed iOS standalone) deferred to the PWA item, since the app has no manifest yet.
