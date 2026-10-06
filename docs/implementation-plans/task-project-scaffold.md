@@ -50,7 +50,7 @@ Versions were checked against the npm registry on 2026-10-05. Node 24 "Krypton" 
 - Playwright and E2E (first E2E arrives with the Paints tab)
 - `public/_headers`, CI workflow, Cloudflare Pages (deploy item)
 - Error boundary and not-found screen beyond TanStack Router defaults
-- Desktop left rail (TBD in DESIGN_SYSTEM §11)
+- Desktop navigation (TBD at the time; since decided as a floating nav bar, DECISIONS 014)
 
 ## Dependencies (approved as one list)
 

@@ -280,3 +280,28 @@ The product is named Grimify. The package name is `grimify`, and the name appear
 
 Consequences:
 The PWA manifest, icons and any Cloudflare Pages project use Grimify when those items land. The repository directory is already `grimify-v2`.
+
+---
+
+## Decision 014 — Floating nav bar: bottom on mobile, top on tablet and desktop
+
+Date: 2026-10-06
+Status: Accepted
+
+Context:
+The app is mobile-first, but it also has to work on a desktop. DESIGN_SYSTEM §11 left desktop navigation TBD, with a left rail as the working idea.
+
+Decision:
+One floating nav bar (Paints, My Paints, Settings) on every screen. Below 640px it is fixed to the bottom of the screen. At 640px and up it is fixed to the top, centered. It is detached from the screen edges by a small inset. It is a single `<nav aria-label="Main">` that comes before `<main>` in the DOM, and only CSS moves it. Details are in DESIGN_SYSTEM §11.
+
+Alternatives:
+- Left rail on desktop (the earlier TBD): uses horizontal space well on wide screens, but means a second navigation component and layout for only three destinations
+- Bottom bar at every breakpoint: one layout, but a bottom bar on a desktop monitor is far from the content and unfamiliar
+- Top bar at every breakpoint: familiar on desktop, but puts navigation out of thumb reach on phones, against the one-handed design principle
+
+Reason:
+Keeps navigation in thumb reach on phones and where desktop users expect it, with one component and one DOM order.
+
+Consequences:
+Positive: one nav component; the left rail TBD is closed; keyboard focus order is the same at every breakpoint.
+Trade-off: on phones the nav is announced and focused before the content even though it sits at the bottom (mitigate with a skip link if testing shows it is a problem). The app shell needs a 640px media query, and the sticky header must sit below the bar on tablet and desktop. The active item is a Primary-filled pill (DESIGN_SYSTEM §11).

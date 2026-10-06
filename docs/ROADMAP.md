@@ -4,6 +4,7 @@
 
 ## NOW (MVP)
 - Project scaffold: Vite + React + TS, shadcn/ui converted to plain CSS files, design tokens (`tokens.css`), TanStack Router, ESLint/Prettier, Vitest
+- Floating nav bar: bottom on mobile, top on tablet and desktop (DESIGN_SYSTEM §11, DECISIONS 014)
 - Catalog pipeline: `data/catalog` schema, validator, `catalog.json` build
 - Seed catalog: Citadel, The Army Painter, Vallejo, AK Interactive, Scale75, Pro Acryl
 - Paints tab: smart search (name, hex, brand, hue) + filters (URL state)
@@ -33,7 +34,7 @@
 - Export collection (CSV)
 
 ## DEFERRED
-- Desktop-optimized layout (left rail, two-pane)
+- Desktop-optimized layout (two-pane list/detail). Navigation is decided: floating nav bar at the top (DECISIONS 014)
 - Community-submitted catalog corrections in the app (for now, use GitHub issues/PRs)
 
 ## NOT PLANNED

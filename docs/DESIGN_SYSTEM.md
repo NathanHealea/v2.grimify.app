@@ -200,14 +200,30 @@ Detected brand / hue / hex appear as removable pill chips under the search box (
 Header:
 Compact top bar with the screen title and a contextual action (e.g., filter button). Respect `env(safe-area-inset-top)`.
 
-Sidebar:
-None on mobile. On desktop ≥1024px, the bottom tabs become a left rail (**TBD**).
-
-Mobile Navigation:
-Bottom tab bar, fixed, respecting `env(safe-area-inset-bottom)`:
+Navigation bar:
+One floating nav bar on every screen and every breakpoint, with three destinations:
 1. **Paints** (catalog + smart search: name, hex, brand, hue)
 2. **My Paints** (owned / wishlist)
 3. **Settings** (account, theme, about)
+
+Position by breakpoint (§14):
+- Mobile (< 640px): fixed to the bottom of the screen, inset `--space-3` from the left, right and bottom edges, plus `env(safe-area-inset-bottom)`. Spans the width between the insets.
+- Tablet and desktop (≥ 640px): fixed to the top of the screen, inset `--space-3` from the top edge plus `env(safe-area-inset-top)`. Centered, sized to its content, never wider than `--content-max-width`. The screen header sits below it.
+
+Look:
+- "Floating" means detached from the screen edges: Surface background, `1px solid var(--color-border)`, `--shadow-md` (border only in dark mode, per §7), `--radius-pill` *(Proposed)*.
+- Height `--tab-bar-height`. Each item shows a 24px icon (`--icon-size-tab`) and a visible text label; items are at least 44×44px.
+- Active item: `aria-current="page"` and a filled pill: `--color-primary` background, `--radius-pill`, icon and label in `--color-primary-foreground`. Inactive items: `--color-muted-text` on the bar, no background.
+- Contrast (SC 1.4.11, 1.4.3): pill vs. Surface 17.9:1 light / 17.2:1 dark; label on pill 17.2:1; inactive label 4.74:1 light / 7.11:1 dark. Don't use a Secondary background as the marker (1.09:1 on Surface).
+- Fallback if the filled pill competes with swatches: an outline pill (Primary border, no fill, Primary text), which still passes 3:1.
+
+Behavior:
+- Page content is never hidden behind the bar: `main` is padded by the bar height, its inset and the safe-area inset on the side the bar sits (bottom on mobile, top on tablet and desktop).
+- The bar is a `<nav aria-label="Main">` that comes before `<main>` in the DOM at every breakpoint, so keyboard focus order matches the desktop layout. Moving it to the bottom on mobile is CSS only.
+- No show/hide on scroll in MVP *(Proposed)*.
+
+Sidebar:
+None at any breakpoint.
 
 Filters open in a bottom sheet (shadcn `Drawer`).
 
@@ -245,9 +261,9 @@ Icon Style: Outline (stroke 2); filled variant only for active toggles
 
 ## 14. Responsive Design
 
-Mobile (default): single column, bottom tabs
-Tablet: two-column list/detail where useful
-Desktop: max content width ~1024px, centered; left rail navigation (**TBD**)
+Mobile (default): single column, floating nav bar at the bottom (§11)
+Tablet: two-column list/detail where useful; floating nav bar at the top
+Desktop: max content width ~1024px, centered; floating nav bar at the top
 
 Breakpoints (use in `@media` queries in component CSS; CSS custom properties can't be used in media queries, so use these literal values):
 - Mobile: < 640px
