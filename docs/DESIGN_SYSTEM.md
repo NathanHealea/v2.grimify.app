@@ -58,6 +58,9 @@ Based on the shadcn "neutral" theme, defined as CSS custom properties in `src/st
 | Text | `#0A0A0A` | `#FAFAFA` |
 | Muted Text | `#737373` | `#A3A3A3` |
 | Border | `#E5E5E5` | `#262626` |
+| Input border | `#8A8A8A` | `#666666` |
+| Swatch edge | `rgb(0 0 0 / 10%)` | `rgb(255 255 255 / 10%)` |
+| Swatch ink (dark / light) | `#0A0A0A` / `#FAFAFA` | same: follows the paint, not the theme |
 | Success | `#16A34A` | `#22C55E` |
 | Warning | `#D97706` | `#F59E0B` |
 | Error | `#DC2626` | `#EF4444` |
@@ -68,13 +71,13 @@ Based on the shadcn "neutral" theme, defined as CSS custom properties in `src/st
 | Focus ring *(Proposed)* | `#737373` | `#A3A3A3` |
 | Error foreground *(Proposed)* | `#FFFFFF` | `#0A0A0A` |
 
-Token names: `--color-primary`, `--color-primary-foreground`, `--color-primary-hover`, `--color-secondary`, `--color-secondary-hover`, `--color-background`, `--color-surface`, `--color-text`, `--color-muted-text`, `--color-border`, `--color-ring`, `--color-success`, `--color-warning`, `--color-error`, `--color-error-foreground`.
+Token names: `--color-primary`, `--color-primary-foreground`, `--color-primary-hover`, `--color-secondary`, `--color-secondary-hover`, `--color-background`, `--color-surface`, `--color-text`, `--color-muted-text`, `--color-border`, `--color-input-border`, `--color-swatch-edge`, `--color-swatch-ink-dark`, `--color-swatch-ink-light`, `--color-ring`, `--color-success`, `--color-warning`, `--color-error`, `--color-error-foreground`.
 
 Contrast notes (WCAG 2.1 AA):
 - The light focus ring is `#737373` (4.74:1 on white), not shadcn's `#A3A3A3` (2.52:1, under the 3:1 non-text minimum in SC 1.4.11).
 - Error foreground is near-black in dark mode: white on `#EF4444` is 3.76:1, under 4.5:1 for text.
 - **Open:** Muted Text on Secondary is 4.35:1, under 4.5:1. Don't put muted text on Secondary surfaces until this is resolved.
-- **Open:** Border on Background is 1.26:1. When a border is the only thing marking an input's boundary, it needs 3:1 (SC 1.4.11). Resolve before the Input component ships.
+- Border on Background is 1.26:1, so `--color-border` is decorative only (cards, dividers, the nav bar). Form controls use `--color-input-border`: `#8A8A8A` is 3.45:1 on Background and 3.17:1 on Secondary; `#666666` is 3.45:1 on Background and 3.12:1 on Surface (SC 1.4.11, DECISIONS 019).
 
 Rules:
 - No brand accent hue. Interactive emphasis uses Primary (near-black / near-white), so no UI color competes with paint swatches.
@@ -122,7 +125,7 @@ Tokens: `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-pill`
 - Medium: 8px (inputs, buttons)
 - Large: 12px (cards, sheets)
 - Pill: 9999px (chips, filter toggles)
-- Swatch: **TBD:** circle (like a paint pot top) or rounded square
+- Swatch: rounded square, `--radius-md`. Circles are reserved for hue dots, so a filter never looks like a paint (DECISIONS 020)
 
 ---
 
@@ -134,6 +137,8 @@ Tokens: `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-pill`
 | `--focus-ring-width` / `--focus-ring-offset` | 2px / 2px | global `:focus-visible` in `base.css` |
 | `--touch-target` / `--touch-target-sm` | 44px / 36px | control heights (see §8) |
 | `--header-height` / `--tab-bar-height` | 56px / 56px | app shell |
+| `--swatch-size` / `--row-min-height` | 40px / 56px | paint rows (§10) |
+| `--icon-size-sm` | 14px | swatch type marker, chip icons |
 | `--content-max-width` | 1024px | centered content on wide screens (§14) |
 | `--z-header` / `--z-tab-bar` / `--z-sheet` / `--z-toast` | 10 / 20 / 50 / 100 | stacking order; the nav bar sits above the sticky header it overlaps on tablet and desktop |
 | `--duration-fast` / `--easing-standard` | 150ms / ease-out | hover and state transitions |
@@ -166,8 +171,8 @@ Own/Want toggles: icon toggle buttons (e.g., check and heart/bookmark), filled w
 
 ## 9. Inputs
 
-Use shadcn `<Input>`, `<Select>`, `<Command>` (search).
-- Default: border token, 16px text
+Use shadcn `<Input>` and `<Select>`. Search uses `<Input type="search">` with suggestion chips below it, not `<Command>`.
+- Default: `--color-input-border`, 16px text at every width (shadcn's desktop 14px is dropped)
 - Focus: visible ring (`outline: 2px solid var(--color-ring)` on `:focus-visible`)
 - Error: destructive border plus a message below
 - Disabled: reduced opacity, `cursor-not-allowed`
@@ -185,13 +190,18 @@ Use shadcn `<Input>`, `<Select>`, `<Command>` (search).
 A horizontal, scrollable row of 13 small circles (12 hues + neutral) under the empty search box. Each has a text label below it (don't rely on color alone).
 
 ### Search chips
-Detected brand / hue / hex appear as removable pill chips under the search box (`Brand: Vallejo ×`).
+Detected brand / hue / hex appear as removable pill chips under the search box (`Brand: Vallejo ×`); the whole chip is the button, named "Remove Brand: Vallejo". Suggestion chips (outlined) complete a partly typed brand or hue.
 
 ### Swatch component (`<PaintSwatch>`)
 - Background = paint hex
-- 1px inner border at 10% black/white so pale and dark paints stay visible on any background
-- Text on top of a swatch: pick black or white automatically by contrast (APCA or WCAG luminance)
-- Metallic/wash/contrast paints get a small type icon overlay, since hex can't represent them
+- Rounded square, `--swatch-size` in rows, `--space-12` for the hex search preview
+- 1px inner edge, `--color-swatch-edge`, so pale and dark paints stay visible on any background
+- Ink on top of a swatch (the type marker) is black or white by WCAG relative luminance, switching at 0.18
+- Metallic (sparkles), wash/shade/ink (droplet) and contrast/speedpaint (layers) get a small corner marker, since hex can't represent them. The swatch is decorative (`aria-hidden`); the type is always in the row text
+
+### Paint row (`<PaintRow>`)
+- Swatch · name (semibold) · "Brand · Line · Type" (muted) · match label or "Discontinued" on the right
+- Own/Want toggles join the row with the collection item
 
 ---
 

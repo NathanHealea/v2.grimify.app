@@ -125,7 +125,7 @@ Prioritize:
 | Purpose | Command |
 |---|---|
 | Unit + integration tests | `npm test` (Vitest) |
-| E2E | `npm run test:e2e` (Playwright) |
+| E2E | `npm run test:e2e` (Playwright; builds and serves the app for the run). First time: `npx playwright install chromium webkit`. Not part of `check` |
 | Lint | `npm run lint` |
 | Type check | `npm run typecheck` (`tsc -b`) |
 | Validate catalog | `npm run catalog:validate` |

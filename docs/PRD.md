@@ -274,7 +274,7 @@ Timeline:
 - Where does the hex data come from (manual entry, community datasets, color-picking from swatches)? Licensing must be checked.
 - Email code only, or also OAuth providers (Clerk supports Google/Discord)?
 - Which product lines of each brand are in the launch set (e.g., all current Citadel ranges, or only Base/Layer/Shade/Contrast)?
-- Browns are classified as dark/low-chroma oranges and reds. Should "brown" also work as a search alias?
+- ~~Should "brown" also work as a search alias?~~ Not for MVP: "brown" is a name search (DECISIONS 021).
 
 ---
 

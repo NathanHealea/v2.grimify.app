@@ -1,0 +1,31 @@
+.search-chip {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: var(--space-1);
+  align-items: center;
+  min-height: var(--touch-target-sm);
+  padding-inline: var(--space-3);
+  font: inherit;
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+  color: var(--color-text);
+  white-space: nowrap;
+  cursor: pointer;
+  background: var(--color-secondary);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-pill);
+
+  &[data-variant="suggest"] {
+    background: transparent;
+    border-color: var(--color-input-border);
+  }
+
+  &:hover {
+    background: var(--color-secondary-hover);
+  }
+}
+
+.search-chip__icon {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+}

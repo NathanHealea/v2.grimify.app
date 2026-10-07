@@ -78,3 +78,8 @@ GEMINI.md
 
 # --- Generated catalog (npm run catalog:build) ---
 public/catalog.json
+
+# --- Playwright ---
+test-results/
+playwright-report/
+blob-report/

@@ -395,3 +395,83 @@ Consequences:
 Positive: 2,837 paints across six brands, converted by tested, recorded rules (`scripts/import-legacy-catalog.ts`); provenance is in `data/catalog/SOURCES.md`.
 Trade-off: the IDs are permanent, so a slug mistake can only be patched with an alias. Metallic paints inside non-metallic lines (e.g., Citadel Leadbelcher) aren't typed `metallic` yet. Two Vallejo Model Color merges may have joined separate products that share a name.
 
+---
+
+## Decision 019 — Separate border token for form controls
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+`--color-border` is 1.26:1 on Background. A form control whose border is its only visible boundary needs 3:1 (WCAG 2.1 SC 1.4.11). The search box is the first form control.
+
+Decision:
+Add `--color-input-border` (light `#8A8A8A`, dark `#666666`) for form controls only. Cards, dividers and the nav bar keep the soft `--color-border`.
+
+Alternatives:
+- Darken `--color-border` everywhere: one token, but every card edge and divider gets heavier, against "paint is the hero"
+- Fill inputs with Secondary: Secondary on Background is 1.09:1, so the fill fails too
+
+Consequences:
+Positive: controls are findable at AA contrast while decorative chrome stays quiet.
+Trade-off: two border tokens to choose between; the rule is "can the user act on it?"
+
+---
+
+## Decision 020 — Rounded-square paint swatches
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+DESIGN_SYSTEM §6 left the swatch shape TBD: circle (like a paint pot top) or rounded square.
+
+Decision:
+Swatches are rounded squares with `--radius-md`. Circles are reserved for hue dots.
+
+Alternatives:
+- Circle: more distinctive, but identical in shape to the hue-dot filters right above the list, and tighter for the type marker
+
+Consequences:
+Positive: filters and paints never look alike; more color area per pixel; room for the corner type marker.
+
+---
+
+## Decision 021 — No "brown" search alias in MVP
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+Brown isn't one of the 13 hue families; the classifier files browns as dark or muted oranges and reds (DECISIONS 009). PRD §12 asked whether "brown" should still work as a search word.
+
+Decision:
+No alias. "brown" falls through to fuzzy name search, which matches the 188 paints with Brown in the name.
+
+Alternatives:
+- Alias "brown" to a filter (warm hues, dark or mid value, low chroma): needs chroma in `catalog.json` and another tuned threshold, and the definition is fuzzy at both edges
+
+Consequences:
+Positive: simple, predictable search.
+Trade-off: browns named otherwise (e.g., Rhinox Hide) don't appear for "brown". Revisit if beta users search color words that aren't hue families.
+
+---
+
+## Decision 022 — Match label thresholds
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+PRD and UX_FLOWS name the labels for color distance (Very close, Close, Similar) but never set the values.
+
+Decision:
+CIEDE2000 ΔE < 2 → Very close, < 5 → Close, < 10 → Similar, ≥ 10 → no label. Defined in `src/features/matching/delta-e.ts` and shared by hex search and equivalents.
+
+Reason:
+ΔE00 ≈ 2 is the usual just-noticeable difference side by side. Catalog hex values are approximations, so finer labels would overstate precision.
+
+Consequences:
+Positive: one labelling rule across the app.
+Trade-off: a "Very close" on screen can still differ in the pot, especially for metallics and washes; the disclaimer covers it.
+

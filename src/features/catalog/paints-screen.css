@@ -1,0 +1,48 @@
+.paints-screen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.paints-screen__search {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.paints-screen__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.paints-screen__hex {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.paints-screen__count {
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+  color: var(--color-muted-text);
+}
+
+.paints-screen__list {
+  padding: 0;
+  list-style: none;
+}
+
+.paints-screen__sentinel {
+  height: var(--space-1);
+}
+
+.paints-screen__status,
+.paints-screen__empty {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+  padding-block: var(--space-12);
+  text-align: center;
+}

@@ -1,0 +1,48 @@
+.paint-row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  min-height: var(--row-min-height);
+  padding-block: var(--space-2);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.paint-row__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.paint-row__name {
+  font-weight: var(--weight-semibold);
+  overflow-wrap: anywhere;
+}
+
+.paint-row__meta {
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+  color: var(--color-muted-text);
+}
+
+.paint-row__badges {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  align-items: flex-end;
+}
+
+.paint-row__match {
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+  color: var(--color-muted-text);
+  white-space: nowrap;
+}
+
+.paint-row__badge {
+  padding-inline: var(--space-2);
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+  color: var(--color-muted-text);
+  white-space: nowrap;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+}

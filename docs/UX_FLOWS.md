@@ -55,8 +55,11 @@ The banner can be dismissed; it stays hidden for 30 days (stored in localStorage
    - `vallejo` → **brand**: chip `Brand: Vallejo`; all Vallejo paints shown
    - `red-orange` → **hue**: chip `Hue: Red-Orange`; paints sorted light to dark
    - `vallejo red` → brand + hue combined
-   - anything else → fuzzy name search
+   - Hue words only filter when nothing else is typed: `mephiston red` and `death guard green` are name searches (DECISIONS 009, paints-search work item)
+   - anything else → fuzzy name search; `brown` is a name search (DECISIONS 021)
    - Typeahead suggestions show matching brands and hue names as tappable chips
+   - With an empty box, 13 hue dots offer one-tap color browsing
+   - Until the filters item ships, the whole search lives in `?q=`; chips and hue dots edit `q`
 3. Taps the Filter button → bottom sheet with Brand, Product line (depends on brand), Type, Hue family (color dots) and "Show only: Owned / Wishlist / All" (signed-in users)
 4. Applies filters → chips appear under the search box; each chip can be removed
 5. URL updates with search params (back button restores the previous filters)
