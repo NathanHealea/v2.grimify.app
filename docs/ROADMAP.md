@@ -8,8 +8,8 @@
 - Catalog pipeline: `data/catalog` schema, validator, `catalog.json` build
 - Seed catalog: Citadel, The Army Painter, Vallejo, AK Interactive, Scale75, Green Stuff World
 - Pro Acryl catalog (needs a data source; DECISIONS 018)
+- Hue-family classification at build time (before the Paints tab, whose hue search needs it)
 - Paints tab: smart search (name, hex, brand, hue) + filters (URL state)
-- Hue-family classification at build time
 - Paint detail + computed equivalents (CIEDE2000)
 - PWA: manifest, icons, service worker, offline catalog, update prompt, iOS install banner
 - Clerk auth (email code) + Convex `users`

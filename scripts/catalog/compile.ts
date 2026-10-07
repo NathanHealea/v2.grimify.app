@@ -8,6 +8,7 @@ import type {
   CatalogLine,
   CatalogPaint,
 } from "../../src/features/catalog/schema.ts";
+import { classifyHue, classifyValue } from "../../src/features/matching/classify-hue.ts";
 
 // D65 because culori's differenceCiede2000 compares in lab65 (DECISIONS 008).
 const toLab = converter("lab65");
@@ -22,7 +23,13 @@ export function compileCatalog(files: BrandFile[]): Catalog {
 
   const paints: CatalogPaint[] = files
     .flatMap(({ brand, paints }) =>
-      paints.map((paint) => ({ ...paint, brandId: brand.id, lab: labOf(paint.hex) })),
+      paints.map((paint) => ({
+        ...paint,
+        brandId: brand.id,
+        lab: labOf(paint.hex),
+        hue: paint.hueOverride ?? classifyHue(paint.hex),
+        value: classifyValue(paint.hex),
+      })),
     )
     .sort(byId);
 

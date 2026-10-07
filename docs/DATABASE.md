@@ -111,18 +111,20 @@ Equivalents compare paints within the same **type family** by default (the user 
 
 The mapping lives in `src/features/matching/type-families.ts`.
 Classification (build time, in `src/features/matching/classify-hue.ts`):
-- Convert hex → LCh (OKLCh)
-- Chroma below a threshold → `neutral`
-- Otherwise map hue angle to one of the 12 wheel segments (segment boundaries are documented constants)
-- `ValueBand` from lightness (L)
-- `hueOverride` in the source data wins
+- Convert hex → OKLCh
+- Chroma `C < 0.03` → `neutral`
+- Otherwise the hue angle picks a segment (start inclusive; below 7.5° wraps to red-violet): red 7.5°, red-orange 32.5°, orange 47.5°, yellow-orange 65°, yellow 87.5°, yellow-green 112.5°, green 137.5°, blue-green 170°, blue 220°, blue-violet 265°, violet 295°, red-violet 325°
+- `ValueBand` from lightness: `L < 0.40` dark, `L ≥ 0.75` light, otherwise mid
+- `hueOverride` in the source data wins (for `hue` only; `value` is always computed)
+
+The constants were tuned on the 2,837-paint seed catalog on 2026-10-06. The artist's wheel gives red to yellow half its circle, but OKLCh fits those hues into about 80°, so the warm segments are narrow. At 0.03, 728 paints are neutral, along with 82% of paints named grey, black or white; the rest of those are visibly tinted (e.g., Silver Grey `#E2D7B7` → yellow). Distribution: neutral 728, yellow 327, yellow-orange 319, red 236, blue 232, orange 208, yellow-green 169, red-orange 156, green 135, blue-green 118, red-violet 99, blue-violet 58, violet 52; value bands 598 dark, 1,612 mid, 627 light. Changing a constant only regenerates `catalog.json`.
 
 ### Generated `catalog.json` (build output)
 The build adds:
 - `brandId` on each line and paint, from the file it came from
 - `lab: [L, a, b]` — CIELAB with a D65 white point (culori `lab65`, which CIEDE2000 uses), rounded to 2 decimals
-- `hue: HueFamily` — computed (or override); added by the hue-classification item
-- `value: ValueBand` — computed; added by the hue-classification item
+- `hue: HueFamily` — computed (or `hueOverride`)
+- `value: ValueBand` — computed
 - `version` — first 16 hex characters of a SHA-256 over the rest of the output, for cache-busting and update detection
 Brands, lines and paints are sorted by ID, so the same data always gives the same file and `version`.
 

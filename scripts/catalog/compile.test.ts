@@ -28,6 +28,19 @@ describe("compileCatalog", () => {
     expect(catalog.lines.every((l) => l.brandId === "citadel")).toBe(true);
   });
 
+  it("adds hue and value, preferring hueOverride", () => {
+    const catalog = compileCatalog([
+      brandFile("citadel", [
+        paint("citadel-base-red", { hex: "#9B130B" }),
+        paint("citadel-base-overridden", { hex: "#9B130B", hueOverride: "orange" }),
+      ]),
+    ]);
+
+    const byId = Object.fromEntries(catalog.paints.map((p) => [p.id, p]));
+    expect(byId["citadel-base-red"]).toMatchObject({ hue: "red", value: "mid" });
+    expect(byId["citadel-base-overridden"]).toMatchObject({ hue: "orange", value: "mid" });
+  });
+
   it("produces a stable, content-based version", () => {
     const citadel = brandFile("citadel", [paint("citadel-base-b"), paint("citadel-base-a")]);
     const vallejo = brandFile("vallejo", [paint("vallejo-base-a")]);

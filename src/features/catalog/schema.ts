@@ -37,6 +37,8 @@ export const HUE_FAMILIES = [
   "neutral",
 ] as const;
 
+export const VALUE_BANDS = ["light", "mid", "dark"] as const;
+
 // Same bounds as the Convex paintId check (DATABASE §8).
 export const catalogIdSchema = z
   .string()
@@ -75,6 +77,7 @@ export const paintSchema = z.strictObject({
 export type PaintType = (typeof PAINT_TYPES)[number];
 export type Finish = (typeof FINISHES)[number];
 export type HueFamily = (typeof HUE_FAMILIES)[number];
+export type ValueBand = (typeof VALUE_BANDS)[number];
 export type Brand = z.infer<typeof brandSchema>;
 export type Line = z.infer<typeof lineSchema>;
 export type Paint = z.infer<typeof paintSchema>;
@@ -84,8 +87,13 @@ export type BrandFile = { brand: Brand; lines: Line[]; paints: Paint[] };
 
 export type CatalogLine = Line & { brandId: string };
 
-/** `lab` is CIELAB with a D65 white point, rounded to 2 decimals. */
-export type CatalogPaint = Paint & { brandId: string; lab: [number, number, number] };
+/** `lab` is CIELAB with a D65 white point, rounded to 2 decimals. `hue` is `hueOverride` when set. */
+export type CatalogPaint = Paint & {
+  brandId: string;
+  lab: [number, number, number];
+  hue: HueFamily;
+  value: ValueBand;
+};
 
 /** The generated `public/catalog.json`. */
 export type Catalog = {
