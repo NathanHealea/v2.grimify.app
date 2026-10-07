@@ -1,14 +1,14 @@
 ---
 type: story
 slug: paints-filters
-status: staged
+status: released
 branch: story/paints-filters
 worktree_path: ../grimify-v2-worktrees/story-paints-filters
 created: 2026-10-07
 approved: 2026-10-07
-version:
-tag:
-merge_commit:
+version: 0.3.0
+tag: v0.3.0
+merge_commit: 5862a86 (squash of story/paints-filters)
 ---
 
 # Paints filters
@@ -177,3 +177,4 @@ Checkboxes are native `<input type="checkbox">` styled in CSS, so `@radix-ui/rea
   - The paints-search test for the empty state now expects "Clear all" (R6 renames it).
   - T2–T4 use their own fixture catalog, so the paints-search expectations stay untouched.
 - 2026-10-07 — Staged. Version 0.3.0; no changelog in the repo. Not pushed: the owner's rules keep pushes to the release step, so review is the local branch `story/paints-filters`. Manual checks still open: AC6 (VoiceOver) and the sheet's feel, safe areas and motion on a real phone.
+- 2026-10-07 — Released. Owner approved the review. Squash-merged 13 commits from `story/paints-filters` into `main` as 0.3.0 (5862a86), tagged `v0.3.0`. Worktree and branch removed.
