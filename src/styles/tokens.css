@@ -16,6 +16,7 @@
   /* Form-control boundaries need 3:1 (WCAG 1.4.11); --color-border is 1.26:1 and decorative only. */
   --color-input-border: #8a8a8a;
   --color-swatch-edge: rgb(0 0 0 / 10%);
+  --color-overlay: rgb(0 0 0 / 50%);
 
   /* Ink drawn on top of a swatch follows the paint, not the theme, so these have no dark override. */
   --color-swatch-ink-dark: #0a0a0a;
@@ -80,6 +81,8 @@
   --header-height: 56px;
   --tab-bar-height: 56px;
   --content-max-width: 1024px;
+  --sheet-max-height: 85dvh;
+  --option-column-min-width: 10rem;
 
   /* Layering */
   --z-header: 10;
@@ -89,6 +92,7 @@
 
   /* Motion and state */
   --duration-fast: 150ms;
+  --duration-medium: 250ms;
   --easing-standard: ease-out;
   --opacity-disabled: 0.5;
 }
@@ -105,6 +109,7 @@
     --color-border: #262626;
     --color-input-border: #666;
     --color-swatch-edge: rgb(255 255 255 / 10%);
+    --color-overlay: rgb(0 0 0 / 70%);
     --color-ring: #a3a3a3;
     --color-success: #22c55e;
     --color-warning: #f59e0b;

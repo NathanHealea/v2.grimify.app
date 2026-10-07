@@ -1,12 +1,18 @@
 import "./hue-dots.css";
 
-import { clampChroma, formatHex } from "culori";
+import { clampChroma, formatHex, wcagLuminance } from "culori";
+import { Check } from "lucide-react";
 
 import { hueLabel } from "@/features/catalog/parse-query";
 import { HUE_FAMILIES, type HueFamily } from "@/features/catalog/schema";
 
 type Props = {
   onSelect: (hue: HueFamily) => void;
+  /** When given, the dots are toggles: pressed ones show a check and `aria-pressed`. */
+  pressed?: ReadonlySet<HueFamily>;
+  /** `scroll` is one swipeable row (Paints tab); `wrap` fits a sheet. */
+  layout?: "scroll" | "wrap";
+  label?: string;
 };
 
 // Each dot shows its family's center on the OKLCh wheel; yellows need more lightness to read as yellow.
@@ -33,21 +39,40 @@ const DOT_COLORS = Object.fromEntries(
   }),
 ) as Record<HueFamily, string>;
 
-export function HueDots({ onSelect }: Props) {
+// Relative luminance where black and white ink have equal contrast (same rule as PaintSwatch).
+const INK_CROSSOVER = 0.18;
+
+export function HueDots({
+  onSelect,
+  pressed,
+  layout = "scroll",
+  label = "Browse by color",
+}: Props) {
   return (
-    <ul className="hue-dots" aria-label="Browse by color">
-      {HUE_FAMILIES.map((hue) => (
-        <li key={hue}>
-          <button type="button" className="hue-dots__button" onClick={() => onSelect(hue)}>
-            <span
-              className="hue-dots__dot"
-              style={{ "--swatch-color": DOT_COLORS[hue] }}
-              aria-hidden="true"
-            />
-            {hueLabel(hue)}
-          </button>
-        </li>
-      ))}
+    <ul className="hue-dots" data-layout={layout} aria-label={label}>
+      {HUE_FAMILIES.map((hue) => {
+        const isPressed = pressed?.has(hue);
+        return (
+          <li key={hue}>
+            <button
+              type="button"
+              className="hue-dots__button"
+              aria-pressed={pressed ? isPressed : undefined}
+              onClick={() => onSelect(hue)}
+            >
+              <span
+                className="hue-dots__dot"
+                data-tone={wcagLuminance(DOT_COLORS[hue]) > INK_CROSSOVER ? "light" : "dark"}
+                style={{ "--swatch-color": DOT_COLORS[hue] }}
+                aria-hidden="true"
+              >
+                {isPressed && <Check className="hue-dots__check" />}
+              </span>
+              {hueLabel(hue)}
+            </button>
+          </li>
+        );
+      })}
     </ul>
   );
 }

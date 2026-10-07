@@ -48,3 +48,29 @@ test("keeps the query across reload and back", async ({ page }) => {
   await page.goBack();
   await expect(searchBox(page)).toHaveValue("citadel");
 });
+
+test("filters by brand and type through the sheet", async ({ page }) => {
+  await page.goto("/paints");
+  await page.getByRole("button", { name: "Filters" }).click();
+  const sheet = page.getByRole("dialog", { name: "Filters" });
+  await sheet.getByRole("checkbox", { name: "Vallejo" }).check();
+  await expect(sheet.getByRole("group", { name: "Product line" })).toBeVisible();
+  await sheet.getByRole("checkbox", { name: /^Metallic/ }).check();
+  await sheet.getByRole("button", { name: /^Show \d+ paints?$/ }).click();
+
+  await expect(sheet).toBeHidden();
+  await expect(page).toHaveURL(/brand=vallejo&type=metallic$/);
+  await expect(page.getByRole("button", { name: "Filters, 2 active" })).toBeVisible();
+  const metas = await page.locator(".paint-row__meta").allTextContents();
+  expect(metas.length).toBeGreaterThan(0);
+  expect(metas.every((meta) => meta.startsWith("Vallejo ·") && meta.endsWith("· Metallic"))).toBe(
+    true,
+  );
+
+  await page.reload();
+  await expect(page.getByRole("button", { name: "Remove Type: Metallic" })).toBeVisible();
+  await page.getByRole("button", { name: "Remove Type: Metallic" }).click();
+  await expect(page).toHaveURL(/brand=vallejo$/);
+  await page.goBack();
+  await expect(page.getByRole("button", { name: "Remove Type: Metallic" })).toBeVisible();
+});

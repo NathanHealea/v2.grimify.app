@@ -7,6 +7,13 @@
   overflow-x: auto;
   list-style: none;
   scrollbar-width: none;
+
+  &[data-layout="wrap"] {
+    flex-wrap: wrap;
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow-x: visible;
+  }
 }
 
 .hue-dots__button {
@@ -28,10 +35,28 @@
   border-radius: var(--radius-md);
 }
 
+.hue-dots__button[aria-pressed="true"] {
+  font-weight: var(--weight-semibold);
+  background: var(--color-secondary);
+}
+
 .hue-dots__dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-swatch-ink-dark);
   width: var(--icon-size-tab);
   height: var(--icon-size-tab);
   background: var(--swatch-color);
   border-radius: var(--radius-pill);
   box-shadow: inset 0 0 0 var(--border-width) var(--color-swatch-edge);
+}
+
+.hue-dots__dot[data-tone="dark"] {
+  color: var(--color-swatch-ink-light);
+}
+
+.hue-dots__check {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
 }

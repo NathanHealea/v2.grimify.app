@@ -92,7 +92,7 @@ describe("PaintsScreen", () => {
 
     fireEvent.change(screen.getByRole("searchbox"), { target: { value: "zzzzqq" } });
     expect(await screen.findByText("No paints match")).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: "Clear search" }));
+    fireEvent.click(screen.getByRole("button", { name: "Clear all" }));
     await vi.waitFor(() => expect(rows()).toHaveLength(60));
     expect(screen.getByRole("searchbox")).toHaveValue("");
   });
@@ -106,6 +106,32 @@ describe("PaintsScreen", () => {
       "Macragge Blue",
       "Dark Blue",
     ]);
+  });
+
+  it("shows filter chips and clears everything", async () => {
+    serve(
+      catalogOf([
+        ...NAMED,
+        catalogPaint({ brandId: "vallejo", name: "Silver", hex: "#C0C0C0", type: "metallic" }),
+      ]),
+    );
+    const router = renderRoute("/paints?brand=vallejo&type=metallic");
+
+    expect(await screen.findByRole("button", { name: "Filters, 2 active" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Remove Brand: Vallejo" })).toBeInTheDocument();
+    expect(rows().map((row) => row.querySelector(".paint-row__name")?.textContent)).toEqual([
+      "Silver",
+    ]);
+
+    fireEvent.click(screen.getByRole("button", { name: "Remove Type: Metallic" }));
+    await vi.waitFor(() => expect(router.state.location.search).toEqual({ brand: "vallejo" }));
+    await vi.waitFor(() => expect(rows()).toHaveLength(3));
+
+    fireEvent.change(screen.getByRole("searchbox"), { target: { value: "citadel" } });
+    expect(await screen.findByText("No paints match")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Clear all" }));
+    await vi.waitFor(() => expect(router.state.location.search).toEqual({}));
+    expect(screen.getByRole("searchbox")).toHaveValue("");
   });
 
   it("keeps a numeric query as text", async () => {

@@ -1,12 +1,13 @@
 {
   "name": "grimify",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "engines": {
     "node": ">=24"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "1.2.0",
     "@radix-ui/react-slot": "1.4.0",
     "@tanstack/react-router": "1.170.41",
     "convex": "1.46.0",

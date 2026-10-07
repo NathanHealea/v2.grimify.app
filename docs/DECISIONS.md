@@ -475,3 +475,45 @@ Consequences:
 Positive: one labelling rule across the app.
 Trade-off: a "Very close" on screen can still differ in the pot, especially for metallics and washes; the disclaimer covers it.
 
+---
+
+## Decision 023 — Filter sheet on Radix Dialog, not vaul
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+DESIGN_SYSTEM §11 specified shadcn's `Drawer` for the filter sheet. Drawer is built on `vaul`, whose README says "This repo is unmaintained"; its last release (1.1.2) was in December 2024.
+
+Decision:
+Use shadcn's `Sheet` with the bottom side, built on `@radix-ui/react-dialog` (the same Radix family as the existing Button's `react-slot`).
+
+Alternatives:
+- shadcn Drawer on vaul: swipe-to-dismiss, but an unmaintained dependency on a core screen
+- Native `<dialog>`: no dependency, but focus handling and background scroll locking need hand-written iOS Safari workarounds
+
+Consequences:
+Positive: a maintained, accessible modal (focus trap, Escape, focus return, labelled dialog).
+Trade-off: no swipe-down gesture; users close with Show, Close, Escape or a tap outside.
+
+---
+
+## Decision 024 — Search box and filter sheet combine
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+The search box already detects brands and hues in typed text (`q`). The sheet adds explicit `brand`, `line`, `type` and `hue` params, which overlap.
+
+Decision:
+Keep two layers. The box stays free text with its own detected chips; the sheet sets separate params. Everything ANDs together, and all chips show in one row, each removable.
+
+Alternatives:
+- Turn typed brands and hues into filter params: one source of truth, but the box rewrites itself while typing and breaks the hue-word rule (a typed "green" would filter before "death guard" is added)
+- Keep two layers but mirror typed terms as selected in the sheet: more consistent, the most code and edge cases
+
+Consequences:
+Positive: typed text is never rewritten; the tested search behavior stays as shipped.
+Trade-off: typing "vallejo" with Citadel ticked shows "No paints match"; the two chips explain why. Mirroring is the follow-up if beta users find it confusing.
+

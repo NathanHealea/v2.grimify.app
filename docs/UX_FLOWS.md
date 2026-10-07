@@ -59,10 +59,11 @@ The banner can be dismissed; it stays hidden for 30 days (stored in localStorage
    - anything else → fuzzy name search; `brown` is a name search (DECISIONS 021)
    - Typeahead suggestions show matching brands and hue names as tappable chips
    - With an empty box, 13 hue dots offer one-tap color browsing
-   - Until the filters item ships, the whole search lives in `?q=`; chips and hue dots edit `q`
-3. Taps the Filter button → bottom sheet with Brand, Product line (depends on brand), Type, Hue family (color dots) and "Show only: Owned / Wishlist / All" (signed-in users)
-4. Applies filters → chips appear under the search box; each chip can be removed
-5. URL updates with search params (back button restores the previous filters)
+   - Typed terms live in `?q=`; chips and hue dots edit `q`
+3. Taps the Filters button (beside the box; shows "Filters · 2" when two are active) → bottom sheet with Brand, Product line (only for ticked brands), Type and Hue (toggle dots). "Show only: Owned / Wishlist / All" joins it with the collection item
+4. Taps "Show N paints" (live count) → the sheet closes and filter chips join the search chips; each chip can be removed. Escape, Close or tapping outside discards the changes
+5. URL holds the filters as comma-separated lists, e.g. `?q=red&brand=citadel,vallejo&type=metallic`; Back undoes the last apply or chip removal
+   - Filters combine with the typed query (DECISIONS 024): OR within a filter, AND across; a ticked line narrows only its own brand; a hue picked in the sheet always filters
 
 Loading State:
 None after the catalog is cached (instant).

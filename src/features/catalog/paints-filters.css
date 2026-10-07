@@ -1,0 +1,67 @@
+.paints-filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.paints-filters__trigger {
+  flex-shrink: 0;
+}
+
+.paints-filters__group {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  &[data-nested] {
+    margin-top: var(--space-3);
+  }
+}
+
+.paints-filters__legend {
+  padding: 0;
+  margin-bottom: var(--space-2);
+  font-weight: var(--weight-semibold);
+
+  [data-nested] > & {
+    font-size: var(--text-small);
+    line-height: var(--leading-small);
+    color: var(--color-muted-text);
+  }
+}
+
+.paints-filters__options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--option-column-min-width), 1fr));
+  padding: 0;
+  list-style: none;
+}
+
+.paints-filters__option {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  min-height: var(--touch-target);
+  cursor: pointer;
+
+  & input {
+    flex-shrink: 0;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    margin: 0;
+    accent-color: var(--color-primary);
+  }
+}
+
+.paints-filters__count {
+  margin-left: auto;
+  padding-right: var(--space-3);
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+  color: var(--color-muted-text);
+}
+
+.paints-filters__show {
+  flex: 1;
+}

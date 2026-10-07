@@ -10,6 +10,11 @@
   gap: var(--space-2);
 }
 
+.paints-screen__search-row {
+  display: flex;
+  gap: var(--space-2);
+}
+
 .paints-screen__chips {
   display: flex;
   flex-wrap: wrap;

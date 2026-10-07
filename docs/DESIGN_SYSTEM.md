@@ -60,6 +60,7 @@ Based on the shadcn "neutral" theme, defined as CSS custom properties in `src/st
 | Border | `#E5E5E5` | `#262626` |
 | Input border | `#8A8A8A` | `#666666` |
 | Swatch edge | `rgb(0 0 0 / 10%)` | `rgb(255 255 255 / 10%)` |
+| Overlay (sheet backdrop) | `rgb(0 0 0 / 50%)` | `rgb(0 0 0 / 70%)` |
 | Swatch ink (dark / light) | `#0A0A0A` / `#FAFAFA` | same: follows the paint, not the theme |
 | Success | `#16A34A` | `#22C55E` |
 | Warning | `#D97706` | `#F59E0B` |
@@ -236,7 +237,7 @@ Behavior:
 Sidebar:
 None at any breakpoint.
 
-Filters open in a bottom sheet (shadcn `Drawer`).
+Filters open in a bottom sheet: shadcn `Sheet` (`side="bottom"`) on Radix Dialog, not the vaul-based `Drawer` (DECISIONS 023). It's a modal dialog: focus trap, Escape, focus returns to the trigger. There's no swipe-to-dismiss. Max height `--sheet-max-height`, `--radius-lg` top corners, `--color-overlay` backdrop, a scrolling body with header and footer fixed, and bottom safe-area padding. The sheet edits a draft; the primary "Show N paints" commits it, and any other close discards it.
 
 ---
 
@@ -246,7 +247,7 @@ Loading:
 Skeleton rows for Convex data. The catalog loads from cache and should be instant; on first visit show a single progress state ("Downloading paint catalog…").
 
 Empty:
-Icon, one-line explanation and a primary action. Examples: "No paints match these filters" → Clear filters. "You haven't added any paints yet" → Browse paints.
+Icon, one-line explanation and a primary action. Examples: "No paints match" → Clear all (clears the search box and every filter). "You haven't added any paints yet" → Browse paints.
 
 Error:
 Inline message with Retry; toast (shadcn `Sonner`) for failed mutations.
