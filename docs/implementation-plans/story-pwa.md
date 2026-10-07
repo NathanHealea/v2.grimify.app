@@ -1,14 +1,14 @@
 ---
 type: story
 slug: pwa
-status: staged
+status: released
 branch: story/pwa
 worktree_path: ../grimify-v2-worktrees/story-pwa
 created: 2026-10-07
 approved: 2026-10-07
-version:
-tag:
-merge_commit:
+version: 0.5.0
+tag: v0.5.0
+merge_commit: 6a46677 (squash of story/pwa)
 ---
 
 # PWA: offline catalog, update prompt and install hints
@@ -190,3 +190,4 @@ Versions checked against the npm registry on 2026-10-07.
   - Self-review fix (`fix(pwa)` commit): the Chrome install banner had ignored the 2nd-visit/30 s timing that UX_FLOWS gives both platforms. The time and dismissal are read once at mount, because React's purity rule rejects `Date.now()` during render.
   - The update prompt's buttons use the default 44px size, not `sm`, per R7.
 - 2026-10-07 — Staged. Version 0.5.0; no changelog in the repo. Not pushed: the owner's rules keep pushes to the release step, so review is the local branch `story/pwa`. Manual checks still open: AC3 (a real update), AC4 on an iPhone, AC5 (VoiceOver), and real-device offline.
+- 2026-10-07 — Released. Owner approved the review. Squash-merged 12 commits from `story/pwa` into `main` as 0.5.0 (6a46677), tagged `v0.5.0`. Worktree and branch removed. Icons remain open in issue #3.
