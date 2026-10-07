@@ -85,7 +85,7 @@ The Zod schema and generated types live in `src/features/catalog/schema.ts`; the
 }
 
 type PaintType =
-  | "base" | "layer" | "shade" | "wash" | "contrast" | "speedpaint"
+  | "acrylic" | "base" | "layer" | "shade" | "wash" | "contrast" | "speedpaint"
   | "dry" | "technical" | "metallic" | "air" | "ink" | "primer" | "other";
 ```
 
@@ -103,7 +103,7 @@ type ValueBand = "light" | "mid" | "dark";
 Equivalents compare paints within the same **type family** by default (the user can toggle "Show all types"):
 | Type family | Paint types |
 |---|---|
-| `opaque` | base, layer, dry, air, primer |
+| `opaque` | acrylic, base, layer, dry, air, primer |
 | `tint` | contrast, speedpaint |
 | `wash` | shade, wash, ink |
 | `metallic` | metallic (or any paint with `finish: "metallic"`) |

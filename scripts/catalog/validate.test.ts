@@ -31,6 +31,14 @@ describe("validateCatalog", () => {
     expect(result.files).toEqual([file]);
   });
 
+  it("accepts acrylic as a paint type", () => {
+    const file = brandFile("vallejo", [paint("vallejo-base-white", { type: "acrylic" })]);
+
+    const result = validateCatalog([source("vallejo.json", file)], ["vallejo-base-white"]);
+
+    expect(result.errors).toEqual([]);
+  });
+
   it("rejects unknown keys and malformed JSON", () => {
     const file = brandFile("citadel", [paint("citadel-base-a", { discontinue: true })]);
 

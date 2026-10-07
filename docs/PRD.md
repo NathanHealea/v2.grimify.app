@@ -202,7 +202,7 @@ The following are intentionally NOT part of this version:
 ## 8. MVP Scope
 
 Must Have:
-- Paint catalog for the launch brands: **Citadel, The Army Painter, Vallejo, AK Interactive, Scale75, Pro Acryl (Monument Hobbies)**. **TBD:** which product lines per brand
+- Paint catalog for the launch brands: **Citadel, The Army Painter, Vallejo, AK Interactive, Scale75, Green Stuff World, Pro Acryl (Monument Hobbies)**. Every product line in the seed data is included except AK Abteilung 502 (oils); Pro Acryl follows once it has a data source (DECISIONS 018)
 - Smart search: by name, hex, brand and hue family; plus filters
 - Paint detail with computed cross-brand equivalents
 - Sign in (email one-time code)

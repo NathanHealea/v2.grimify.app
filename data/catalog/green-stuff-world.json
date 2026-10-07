@@ -1,0 +1,886 @@
+{
+  "brand": {
+    "id": "green-stuff-world",
+    "name": "Green Stuff World",
+    "manufacturer": "Green Stuff World",
+    "website": "https://www.greenstuffworld.com"
+  },
+  "lines": [
+    {
+      "id": "green-stuff-world-acrylic",
+      "name": "Acrylic"
+    },
+    {
+      "id": "green-stuff-world-metallic",
+      "name": "Metallic"
+    }
+  ],
+  "paints": [
+    {
+      "id": "green-stuff-world-acrylic-cyber-yellow",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Cyber Yellow",
+      "hex": "#FAD612",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-hellfire-red",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Hellfire Red",
+      "hex": "#E00008",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-red-truth",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Red Truth",
+      "hex": "#B01818",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-carnage-red",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Carnage Red",
+      "hex": "#8B0000",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-sangria-red",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Sangria Red",
+      "hex": "#7B0118",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-cutthroat-red",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Cutthroat Red",
+      "hex": "#BB0009",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-lollipop-magenta",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Lollipop Magenta",
+      "hex": "#AB0061",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-ember-orange",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Ember Orange",
+      "hex": "#E6471D",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-faded-orange",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Faded Orange",
+      "hex": "#D87840",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-marine-blue",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Marine Blue",
+      "hex": "#154283",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-summersea-blue",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Summersea Blue",
+      "hex": "#1C64D0",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-warcry-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Warcry Green",
+      "hex": "#3E6400",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-hunter-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Hunter Green",
+      "hex": "#008F13",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-forest-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Forest Green",
+      "hex": "#003A08",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-flubber-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Flubber Green",
+      "hex": "#69E52B",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-rocket-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Rocket Green",
+      "hex": "#4C602D",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-canary-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Canary Green",
+      "hex": "#A0D840",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-arachnid-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Arachnid Green",
+      "hex": "#385830",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-yoda-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Yoda Green",
+      "hex": "#509838",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-overlord-olive",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Overlord Olive",
+      "hex": "#373425",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-sun-bleached-bone",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Sun-bleached Bone",
+      "hex": "#C08E53",
+      "type": "acrylic",
+      "aliases": ["Sun Bleached Bone"]
+    },
+    {
+      "id": "green-stuff-world-acrylic-parchment",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Parchment",
+      "hex": "#E8D8B0",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-ancient-sepia",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Ancient Sepia",
+      "hex": "#F3F3ED",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-bestial-brown",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Bestial Brown",
+      "hex": "#2C1D00",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-quicksand-brown",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Quicksand Brown",
+      "hex": "#7B4918",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-redwood-brown",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Redwood Brown",
+      "hex": "#3F0E00",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-ochre-desert",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Ochre Desert",
+      "hex": "#C88400",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-elven-flesh",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Elven Flesh",
+      "hex": "#F2AA82",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-dwarven-flesh",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Dwarven Flesh",
+      "hex": "#E47B4C",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-liche-purple",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Liche Purple",
+      "hex": "#451D5B",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-steel-grey",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Steel Grey",
+      "hex": "#29313C",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-grey-teal",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Grey Teal",
+      "hex": "#507078",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-nuclear-white",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Nuclear White",
+      "hex": "#FEFEFE",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-black-stallion",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Black Stallion",
+      "hex": "#050006",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-banana-split",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Banana Split",
+      "hex": "#EAE041",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-go-mango",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Go Mango",
+      "hex": "#FEA700",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-mustard-yellow",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Mustard Yellow",
+      "hex": "#966600",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-flaming-orange",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Flaming Orange",
+      "hex": "#FF7200",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-majin-pink",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Majin Pink",
+      "hex": "#E46598",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-abyss-blue",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Abyss Blue",
+      "hex": "#01004C",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-zima-blue",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Zima Blue",
+      "hex": "#48ACCC",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-tropical-turquoise",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Tropical Turquoise",
+      "hex": "#2CBFAF",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-kraken-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Kraken Green",
+      "hex": "#034E3A",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-camouflage-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Camouflage Green",
+      "hex": "#646000",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-olivegrove-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Olivegrove Green",
+      "hex": "#1E280F",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-zombie-flesh",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Zombie Flesh",
+      "hex": "#CFAE6B",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-komodo-khaki",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Komodo Khaki",
+      "hex": "#835D30",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-peach-flesh",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Peach Flesh",
+      "hex": "#D97400",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-blushing-flesh",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Blushing Flesh",
+      "hex": "#BD523E",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-leather-brown",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Leather Brown",
+      "hex": "#AE6715",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-foxhide-brown",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Foxhide Brown",
+      "hex": "#C15E00",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-choco-brown",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Choco Brown",
+      "hex": "#280000",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-wolven-grey",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Wolven Grey",
+      "hex": "#AFB5C5",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-bluegrey-dusk",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Bluegrey Dusk",
+      "hex": "#2A2D40",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-moonstone-grey",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Moonstone Grey",
+      "hex": "#8C8C8C",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-slate-grey",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Slate Grey",
+      "hex": "#565656",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-mirage-blue",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Mirage Blue",
+      "hex": "#354459",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-dark-umber",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Dark Umber",
+      "hex": "#3C2E2D",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-ivory-tusk",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Ivory Tusk",
+      "hex": "#FFFDD7",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-pale-flesh",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Pale Flesh",
+      "hex": "#E7B8A4",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-imperium-blue",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Imperium Blue",
+      "hex": "#1A2E85",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-malefic-purple",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Malefic Purple",
+      "hex": "#181648",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-military-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Military Green",
+      "hex": "#272816",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-field-green-grey",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Field Green Grey",
+      "hex": "#2E4729",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-gangrene",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Gangrene",
+      "hex": "#3F441C",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-scorched-wood",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Scorched Wood",
+      "hex": "#1B120D",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-dark-beige",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Dark Beige",
+      "hex": "#6C5C43",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-english-field-brown",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "English Field Brown",
+      "hex": "#63471F",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-coyote-brown",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Coyote Brown",
+      "hex": "#6E6137",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-desert-camo",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Desert Camo",
+      "hex": "#846F36",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-yellow-brown-ops",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Yellow Brown Ops",
+      "hex": "#7D5C29",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-valkyrie-yellow",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Valkyrie Yellow",
+      "hex": "#E2D974",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-barrel-grey",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Barrel Grey",
+      "hex": "#292621",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-gengis-khaki",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Gengis Khaki",
+      "hex": "#635A3D",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-sandstorm",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Sandstorm",
+      "hex": "#B39C68",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-deck-grey",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Deck Grey",
+      "hex": "#CABFA3",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-prussian-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Prussian Green",
+      "hex": "#243022",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-olive-brown-ops",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Olive Brown Ops",
+      "hex": "#373014",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-fang-white",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Fang White",
+      "hex": "#F3EFD2",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-vanilla-drop",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Vanilla Drop",
+      "hex": "#F7D897",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-golden-cream",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Golden Cream",
+      "hex": "#FCB825",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-temple-ochre",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Temple Ochre",
+      "hex": "#E9C278",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-tiger-brown",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Tiger Brown",
+      "hex": "#6A350D",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-arrakis-brown",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Arrakis Brown",
+      "hex": "#A67610",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-dusty-rose",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Dusty Rose",
+      "hex": "#D77E78",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-flesh-rose",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Flesh Rose",
+      "hex": "#B38585",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-brown-skin",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Brown Skin",
+      "hex": "#843530",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-wonka-violet",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Wonka Violet",
+      "hex": "#440052",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-phantom-violet",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Phantom Violet",
+      "hex": "#7761AA",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-chancellor-blue",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Chancellor Blue",
+      "hex": "#4D4D6F",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-prussian-blue",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Prussian Blue",
+      "hex": "#405B78",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-ultramar-blue",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Ultramar Blue",
+      "hex": "#2D559D",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-lapislazuli",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Lapislazuli",
+      "hex": "#002051",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-smoked-blue",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Smoked Blue",
+      "hex": "#4273B8",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-arctic-blue",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Arctic Blue",
+      "hex": "#7ACAEB",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-viridian-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Viridian Green",
+      "hex": "#BCD9D1",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-rotten-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Rotten Green",
+      "hex": "#52B246",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-blackroot-grey",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Blackroot Grey",
+      "hex": "#48544A",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-ranger-green",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Ranger Green",
+      "hex": "#505251",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-starship-grey",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Starship Grey",
+      "hex": "#A5A6A8",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-lilac-purple",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Lilac Purple",
+      "hex": "#B59ECC",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-mint-twister",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Mint Twister",
+      "hex": "#84C2A9",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-acrylic-bluebird-grey",
+      "lineId": "green-stuff-world-acrylic",
+      "name": "Bluebird Grey",
+      "hex": "#8E8C97",
+      "type": "acrylic"
+    },
+    {
+      "id": "green-stuff-world-metallic-gunmetal-grey",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Gunmetal Grey",
+      "hex": "#51545A",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-quicksilver",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Quicksilver",
+      "hex": "#9D9EA2",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-anthrax-metal",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Anthrax Metal",
+      "hex": "#34353A",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-mystic-white",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Mystic White",
+      "hex": "#BEBFC1",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-sharkfin-blue",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Sharkfin Blue",
+      "hex": "#4D7FAD",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-tinmetal-grey",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Tinmetal Grey",
+      "hex": "#5E5251",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-dark-elder-bronze",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Dark Elder Bronze",
+      "hex": "#1F1506",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-gladius-bronze",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Gladius Bronze",
+      "hex": "#874B0E",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-steampunk-copper",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Steampunk Copper",
+      "hex": "#834824",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-shiny-gold",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Shiny Gold",
+      "hex": "#B1942B",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-el-dorado",
+      "lineId": "green-stuff-world-metallic",
+      "name": "El Dorado",
+      "hex": "#AD8323",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-antique-gold",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Antique Gold",
+      "hex": "#735D17",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-neptunus-blue",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Neptunus Blue",
+      "hex": "#1D65A5",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-sirenscale-green",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Sirenscale Green",
+      "hex": "#075F38",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-caesar-red",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Caesar Red",
+      "hex": "#821A12",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-persian-violet",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Persian Violet",
+      "hex": "#130151",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-aqua-turquoise",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Aqua Turquoise",
+      "hex": "#538584",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "green-stuff-world-metallic-orchid-purple",
+      "lineId": "green-stuff-world-metallic",
+      "name": "Orchid Purple",
+      "hex": "#3A0A36",
+      "type": "metallic",
+      "finish": "metallic"
+    }
+  ]
+}

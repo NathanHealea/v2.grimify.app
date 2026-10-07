@@ -1,0 +1,5429 @@
+{
+  "brand": {
+    "id": "vallejo",
+    "name": "Vallejo",
+    "manufacturer": "Acrílicos Vallejo",
+    "website": "https://acrylicosvallejo.com"
+  },
+  "lines": [
+    {
+      "id": "vallejo-model-color",
+      "name": "Model Color"
+    },
+    {
+      "id": "vallejo-game-color",
+      "name": "Game Color"
+    },
+    {
+      "id": "vallejo-game-color-metallic",
+      "name": "Game Color Metallic"
+    },
+    {
+      "id": "vallejo-game-color-ink",
+      "name": "Game Color Ink"
+    },
+    {
+      "id": "vallejo-game-color-wash",
+      "name": "Game Color Wash"
+    },
+    {
+      "id": "vallejo-xpress-color",
+      "name": "Xpress Color"
+    },
+    {
+      "id": "vallejo-model-wash",
+      "name": "Model Wash"
+    },
+    {
+      "id": "vallejo-liquid-metal",
+      "name": "Liquid Metal"
+    },
+    {
+      "id": "vallejo-model-air",
+      "name": "Model Air"
+    },
+    {
+      "id": "vallejo-game-air",
+      "name": "Game Air"
+    },
+    {
+      "id": "vallejo-mecha-color",
+      "name": "Mecha Color"
+    },
+    {
+      "id": "vallejo-metal-color",
+      "name": "Metal Color"
+    },
+    {
+      "id": "vallejo-panzer-aces",
+      "name": "Panzer Aces"
+    },
+    {
+      "id": "vallejo-surface-primer",
+      "name": "Surface Primer"
+    }
+  ],
+  "paints": [
+    {
+      "id": "vallejo-model-color-white",
+      "lineId": "vallejo-model-color",
+      "name": "White",
+      "hex": "#FFFFFF",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-white-grey",
+      "lineId": "vallejo-model-color",
+      "name": "White Grey",
+      "hex": "#EEF0EF",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-ivory",
+      "lineId": "vallejo-model-color",
+      "name": "Ivory",
+      "hex": "#F3EFD2",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-offwhite",
+      "lineId": "vallejo-model-color",
+      "name": "Offwhite",
+      "hex": "#EBEBE1",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-light-flesh",
+      "lineId": "vallejo-model-color",
+      "name": "Light Flesh",
+      "hex": "#F8D9C7",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-basic-skintone",
+      "lineId": "vallejo-model-color",
+      "name": "Basic Skintone",
+      "hex": "#F0BA9E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-sunny-skintone",
+      "lineId": "vallejo-model-color",
+      "name": "Sunny Skintone",
+      "hex": "#EAAF77",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-flat-flesh",
+      "lineId": "vallejo-model-color",
+      "name": "Flat Flesh",
+      "hex": "#E1A67A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-medium-fleshtone",
+      "lineId": "vallejo-model-color",
+      "name": "Medium Fleshtone",
+      "hex": "#BC854D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-dark-flesh",
+      "lineId": "vallejo-model-color",
+      "name": "Dark Flesh",
+      "hex": "#D69E61",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-salmon-rose",
+      "lineId": "vallejo-model-color",
+      "name": "Salmon Rose",
+      "hex": "#F1AFA1",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-old-rose",
+      "lineId": "vallejo-model-color",
+      "name": "Old Rose",
+      "hex": "#D77E78",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-pink",
+      "lineId": "vallejo-model-color",
+      "name": "Pink",
+      "hex": "#C57BAC",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-magenta",
+      "lineId": "vallejo-model-color",
+      "name": "Magenta",
+      "hex": "#BF1226",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-purple",
+      "lineId": "vallejo-model-color",
+      "name": "Purple",
+      "hex": "#70547C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-violet",
+      "lineId": "vallejo-model-color",
+      "name": "Violet",
+      "hex": "#484069",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-blue-violet",
+      "lineId": "vallejo-model-color",
+      "name": "Blue Violet",
+      "hex": "#7168A7",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-royal-purple",
+      "lineId": "vallejo-model-color",
+      "name": "Royal Purple",
+      "hex": "#543F5E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-violet-red",
+      "lineId": "vallejo-model-color",
+      "name": "Violet Red",
+      "hex": "#6E263E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-lemon-yellow",
+      "lineId": "vallejo-model-color",
+      "name": "Lemon Yellow",
+      "hex": "#FBEA20",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-light-yellow",
+      "lineId": "vallejo-model-color",
+      "name": "Light Yellow",
+      "hex": "#FDE857",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-deep-yellow",
+      "lineId": "vallejo-model-color",
+      "name": "Deep Yellow",
+      "hex": "#FFE20E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-flat-yellow",
+      "lineId": "vallejo-model-color",
+      "name": "Flat Yellow",
+      "hex": "#F8B735",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-golden-yellow",
+      "lineId": "vallejo-model-color",
+      "name": "Golden Yellow",
+      "hex": "#F8B655",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-ice-yellow",
+      "lineId": "vallejo-model-color",
+      "name": "Ice Yellow",
+      "hex": "#F7D897",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-yellow-green",
+      "lineId": "vallejo-model-color",
+      "name": "Yellow Green",
+      "hex": "#766D42",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-yellow-ochre",
+      "lineId": "vallejo-model-color",
+      "name": "Yellow Ochre",
+      "hex": "#C2924A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-sand-yellow",
+      "lineId": "vallejo-model-color",
+      "name": "Sand Yellow",
+      "hex": "#E4B86F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-dark-sand",
+      "lineId": "vallejo-model-color",
+      "name": "Dark Sand",
+      "hex": "#D1B283",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-pale-sand",
+      "lineId": "vallejo-model-color",
+      "name": "Pale Sand",
+      "hex": "#F5D8B6",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-beige",
+      "lineId": "vallejo-model-color",
+      "name": "Beige",
+      "hex": "#DABA81",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-buff",
+      "lineId": "vallejo-model-color",
+      "name": "Buff",
+      "hex": "#CEB07E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-desert-yellow",
+      "lineId": "vallejo-model-color",
+      "name": "Desert Yellow",
+      "hex": "#B58F62",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-dark-yellow",
+      "lineId": "vallejo-model-color",
+      "name": "Dark Yellow",
+      "hex": "#94854A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-tan-yellow",
+      "lineId": "vallejo-model-color",
+      "name": "Tan Yellow",
+      "hex": "#C19B6E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-green-ochre",
+      "lineId": "vallejo-model-color",
+      "name": "Green Ochre",
+      "hex": "#A88658",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-ochre-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Ochre Brown",
+      "hex": "#AE7727",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-gold-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Gold Brown",
+      "hex": "#B68644",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-clear-orange",
+      "lineId": "vallejo-model-color",
+      "name": "Clear Orange",
+      "hex": "#CA4C36",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-light-orange",
+      "lineId": "vallejo-model-color",
+      "name": "Light Orange",
+      "hex": "#F1873D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-bright-orange",
+      "lineId": "vallejo-model-color",
+      "name": "Bright Orange",
+      "hex": "#E9602C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-german-orange",
+      "lineId": "vallejo-model-color",
+      "name": "German Orange",
+      "hex": "#D08474",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-orange-red",
+      "lineId": "vallejo-model-color",
+      "name": "Orange Red",
+      "hex": "#DC4319",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-orange-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Orange Brown",
+      "hex": "#BA6C3B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-scarlet",
+      "lineId": "vallejo-model-color",
+      "name": "Scarlet",
+      "hex": "#BC4040",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-vermillion",
+      "lineId": "vallejo-model-color",
+      "name": "Vermillion",
+      "hex": "#CE1A23",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-amaranth-red",
+      "lineId": "vallejo-model-color",
+      "name": "Amaranth Red",
+      "hex": "#BD533B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-carmine-red",
+      "lineId": "vallejo-model-color",
+      "name": "Carmine Red",
+      "hex": "#B41927",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-flat-red",
+      "lineId": "vallejo-model-color",
+      "name": "Flat Red",
+      "hex": "#A73B39",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-red",
+      "lineId": "vallejo-model-color",
+      "name": "Red",
+      "hex": "#93262C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-dark-red",
+      "lineId": "vallejo-model-color",
+      "name": "Dark Red",
+      "hex": "#8D4352",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-burnt-cadmium-red",
+      "lineId": "vallejo-model-color",
+      "name": "Burnt Cadmium Red",
+      "hex": "#623535",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-red-leather",
+      "lineId": "vallejo-model-color",
+      "name": "Red Leather",
+      "hex": "#8E5840",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-cavalry-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Cavalry Brown",
+      "hex": "#843530",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-sunset-red",
+      "lineId": "vallejo-model-color",
+      "name": "Sunset Red",
+      "hex": "#BE3964",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-brown-rose",
+      "lineId": "vallejo-model-color",
+      "name": "Brown Rose",
+      "hex": "#B38585",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-beige-red",
+      "lineId": "vallejo-model-color",
+      "name": "Beige Red",
+      "hex": "#BB886D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-cork-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Cork Brown",
+      "hex": "#A7785A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-light-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Light Brown",
+      "hex": "#AC724A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-brown-sand",
+      "lineId": "vallejo-model-color",
+      "name": "Brown Sand",
+      "hex": "#A0785F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-flat-earth",
+      "lineId": "vallejo-model-color",
+      "name": "Flat Earth",
+      "hex": "#765742",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-flat-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Flat Brown",
+      "hex": "#5E483B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-mahogany-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Mahogany Brown",
+      "hex": "#74534A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-saddle-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Saddle Brown",
+      "hex": "#75544B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-beige-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Beige Brown",
+      "hex": "#937962",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-tan-earth",
+      "lineId": "vallejo-model-color",
+      "name": "Tan Earth",
+      "hex": "#92745A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-us-field-drab",
+      "lineId": "vallejo-model-color",
+      "name": "US Field Drab",
+      "hex": "#7B674E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-chocolate-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Chocolate Brown",
+      "hex": "#564C40",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-burnt-umber",
+      "lineId": "vallejo-model-color",
+      "name": "Burnt Umber",
+      "hex": "#5A5046",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-leather-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Leather Brown",
+      "hex": "#5C4F46",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-hull-red",
+      "lineId": "vallejo-model-color",
+      "name": "Hull Red",
+      "hex": "#502820",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-black-red",
+      "lineId": "vallejo-model-color",
+      "name": "Black Red",
+      "hex": "#513937",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-german-cam-black-brown",
+      "lineId": "vallejo-model-color",
+      "name": "German Cam. Black Brown",
+      "hex": "#484242",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-german-cam-medium-brown",
+      "lineId": "vallejo-model-color",
+      "name": "German Cam. Medium Brown",
+      "hex": "#722B2F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-german-cam-pale-brown",
+      "lineId": "vallejo-model-color",
+      "name": "German Cam. Pale Brown",
+      "hex": "#7D6857",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-german-cam-orange-ochre",
+      "lineId": "vallejo-model-color",
+      "name": "German Cam. Orange Ochre",
+      "hex": "#A27E4A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-german-cam-beige-ww2",
+      "lineId": "vallejo-model-color",
+      "name": "German Cam. Beige WW2",
+      "hex": "#9C8D70",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-iraqi-sand",
+      "lineId": "vallejo-model-color",
+      "name": "Iraqi Sand",
+      "hex": "#BEA07E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-sky-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Sky Blue",
+      "hex": "#7ACAEB",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-deep-sky-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Deep Sky Blue",
+      "hex": "#42AFDA",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-andrea-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Andrea Blue",
+      "hex": "#0C97C2",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-light-turquoise",
+      "lineId": "vallejo-model-color",
+      "name": "Light Turquoise",
+      "hex": "#0190A0",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-turquoise",
+      "lineId": "vallejo-model-color",
+      "name": "Turquoise",
+      "hex": "#2E6C7B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-blue-green",
+      "lineId": "vallejo-model-color",
+      "name": "Blue Green",
+      "hex": "#009B9F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-ultramarine",
+      "lineId": "vallejo-model-color",
+      "name": "Ultramarine",
+      "hex": "#2D559D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-royal-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Royal Blue",
+      "hex": "#255D8E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-azure",
+      "lineId": "vallejo-model-color",
+      "name": "Azure",
+      "hex": "#6B8DBB",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-flat-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Flat Blue",
+      "hex": "#44689C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-medium-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Medium Blue",
+      "hex": "#216083",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-dark-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Dark Blue",
+      "hex": "#336195",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Blue",
+      "hex": "#003362",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-prussian-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Prussian Blue",
+      "hex": "#405B78",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-dark-prussian-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Dark Prussian Blue",
+      "hex": "#0F2B39",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-field-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Field Blue",
+      "hex": "#57656E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-grey-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Grey Blue",
+      "hex": "#70849F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-pastel-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Pastel Blue",
+      "hex": "#6A8795",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-intermediate-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Intermediate Blue",
+      "hex": "#646D76",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-french-mirage-blue",
+      "lineId": "vallejo-model-color",
+      "name": "French Mirage Blue",
+      "hex": "#5F6772",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-pale-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Pale Blue",
+      "hex": "#99A9A6",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-pale-grey-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Pale Grey Blue",
+      "hex": "#A5B4BB",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-blue-grey-pale",
+      "lineId": "vallejo-model-color",
+      "name": "Blue Grey Pale",
+      "hex": "#818A93",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-dark-blue-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Dark Blue Grey",
+      "hex": "#48544A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-dark-sea-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Dark Sea Blue",
+      "hex": "#41464C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-oxford-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Oxford Blue",
+      "hex": "#4D4D6F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-luftwaffe-uniform-ww2",
+      "lineId": "vallejo-model-color",
+      "name": "Luftwaffe Uniform WW2",
+      "hex": "#4F5668",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-london-grey",
+      "lineId": "vallejo-model-color",
+      "name": "London Grey",
+      "hex": "#626973",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-light-green",
+      "lineId": "vallejo-model-color",
+      "name": "Light Green",
+      "hex": "#007943",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-emerald",
+      "lineId": "vallejo-model-color",
+      "name": "Emerald",
+      "hex": "#00855A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-park-green-flat",
+      "lineId": "vallejo-model-color",
+      "name": "Park Green Flat",
+      "hex": "#067958",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-deep-green",
+      "lineId": "vallejo-model-color",
+      "name": "Deep Green",
+      "hex": "#32634D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-intermediate-green",
+      "lineId": "vallejo-model-color",
+      "name": "Intermediate Green",
+      "hex": "#448B3D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-lime-green",
+      "lineId": "vallejo-model-color",
+      "name": "Lime Green",
+      "hex": "#8C9441",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-green-sky",
+      "lineId": "vallejo-model-color",
+      "name": "Green Sky",
+      "hex": "#8A9F80",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-light-green-blue",
+      "lineId": "vallejo-model-color",
+      "name": "Light Green Blue",
+      "hex": "#779F94",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-pastel-green",
+      "lineId": "vallejo-model-color",
+      "name": "Pastel Green",
+      "hex": "#A4A792",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-flat-green",
+      "lineId": "vallejo-model-color",
+      "name": "Flat Green",
+      "hex": "#485C41",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-olive-green",
+      "lineId": "vallejo-model-color",
+      "name": "Olive Green",
+      "hex": "#5F6E45",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-uniform-green",
+      "lineId": "vallejo-model-color",
+      "name": "Uniform Green",
+      "hex": "#5A6A46",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-golden-olive",
+      "lineId": "vallejo-model-color",
+      "name": "Golden Olive",
+      "hex": "#808145",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-medium-olive",
+      "lineId": "vallejo-model-color",
+      "name": "Medium Olive",
+      "hex": "#2B6C28",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-yellow-olive",
+      "lineId": "vallejo-model-color",
+      "name": "Yellow Olive",
+      "hex": "#4E5146",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-reflective-green",
+      "lineId": "vallejo-model-color",
+      "name": "Reflective Green",
+      "hex": "#555742",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-us-dark-green",
+      "lineId": "vallejo-model-color",
+      "name": "US Dark Green",
+      "hex": "#57574D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-cam-olive-green",
+      "lineId": "vallejo-model-color",
+      "name": "Cam. Olive Green",
+      "hex": "#5F6E45",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-military-green",
+      "lineId": "vallejo-model-color",
+      "name": "Military Green",
+      "hex": "#46493E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-german-uniform",
+      "lineId": "vallejo-model-color",
+      "name": "German Uniform",
+      "hex": "#51625C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-german-cam-bright-green",
+      "lineId": "vallejo-model-color",
+      "name": "German Cam. Bright Green",
+      "hex": "#5C704B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-german-cam-dark-green",
+      "lineId": "vallejo-model-color",
+      "name": "German Cam. Dark Green",
+      "hex": "#4B4D4A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-german-cam-extra-dark-green",
+      "lineId": "vallejo-model-color",
+      "name": "German Cam. Extra Dark Green",
+      "hex": "#494B48",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-gunship-green",
+      "lineId": "vallejo-model-color",
+      "name": "Gunship Green",
+      "hex": "#526257",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-bronce-green",
+      "lineId": "vallejo-model-color",
+      "name": "Bronce Green",
+      "hex": "#505251",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-black-green",
+      "lineId": "vallejo-model-color",
+      "name": "Black Green",
+      "hex": "#3E4943",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-dark-sea-green",
+      "lineId": "vallejo-model-color",
+      "name": "Dark Sea Green",
+      "hex": "#535762",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-usa-olive-drab",
+      "lineId": "vallejo-model-color",
+      "name": "USA Olive Drab",
+      "hex": "#66614E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-green-brown",
+      "lineId": "vallejo-model-color",
+      "name": "Green Brown",
+      "hex": "#846D43",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-khaki-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Khaki Grey",
+      "hex": "#856D49",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-middlestone",
+      "lineId": "vallejo-model-color",
+      "name": "Middlestone",
+      "hex": "#937E4F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-stone-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Stone Grey",
+      "hex": "#A09883",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-green-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Green Grey",
+      "hex": "#75756B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-brown-violet",
+      "lineId": "vallejo-model-color",
+      "name": "Brown Violet",
+      "hex": "#4E5D4D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-olive-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Olive Grey",
+      "hex": "#545547",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-grey-green",
+      "lineId": "vallejo-model-color",
+      "name": "Grey Green",
+      "hex": "#5A5B5D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-basalt-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Basalt Grey",
+      "hex": "#64696F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-german-field-grey-ww2",
+      "lineId": "vallejo-model-color",
+      "name": "German Field Grey WW2",
+      "hex": "#5F5F55",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-russian-uniform-ww2",
+      "lineId": "vallejo-model-color",
+      "name": "Russian Uniform WW2",
+      "hex": "#67624E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-japan-uniform-ww2",
+      "lineId": "vallejo-model-color",
+      "name": "Japan Uniform WW2",
+      "hex": "#9E7C3C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-english-uniform",
+      "lineId": "vallejo-model-color",
+      "name": "English Uniform",
+      "hex": "#715E40",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-silver-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Silver Grey",
+      "hex": "#CAC6BA",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-deck-tan",
+      "lineId": "vallejo-model-color",
+      "name": "Deck Tan",
+      "hex": "#B1B1A7",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-grey-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Grey Grey",
+      "hex": "#5A5B5D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-light-sea-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Light Sea Grey",
+      "hex": "#A1B1B1",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-medium-sea-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Medium Sea Grey",
+      "hex": "#828385",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-sky-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Sky Grey",
+      "hex": "#A5A6A8",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-light-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Light Grey",
+      "hex": "#8F939E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-medium-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Medium Grey",
+      "hex": "#989A84",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-dark-sea-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Dark Sea Grey",
+      "hex": "#7A7B7D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-neutral-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Neutral Grey",
+      "hex": "#69707A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-khaki",
+      "lineId": "vallejo-model-color",
+      "name": "Khaki",
+      "hex": "#87775D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-black-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Black Grey",
+      "hex": "#48494B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-dark-grey",
+      "lineId": "vallejo-model-color",
+      "name": "Dark Grey",
+      "hex": "#4D5258",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-german-grey",
+      "lineId": "vallejo-model-color",
+      "name": "German Grey",
+      "hex": "#46464E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-glossy-black",
+      "lineId": "vallejo-model-color",
+      "name": "Glossy Black",
+      "hex": "#151515",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-model-color-black",
+      "lineId": "vallejo-model-color",
+      "name": "Black",
+      "hex": "#010101",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-dead-white",
+      "lineId": "vallejo-game-color",
+      "name": "Dead White",
+      "hex": "#FFFFFF",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-pale-flesh",
+      "lineId": "vallejo-game-color",
+      "name": "Pale Flesh",
+      "hex": "#ECBDA9",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-elf-skintone",
+      "lineId": "vallejo-game-color",
+      "name": "Elf Skintone",
+      "hex": "#E0A374",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-moon-yellow",
+      "lineId": "vallejo-game-color",
+      "name": "Moon Yellow",
+      "hex": "#FCE000",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-sun-yellow",
+      "lineId": "vallejo-game-color",
+      "name": "Sun Yellow",
+      "hex": "#FEE300",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-gold-yellow",
+      "lineId": "vallejo-game-color",
+      "name": "Gold Yellow",
+      "hex": "#FDC500",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-orange-fire",
+      "lineId": "vallejo-game-color",
+      "name": "Orange Fire",
+      "hex": "#E9651A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-hot-orange",
+      "lineId": "vallejo-game-color",
+      "name": "Hot Orange",
+      "hex": "#E64C2A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-bloody-red",
+      "lineId": "vallejo-game-color",
+      "name": "Bloody Red",
+      "hex": "#BF1134",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-gory-red",
+      "lineId": "vallejo-game-color",
+      "name": "Gory Red",
+      "hex": "#850E34",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-scarlet-red",
+      "lineId": "vallejo-game-color",
+      "name": "Scarlet Red",
+      "hex": "#9C122C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-squid-pink",
+      "lineId": "vallejo-game-color",
+      "name": "Squid Pink",
+      "hex": "#D18AB6",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-warlord-purple",
+      "lineId": "vallejo-game-color",
+      "name": "Warlord Purple",
+      "hex": "#862246",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-hexed-lichen",
+      "lineId": "vallejo-game-color",
+      "name": "Hexed Lichen",
+      "hex": "#512E7E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-royal-purple",
+      "lineId": "vallejo-game-color",
+      "name": "Royal Purple",
+      "hex": "#464362",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-dark-blue",
+      "lineId": "vallejo-game-color",
+      "name": "Dark Blue",
+      "hex": "#464775",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-stormy-night",
+      "lineId": "vallejo-game-color",
+      "name": "Stormy Night",
+      "hex": "#1F1A4F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-night-blue",
+      "lineId": "vallejo-game-color",
+      "name": "Night Blue",
+      "hex": "#393945",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-imperial-purple",
+      "lineId": "vallejo-game-color",
+      "name": "Imperial Purple",
+      "hex": "#211A4B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-magic-blue",
+      "lineId": "vallejo-game-color",
+      "name": "Magic Blue",
+      "hex": "#026EB6",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-ultramarine-blue",
+      "lineId": "vallejo-game-color",
+      "name": "Ultramarine Blue",
+      "hex": "#1D548A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-electric-blue",
+      "lineId": "vallejo-game-color",
+      "name": "Electric Blue",
+      "hex": "#3495B6",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-turquoise",
+      "lineId": "vallejo-game-color",
+      "name": "Turquoise",
+      "hex": "#007F8E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-foul-green",
+      "lineId": "vallejo-game-color",
+      "name": "Foul Green",
+      "hex": "#3F9E80",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-jade-green",
+      "lineId": "vallejo-game-color",
+      "name": "Jade Green",
+      "hex": "#008266",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-scurvy-green",
+      "lineId": "vallejo-game-color",
+      "name": "Scurvy Green",
+      "hex": "#285653",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-dark-green",
+      "lineId": "vallejo-game-color",
+      "name": "Dark Green",
+      "hex": "#38433D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-sick-green",
+      "lineId": "vallejo-game-color",
+      "name": "Sick Green",
+      "hex": "#4B6E4E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-goblin-green",
+      "lineId": "vallejo-game-color",
+      "name": "Goblin Green",
+      "hex": "#2B6C28",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-camouflage-green",
+      "lineId": "vallejo-game-color",
+      "name": "Camouflage Green",
+      "hex": "#8D7B3D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-scorpion-green",
+      "lineId": "vallejo-game-color",
+      "name": "Scorpion Green",
+      "hex": "#77A64A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-livery-green",
+      "lineId": "vallejo-game-color",
+      "name": "Livery Green",
+      "hex": "#9DC451",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-bone-white",
+      "lineId": "vallejo-game-color",
+      "name": "Bone White",
+      "hex": "#E4C596",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-dead-flesh",
+      "lineId": "vallejo-game-color",
+      "name": "Dead Flesh",
+      "hex": "#D3C682",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-bronze-fleshtone",
+      "lineId": "vallejo-game-color",
+      "name": "Bronze Fleshtone",
+      "hex": "#F1A75E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-filthy-brown",
+      "lineId": "vallejo-game-color",
+      "name": "Filthy Brown",
+      "hex": "#E99300",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-scrofulous-brown",
+      "lineId": "vallejo-game-color",
+      "name": "Scrofulous Brown",
+      "hex": "#BB772E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-plague-brown",
+      "lineId": "vallejo-game-color",
+      "name": "Plague Brown",
+      "hex": "#D18F05",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-leather-brown",
+      "lineId": "vallejo-game-color",
+      "name": "Leather Brown",
+      "hex": "#87643C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-dwarf-skin",
+      "lineId": "vallejo-game-color",
+      "name": "Dwarf Skin",
+      "hex": "#D99169",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-parasite-brown",
+      "lineId": "vallejo-game-color",
+      "name": "Parasite Brown",
+      "hex": "#A15019",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-beasty-brown",
+      "lineId": "vallejo-game-color",
+      "name": "Beasty Brown",
+      "hex": "#76563D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-dark-fleshtone",
+      "lineId": "vallejo-game-color",
+      "name": "Dark Fleshtone",
+      "hex": "#614037",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-charred-brown",
+      "lineId": "vallejo-game-color",
+      "name": "Charred Brown",
+      "hex": "#4B403C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-ghost-grey",
+      "lineId": "vallejo-game-color",
+      "name": "Ghost Grey",
+      "hex": "#C2CBD4",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-wolf-grey",
+      "lineId": "vallejo-game-color",
+      "name": "Wolf Grey",
+      "hex": "#AFC1CB",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-sombre-grey",
+      "lineId": "vallejo-game-color",
+      "name": "Sombre Grey",
+      "hex": "#606B7F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-stonewall-grey",
+      "lineId": "vallejo-game-color",
+      "name": "Stonewall Grey",
+      "hex": "#9F9F9F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-cold-grey",
+      "lineId": "vallejo-game-color",
+      "name": "Cold Grey",
+      "hex": "#7C7C7C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-black",
+      "lineId": "vallejo-game-color",
+      "name": "Black",
+      "hex": "#010101",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-khaki",
+      "lineId": "vallejo-game-color",
+      "name": "Khaki",
+      "hex": "#AA9D73",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-earth",
+      "lineId": "vallejo-game-color",
+      "name": "Earth",
+      "hex": "#7A6045",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-desert-yellow",
+      "lineId": "vallejo-game-color",
+      "name": "Desert Yellow",
+      "hex": "#998843",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-yellow-olive",
+      "lineId": "vallejo-game-color",
+      "name": "Yellow Olive",
+      "hex": "#1E4F39",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-terracotta",
+      "lineId": "vallejo-game-color",
+      "name": "Terracotta",
+      "hex": "#693E38",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-tan",
+      "lineId": "vallejo-game-color",
+      "name": "Tan",
+      "hex": "#A8594A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-cayman-green",
+      "lineId": "vallejo-game-color",
+      "name": "Cayman Green",
+      "hex": "#00593D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-smokey-ink",
+      "lineId": "vallejo-game-color",
+      "name": "Smokey Ink",
+      "hex": "#493632",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-glacier-blue",
+      "lineId": "vallejo-game-color",
+      "name": "Glacier Blue",
+      "hex": "#B4CEE9",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-verdigris",
+      "lineId": "vallejo-game-color",
+      "name": "Verdigris",
+      "hex": "#A9D7D4",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-pale-yellow",
+      "lineId": "vallejo-game-color",
+      "name": "Pale Yellow",
+      "hex": "#EBCE7E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-elfic-flesh",
+      "lineId": "vallejo-game-color",
+      "name": "Elfic Flesh",
+      "hex": "#EAD7B7",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-cadmium-skin",
+      "lineId": "vallejo-game-color",
+      "name": "Cadmium Skin",
+      "hex": "#F8B185",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-rosy-flesh",
+      "lineId": "vallejo-game-color",
+      "name": "Rosy Flesh",
+      "hex": "#F3B5AA",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-off-white",
+      "lineId": "vallejo-game-color",
+      "name": "Off-White",
+      "hex": "#FDF3DA",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-steel-grey",
+      "lineId": "vallejo-game-color",
+      "name": "Steel Grey",
+      "hex": "#728FA1",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-fluo-yellow",
+      "lineId": "vallejo-game-color",
+      "name": "Fluo Yellow",
+      "hex": "#EEEA50",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-fluo-green",
+      "lineId": "vallejo-game-color",
+      "name": "Fluo Green",
+      "hex": "#9DCD64",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-mutation-green",
+      "lineId": "vallejo-game-color",
+      "name": "Mutation Green",
+      "hex": "#4C7650",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-scarlet-blood",
+      "lineId": "vallejo-game-color",
+      "name": "Scarlet Blood",
+      "hex": "#E40059",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-skintone",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Skintone",
+      "hex": "#AD8468",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-red",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Red",
+      "hex": "#8D363C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-violet",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Violet",
+      "hex": "#484069",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-blue",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Blue",
+      "hex": "#405B78",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-blue-grey",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Blue Grey",
+      "hex": "#CBCAC8",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-grey",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Grey",
+      "hex": "#707354",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-green",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Green",
+      "hex": "#566637",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-black-green",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Black Green",
+      "hex": "#3E4943",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-warm-grey",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Warm Grey",
+      "hex": "#AA9D73",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-khaki",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Khaki",
+      "hex": "#B49F50",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-ochre",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Ochre",
+      "hex": "#AE7727",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-gold-brown",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Gold Brown",
+      "hex": "#B68644",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-orange",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Orange",
+      "hex": "#EA5E0F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-brown",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Brown",
+      "hex": "#7B674E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-sienna",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Sienna",
+      "hex": "#5E483B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-heavy-charcoal",
+      "lineId": "vallejo-game-color",
+      "name": "Heavy Charcoal",
+      "hex": "#46464E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-game-color-metallic-hammered-copper",
+      "lineId": "vallejo-game-color-metallic",
+      "name": "Hammered Copper",
+      "hex": "#644132",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-game-color-metallic-bright-bronze",
+      "lineId": "vallejo-game-color-metallic",
+      "name": "Bright Bronze",
+      "hex": "#8D5222",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-game-color-metallic-tinny-tin",
+      "lineId": "vallejo-game-color-metallic",
+      "name": "Tinny Tin",
+      "hex": "#432925",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-game-color-metallic-glorious-gold",
+      "lineId": "vallejo-game-color-metallic",
+      "name": "Glorious Gold",
+      "hex": "#C5863A",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-game-color-metallic-polished-gold",
+      "lineId": "vallejo-game-color-metallic",
+      "name": "Polished Gold",
+      "hex": "#DBAE3C",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-game-color-metallic-chainmail-silver",
+      "lineId": "vallejo-game-color-metallic",
+      "name": "Chainmail Silver",
+      "hex": "#858D8F",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-game-color-metallic-silver",
+      "lineId": "vallejo-game-color-metallic",
+      "name": "Silver",
+      "hex": "#CDD6D3",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-game-color-metallic-gunmetal",
+      "lineId": "vallejo-game-color-metallic",
+      "name": "Gunmetal",
+      "hex": "#636768",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-game-color-metallic-brassy-brass",
+      "lineId": "vallejo-game-color-metallic",
+      "name": "Brassy Brass",
+      "hex": "#9B6244",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-game-color-ink-black-ink",
+      "lineId": "vallejo-game-color-ink",
+      "name": "Black Ink",
+      "hex": "#282722",
+      "type": "ink"
+    },
+    {
+      "id": "vallejo-game-color-ink-white-ink",
+      "lineId": "vallejo-game-color-ink",
+      "name": "White Ink",
+      "hex": "#F0F0F0",
+      "type": "ink"
+    },
+    {
+      "id": "vallejo-game-color-ink-yellow-ink",
+      "lineId": "vallejo-game-color-ink",
+      "name": "Yellow Ink",
+      "hex": "#FFD700",
+      "type": "ink"
+    },
+    {
+      "id": "vallejo-game-color-ink-red-ink",
+      "lineId": "vallejo-game-color-ink",
+      "name": "Red Ink",
+      "hex": "#CC0000",
+      "type": "ink"
+    },
+    {
+      "id": "vallejo-game-color-ink-blue-ink",
+      "lineId": "vallejo-game-color-ink",
+      "name": "Blue Ink",
+      "hex": "#003399",
+      "type": "ink"
+    },
+    {
+      "id": "vallejo-game-color-ink-green-ink",
+      "lineId": "vallejo-game-color-ink",
+      "name": "Green Ink",
+      "hex": "#108473",
+      "type": "ink"
+    },
+    {
+      "id": "vallejo-game-color-ink-brown-ink",
+      "lineId": "vallejo-game-color-ink",
+      "name": "Brown Ink",
+      "hex": "#5C3317",
+      "type": "ink"
+    },
+    {
+      "id": "vallejo-game-color-ink-violet-ink",
+      "lineId": "vallejo-game-color-ink",
+      "name": "Violet Ink",
+      "hex": "#842994",
+      "type": "ink"
+    },
+    {
+      "id": "vallejo-game-color-ink-sepia-ink",
+      "lineId": "vallejo-game-color-ink",
+      "name": "Sepia Ink",
+      "hex": "#704214",
+      "type": "ink"
+    },
+    {
+      "id": "vallejo-game-color-ink-skin-wash-ink",
+      "lineId": "vallejo-game-color-ink",
+      "name": "Skin Wash Ink",
+      "hex": "#C68642",
+      "type": "ink"
+    },
+    {
+      "id": "vallejo-game-color-ink-inky-black",
+      "lineId": "vallejo-game-color-ink",
+      "name": "Inky Black",
+      "hex": "#0D0D0D",
+      "type": "ink"
+    },
+    {
+      "id": "vallejo-game-color-wash-black-wash",
+      "lineId": "vallejo-game-color-wash",
+      "name": "Black Wash",
+      "hex": "#27282A",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-game-color-wash-white-wash",
+      "lineId": "vallejo-game-color-wash",
+      "name": "White Wash",
+      "hex": "#E8E8E8",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-game-color-wash-sepia-wash",
+      "lineId": "vallejo-game-color-wash",
+      "name": "Sepia Wash",
+      "hex": "#755734",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-game-color-wash-pale-grey-wash",
+      "lineId": "vallejo-game-color-wash",
+      "name": "Pale Grey Wash",
+      "hex": "#B7BDBD",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-game-color-wash-flesh-wash",
+      "lineId": "vallejo-game-color-wash",
+      "name": "Flesh Wash",
+      "hex": "#A1736D",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-game-color-wash-red-wash",
+      "lineId": "vallejo-game-color-wash",
+      "name": "Red Wash",
+      "hex": "#C35E7B",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-game-color-wash-green-wash",
+      "lineId": "vallejo-game-color-wash",
+      "name": "Green Wash",
+      "hex": "#69AC66",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-game-color-wash-blue-wash",
+      "lineId": "vallejo-game-color-wash",
+      "name": "Blue Wash",
+      "hex": "#285988",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-xpress-color-imperial-yellow",
+      "lineId": "vallejo-xpress-color",
+      "name": "Imperial Yellow",
+      "hex": "#DE8332",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-phoenix-orange",
+      "lineId": "vallejo-xpress-color",
+      "name": "Phoenix Orange",
+      "hex": "#691A1D",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-xpress-medium",
+      "lineId": "vallejo-xpress-color",
+      "name": "Xpress Medium",
+      "hex": "#FFFEFE",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-nuclear-yellow",
+      "lineId": "vallejo-xpress-color",
+      "name": "Nuclear Yellow",
+      "hex": "#BE5232",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-plague-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Plague Green",
+      "hex": "#252C1E",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-orc-skin",
+      "lineId": "vallejo-xpress-color",
+      "name": "Orc Skin",
+      "hex": "#2F482C",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-lizard-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Lizard Green",
+      "hex": "#0E1714",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-military-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Military Green",
+      "hex": "#46493E",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-intense-forest-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Intense Forest Green",
+      "hex": "#014421",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-heretic-turquoise",
+      "lineId": "vallejo-xpress-color",
+      "name": "Heretic Turquoise",
+      "hex": "#082222",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-space-grey",
+      "lineId": "vallejo-xpress-color",
+      "name": "Space Grey",
+      "hex": "#294444",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-storm-blue",
+      "lineId": "vallejo-xpress-color",
+      "name": "Storm Blue",
+      "hex": "#2E2E4E",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-magic-blue",
+      "lineId": "vallejo-xpress-color",
+      "name": "Magic Blue",
+      "hex": "#026EB6",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-omega-blue",
+      "lineId": "vallejo-xpress-color",
+      "name": "Omega Blue",
+      "hex": "#1A1624",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-mystic-blue",
+      "lineId": "vallejo-xpress-color",
+      "name": "Mystic Blue",
+      "hex": "#1E1C39",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-gloomy-violet",
+      "lineId": "vallejo-xpress-color",
+      "name": "Gloomy Violet",
+      "hex": "#16111B",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-twilight-rose",
+      "lineId": "vallejo-xpress-color",
+      "name": "Twilight Rose",
+      "hex": "#201723",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-velvet-red",
+      "lineId": "vallejo-xpress-color",
+      "name": "Velvet Red",
+      "hex": "#2D1817",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-cardinal-purple",
+      "lineId": "vallejo-xpress-color",
+      "name": "Cardinal Purple",
+      "hex": "#902B34",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-wasteland-yellow",
+      "lineId": "vallejo-xpress-color",
+      "name": "Wasteland Yellow",
+      "hex": "#C2A83E",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-copper-brown",
+      "lineId": "vallejo-xpress-color",
+      "name": "Copper Brown",
+      "hex": "#221617",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-willow-bark",
+      "lineId": "vallejo-xpress-color",
+      "name": "Willow Bark",
+      "hex": "#080808",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-dwarf-skin",
+      "lineId": "vallejo-xpress-color",
+      "name": "Dwarf Skin",
+      "hex": "#2A1C1A",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-tanned-skin",
+      "lineId": "vallejo-xpress-color",
+      "name": "Tanned Skin",
+      "hex": "#2B181A",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-battledress-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Battledress Green",
+      "hex": "#5F6B4E",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-camouflage-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Camouflage Green",
+      "hex": "#191916",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-viking-grey",
+      "lineId": "vallejo-xpress-color",
+      "name": "Viking Grey",
+      "hex": "#112124",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-landser-grey",
+      "lineId": "vallejo-xpress-color",
+      "name": "Landser Grey",
+      "hex": "#181919",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-soldier-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Soldier Green",
+      "hex": "#5B6E4F",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-desert-ochre",
+      "lineId": "vallejo-xpress-color",
+      "name": "Desert Ochre",
+      "hex": "#3E1F18",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-medium-skin",
+      "lineId": "vallejo-xpress-color",
+      "name": "Medium Skin",
+      "hex": "#E3B982",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-deep-purple",
+      "lineId": "vallejo-xpress-color",
+      "name": "Deep Purple",
+      "hex": "#2E181F",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-zombie-flesh",
+      "lineId": "vallejo-xpress-color",
+      "name": "Zombie Flesh",
+      "hex": "#3B322F",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-caribbean-turquoise",
+      "lineId": "vallejo-xpress-color",
+      "name": "Caribbean Turquoise",
+      "hex": "#1E2D3B",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-wicked-pink",
+      "lineId": "vallejo-xpress-color",
+      "name": "Wicked Pink",
+      "hex": "#FF69B4",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-martian-orange",
+      "lineId": "vallejo-xpress-color",
+      "name": "Martian Orange",
+      "hex": "#97352F",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-black-lotus",
+      "lineId": "vallejo-xpress-color",
+      "name": "Black Lotus",
+      "hex": "#010000",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-templar-white",
+      "lineId": "vallejo-xpress-color",
+      "name": "Templar White",
+      "hex": "#5E7570",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-hospitallier-white",
+      "lineId": "vallejo-xpress-color",
+      "name": "Hospitallier White",
+      "hex": "#E8E4DB",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-khaki-drill",
+      "lineId": "vallejo-xpress-color",
+      "name": "Khaki Drill",
+      "hex": "#503B22",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-desert-bone",
+      "lineId": "vallejo-xpress-color",
+      "name": "Desert Bone",
+      "hex": "#AB8556",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-muddy-ground",
+      "lineId": "vallejo-xpress-color",
+      "name": "Muddy Ground",
+      "hex": "#0D0C09",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-orc-flesh",
+      "lineId": "vallejo-xpress-color",
+      "name": "Orc Flesh",
+      "hex": "#7BA05B",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-blood-red",
+      "lineId": "vallejo-xpress-color",
+      "name": "Blood Red",
+      "hex": "#BF1134",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-generous-purple",
+      "lineId": "vallejo-xpress-color",
+      "name": "Generous Purple",
+      "hex": "#7B4D8E",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-omega-contrast-blue",
+      "lineId": "vallejo-xpress-color",
+      "name": "Omega Contrast Blue",
+      "hex": "#003B6F",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-abyssal-turquoise",
+      "lineId": "vallejo-xpress-color",
+      "name": "Abyssal Turquoise",
+      "hex": "#223B4C",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-garnet-red",
+      "lineId": "vallejo-xpress-color",
+      "name": "Garnet Red",
+      "hex": "#733635",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-ice-blue",
+      "lineId": "vallejo-xpress-color",
+      "name": "Ice Blue",
+      "hex": "#99D9EA",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-pale-rose-flesh",
+      "lineId": "vallejo-xpress-color",
+      "name": "Pale Rose Flesh",
+      "hex": "#F2C7C1",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-santas-velvet",
+      "lineId": "vallejo-xpress-color",
+      "name": "Santa's Velvet",
+      "hex": "#B22222",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-jade",
+      "lineId": "vallejo-xpress-color",
+      "name": "Jade",
+      "hex": "#00A86B",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-sun-glow",
+      "lineId": "vallejo-xpress-color",
+      "name": "Sun Glow",
+      "hex": "#FFCF48",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-grease-stain",
+      "lineId": "vallejo-xpress-color",
+      "name": "Grease Stain",
+      "hex": "#3B3B3B",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-demonic-skin",
+      "lineId": "vallejo-xpress-color",
+      "name": "Demonic Skin",
+      "hex": "#431E25",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-rustic-brown",
+      "lineId": "vallejo-xpress-color",
+      "name": "Rustic Brown",
+      "hex": "#8B5E3C",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-model-wash-white-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "White Wash",
+      "hex": "#E0E0E0",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-light-grey-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Light Grey Wash",
+      "hex": "#C9C9C7",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-dark-grey-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Dark Grey Wash",
+      "hex": "#555555",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-black-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Black Wash",
+      "hex": "#27282A",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-light-rust-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Light Rust Wash",
+      "hex": "#EB7919",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-dark-rust-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Dark Rust Wash",
+      "hex": "#E05B10",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-rust-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Rust Wash",
+      "hex": "#A0522D",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-oiled-earth-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Oiled Earth Wash",
+      "hex": "#6E5C52",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-dark-brown-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Dark Brown Wash",
+      "hex": "#4A3728",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-european-dust-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "European Dust Wash",
+      "hex": "#7F5B39",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-dark-yellow-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Dark Yellow Wash",
+      "hex": "#E0B600",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-desert-dust-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Desert Dust Wash",
+      "hex": "#D8BB81",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-dark-khaki-green-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Dark Khaki Green Wash",
+      "hex": "#83673F",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-dark-green-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Dark Green Wash",
+      "hex": "#2E4E2E",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-blue-grey-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Blue Grey Wash",
+      "hex": "#5B7B8A",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-model-wash-dark-blue-wash",
+      "lineId": "vallejo-model-wash",
+      "name": "Dark Blue Wash",
+      "hex": "#2A3D5C",
+      "type": "wash"
+    },
+    {
+      "id": "vallejo-liquid-metal-silver",
+      "lineId": "vallejo-liquid-metal",
+      "name": "Silver",
+      "hex": "#CBD3D2",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-liquid-metal-gold",
+      "lineId": "vallejo-liquid-metal",
+      "name": "Gold",
+      "hex": "#A0937D",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-liquid-metal-old-gold",
+      "lineId": "vallejo-liquid-metal",
+      "name": "Old Gold",
+      "hex": "#B6AB3C",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-liquid-metal-rich-gold",
+      "lineId": "vallejo-liquid-metal",
+      "name": "Rich Gold",
+      "hex": "#9A7B3A",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-liquid-metal-red-gold",
+      "lineId": "vallejo-liquid-metal",
+      "name": "Red Gold",
+      "hex": "#BC8733",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-liquid-metal-copper",
+      "lineId": "vallejo-liquid-metal",
+      "name": "Copper",
+      "hex": "#87432E",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-liquid-metal-white-gold",
+      "lineId": "vallejo-liquid-metal",
+      "name": "White Gold",
+      "hex": "#D2D4D1",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-liquid-metal-steel",
+      "lineId": "vallejo-liquid-metal",
+      "name": "Steel",
+      "hex": "#898A82",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-model-air-white",
+      "lineId": "vallejo-model-air",
+      "name": "White",
+      "hex": "#F9F9F7",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-medium-yellow",
+      "lineId": "vallejo-model-air",
+      "name": "Medium Yellow",
+      "hex": "#F9B202",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-red",
+      "lineId": "vallejo-model-air",
+      "name": "Red",
+      "hex": "#B22A34",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Blue",
+      "hex": "#2A4163",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-grey-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Grey Blue",
+      "hex": "#424854",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-light-green-chromate",
+      "lineId": "vallejo-model-air",
+      "name": "Light Green Chromate",
+      "hex": "#5F6644",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-olive-green",
+      "lineId": "vallejo-model-air",
+      "name": "Olive Green",
+      "hex": "#343A38",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-pale-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Pale Blue",
+      "hex": "#759496",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-eau-de-nil-duck-egg-green",
+      "lineId": "vallejo-model-air",
+      "name": "Eau De Nil Duck Egg Green",
+      "hex": "#C2C89C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-interior-green",
+      "lineId": "vallejo-model-air",
+      "name": "Interior Green",
+      "hex": "#645D40",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dark-green",
+      "lineId": "vallejo-model-air",
+      "name": "Dark Green",
+      "hex": "#5D5F54",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-yellow-olive",
+      "lineId": "vallejo-model-air",
+      "name": "Yellow Olive",
+      "hex": "#434542",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-gunship-green",
+      "lineId": "vallejo-model-air",
+      "name": "Gunship Green",
+      "hex": "#546054",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-usaf-olive-drab",
+      "lineId": "vallejo-model-air",
+      "name": "USAF Olive Drab",
+      "hex": "#635B46",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-russian-green-4bo",
+      "lineId": "vallejo-model-air",
+      "name": "Russian Green 4Bo",
+      "hex": "#52543F",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-black-green",
+      "lineId": "vallejo-model-air",
+      "name": "Black Green",
+      "hex": "#444D4C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-camouflage-dark-green",
+      "lineId": "vallejo-model-air",
+      "name": "Camouflage Dark Green",
+      "hex": "#4B4E47",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-green-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Green Brown",
+      "hex": "#504B45",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-light-green",
+      "lineId": "vallejo-model-air",
+      "name": "Light Green",
+      "hex": "#007943",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-hemp",
+      "lineId": "vallejo-model-air",
+      "name": "Hemp",
+      "hex": "#817964",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-khaki-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Khaki Brown",
+      "hex": "#917957",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dark-yellow",
+      "lineId": "vallejo-model-air",
+      "name": "Dark Yellow",
+      "hex": "#957A43",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-flat-brown",
+      "lineId": "vallejo-model-air",
+      "name": "US Flat Brown",
+      "hex": "#8E6A48",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-light-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Light Brown",
+      "hex": "#AE9169",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-sand-yellow",
+      "lineId": "vallejo-model-air",
+      "name": "Sand Yellow",
+      "hex": "#A48D6E",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dark-earth",
+      "lineId": "vallejo-model-air",
+      "name": "Dark Earth",
+      "hex": "#5E5544",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-brown-green",
+      "lineId": "vallejo-model-air",
+      "name": "Brown Green",
+      "hex": "#906F4C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-middle-stone",
+      "lineId": "vallejo-model-air",
+      "name": "Middle Stone",
+      "hex": "#997C50",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-golden-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Golden Brown",
+      "hex": "#876341",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-yellow-ochre",
+      "lineId": "vallejo-model-air",
+      "name": "Yellow Ochre",
+      "hex": "#D8932E",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-sand-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Sand Brown",
+      "hex": "#946B4F",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-camouflage-pale-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Camouflage Pale Brown",
+      "hex": "#796453",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-mahogany",
+      "lineId": "vallejo-model-air",
+      "name": "Mahogany",
+      "hex": "#4A3B36",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-mud-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Mud Brown",
+      "hex": "#8C6548",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-camouflage-medium-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Camouflage Medium Brown",
+      "hex": "#5F4E3E",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-hull-red",
+      "lineId": "vallejo-model-air",
+      "name": "Hull Red",
+      "hex": "#483D37",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-burnt-umber",
+      "lineId": "vallejo-model-air",
+      "name": "Burnt Umber",
+      "hex": "#483E34",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-armour-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Armour Brown",
+      "hex": "#4F4140",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dark-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Dark Brown",
+      "hex": "#B0876B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-olive-drab",
+      "lineId": "vallejo-model-air",
+      "name": "US Olive Drab",
+      "hex": "#594F43",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Grey",
+      "hex": "#555C66",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-cement-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Cement Grey",
+      "hex": "#919489",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-pale-blue-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Pale Blue Grey",
+      "hex": "#969DA3",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-engine-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Engine Gray",
+      "hex": "#555A60",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-sea-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Sea Grey",
+      "hex": "#63686C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-light-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Light Gray",
+      "hex": "#8C909B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-neutral-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Neutral Gray",
+      "hex": "#70777D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-anthracite-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Anthracite Grey",
+      "hex": "#4E4F54",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dark-sea-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Dark Sea Gray",
+      "hex": "#4C535D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dark-grey-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Dark Grey Blue",
+      "hex": "#484D51",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-black-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Black Grey",
+      "hex": "#48494B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-panzer-dark-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Panzer Dark Gray",
+      "hex": "#434544",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-black",
+      "lineId": "vallejo-model-air",
+      "name": "Black",
+      "hex": "#2D2E30",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-aluminum",
+      "lineId": "vallejo-model-air",
+      "name": "Aluminum",
+      "hex": "#E8E8EA",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-silver",
+      "lineId": "vallejo-model-air",
+      "name": "Silver",
+      "hex": "#CDD6D3",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-chrome",
+      "lineId": "vallejo-model-air",
+      "name": "Chrome",
+      "hex": "#E9E7E8",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-steel",
+      "lineId": "vallejo-model-air",
+      "name": "Steel",
+      "hex": "#898A82",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-gold",
+      "lineId": "vallejo-model-air",
+      "name": "Gold",
+      "hex": "#CEAF52",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-bright-brass",
+      "lineId": "vallejo-model-air",
+      "name": "Bright Brass",
+      "hex": "#9F8F5B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-copper",
+      "lineId": "vallejo-model-air",
+      "name": "Copper",
+      "hex": "#9A5B3A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-rust",
+      "lineId": "vallejo-model-air",
+      "name": "Rust",
+      "hex": "#75544B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-signal-red",
+      "lineId": "vallejo-model-air",
+      "name": "Signal Red",
+      "hex": "#CB5970",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-arctic-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Arctic Blue",
+      "hex": "#373C4F",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-gunmetal",
+      "lineId": "vallejo-model-air",
+      "name": "Gunmetal",
+      "hex": "#636768",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-beige",
+      "lineId": "vallejo-model-air",
+      "name": "Beige",
+      "hex": "#E3C182",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ivory",
+      "lineId": "vallejo-model-air",
+      "name": "Ivory",
+      "hex": "#C1AF87",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-skin-tone",
+      "lineId": "vallejo-model-air",
+      "name": "Skin Tone",
+      "hex": "#F8C492",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-wood",
+      "lineId": "vallejo-model-air",
+      "name": "Wood",
+      "hex": "#AB743B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-yellow",
+      "lineId": "vallejo-model-air",
+      "name": "Yellow",
+      "hex": "#FED346",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-tan-earth",
+      "lineId": "vallejo-model-air",
+      "name": "Tan Earth",
+      "hex": "#A68167",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ochre",
+      "lineId": "vallejo-model-air",
+      "name": "Ochre",
+      "hex": "#77693A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-fluorescent-red",
+      "lineId": "vallejo-model-air",
+      "name": "Fluorescent Red",
+      "hex": "#EA624C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-orange",
+      "lineId": "vallejo-model-air",
+      "name": "Orange",
+      "hex": "#E14C24",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-fire-red",
+      "lineId": "vallejo-model-air",
+      "name": "Fire Red",
+      "hex": "#863E30",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ferrari-red",
+      "lineId": "vallejo-model-air",
+      "name": "Ferrari Red",
+      "hex": "#AF3530",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-light-red",
+      "lineId": "vallejo-model-air",
+      "name": "Light Red",
+      "hex": "#E04622",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-steel-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Steel Blue",
+      "hex": "#195770",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-french-blue",
+      "lineId": "vallejo-model-air",
+      "name": "French Blue",
+      "hex": "#1F4E7A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-light-sea-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Light Sea Blue",
+      "hex": "#02A4D5",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-deep-sky",
+      "lineId": "vallejo-model-air",
+      "name": "Deep Sky",
+      "hex": "#35415B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-signal-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Signal Blue",
+      "hex": "#38373F",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-medium-olive",
+      "lineId": "vallejo-model-air",
+      "name": "Medium Olive",
+      "hex": "#505443",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-nato-green",
+      "lineId": "vallejo-model-air",
+      "name": "Nato Green",
+      "hex": "#525A4D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-green-zinc-chromate",
+      "lineId": "vallejo-model-air",
+      "name": "Green Zinc Chromate",
+      "hex": "#565D3B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-pale-green",
+      "lineId": "vallejo-model-air",
+      "name": "Pale Green",
+      "hex": "#74855B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-olive-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Olive Grey",
+      "hex": "#6B645C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-medium-gunship-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Medium Gunship Gray",
+      "hex": "#5A616B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-light-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Light Blue",
+      "hex": "#C6C9BE",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-gray-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Gray Blue",
+      "hex": "#424854",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-green",
+      "lineId": "vallejo-model-air",
+      "name": "Green",
+      "hex": "#717469",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Brown",
+      "hex": "#9A632A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-interior-yellow",
+      "lineId": "vallejo-model-air",
+      "name": "US Interior Yellow",
+      "hex": "#CBA552",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-uk-azure-blue",
+      "lineId": "vallejo-model-air",
+      "name": "UK Azure Blue",
+      "hex": "#728CAD",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-faded-pru-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Faded PRU Blue",
+      "hex": "#496570",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dark-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Dark Grey",
+      "hex": "#535A64",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-usaf-light-blue",
+      "lineId": "vallejo-model-air",
+      "name": "USAF Light Blue",
+      "hex": "#526778",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-sand",
+      "lineId": "vallejo-model-air",
+      "name": "Sand",
+      "hex": "#9E887A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-idf-blue",
+      "lineId": "vallejo-model-air",
+      "name": "IDF Blue",
+      "hex": "#59758A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-medium-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Medium Gray",
+      "hex": "#687E8B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-blue-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Blue Grey",
+      "hex": "#454A50",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-camouflage-grey-green",
+      "lineId": "vallejo-model-air",
+      "name": "Camouflage Grey Green",
+      "hex": "#7A694B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-camouflage-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Camouflage Brown",
+      "hex": "#AE906C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-camouflage-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Camouflage Grey",
+      "hex": "#867966",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-white-grey",
+      "lineId": "vallejo-model-air",
+      "name": "White Grey",
+      "hex": "#DAD6CA",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dark-ghost-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Dark Ghost Gray",
+      "hex": "#8A97A0",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-light-gull-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Light Gull Gray",
+      "hex": "#A9AAA2",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-desert-armour-686",
+      "lineId": "vallejo-model-air",
+      "name": "US Desert Armour 686",
+      "hex": "#AE9B7D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dark-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Dark Gray",
+      "hex": "#535A64",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-usaf-green",
+      "lineId": "vallejo-model-air",
+      "name": "USAF Green",
+      "hex": "#4C5B58",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-usaf-brown",
+      "lineId": "vallejo-model-air",
+      "name": "USAF Brown",
+      "hex": "#8A715B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-idf-iaf-green",
+      "lineId": "vallejo-model-air",
+      "name": "IDF/IAF Green",
+      "hex": "#78866C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-gray-violet",
+      "lineId": "vallejo-model-air",
+      "name": "Gray Violet",
+      "hex": "#646663",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-light-rust",
+      "lineId": "vallejo-model-air",
+      "name": "Light Rust",
+      "hex": "#915E43",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-orange-rust",
+      "lineId": "vallejo-model-air",
+      "name": "Orange Rust",
+      "hex": "#C76832",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-concrete",
+      "lineId": "vallejo-model-air",
+      "name": "Concrete",
+      "hex": "#776D61",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-aged-white",
+      "lineId": "vallejo-model-air",
+      "name": "Aged White",
+      "hex": "#E3D3AF",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dirt",
+      "lineId": "vallejo-model-air",
+      "name": "Dirt",
+      "hex": "#7A6240",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ija-midouri-green",
+      "lineId": "vallejo-model-air",
+      "name": "IJA Midouri Green",
+      "hex": "#3E493B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ija-chrome-yellow",
+      "lineId": "vallejo-model-air",
+      "name": "IJA Chrome Yellow",
+      "hex": "#F4A900",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ija-earth-brown",
+      "lineId": "vallejo-model-air",
+      "name": "IJA Earth Brown",
+      "hex": "#78644B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-light-green",
+      "lineId": "vallejo-model-air",
+      "name": "US Light Green",
+      "hex": "#66643E",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-sand",
+      "lineId": "vallejo-model-air",
+      "name": "US Sand",
+      "hex": "#96866D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-field-drab",
+      "lineId": "vallejo-model-air",
+      "name": "US Field Drab",
+      "hex": "#695940",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-desert-sand",
+      "lineId": "vallejo-model-air",
+      "name": "US Desert Sand",
+      "hex": "#A98E79",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-idf-sand-grey-73",
+      "lineId": "vallejo-model-air",
+      "name": "IDF Sand Grey 73",
+      "hex": "#AA9F83",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-idf-sinai-grey-82",
+      "lineId": "vallejo-model-air",
+      "name": "IDF Sinai Grey 82",
+      "hex": "#7A736B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-uk-light-stone",
+      "lineId": "vallejo-model-air",
+      "name": "UK Light Stone",
+      "hex": "#B49A69",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-sand-beige",
+      "lineId": "vallejo-model-air",
+      "name": "Sand Beige",
+      "hex": "#B5A48A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-loam-beige",
+      "lineId": "vallejo-model-air",
+      "name": "Loam Beige",
+      "hex": "#988864",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-yellow-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Yellow Brown",
+      "hex": "#978674",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-light-olive",
+      "lineId": "vallejo-model-air",
+      "name": "Light Olive",
+      "hex": "#68604D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-brown-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Brown Grey",
+      "hex": "#62615F",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-nato-brown",
+      "lineId": "vallejo-model-air",
+      "name": "Nato Brown",
+      "hex": "#5C4E45",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-bronze-green",
+      "lineId": "vallejo-model-air",
+      "name": "Bronze Green",
+      "hex": "#545648",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-nato-black",
+      "lineId": "vallejo-model-air",
+      "name": "Nato Black",
+      "hex": "#38383A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ocean-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Ocean Gray",
+      "hex": "#6D767F",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-aggressor-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Aggressor Gray",
+      "hex": "#7B7C7E",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-usaf-medium-gray",
+      "lineId": "vallejo-model-air",
+      "name": "USAF Medium Gray",
+      "hex": "#828385",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-usaf-light-gray",
+      "lineId": "vallejo-model-air",
+      "name": "USAF Light Gray",
+      "hex": "#C3C5C2",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dark-gull-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Dark Gull Gray",
+      "hex": "#828385",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-insignia-white",
+      "lineId": "vallejo-model-air",
+      "name": "Insignia White",
+      "hex": "#E3E3D9",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-camouflage-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Camouflage Gray",
+      "hex": "#6A6C69",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-3b-russian-green",
+      "lineId": "vallejo-model-air",
+      "name": "3B Russian Green",
+      "hex": "#474946",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-6k-russian-brown",
+      "lineId": "vallejo-model-air",
+      "name": "6K Russian Brown",
+      "hex": "#4D4C4A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-7k-russian-tan",
+      "lineId": "vallejo-model-air",
+      "name": "7K Russian Tan",
+      "hex": "#787157",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-uk-light-mud",
+      "lineId": "vallejo-model-air",
+      "name": "UK Light Mud",
+      "hex": "#86816E",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ija-dark-green",
+      "lineId": "vallejo-model-air",
+      "name": "IJA Dark Green",
+      "hex": "#52543F",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ija-olive-green",
+      "lineId": "vallejo-model-air",
+      "name": "IJA Olive Green",
+      "hex": "#534D3F",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ija-khaki-brown",
+      "lineId": "vallejo-model-air",
+      "name": "IJA Khaki Brown",
+      "hex": "#695940",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-uk-bsc-64-portland-stone",
+      "lineId": "vallejo-model-air",
+      "name": "UK BSC 64 Portland Stone",
+      "hex": "#CCBD94",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-dark-green",
+      "lineId": "vallejo-model-air",
+      "name": "US Dark Green",
+      "hex": "#575944",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-earth-brown",
+      "lineId": "vallejo-model-air",
+      "name": "US Earth Brown",
+      "hex": "#65594D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-earth-yellow",
+      "lineId": "vallejo-model-air",
+      "name": "US Earth Yellow",
+      "hex": "#BA915D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-loam",
+      "lineId": "vallejo-model-air",
+      "name": "US Loam",
+      "hex": "#565751",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-earth-red",
+      "lineId": "vallejo-model-air",
+      "name": "US Earth Red",
+      "hex": "#7B604D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-us-forest-green",
+      "lineId": "vallejo-model-air",
+      "name": "US Forest Green",
+      "hex": "#54544A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-usn-sea-blue",
+      "lineId": "vallejo-model-air",
+      "name": "USN Sea Blue",
+      "hex": "#43484C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-usaaf-light-gray",
+      "lineId": "vallejo-model-air",
+      "name": "USAAF Light Gray",
+      "hex": "#BCBCB2",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-jgsd-brown-3606",
+      "lineId": "vallejo-model-air",
+      "name": "JGSD Brown 3606",
+      "hex": "#70665C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-m495-light-gray",
+      "lineId": "vallejo-model-air",
+      "name": "M495 Light Gray",
+      "hex": "#9C998A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-intermediate-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Intermediate Blue",
+      "hex": "#5E707E",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-glossy-sea-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Glossy Sea Blue",
+      "hex": "#232C35",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-amt-4-camouflage-green",
+      "lineId": "vallejo-model-air",
+      "name": "AMT-4 Camouflage Green",
+      "hex": "#645D40",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-sky-type-s",
+      "lineId": "vallejo-model-air",
+      "name": "Sky Type S",
+      "hex": "#A2A48C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-a-24m-camouflage-green",
+      "lineId": "vallejo-model-air",
+      "name": "A-24M Camouflage Green",
+      "hex": "#575944",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-amt-11-blue-grey",
+      "lineId": "vallejo-model-air",
+      "name": "AMT-11 Blue Grey",
+      "hex": "#5A616B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-interior-grey-green",
+      "lineId": "vallejo-model-air",
+      "name": "Interior Grey Green",
+      "hex": "#96A28A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-sky-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Sky Blue",
+      "hex": "#C2D6D7",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-bs-medium-sea-grey",
+      "lineId": "vallejo-model-air",
+      "name": "BS Medium Sea Grey",
+      "hex": "#7F898B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-amt-12-dark-grey",
+      "lineId": "vallejo-model-air",
+      "name": "AMT-12 Dark Grey",
+      "hex": "#43484C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dark-slate-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Dark Slate Grey",
+      "hex": "#5D5F54",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ijn-deep-dark-green",
+      "lineId": "vallejo-model-air",
+      "name": "IJN Deep Dark Green",
+      "hex": "#34514D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ijn-ash-grey",
+      "lineId": "vallejo-model-air",
+      "name": "IJN Ash Grey",
+      "hex": "#89816C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ijn-medium-grey",
+      "lineId": "vallejo-model-air",
+      "name": "IJN Medium Grey",
+      "hex": "#B8B1A9",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-dark-mediterranean-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Dark Mediterranean Blue",
+      "hex": "#1F3751",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-seaplane-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Seaplane Gray",
+      "hex": "#555756",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-tire-black",
+      "lineId": "vallejo-model-air",
+      "name": "Tire Black",
+      "hex": "#505153",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-no-41-dark-olive-drab",
+      "lineId": "vallejo-model-air",
+      "name": "No.41 Dark Olive Drab",
+      "hex": "#534D3F",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-aii-sv-gol-light-blue",
+      "lineId": "vallejo-model-air",
+      "name": "AII SV Gol Light Blue",
+      "hex": "#7CC5D6",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-amt-7-greyish-blue",
+      "lineId": "vallejo-model-air",
+      "name": "AMT-7 Greyish Blue",
+      "hex": "#618C9F",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-a-28m-greyish-blue",
+      "lineId": "vallejo-model-air",
+      "name": "A-28M Greyish Blue",
+      "hex": "#719F92",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-amt-1-light-grey-brown",
+      "lineId": "vallejo-model-air",
+      "name": "AMT-1 Light Grey Brown",
+      "hex": "#958B81",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ija-light-grey-green",
+      "lineId": "vallejo-model-air",
+      "name": "IJA Light Grey Green",
+      "hex": "#A5AA93",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ijn-black-green",
+      "lineId": "vallejo-model-air",
+      "name": "IJN Black Green",
+      "hex": "#3E493B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-bs-dark-earth",
+      "lineId": "vallejo-model-air",
+      "name": "BS Dark Earth",
+      "hex": "#6C5B41",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-bs-dark-green",
+      "lineId": "vallejo-model-air",
+      "name": "BS Dark Green",
+      "hex": "#444631",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ijn-dark-black-green",
+      "lineId": "vallejo-model-air",
+      "name": "IJN Dark Black Green",
+      "hex": "#434542",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-ija-grey-green",
+      "lineId": "vallejo-model-air",
+      "name": "IJA Grey Green",
+      "hex": "#BBB39E",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-iaf-sand",
+      "lineId": "vallejo-model-air",
+      "name": "IAF Sand",
+      "hex": "#C4B29A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-flanker-light-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Flanker Light Blue",
+      "hex": "#B1C5C6",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-flanker-light-gray",
+      "lineId": "vallejo-model-air",
+      "name": "Flanker Light Gray",
+      "hex": "#9CA6A5",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-a-14-steel-grey",
+      "lineId": "vallejo-model-air",
+      "name": "A-14 Steel Grey",
+      "hex": "#687271",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-flanker-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Flanker Blue",
+      "hex": "#91AEB4",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-russian-af-grey-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Russian AF Grey Blue",
+      "hex": "#A2ACAB",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-russian-af-grey-n3",
+      "lineId": "vallejo-model-air",
+      "name": "Russian AF Grey N3",
+      "hex": "#858E8D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-grey-green",
+      "lineId": "vallejo-model-air",
+      "name": "Grey Green",
+      "hex": "#787E7A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-green-grey",
+      "lineId": "vallejo-model-air",
+      "name": "Green Grey",
+      "hex": "#586355",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-russian-af-light-blue",
+      "lineId": "vallejo-model-air",
+      "name": "Russian AF Light Blue",
+      "hex": "#AAC9C4",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-russian-af-grey-n7",
+      "lineId": "vallejo-model-air",
+      "name": "Russian AF Grey N7",
+      "hex": "#739CB0",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-russian-af-grey-protective-coat",
+      "lineId": "vallejo-model-air",
+      "name": "Russian AF Grey Protective Coat",
+      "hex": "#B1CCD7",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-russian-af-grey-n8",
+      "lineId": "vallejo-model-air",
+      "name": "Russian AF Grey N8",
+      "hex": "#A1B5BE",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-russian-af-grey-n4",
+      "lineId": "vallejo-model-air",
+      "name": "Russian AF Grey N4",
+      "hex": "#AAA794",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-russian-af-dark-green",
+      "lineId": "vallejo-model-air",
+      "name": "Russian AF Dark Green",
+      "hex": "#4B4835",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-model-air-usaf-tan",
+      "lineId": "vallejo-model-air",
+      "name": "USAF Tan",
+      "hex": "#BE9869",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-dead-white",
+      "lineId": "vallejo-game-air",
+      "name": "Dead White",
+      "hex": "#FFFFFF",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-pale-flesh",
+      "lineId": "vallejo-game-air",
+      "name": "Pale Flesh",
+      "hex": "#FADACF",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-elf-skin-tone",
+      "lineId": "vallejo-game-air",
+      "name": "Elf Skin Tone",
+      "hex": "#E7AE81",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-moon-yellow",
+      "lineId": "vallejo-game-air",
+      "name": "Moon Yellow",
+      "hex": "#FCBC02",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-sun-yellow",
+      "lineId": "vallejo-game-air",
+      "name": "Sun Yellow",
+      "hex": "#F6B422",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-gold-yellow",
+      "lineId": "vallejo-game-air",
+      "name": "Gold Yellow",
+      "hex": "#F19A00",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-orange-fire",
+      "lineId": "vallejo-game-air",
+      "name": "Orange Fire",
+      "hex": "#EA632B",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-hot-orange",
+      "lineId": "vallejo-game-air",
+      "name": "Hot Orange",
+      "hex": "#E64C2A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-bloody-red",
+      "lineId": "vallejo-game-air",
+      "name": "Bloody Red",
+      "hex": "#CD3230",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-gory-red",
+      "lineId": "vallejo-game-air",
+      "name": "Gory Red",
+      "hex": "#693B3D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-scarlet-red",
+      "lineId": "vallejo-game-air",
+      "name": "Scarlet Red",
+      "hex": "#9C122C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-squid-pink",
+      "lineId": "vallejo-game-air",
+      "name": "Squid Pink",
+      "hex": "#DA88B8",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-warlord-purple",
+      "lineId": "vallejo-game-air",
+      "name": "Warlord Purple",
+      "hex": "#B0376D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-hexed-lichen",
+      "lineId": "vallejo-game-air",
+      "name": "Hexed Lichen",
+      "hex": "#39373A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-imperial-blue",
+      "lineId": "vallejo-game-air",
+      "name": "Imperial Blue",
+      "hex": "#04316A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-magic-blue",
+      "lineId": "vallejo-game-air",
+      "name": "Magic Blue",
+      "hex": "#026EB6",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-ultramarine-blue",
+      "lineId": "vallejo-game-air",
+      "name": "Ultramarine Blue",
+      "hex": "#1D548A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-electric-blue",
+      "lineId": "vallejo-game-air",
+      "name": "Electric Blue",
+      "hex": "#2E95B4",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-dark-green",
+      "lineId": "vallejo-game-air",
+      "name": "Dark Green",
+      "hex": "#274E39",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-sick-green",
+      "lineId": "vallejo-game-air",
+      "name": "Sick Green",
+      "hex": "#246B49",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-goblin-green",
+      "lineId": "vallejo-game-air",
+      "name": "Goblin Green",
+      "hex": "#6B7342",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-scorpy-green",
+      "lineId": "vallejo-game-air",
+      "name": "Scorpy Green",
+      "hex": "#80AF49",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-light-livery-green",
+      "lineId": "vallejo-game-air",
+      "name": "Light Livery Green",
+      "hex": "#92BD16",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-bone-white",
+      "lineId": "vallejo-game-air",
+      "name": "Bone White",
+      "hex": "#C3B89C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-dead-flesh",
+      "lineId": "vallejo-game-air",
+      "name": "Dead Flesh",
+      "hex": "#C8BC8A",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-bronze-flesh-tone",
+      "lineId": "vallejo-game-air",
+      "name": "Bronze Flesh Tone",
+      "hex": "#EF9849",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-cobra-leather",
+      "lineId": "vallejo-game-air",
+      "name": "Cobra Leather",
+      "hex": "#855C26",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-dwarf-skin",
+      "lineId": "vallejo-game-air",
+      "name": "Dwarf Skin",
+      "hex": "#D99169",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-beasty-brown",
+      "lineId": "vallejo-game-air",
+      "name": "Beasty Brown",
+      "hex": "#7A543D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-dark-flesh-tone",
+      "lineId": "vallejo-game-air",
+      "name": "Dark Flesh Tone",
+      "hex": "#5B4844",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-charred-brown",
+      "lineId": "vallejo-game-air",
+      "name": "Charred Brown",
+      "hex": "#4D4542",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-wolf-grey",
+      "lineId": "vallejo-game-air",
+      "name": "Wolf Grey",
+      "hex": "#ACBDCD",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-sombre-grey",
+      "lineId": "vallejo-game-air",
+      "name": "Sombre Grey",
+      "hex": "#576878",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-stone-wall-grey",
+      "lineId": "vallejo-game-air",
+      "name": "Stone Wall Grey",
+      "hex": "#A1A2A4",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-cold-grey",
+      "lineId": "vallejo-game-air",
+      "name": "Cold Grey",
+      "hex": "#828385",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-black",
+      "lineId": "vallejo-game-air",
+      "name": "Black",
+      "hex": "#010101",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-silver",
+      "lineId": "vallejo-game-air",
+      "name": "Silver",
+      "hex": "#A7ACB0",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-chain-mail-silver",
+      "lineId": "vallejo-game-air",
+      "name": "Chain Mail Silver",
+      "hex": "#AEAEAE",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-gunmetal",
+      "lineId": "vallejo-game-air",
+      "name": "Gunmetal",
+      "hex": "#6E6F71",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-polished-gold",
+      "lineId": "vallejo-game-air",
+      "name": "Polished Gold",
+      "hex": "#EBAE00",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-glorious-gold",
+      "lineId": "vallejo-game-air",
+      "name": "Glorious Gold",
+      "hex": "#C4905E",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-bright-bronze",
+      "lineId": "vallejo-game-air",
+      "name": "Bright Bronze",
+      "hex": "#95664C",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-brassy-brass",
+      "lineId": "vallejo-game-air",
+      "name": "Brassy Brass",
+      "hex": "#A15323",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-khaki",
+      "lineId": "vallejo-game-air",
+      "name": "Khaki",
+      "hex": "#AA9D73",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-earth",
+      "lineId": "vallejo-game-air",
+      "name": "Earth",
+      "hex": "#7B6848",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-desert-yellow",
+      "lineId": "vallejo-game-air",
+      "name": "Desert Yellow",
+      "hex": "#A7844E",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-flesh",
+      "lineId": "vallejo-game-air",
+      "name": "Flesh",
+      "hex": "#F6BD90",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-burned-flesh",
+      "lineId": "vallejo-game-air",
+      "name": "Burned Flesh",
+      "hex": "#A26641",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-barbarian-flesh",
+      "lineId": "vallejo-game-air",
+      "name": "Barbarian Flesh",
+      "hex": "#A17C62",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-red-terracotta",
+      "lineId": "vallejo-game-air",
+      "name": "Red Terracotta",
+      "hex": "#79423D",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-game-air-alien-purple",
+      "lineId": "vallejo-game-air",
+      "name": "Alien Purple",
+      "hex": "#6D62A6",
+      "type": "air"
+    },
+    {
+      "id": "vallejo-mecha-color-pure-white",
+      "lineId": "vallejo-mecha-color",
+      "name": "Pure White",
+      "hex": "#FFFFFF",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-white-grey",
+      "lineId": "vallejo-mecha-color",
+      "name": "White Grey",
+      "hex": "#F0ECE3",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-offwhite",
+      "lineId": "vallejo-mecha-color",
+      "name": "Offwhite",
+      "hex": "#EBEBE1",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-yellow",
+      "lineId": "vallejo-mecha-color",
+      "name": "Yellow",
+      "hex": "#E9A401",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-light-flesh",
+      "lineId": "vallejo-mecha-color",
+      "name": "Light Flesh",
+      "hex": "#F8D9C7",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-pink",
+      "lineId": "vallejo-mecha-color",
+      "name": "Pink",
+      "hex": "#D08474",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-orange",
+      "lineId": "vallejo-mecha-color",
+      "name": "Orange",
+      "hex": "#E9602C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-red",
+      "lineId": "vallejo-mecha-color",
+      "name": "Red",
+      "hex": "#BC4040",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-sz-red",
+      "lineId": "vallejo-mecha-color",
+      "name": "SZ Red",
+      "hex": "#B33737",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-magenta",
+      "lineId": "vallejo-mecha-color",
+      "name": "Magenta",
+      "hex": "#BF1226",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-dark-red",
+      "lineId": "vallejo-mecha-color",
+      "name": "Dark Red",
+      "hex": "#93262C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-purple",
+      "lineId": "vallejo-mecha-color",
+      "name": "Purple",
+      "hex": "#AD8DBC",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-titan-blue",
+      "lineId": "vallejo-mecha-color",
+      "name": "Titan Blue",
+      "hex": "#4D4D6F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-grey-green",
+      "lineId": "vallejo-mecha-color",
+      "name": "Grey Green",
+      "hex": "#6D8589",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-blue-grey",
+      "lineId": "vallejo-mecha-color",
+      "name": "Blue Grey",
+      "hex": "#6A8795",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-light-blue",
+      "lineId": "vallejo-mecha-color",
+      "name": "Light Blue",
+      "hex": "#6B8DBB",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-sky-blue",
+      "lineId": "vallejo-mecha-color",
+      "name": "Sky Blue",
+      "hex": "#7ACAEB",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-deep-blue",
+      "lineId": "vallejo-mecha-color",
+      "name": "Deep Blue",
+      "hex": "#0C97C2",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-blue",
+      "lineId": "vallejo-mecha-color",
+      "name": "Blue",
+      "hex": "#44689C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-electric-blue",
+      "lineId": "vallejo-mecha-color",
+      "name": "Electric Blue",
+      "hex": "#0370B1",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-dark-blue",
+      "lineId": "vallejo-mecha-color",
+      "name": "Dark Blue",
+      "hex": "#405B78",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-titan-dark-blue",
+      "lineId": "vallejo-mecha-color",
+      "name": "Titan Dark Blue",
+      "hex": "#41464C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-turquoise",
+      "lineId": "vallejo-mecha-color",
+      "name": "Turquoise",
+      "hex": "#009B9F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-stone-grey",
+      "lineId": "vallejo-mecha-color",
+      "name": "Stone Grey",
+      "hex": "#A1B1B1",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-light-green",
+      "lineId": "vallejo-mecha-color",
+      "name": "Light Green",
+      "hex": "#C6C9BE",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-green",
+      "lineId": "vallejo-mecha-color",
+      "name": "Green",
+      "hex": "#A4A792",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-green-blue",
+      "lineId": "vallejo-mecha-color",
+      "name": "Green Blue",
+      "hex": "#8A9F80",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-olive-green",
+      "lineId": "vallejo-mecha-color",
+      "name": "Olive Green",
+      "hex": "#5F6E45",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-deep-green",
+      "lineId": "vallejo-mecha-color",
+      "name": "Deep Green",
+      "hex": "#70793A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-dark-green",
+      "lineId": "vallejo-mecha-color",
+      "name": "Dark Green",
+      "hex": "#525345",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-grey-sand",
+      "lineId": "vallejo-mecha-color",
+      "name": "Grey Sand",
+      "hex": "#BA9F72",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-yellow-ochre",
+      "lineId": "vallejo-mecha-color",
+      "name": "Yellow Ochre",
+      "hex": "#EAA432",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-sand-yellow",
+      "lineId": "vallejo-mecha-color",
+      "name": "Sand Yellow",
+      "hex": "#E4B86F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-brown",
+      "lineId": "vallejo-mecha-color",
+      "name": "Brown",
+      "hex": "#7B674E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-chipping-brown",
+      "lineId": "vallejo-mecha-color",
+      "name": "Chipping Brown",
+      "hex": "#484242",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-light-grey",
+      "lineId": "vallejo-mecha-color",
+      "name": "Light Grey",
+      "hex": "#969DA3",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-grey",
+      "lineId": "vallejo-mecha-color",
+      "name": "Grey",
+      "hex": "#8A97A0",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-medium-grey",
+      "lineId": "vallejo-mecha-color",
+      "name": "Medium Grey",
+      "hex": "#828385",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-grey-z",
+      "lineId": "vallejo-mecha-color",
+      "name": "Grey Z",
+      "hex": "#7A7B7D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-phantom-grey",
+      "lineId": "vallejo-mecha-color",
+      "name": "Phantom Grey",
+      "hex": "#535762",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-dark-grey-green",
+      "lineId": "vallejo-mecha-color",
+      "name": "Dark Grey Green",
+      "hex": "#505251",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-pure-black",
+      "lineId": "vallejo-mecha-color",
+      "name": "Pure Black",
+      "hex": "#010101",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-yellow-fluorescent",
+      "lineId": "vallejo-mecha-color",
+      "name": "Yellow Fluorescent",
+      "hex": "#EFE641",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-orange-fluorescent",
+      "lineId": "vallejo-mecha-color",
+      "name": "Orange Fluorescent",
+      "hex": "#E86016",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-magenta-fluorescent",
+      "lineId": "vallejo-mecha-color",
+      "name": "Magenta Fluorescent",
+      "hex": "#E6418D",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-green-fluorescent",
+      "lineId": "vallejo-mecha-color",
+      "name": "Green Fluorescent",
+      "hex": "#A8C958",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-gunmetal",
+      "lineId": "vallejo-mecha-color",
+      "name": "Gunmetal",
+      "hex": "#646760",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-gold",
+      "lineId": "vallejo-mecha-color",
+      "name": "Gold",
+      "hex": "#AC8424",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-old-gold",
+      "lineId": "vallejo-mecha-color",
+      "name": "Old Gold",
+      "hex": "#9C8448",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-copper",
+      "lineId": "vallejo-mecha-color",
+      "name": "Copper",
+      "hex": "#9A5B3A",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-bronze",
+      "lineId": "vallejo-mecha-color",
+      "name": "Bronze",
+      "hex": "#766B35",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-steel",
+      "lineId": "vallejo-mecha-color",
+      "name": "Steel",
+      "hex": "#898A82",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-light-steel",
+      "lineId": "vallejo-mecha-color",
+      "name": "Light Steel",
+      "hex": "#CDD6D3",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-dark-steel",
+      "lineId": "vallejo-mecha-color",
+      "name": "Dark Steel",
+      "hex": "#737476",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-metallic-red",
+      "lineId": "vallejo-mecha-color",
+      "name": "Metallic Red",
+      "hex": "#CB5970",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-metallic-blue",
+      "lineId": "vallejo-mecha-color",
+      "name": "Metallic Blue",
+      "hex": "#373C4F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-mecha-color-metallic-green",
+      "lineId": "vallejo-mecha-color",
+      "name": "Metallic Green",
+      "hex": "#1B927F",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-metal-color-aluminum",
+      "lineId": "vallejo-metal-color",
+      "name": "Aluminum",
+      "hex": "#E8E8EA",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-duraluminum",
+      "lineId": "vallejo-metal-color",
+      "name": "Duraluminum",
+      "hex": "#E4E2E5",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-dark-aluminum",
+      "lineId": "vallejo-metal-color",
+      "name": "Dark Aluminum",
+      "hex": "#DEDCDD",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-pale-burnt-metal",
+      "lineId": "vallejo-metal-color",
+      "name": "Pale Burnt Metal",
+      "hex": "#E7E6E7",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-white-aluminum",
+      "lineId": "vallejo-metal-color",
+      "name": "White Aluminum",
+      "hex": "#ECECEE",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-chrome",
+      "lineId": "vallejo-metal-color",
+      "name": "Chrome",
+      "hex": "#E9E7E8",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-copper",
+      "lineId": "vallejo-metal-color",
+      "name": "Copper",
+      "hex": "#E4DCD7",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-magnesium",
+      "lineId": "vallejo-metal-color",
+      "name": "Magnesium",
+      "hex": "#D9D7D8",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-steel",
+      "lineId": "vallejo-metal-color",
+      "name": "Steel",
+      "hex": "#D2D0D0",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-jet-exhaust",
+      "lineId": "vallejo-metal-color",
+      "name": "Jet Exhaust",
+      "hex": "#D5D4D2",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-semi-matt-aluminum",
+      "lineId": "vallejo-metal-color",
+      "name": "Semi Matt Aluminum",
+      "hex": "#EEEEF0",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-dull-aluminum",
+      "lineId": "vallejo-metal-color",
+      "name": "Dull Aluminum",
+      "hex": "#EDEDEF",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-gunmetal-grey",
+      "lineId": "vallejo-metal-color",
+      "name": "Gunmetal Grey",
+      "hex": "#D0CECE",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-burnt-iron",
+      "lineId": "vallejo-metal-color",
+      "name": "Burnt Iron",
+      "hex": "#D6D5D4",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-exhaust-manifold",
+      "lineId": "vallejo-metal-color",
+      "name": "Exhaust Manifold",
+      "hex": "#D7D5D3",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-silver",
+      "lineId": "vallejo-metal-color",
+      "name": "Silver",
+      "hex": "#E4E2E5",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-metal-color-gold",
+      "lineId": "vallejo-metal-color",
+      "name": "Gold",
+      "hex": "#EAE3D8",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "vallejo-panzer-aces-light-rust",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Light Rust",
+      "hex": "#87431E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-dark-rust",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Dark Rust",
+      "hex": "#4F4442",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-yellowish-rust",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Yellowish Rust",
+      "hex": "#BE8B5C",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-track-primer",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Track Primer",
+      "hex": "#5B5652",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-light-rubber",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Light Rubber",
+      "hex": "#838381",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-dark-rubber",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Dark Rubber",
+      "hex": "#505153",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-german-red-tail-light",
+      "lineId": "vallejo-panzer-aces",
+      "name": "German Red Tail Light",
+      "hex": "#4E3227",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-german-green-tail-light",
+      "lineId": "vallejo-panzer-aces",
+      "name": "German Green Tail Light",
+      "hex": "#395046",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-periscopes",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Periscopes",
+      "hex": "#3B4D5B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-old-wood",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Old Wood",
+      "hex": "#AD9C70",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-new-wood",
+      "lineId": "vallejo-panzer-aces",
+      "name": "New Wood",
+      "hex": "#896545",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-leather-belt",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Leather Belt",
+      "hex": "#665249",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-stencil",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Stencil",
+      "hex": "#E0E0D8",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-canvas",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Canvas",
+      "hex": "#6E6554",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-light-mud",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Light Mud",
+      "hex": "#ACA378",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-dark-mud",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Dark Mud",
+      "hex": "#685F4E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-british-tank-crew",
+      "lineId": "vallejo-panzer-aces",
+      "name": "British Tank Crew",
+      "hex": "#756E54",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-us-army-tank-crew",
+      "lineId": "vallejo-panzer-aces",
+      "name": "US Army Tank Crew",
+      "hex": "#79684E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-usmc-tank-crew",
+      "lineId": "vallejo-panzer-aces",
+      "name": "USMC Tank Crew",
+      "hex": "#1D573E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-french-tank-crew",
+      "lineId": "vallejo-panzer-aces",
+      "name": "French Tank Crew",
+      "hex": "#756E54",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-flesh-base",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Flesh Base",
+      "hex": "#A4531E",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-flesh-highlights",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Flesh Highlights",
+      "hex": "#FAD3AA",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-flesh-shadows",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Flesh Shadows",
+      "hex": "#571715",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-german-tank-crew",
+      "lineId": "vallejo-panzer-aces",
+      "name": "German Tank Crew",
+      "hex": "#404646",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-afrikakorps-tank-crew",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Afrikakorps Tank Crew",
+      "hex": "#6E705B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-splinter-camouflage-base",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Splinter Camouflage Base",
+      "hex": "#9D9E98",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-splinter-blotches-i",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Splinter Blotches I",
+      "hex": "#01613B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-splinter-blotches-ii",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Splinter Blotches II",
+      "hex": "#3F2C28",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-panzer-aces-splinter-strips",
+      "lineId": "vallejo-panzer-aces",
+      "name": "Splinter Strips",
+      "hex": "#4F684B",
+      "type": "acrylic"
+    },
+    {
+      "id": "vallejo-surface-primer-white",
+      "lineId": "vallejo-surface-primer",
+      "name": "White",
+      "hex": "#FFFFFF",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-grey",
+      "lineId": "vallejo-surface-primer",
+      "name": "Grey",
+      "hex": "#C6C6C8",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-black",
+      "lineId": "vallejo-surface-primer",
+      "name": "Black",
+      "hex": "#010101",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-german-panzer-grey",
+      "lineId": "vallejo-surface-primer",
+      "name": "German Panzer Grey",
+      "hex": "#454547",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-german-dark-yellow",
+      "lineId": "vallejo-surface-primer",
+      "name": "German Dark Yellow",
+      "hex": "#957B64",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-german-red-brown",
+      "lineId": "vallejo-surface-primer",
+      "name": "German Red Brown",
+      "hex": "#67423A",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-german-green-brown",
+      "lineId": "vallejo-surface-primer",
+      "name": "German Green Brown",
+      "hex": "#886C47",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-uk-bronze-green",
+      "lineId": "vallejo-surface-primer",
+      "name": "UK Bronze Green",
+      "hex": "#3E403F",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-usa-olive-drab",
+      "lineId": "vallejo-surface-primer",
+      "name": "USA Olive Drab",
+      "hex": "#66614E",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-russian-green-4bo",
+      "lineId": "vallejo-surface-primer",
+      "name": "Russian Green 4bo",
+      "hex": "#4D4F44",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-nato-green",
+      "lineId": "vallejo-surface-primer",
+      "name": "NATO Green",
+      "hex": "#4B5645",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-desert-tan",
+      "lineId": "vallejo-surface-primer",
+      "name": "Desert Tan",
+      "hex": "#DAC397",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-idf-israeli-sand-grey",
+      "lineId": "vallejo-surface-primer",
+      "name": "IDF Israeli Sand Grey",
+      "hex": "#887C70",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-usn-light-ghost-grey",
+      "lineId": "vallejo-surface-primer",
+      "name": "USN Light Ghost Grey",
+      "hex": "#9BA2AC",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-pure-red",
+      "lineId": "vallejo-surface-primer",
+      "name": "Pure Red",
+      "hex": "#C3322D",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-ultramarine",
+      "lineId": "vallejo-surface-primer",
+      "name": "Ultramarine",
+      "hex": "#55649F",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-leather-brown",
+      "lineId": "vallejo-surface-primer",
+      "name": "Leather Brown",
+      "hex": "#7C6052",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-skeleton-bone",
+      "lineId": "vallejo-surface-primer",
+      "name": "Skeleton Bone",
+      "hex": "#BAA789",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-surface-primer-plate-mail-metal",
+      "lineId": "vallejo-surface-primer",
+      "name": "Plate Mail Metal",
+      "hex": "#98999E",
+      "type": "primer"
+    },
+    {
+      "id": "vallejo-xpress-color-plasma-red",
+      "lineId": "vallejo-xpress-color",
+      "name": "Plasma Red",
+      "hex": "#692825",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-troll-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Troll Green",
+      "hex": "#123926",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-snake-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Snake Green",
+      "hex": "#132E28",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-wasteland-brown",
+      "lineId": "vallejo-xpress-color",
+      "name": "Wasteland Brown",
+      "hex": "#1C1613",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-mummy-white",
+      "lineId": "vallejo-xpress-color",
+      "name": "Mummy White",
+      "hex": "#574836",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-bag-of-bones",
+      "lineId": "vallejo-xpress-color",
+      "name": "Bag of Bones",
+      "hex": "#5D442C",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-rotten-flesh",
+      "lineId": "vallejo-xpress-color",
+      "name": "Rotten Flesh",
+      "hex": "#33301E",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-military-yellow",
+      "lineId": "vallejo-xpress-color",
+      "name": "Military Yellow",
+      "hex": "#38261B",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-chameleon-orange",
+      "lineId": "vallejo-xpress-color",
+      "name": "Chameleon Orange",
+      "hex": "#872D29",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-wicked-purple",
+      "lineId": "vallejo-xpress-color",
+      "name": "Wicked Purple",
+      "hex": "#2F2B2E",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-fairy-skin",
+      "lineId": "vallejo-xpress-color",
+      "name": "Fairy Skin",
+      "hex": "#834C47",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-fluid-pink",
+      "lineId": "vallejo-xpress-color",
+      "name": "Fluid Pink",
+      "hex": "#5E1851",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-vampiric-purple",
+      "lineId": "vallejo-xpress-color",
+      "name": "Vampiric Purple",
+      "hex": "#221C35",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-starship-steel",
+      "lineId": "vallejo-xpress-color",
+      "name": "Starship Steel",
+      "hex": "#1D3A3C",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-iceberg-grey",
+      "lineId": "vallejo-xpress-color",
+      "name": "Iceberg Grey",
+      "hex": "#242C33",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-wagram-blue",
+      "lineId": "vallejo-xpress-color",
+      "name": "Wagram Blue",
+      "hex": "#101F29",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-forest-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Forest Green",
+      "hex": "#06271A",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-armor-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Armor Green",
+      "hex": "#001516",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-commando-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Commando Green",
+      "hex": "#011217",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-mahogany",
+      "lineId": "vallejo-xpress-color",
+      "name": "Mahogany",
+      "hex": "#1C1817",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-battledress-brown",
+      "lineId": "vallejo-xpress-color",
+      "name": "Battledress Brown",
+      "hex": "#1A1918",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-greasy-black",
+      "lineId": "vallejo-xpress-color",
+      "name": "Greasy Black",
+      "hex": "#100F0F",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-dreadnought-yellow",
+      "lineId": "vallejo-xpress-color",
+      "name": "Dreadnought Yellow",
+      "hex": "#A1502B",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-seraph-red",
+      "lineId": "vallejo-xpress-color",
+      "name": "Seraph Red",
+      "hex": "#2E1917",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-legacy-blue",
+      "lineId": "vallejo-xpress-color",
+      "name": "Legacy Blue",
+      "hex": "#0A081E",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-monastic-green",
+      "lineId": "vallejo-xpress-color",
+      "name": "Monastic Green",
+      "hex": "#001517",
+      "type": "contrast"
+    },
+    {
+      "id": "vallejo-xpress-color-hospitallier-black",
+      "lineId": "vallejo-xpress-color",
+      "name": "Hospitallier Black",
+      "hex": "#030204",
+      "type": "contrast"
+    }
+  ]
+}

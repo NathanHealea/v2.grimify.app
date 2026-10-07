@@ -1,0 +1,4319 @@
+{
+  "brand": {
+    "id": "ak-interactive",
+    "name": "AK Interactive",
+    "manufacturer": "AK Interactive",
+    "website": "https://ak-interactive.com"
+  },
+  "lines": [
+    {
+      "id": "ak-interactive-3rd-gen-acrylics",
+      "name": "3rd Gen Acrylics"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic",
+      "name": "3rd Gen Metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-intense",
+      "name": "3rd Gen Intense"
+    },
+    {
+      "id": "ak-interactive-acrylics",
+      "name": "Acrylics"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv",
+      "name": "Acrylics AFV"
+    },
+    {
+      "id": "ak-interactive-acrylics-air",
+      "name": "Acrylics Air"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure",
+      "name": "Acrylics Figure"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval",
+      "name": "Acrylics Naval"
+    },
+    {
+      "id": "ak-interactive-acrylics-primer",
+      "name": "Acrylics Primer"
+    }
+  ],
+  "paints": [
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-white",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "White",
+      "hex": "#FFFFFF",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-offwhite",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Offwhite",
+      "hex": "#EBEBE1",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-white-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "White Grey",
+      "hex": "#F5F5ED",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-ivory",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Ivory",
+      "hex": "#F3EEC8",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-greenish-white",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Greenish White",
+      "hex": "#E4EECC",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-silver-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Silver Grey",
+      "hex": "#E2D7B7",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-rock-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Rock Grey",
+      "hex": "#C1B897",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-grimy-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Grimy Grey",
+      "hex": "#DFC998",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-warm-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Warm Grey",
+      "hex": "#B6A88B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-medium-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Medium Grey",
+      "hex": "#B6B8A2",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-blue-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Blue Grey",
+      "hex": "#C7D0CD",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-sky-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Sky Grey",
+      "hex": "#BAB9B5",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-pale-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Pale Grey",
+      "hex": "#AEAFB4",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-medium-sea-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Medium Sea Grey",
+      "hex": "#A19B81",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dark-sea-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dark Sea Grey",
+      "hex": "#7B7873",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-grey-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Grey Green",
+      "hex": "#808064",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-reddish-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Reddish Grey",
+      "hex": "#7B6B52",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-neutral-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Neutral Grey",
+      "hex": "#878787",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-graphite",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Graphite",
+      "hex": "#6C6E60",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-english-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "English Grey",
+      "hex": "#6D6D65",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-basalt-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Basalt Grey",
+      "hex": "#5B605A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dark-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dark Grey",
+      "hex": "#494A45",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-lead-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Lead Grey",
+      "hex": "#464741",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-ash-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Ash Grey",
+      "hex": "#414139",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-german-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "German Grey",
+      "hex": "#383830",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-tenebrous-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Tenebrous Grey",
+      "hex": "#302C21",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-rubber-black",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Rubber Black",
+      "hex": "#29251A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-smoke-black",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Smoke Black",
+      "hex": "#2B2B21",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-black",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Black",
+      "hex": "#101207",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-beige",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Beige",
+      "hex": "#E2B848",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-buff",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Buff",
+      "hex": "#D1AC5C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-pale-sand",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Pale Sand",
+      "hex": "#F0D682",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dark-sand",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dark Sand",
+      "hex": "#E6BC56",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-medium-sand",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Medium Sand",
+      "hex": "#CB9A34",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-sand-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Sand Yellow",
+      "hex": "#E9BD3A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-ice-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Ice Yellow",
+      "hex": "#FEEE8E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-pastel-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Pastel Yellow",
+      "hex": "#FDDA76",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-pale-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Pale Yellow",
+      "hex": "#FEDD58",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-purulent-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Purulent Yellow",
+      "hex": "#EBD03B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-sahara-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Sahara Yellow",
+      "hex": "#B1930D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-golden-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Golden Yellow",
+      "hex": "#FEB449",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-volcanic-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Volcanic Yellow",
+      "hex": "#F09218",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dirty-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dirty Yellow",
+      "hex": "#ECA71C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Yellow",
+      "hex": "#FAB711",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-deep-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Deep Yellow",
+      "hex": "#FDC500",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-radiant-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Radiant Yellow",
+      "hex": "#FFD409",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-lemon-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Lemon Yellow",
+      "hex": "#FEE020",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-laser-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Laser Yellow",
+      "hex": "#F5EF2B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-fluorescent-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Fluorescent Yellow",
+      "hex": "#F6F101",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-light-flesh",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Light Flesh",
+      "hex": "#FFDFB6",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-luminous-flesh",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Luminous Flesh",
+      "hex": "#EDC180",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-basic-skin-tone",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Basic Skin Tone",
+      "hex": "#F7B57B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-radiant-flesh",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Radiant Flesh",
+      "hex": "#FEB254",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-medium-flesh-tone",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Medium Flesh Tone",
+      "hex": "#C98230",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-sunny-skin-tone",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Sunny Skin Tone",
+      "hex": "#FFA84F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dark-flesh",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dark Flesh",
+      "hex": "#EAA339",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-vampiric-flesh",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Vampiric Flesh",
+      "hex": "#CFBC81",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-decomposed-flesh",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Decomposed Flesh",
+      "hex": "#B6A160",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-pastel-pink",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Pastel Pink",
+      "hex": "#F9C1AA",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-sickly-pink",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Sickly Pink",
+      "hex": "#F6AF91",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-salmon",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Salmon",
+      "hex": "#F5A175",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-old-rose",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Old Rose",
+      "hex": "#FE9679",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-brown-rose",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Brown Rose",
+      "hex": "#D78464",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-beige-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Beige Red",
+      "hex": "#DE935A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-intense-pink",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Intense Pink",
+      "hex": "#E9748F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-laser-magenta",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Laser Magenta",
+      "hex": "#6A0F2E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-magenta",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Magenta",
+      "hex": "#B1325F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-fluorescent-magenta",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Fluorescent Magenta",
+      "hex": "#FF4C69",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-pastel-violet",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Pastel Violet",
+      "hex": "#FFE7F5",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-blue-violet",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Blue Violet",
+      "hex": "#886DA4",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-lilac",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Lilac",
+      "hex": "#656074",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-deep-violet",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Deep Violet",
+      "hex": "#74536E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-violet",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Violet",
+      "hex": "#543A7B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-deep-purple",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Deep Purple",
+      "hex": "#7A4967",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-violet-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Violet Red",
+      "hex": "#573536",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-pastel-peach",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Pastel Peach",
+      "hex": "#F59A54",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-light-orange",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Light Orange",
+      "hex": "#F07A3C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-medium-orange",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Medium Orange",
+      "hex": "#FA682C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-burn-orange",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Burn Orange",
+      "hex": "#DB5E30",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-deep-orange",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Deep Orange",
+      "hex": "#FE5E14",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-fluorescent-orange",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Fluorescent Orange",
+      "hex": "#FE5102",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-luminous-orange",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Luminous Orange",
+      "hex": "#F18700",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dead-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dead Red",
+      "hex": "#F54949",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-ruby",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Ruby",
+      "hex": "#CF4747",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-cadmium-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Cadmium Red",
+      "hex": "#E9582C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-amaranth-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Amaranth Red",
+      "hex": "#CF4E27",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-scarlet-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Scarlet Red",
+      "hex": "#D13A27",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-deep-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Deep Red",
+      "hex": "#DC211A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-blood-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Blood Red",
+      "hex": "#C52219",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-vermillion",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Vermillion",
+      "hex": "#C44C33",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-carmine",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Carmine",
+      "hex": "#B83E26",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-matt-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Matt Red",
+      "hex": "#B4301B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-brick-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Brick Red",
+      "hex": "#9E4429",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-bordeaux-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Bordeaux Red",
+      "hex": "#A13B2F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dirty-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dirty Red",
+      "hex": "#7F190D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-wine-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Wine Red",
+      "hex": "#69140D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-burnt-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Burnt Red",
+      "hex": "#533125",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-black-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Black Red",
+      "hex": "#42271E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-ocher-orange",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Ocher Orange",
+      "hex": "#F5A75F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-light-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Light Brown",
+      "hex": "#CF8139",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-orange-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Orange Brown",
+      "hex": "#B1581E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-deep-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Deep Brown",
+      "hex": "#854A2A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-medium-rust",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Medium Rust",
+      "hex": "#9C4B30",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-saddle-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Saddle Brown",
+      "hex": "#683A2B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-light-rust",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Light Rust",
+      "hex": "#DB5615",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-mahogany-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Mahogany Brown",
+      "hex": "#622A05",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dark-rust",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dark Rust",
+      "hex": "#542303",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-hull-red",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Hull Red",
+      "hex": "#381A02",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dark-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dark Brown",
+      "hex": "#533914",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-leather-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Leather Brown",
+      "hex": "#46311E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-burnt-umber",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Burnt Umber",
+      "hex": "#2D1E01",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-grim-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Grim Brown",
+      "hex": "#211404",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-chocolate-chipping",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Chocolate (Chipping)",
+      "hex": "#331E09",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-deck-tan",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Deck Tan",
+      "hex": "#CDC5B0",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-light-earth",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Light Earth",
+      "hex": "#D0B580",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-tan-yellow",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Tan Yellow",
+      "hex": "#D19849",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-golden-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Golden Brown",
+      "hex": "#AB7602",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-ochre",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Ochre",
+      "hex": "#C7932D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-mud-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Mud Brown",
+      "hex": "#705331",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-tan-earth",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Tan Earth",
+      "hex": "#7D5C33",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-green-ochre",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Green Ochre",
+      "hex": "#A68236",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-japanese-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Japanese Brown",
+      "hex": "#966D1B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-middle-stone",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Middle Stone",
+      "hex": "#8B7029",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-grey-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Grey-Brown",
+      "hex": "#705B3C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-green-brown",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Green-Brown",
+      "hex": "#705923",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-british-khaki",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "British Khaki",
+      "hex": "#654D1F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-luminous-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Luminous Green",
+      "hex": "#CDD742",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-fluorescent-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Fluorescent Green",
+      "hex": "#98C31E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-pistachio",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Pistachio",
+      "hex": "#DCD225",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-pastel-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Pastel Green",
+      "hex": "#A9D099",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-green-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Green-Grey",
+      "hex": "#DFE4BC",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dark-green-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dark Green-Grey",
+      "hex": "#3B4D3D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-green-sky",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Green Sky",
+      "hex": "#8AB182",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-faded-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Faded Green",
+      "hex": "#7C8872",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-frog-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Frog Green",
+      "hex": "#97B81F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-lime-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Lime Green",
+      "hex": "#819F1D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-interior-yellow-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Interior Yellow Green",
+      "hex": "#ACA300",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-golden-olive",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Golden Olive",
+      "hex": "#737B26",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-grass-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Grass Green",
+      "hex": "#62832C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-light-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Light Green",
+      "hex": "#59922B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-deep-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Deep Green",
+      "hex": "#1C6128",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-mint-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Mint Green",
+      "hex": "#008C5F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-emerald",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Emerald",
+      "hex": "#036242",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-lizard-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Lizard Green",
+      "hex": "#165930",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dark-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dark Green",
+      "hex": "#224618",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-olive-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Olive Green",
+      "hex": "#4B5F20",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-medium-olive-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Medium Olive Green",
+      "hex": "#3E501C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-intermediate-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Intermediate Green",
+      "hex": "#506E32",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-gunship-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Gunship Green",
+      "hex": "#485335",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-brownish-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Brownish Green",
+      "hex": "#57460E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-alga-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Alga Green",
+      "hex": "#545D1A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-extra-dark-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Extra Dark Green",
+      "hex": "#243128",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-german-field-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "German Field Grey",
+      "hex": "#423E23",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-command-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Command Green",
+      "hex": "#312E0D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-camouflage-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Camouflage Green",
+      "hex": "#4E401B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-us-dark-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "US Dark Green",
+      "hex": "#423910",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-reflective-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Reflective Green",
+      "hex": "#352E11",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-russian-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Russian Green",
+      "hex": "#292907",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-black-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Black Green",
+      "hex": "#131E0D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-pale-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Pale Blue",
+      "hex": "#B4C4B7",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-spectrum-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Spectrum Blue",
+      "hex": "#B4BEBF",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-intermediate-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Intermediate Blue",
+      "hex": "#666865",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dark-blue-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dark Blue-Grey",
+      "hex": "#495D52",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-grey-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Grey-Blue",
+      "hex": "#5F6772",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-french-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "French Blue",
+      "hex": "#545653",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-anthracite-grey",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Anthracite Grey",
+      "hex": "#1C2A2B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-pastel-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Pastel Blue",
+      "hex": "#BDDDB8",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-blue-green",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Blue-Green",
+      "hex": "#348477",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-aquatic-turquoise",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Aquatic Turquoise",
+      "hex": "#006557",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-turquoise",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Turquoise",
+      "hex": "#004A4D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-archaic-turquoise",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Archaic Turquoise",
+      "hex": "#003839",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-ocean-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Ocean Blue",
+      "hex": "#1D3535",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-snow-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Snow Blue",
+      "hex": "#CAE4E1",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-sky-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Sky Blue",
+      "hex": "#88C2CD",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-deep-sky-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Deep Sky Blue",
+      "hex": "#69B4C7",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-ducat-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Ducat Blue",
+      "hex": "#3A889F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-fluorescent-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Fluorescent Blue",
+      "hex": "#004064",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-ultramarine",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Ultramarine",
+      "hex": "#1E357B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-imperial-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Imperial Blue",
+      "hex": "#192152",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dark-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dark Blue",
+      "hex": "#1D2C4B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-deep-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Deep Blue",
+      "hex": "#1A4067",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-amethyst-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Amethyst Blue",
+      "hex": "#332A47",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-medium-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Medium Blue",
+      "hex": "#163A48",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-star-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Star Blue",
+      "hex": "#00465F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-light-prussian-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Light Prussian Blue",
+      "hex": "#132A38",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-strong-dark-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Strong Dark Blue",
+      "hex": "#04151F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-oxford",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Oxford",
+      "hex": "#353942",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dark-prussian-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dark Prussian Blue",
+      "hex": "#0A0C1B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-acrylics-dark-sea-blue",
+      "lineId": "ak-interactive-3rd-gen-acrylics",
+      "name": "Dark Sea Blue",
+      "hex": "#0D1814",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-gold",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Gold",
+      "hex": "#AF8118",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-old-gold",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Old Gold",
+      "hex": "#C2A10A",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-rusty-gold",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Rusty Gold",
+      "hex": "#7B5A0C",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-brass",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Brass",
+      "hex": "#B27118",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-rusty-brass",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Rusty Brass",
+      "hex": "#AA5C16",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-bronze",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Bronze",
+      "hex": "#896110",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-copper",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Copper",
+      "hex": "#C65C13",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-burnt-tin",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Burnt Tin",
+      "hex": "#3E1F0A",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-metallic-blue",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Metallic Blue",
+      "hex": "#4F9098",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-astral-beryllium",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Astral Beryllium",
+      "hex": "#4C7874",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-cobalt-blue",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Cobalt Blue",
+      "hex": "#00101A",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-anodized-violet",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Anodized Violet",
+      "hex": "#C4B1B7",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-foundry-red",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Foundry Red",
+      "hex": "#C41A1D",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-emerald-metallic-green",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Emerald Metallic Green",
+      "hex": "#329358",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-metallic-gunmetal",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Metallic Gunmetal",
+      "hex": "#4A4A48",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-pearl",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Pearl",
+      "hex": "#C2B883",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-aluminium",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Aluminium",
+      "hex": "#F7F7F7",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-dark-aluminium",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Dark Aluminium",
+      "hex": "#C3C3C3",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-silver",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Silver",
+      "hex": "#DDE5E7",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-natural-steel",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Natural Steel",
+      "hex": "#DEDDDB",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-oily-steel",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Oily Steel",
+      "hex": "#DED7C7",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-metallic-gun-metal",
+      "lineId": "ak-interactive-3rd-gen-metallic",
+      "name": "Gun Metal",
+      "hex": "#807D77",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-intense-clear-red",
+      "lineId": "ak-interactive-3rd-gen-intense",
+      "name": "Clear Red",
+      "hex": "#C61215",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-intense-clear-blue",
+      "lineId": "ak-interactive-3rd-gen-intense",
+      "name": "Clear Blue",
+      "hex": "#0D265C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-intense-clear-smoke",
+      "lineId": "ak-interactive-3rd-gen-intense",
+      "name": "Clear Smoke",
+      "hex": "#734C21",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-intense-clear-green",
+      "lineId": "ak-interactive-3rd-gen-intense",
+      "name": "Clear Green",
+      "hex": "#029837",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-intense-clear-yellow",
+      "lineId": "ak-interactive-3rd-gen-intense",
+      "name": "Clear Yellow",
+      "hex": "#F49401",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-3rd-gen-intense-clear-orange",
+      "lineId": "ak-interactive-3rd-gen-intense",
+      "name": "Clear Orange",
+      "hex": "#EB5D0B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-old-rust",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Old Rust",
+      "hex": "#4D3827",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-shadow-rust",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Shadow Rust",
+      "hex": "#4B3D32",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-chipping-color",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Chipping Color",
+      "hex": "#362E2B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-satin-black",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Satin Black",
+      "hex": "#262626",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-rubber-tires",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Rubber / Tires",
+      "hex": "#373737",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-rusty-tracks",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Rusty Tracks",
+      "hex": "#4D3B27",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-dark-tracks",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Dark Tracks",
+      "hex": "#3E3A2E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-dust",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Dust",
+      "hex": "#AB9765",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-dry-light-mud",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Dry Light Mud",
+      "hex": "#AC914E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-wooden-deck",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Wooden Deck",
+      "hex": "#AD9557",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-flat-black",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Flat Black",
+      "hex": "#2B2C27",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-white-acrylic-color",
+      "lineId": "ak-interactive-acrylics",
+      "name": "White Acrylic Color",
+      "hex": "#FFFFFF",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-red-acrylic-color",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Red Acrylic Color",
+      "hex": "#BE4331",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-3b-au-basic-protector",
+      "lineId": "ak-interactive-acrylics",
+      "name": "3B AU Basic Protector",
+      "hex": "#3A3F38",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-freshly-cut-timber",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Freshly Cut Timber",
+      "hex": "#C4B186",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-wood-base",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Wood Base",
+      "hex": "#A5976A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-dark-wood-grain",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Dark Wood Grain",
+      "hex": "#614635",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-wood-grain",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Wood Grain",
+      "hex": "#503A2D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-varnished-wood",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Varnished Wood",
+      "hex": "#7A5336",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-weathered-wood",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Weathered Wood",
+      "hex": "#463D34",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-light-grey",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Light Grey",
+      "hex": "#A09D8C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-middle-grey",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Middle Grey",
+      "hex": "#8B8B81",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-light-grey-brown",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Light Grey Brown",
+      "hex": "#B4A270",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-medium-brown",
+      "lineId": "ak-interactive-acrylics",
+      "name": "Medium Brown",
+      "hex": "#695032",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dunkelgelb-shadow",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dunkelgelb Shadow",
+      "hex": "#383121",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dunkelgelb-dark-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dunkelgelb Dark Base",
+      "hex": "#695322",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dunkelgelb-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dunkelgelb Base",
+      "hex": "#847136",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dunkelgelb-light-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dunkelgelb Light Base",
+      "hex": "#A08D41",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dunkelgelb-high-light",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dunkelgelb High Light",
+      "hex": "#D8C664",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dunkelgelb-shine",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dunkelgelb Shine",
+      "hex": "#F7EA8C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-russian-4bo-shadow",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Russian 4BO Shadow",
+      "hex": "#373330",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-russian-4bo-dark-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Russian 4BO Dark Base",
+      "hex": "#373528",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-russian-4bo-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Russian 4BO Base",
+      "hex": "#535B36",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-russian-4bo-light-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Russian 4BO Light Base",
+      "hex": "#5D653C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-russian-4bo-high-light",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Russian 4BO High Light",
+      "hex": "#727C48",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-russian-4bo-shine",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Russian 4BO Shine",
+      "hex": "#99A76C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-cremeweiss",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL Cremeweiss",
+      "hex": "#E5DA9A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-oif-oef-us-vehicles-base-color",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "OIF & OEF – US Vehicles Base Color",
+      "hex": "#B8A178",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-red-primer-shadow",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Red Primer Shadow",
+      "hex": "#382D29",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-red-primer-dark-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Red Primer Dark Base",
+      "hex": "#42332E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-red-primer-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Red Primer Base",
+      "hex": "#4F392E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-red-primer-light-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Red Primer Light Base",
+      "hex": "#624537",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-red-primer-high-light",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Red Primer High Light",
+      "hex": "#704B39",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-red-primer-shine",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Red Primer Shine",
+      "hex": "#AC724A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-olive-drab-shadow",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Olive Drab Shadow",
+      "hex": "#3D3C2A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-olive-drab-dark-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Olive Drab Dark Base",
+      "hex": "#4A4833",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-olive-drab-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Olive Drab Base",
+      "hex": "#555032",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-olive-drab-light-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Olive Drab Light Base",
+      "hex": "#615C36",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-olive-drab-high-lights",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Olive Drab High Lights",
+      "hex": "#6B6243",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-olive-drab-shine",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Olive Drab Shine",
+      "hex": "#877A4D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-aluminium-chipping",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Aluminium Chipping",
+      "hex": "#CFCFCF",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dunkelgrau-shadow",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dunkelgrau Shadow",
+      "hex": "#3C3C3A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dunkelgrau-dark-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dunkelgrau Dark Base",
+      "hex": "#3B4141",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dunkelgrau-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dunkelgrau Base",
+      "hex": "#454744",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dunkelgrau-light-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dunkelgrau Light Base",
+      "hex": "#4C4C4A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dunkelgrau-high-light",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dunkelgrau High Light",
+      "hex": "#61615F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dunkelgrau-shine",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dunkelgrau Shine",
+      "hex": "#A7A6A4",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-rotbraun-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Rotbraun Base",
+      "hex": "#43322A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-rotbraun-shadow",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Rotbraun Shadow",
+      "hex": "#6C422C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-rotbraun-light",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Rotbraun Light",
+      "hex": "#825133",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-olivgrun-shadow",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Olivgrün Shadow",
+      "hex": "#4A4F39",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-olivgrun-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Olivgrün Base",
+      "hex": "#5F7537",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-olivgrun-light",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Olivgrün Light",
+      "hex": "#849547",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-bullet-metal-case",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Bullet Metal Case",
+      "hex": "#D79C0A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-periscope-shade",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Periscope Shade",
+      "hex": "#272D2B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-exhaust-silencer",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Exhaust Silencer",
+      "hex": "#47392E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-buff-light-shade",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Buff Light Shade",
+      "hex": "#B29C51",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-buff-dark-shade",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Buff Dark Shade",
+      "hex": "#857748",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-black-grey",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Black Grey",
+      "hex": "#2B2B2B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-usmc-forest-green-nr28-fs34079",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "USMC Forest Green NR28 (FS34079)",
+      "hex": "#3F422F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-australian-tan",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Australian Tan",
+      "hex": "#AE9463",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-australian-black",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Australian Black",
+      "hex": "#32352E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-bsc-no64-portland-stone",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "BSC. Nº64 Portland Stone",
+      "hex": "#D5D098",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-bsc-no34-slate",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "BSC. Nº34 Slate",
+      "hex": "#535444",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-bsc-no31-light-stone",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "BSC. Nº31 Light Stone",
+      "hex": "#9D8E4D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-khaki-green-no3-new-service-colour",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Khaki Green Nº3 (New Service Colour)",
+      "hex": "#413E2D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-bsc-no49-purple-brown",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "BSC. Nº49 Purple Brown",
+      "hex": "#473231",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-wwi-brithish-khaki-brown-highlights",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "WWI Brithish Khaki Brown Highlights",
+      "hex": "#605132",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-british-khaki-brown-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "British Khaki Brown Base",
+      "hex": "#534431",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-wwi-brithish-khaki-brown-base",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "WWI Brithish Khaki Brown Base",
+      "hex": "#3B3422",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-french-milky-coffee",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "French Milky Coffee",
+      "hex": "#927A4A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-french-artillery-grey",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "French Artillery Grey",
+      "hex": "#5D6769",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-french-brown",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "French Brown",
+      "hex": "#533A24",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-french-green-1",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "French Green#1",
+      "hex": "#3C442F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-french-green-2",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "French Green #2",
+      "hex": "#30332A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-bsc-no61-khaki-drab",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "BSC. Nº61 Khaki Drab",
+      "hex": "#544937",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-dark-olive-green-pfi-disruptive",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Dark Olive Green PFI Disruptive",
+      "hex": "#404234",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-french-army-desert-sand-sable-desert-ir",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "French Army Desert Sand (Sable Désert IR)",
+      "hex": "#C39C65",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-french-army-green-vert-kaki",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "French Army Green (Vert Kaki)",
+      "hex": "#4A4D44",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-french-army-grey-blue-gris-bleu-moyen-clair-a625",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "French Army Grey-Blue (Gris/bleu Moyen Clair A625)",
+      "hex": "#40484A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-greyish-yellow",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Greyish Yellow",
+      "hex": "#BBB27B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-mustard-yellow",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Mustard Yellow",
+      "hex": "#C09F40",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-green-khaki",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Green Khaki",
+      "hex": "#4C4C34",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-base-green-protective",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Base Green (Protective)",
+      "hex": "#383725",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-pale-tan",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Pale Tan",
+      "hex": "#F0C871",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-red-brown",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Red Brown",
+      "hex": "#42332C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-light-yellow-green",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Light Yellow Green",
+      "hex": "#6D7441",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-blue-gray",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Blue Gray",
+      "hex": "#668297",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-olive-drab-no9",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Olive Drab Nº9",
+      "hex": "#323325",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-light-green-no5",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Light Green Nº5",
+      "hex": "#4A4A26",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-no5-earth-brown",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Nº5 Earth Brown",
+      "hex": "#382B1B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-no6-earth-yellow",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Nº6 Earth Yellow",
+      "hex": "#896032",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-no8-earth-red",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Nº8 Earth Red",
+      "hex": "#562C1C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-no13-desert-sand",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Nº13 DESERT SAND",
+      "hex": "#97836B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ocean-gray",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Ocean Gray",
+      "hex": "#555B67",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-pla-intense-green",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "PLA Intense Green",
+      "hex": "#65803B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-pla-dark-blue",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "PLA Dark Blue",
+      "hex": "#304246",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-pla-sea-blue",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "PLA Sea Blue",
+      "hex": "#1D2941",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-pla-intermediate-blue",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "PLA Intermediate Blue",
+      "hex": "#285A75",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-pla-light-blue",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "PLA Light Blue",
+      "hex": "#93DBEA",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-pla-cool-blue-white",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "PLA Cool Blue White",
+      "hex": "#B6D4CC",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-8020-gelbbraun",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 8020 Gelbbraun",
+      "hex": "#D6AF6E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-7027-grau",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 7027 Grau",
+      "hex": "#ACA08A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-8000-gelbbraun",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 8000 Gelbbraun",
+      "hex": "#877C5C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-7008-graugrun",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 7008 Graugrün",
+      "hex": "#5A4E36",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-7021-dunkelgrau",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 7021 Dunkelgrau",
+      "hex": "#2F2F27",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-7008-graugrun-opt-2",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 7008 Graugrün Opt 2",
+      "hex": "#666E3F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-7028-dg-i-dunkelgelb",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 7028 DG I Dunkelgelb",
+      "hex": "#9E8B50",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-7028-dg-iii-dunkelgelb",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 7028 DG III Dunkelgelb",
+      "hex": "#D0B55C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-6011-resedagrun",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 6011 Resedagrün",
+      "hex": "#546038",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-6011b-resedagrun",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 6011B Resedagrün",
+      "hex": "#4C5631",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-8012-rotbraun",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 8012 Rotbraun",
+      "hex": "#6E3D1D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-8017-schokobraun",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 8017 Schokobraun",
+      "hex": "#453424",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-new-iraqui-army-sand",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "New Iraqui Army Sand",
+      "hex": "#CBB176",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-british-sand-yellow",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "British Sand Yellow",
+      "hex": "#EDAF40",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-8031-f9-german-sand-brown",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 8031 F9 German Sand Brown",
+      "hex": "#C8946F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-8031-f9-german-sand-beige",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 8031 F9 German Sand Beige",
+      "hex": "#B9AB7C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-7050-f7-german-sand-beige",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 7050 F7 German Sand Beige",
+      "hex": "#696A48",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-8013-schiffsbodenfarbe-iii-rot-5",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 8013 Schiffsbodenfarbe III Rot 5",
+      "hex": "#793E2E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-7038-hellgrau",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 7038 Hellgrau",
+      "hex": "#B9B5AA",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-7037-dunkelgrau",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 7037 Dunkelgrau",
+      "hex": "#5A5752",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-7037-dunkelgrau-51",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 7037 Dunkelgrau 51",
+      "hex": "#707068",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-spanish-green-acrylic-color",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Spanish Green Acrylic Color",
+      "hex": "#5A5336",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-yellow-acrylic-color",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Yellow Acrylic Color",
+      "hex": "#FCC834",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-4b0-russian-green",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "4B0 Russian Green",
+      "hex": "#52563D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-6k-russian-brown",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "6K Russian Brown",
+      "hex": "#514839",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-7k-russian-tan",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "7K Russian Tan",
+      "hex": "#766A44",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-protective-green",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Protective Green",
+      "hex": "#45493B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-washable-white-paint",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Washable White Paint",
+      "hex": "#FFFFFF",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-6003-olivgrun-opt-1",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 6003 Olivgrün Opt.1",
+      "hex": "#46483D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-7028-dunkelgelb-initial",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 7028 Dunkelgelb (Initial)",
+      "hex": "#918549",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-7017-dunkelbraun",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 7017 Dunkelbraun",
+      "hex": "#575040",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-ral-6003-olivgrun-opt-2",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "RAL 6003 Olivgrün Opt.2",
+      "hex": "#4C4D3B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-polizei-waffen-ss-grun",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Polizei / Waffen SS Grün",
+      "hex": "#46564C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-idf-sinai-grey-modern",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "IDF Sinai Grey Modern",
+      "hex": "#595047",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-idf-sinai-grey-82",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "IDF Sinai Grey 82",
+      "hex": "#4C5248",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-idf-sand-grey-73",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "IDF Sand Grey 73",
+      "hex": "#797655",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-idf-green",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "IDF Green",
+      "hex": "#524B38",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-sla-blue",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "SLA Blue",
+      "hex": "#566868",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-laf-green",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "LAF Green",
+      "hex": "#33362D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-nato-green",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "NATO Green",
+      "hex": "#45473A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-nato-brown",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "NATO Brown",
+      "hex": "#654931",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-nato-black",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "NATO Black",
+      "hex": "#2F2B2C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-afv-olive-drab-lustreless",
+      "lineId": "ak-interactive-acrylics-afv",
+      "name": "Olive Drab Lustreless",
+      "hex": "#515232",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-02",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 02",
+      "hex": "#5A5E45",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-65",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 65",
+      "hex": "#829A84",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-66",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 66",
+      "hex": "#2D2E29",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-70",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 70",
+      "hex": "#272924",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-71",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 71",
+      "hex": "#3E4130",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-74",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 74",
+      "hex": "#423F2E",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-75",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 75",
+      "hex": "#40413C",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-76",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 76",
+      "hex": "#93A58B",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-raf-dark-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAF Dark Green",
+      "hex": "#2E2E26",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-raf-dark-earth",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAF Dark Earth",
+      "hex": "#4A4132",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-raf-medium-sea-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAF Medium Sea Grey",
+      "hex": "#6B6B63",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-raf-ocean-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAF Ocean Grey",
+      "hex": "#4E5357",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-raf-sky",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAF Sky",
+      "hex": "#A8C19A",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-raf-middle-stone",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAF Middle Stone",
+      "hex": "#867338",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-raf-azure-blue",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAF Azure Blue",
+      "hex": "#38668A",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-aircraft-grey-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Aircraft Grey Green",
+      "hex": "#494E38",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-72",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 72",
+      "hex": "#1F1F1D",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-73",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 73",
+      "hex": "#22231B",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-78",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 78",
+      "hex": "#6A807E",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-79",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 79",
+      "hex": "#684623",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-80",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 80",
+      "hex": "#322E22",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-61-rlm-81",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 61 / RLM 81",
+      "hex": "#3C3429",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-62-rlm-82",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 62 / RLM 82",
+      "hex": "#3C462B",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-83",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 83",
+      "hex": "#1B1E27",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-63",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 63",
+      "hex": "#819071",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-16440-light-gull-gray",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 16440 Light Gull Gray",
+      "hex": "#A6A68A",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-17875-white",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 17875 White",
+      "hex": "#FAFAFA",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-33613-radome-tan",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 33613 Radome Tan",
+      "hex": "#EDB94C",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-35164-intermediate-blue",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 35164 Intermediate Blue",
+      "hex": "#354042",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-36307-light-sea-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 36307 Light Sea Grey",
+      "hex": "#847E5C",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-35237-medium-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 35237 Medium Grey",
+      "hex": "#61696B",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-36375-light-ghost-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 36375 Light Ghost Grey",
+      "hex": "#A4A38F",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-36320-dark-ghost-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 36320 Dark Ghost Grey",
+      "hex": "#757E7B",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-j3-hai-iro-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "J3 Hai-Iro (Grey)",
+      "hex": "#828771",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-j3-sp-amber-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "J3 SP (Amber Grey)",
+      "hex": "#807641",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-d1-deep-green-black",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "D1 Deep Green Black",
+      "hex": "#181F18",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-d2-green-black",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "D2 Green Black",
+      "hex": "#1A2423",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-c2-trainer-yellow",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "C2 Trainer Yellow",
+      "hex": "#E08D15",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-q1-anti-glare-blue-black",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Q1 Anti-Glare Blue-Black",
+      "hex": "#151716",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-m3-m-mitsubishi-interior-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "M3 (M) Mitsubishi Interior Green",
+      "hex": "#545C2D",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-m3-n-kakajima-interior-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "M3 (N) Kakajima Interior Green",
+      "hex": "#49492F",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-rlm-04",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RLM 04",
+      "hex": "#F8AC09",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-34079-dark-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 34079 Dark Green",
+      "hex": "#36382A",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-34102-medium-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 34102 Medium Green",
+      "hex": "#484735",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-30219-dark-tan",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 30219 Dark Tan",
+      "hex": "#6B4C2D",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-36622-camouflage-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 36622 Camouflage Grey",
+      "hex": "#A19E8D",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-grey-fs-36081",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Grey (FS 36081)",
+      "hex": "#25221D",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-dull-dark-green-fs-34092",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Dull Dark Green (FS 34092)",
+      "hex": "#252F24",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-30279-desert-tan",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 30279 Desert Tan",
+      "hex": "#805C38",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-36270-medium-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 36270 Medium Grey",
+      "hex": "#767F86",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-36251-agressor-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 36251 Agressor Grey",
+      "hex": "#75807C",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-36176-f-15-dark-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 36176 F-15 Dark Grey",
+      "hex": "#6E7A90",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-36118-medium-gunship-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 36118 Medium Gunship Grey",
+      "hex": "#4A5664",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-35450-air-superiority-blue",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 35450 Air Superiority Blue",
+      "hex": "#6E7A90",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-16473-adc-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 16473 ADC Grey",
+      "hex": "#AEBBC1",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-37886-offwhite",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 37886 Offwhite",
+      "hex": "#EDE4DB",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-33531-sand",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 33531 Sand",
+      "hex": "#D9C0A2",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-34227-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 34227 Green",
+      "hex": "#769478",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-34258-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 34258 Green",
+      "hex": "#80915A",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-fs-35622-light-blue",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "FS 35622 Light Blue",
+      "hex": "#CDDBCE",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-mno-2036-smalt-khaki-avion",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "MNO 2036 Smalt Khaki Avion",
+      "hex": "#868267",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ral-5008-grey-blue-graublau",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAL 5008 Grey-Blue (Graublau)",
+      "hex": "#293A42",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ral-7044-silk-grey-seidengrau",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAL 7044 Silk Grey (Seidengrau)",
+      "hex": "#B7B5A8",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ral-8008-olive-brown-olivbraun",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAL 8008 Olive Brown (Olivbraun)",
+      "hex": "#9F7B5B",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ral-2005-luminous-orange-leuchtorange",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAL 2005 Luminous Orange (Leuchtorange)",
+      "hex": "#DA7E0D",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ral-6014-yellow-olive-gelboliv",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAL 6014 Yellow Olive (Gelboliv)",
+      "hex": "#6E705B",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ral-7001-silver-grey-silbergrau",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAL 7001 Silver Grey (Silbergrau)",
+      "hex": "#A5B2BA",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ral-7012-basalt-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAL 7012 Basalt Grey",
+      "hex": "#778C91",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ral-7030-stone-steingrau-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "RAL 7030 Stone (Steingrau) Grey",
+      "hex": "#908D84",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-dark-olive-drab-41",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Dark Olive Drab 41",
+      "hex": "#524F40",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-medium-green-42",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Medium Green 42",
+      "hex": "#4B5443",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-neutral-grey-43",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Neutral Grey 43",
+      "hex": "#696E72",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ana613-olive-drab",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "ANA613 Olive Drab",
+      "hex": "#5A564A",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-bronze-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Bronze Green",
+      "hex": "#283524",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-yellow-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Yellow Green",
+      "hex": "#898555",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-zinc-chromate-yellow",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Zinc Chromate Yellow",
+      "hex": "#E1D100",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-m-485-light-gray",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "M-485 Light Gray",
+      "hex": "#959686",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-m-485-blue-gray",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "M-485 Blue Gray",
+      "hex": "#6B7E85",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-sea-blue",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Sea Blue",
+      "hex": "#232F3B",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-a-14-interior-steel-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "A-14 Interior Steel Grey",
+      "hex": "#494949",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-amt-4-a-24m-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "AMT-4 (A-24m) Green",
+      "hex": "#2C2B19",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-amt-7-a-26m-black",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "AMT-7 (A-26m) Black",
+      "hex": "#0A0A0A",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-amt-7-a-28m-light-blue",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "AMT-7 (A-28m) Light Blue",
+      "hex": "#688490",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-amt-11-blue-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "AMT-11 Blue Grey",
+      "hex": "#353638",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-amt-12-dark-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "AMT-12 Dark Grey",
+      "hex": "#282828",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-amt-1-light-brown",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "AMT-1 Light Brown",
+      "hex": "#635B48",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-a-21m-light-yellowish-brown",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "A-21m Light Yellowish Brown",
+      "hex": "#82734A",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ae-9-aii-light-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "AE-9/AII Light Grey",
+      "hex": "#858C62",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-aii-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "AII Green",
+      "hex": "#343F21",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-aii-light-blue",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "AII Light Blue",
+      "hex": "#7FA6AD",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-a-18f-light-grey-blue",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "A-18f Light Grey-Blue",
+      "hex": "#87A69E",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-a-19f-grass-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "A-19f Grass Green",
+      "hex": "#536639",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-hairyokushoku-grey-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Hairyokushoku (Grey-Green)",
+      "hex": "#A7A898",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-hairanshoku-grey-indigo",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Hairanshoku (Grey Indigo)",
+      "hex": "#485B59",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ohryuko-nana-go-shoru-olive-brown",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Ohryuko Nana Go Shoru (Olive Brown)",
+      "hex": "#4E472A",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-midori-iro-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Midori Iro (Green)",
+      "hex": "#304327",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ao-midori-iro-blue-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Ao Midori Iro (Blue -Green)",
+      "hex": "#0D352C",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-ki-midori-iro-yellow-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Ki Midori Iro (Yellow-Green)",
+      "hex": "#766F27",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-karekusa-iro-dry-grass",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Karekusa Iro (Dry Grass)",
+      "hex": "#87784F",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-cha-kasshoku-tea-colour",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Cha Kasshoku (Tea Colour)",
+      "hex": "#685245",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-wwi-german-fokker-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "WWI German Fokker Grey",
+      "hex": "#3A3F38",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-wwi-german-light-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "WWI German Light Green",
+      "hex": "#404D31",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-wwi-german-dark-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "WWI German Dark Green",
+      "hex": "#252928",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-wwi-german-mauve",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "WWI German Mauve",
+      "hex": "#4D3C4C",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-wwi-german-red-brown",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "WWI German Red Brown",
+      "hex": "#482D1A",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-wwi-german-light-blue",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "WWI German Light Blue",
+      "hex": "#9FB0BA",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-wwi-german-lilac",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "WWI German Lilac",
+      "hex": "#523839",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-wwi-german-grey-green-primer",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "WWI German Grey-Green Primer",
+      "hex": "#70735E",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-pc10-early",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "PC10 Early",
+      "hex": "#403D2C",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-pc10-late",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "PC10 Late",
+      "hex": "#353529",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-pc12",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "PC12",
+      "hex": "#3E352C",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-battleship-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Battleship Grey",
+      "hex": "#768A89",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-clear-doped-linen",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Clear Doped Linen",
+      "hex": "#C8BB8F",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-clear-doped-lenen-ver-2",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Clear Doped Lenen Ver.2",
+      "hex": "#DCC985",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-bleached-linen",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Bleached Linen",
+      "hex": "#F4E7B2",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-cockpit-turqoise",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Cockpit Turqoise",
+      "hex": "#367665",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-radome-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Radome Green",
+      "hex": "#3F5232",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-interior-green",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Interior Green",
+      "hex": "#41472D",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-air-cockpit-grey",
+      "lineId": "ak-interactive-acrylics-air",
+      "name": "Cockpit Grey",
+      "hex": "#858579",
+      "type": "air"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-black-uniform-base-81",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Black Uniform Base -81-",
+      "hex": "#2A2319",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-basalt-grey-black-uniform-light-base-59",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Basalt Grey / Black Uniform Light Base -59-",
+      "hex": "#40403E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-stone-grey-black-uniform-dark-light-60",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Stone Grey / Black Uniform Dark Light -60-",
+      "hex": "#53524D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-grey-brown-black-uniform-highlights-61",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Grey Brown / Black Uniform Highlights -61-",
+      "hex": "#4C4847",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-black-grey-black-uniform-shadow-82",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Black Grey / Black Uniform Shadow -82-",
+      "hex": "#2B2321",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-black-rubber-black-uniform-dark-shadow-83",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Black Rubber / Black Uniform Dark Shadow -83-",
+      "hex": "#221817",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-base-flesh-17",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Base Flesh -17-",
+      "hex": "#6E4937",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-light-flesh-16",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Light Flesh -16-",
+      "hex": "#AC7348",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-highlight-flesh-15",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Highlight Flesh -15-",
+      "hex": "#F0B068",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-shadow-flesh-29",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Shadow Flesh -29-",
+      "hex": "#78342B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-dark-shadow-flesh-28",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Dark Shadow Flesh -28-",
+      "hex": "#48231D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-reddish-black-cheekbone-glaze-27",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Reddish Black / Cheekbone Glaze -27-",
+      "hex": "#3D2823",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-chocolate-brown-m-44-base-22",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Chocolate Brown / M-44 Base -22-",
+      "hex": "#5E4A32",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-orange-tan-m-44-light-spots-dots-13",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Orange Tan / M-44 Light Spots & Dots -13-",
+      "hex": "#CC864A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-dark-green-m-44-dark-spots-dots-42",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Dark Green / M-44 Dark Spots & Dots -42-",
+      "hex": "#293029",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-light-green-m-44-light-green-dots-53",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Light Green / M-44 Light Green Dots -53-",
+      "hex": "#778F39",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-medium-green-m-44-midtone-green-dots-45",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Medium Green / M-44 Midtone Green Dots -45-",
+      "hex": "#414630",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-tan-global-light-shade-12",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Tan / Global Light Shade -12-",
+      "hex": "#936D3E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-white-1",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "White -1-",
+      "hex": "#F5F5F5",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-ivory-2",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Ivory -2-",
+      "hex": "#DEF2CD",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-faded-white-3",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Faded White -3-",
+      "hex": "#E7E4DD",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-brown-leather-camouflage-medium-brown-20",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Brown Leather / Camouflage Medium Brown -20-",
+      "hex": "#574531",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-orange-strong-ocher-34",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Orange / Strong Ocher -34-",
+      "hex": "#FC6C16",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-light-sand-leather-highlights-9",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Light Sand / Leather Highlights -9-",
+      "hex": "#BB9F6D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-silver-metal-midtones-86",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Silver & Metal Midtones -86-",
+      "hex": "#D9D9D9",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-gilt-metal-85",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Gilt Metal -85-",
+      "hex": "#B09C00",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-basic-intense-yellow-4",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Basic Intense Yellow -4-",
+      "hex": "#FECE00",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-faded-yellow-5",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Faded Yellow -5-",
+      "hex": "#FFAF10",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-golden-yellow-6",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Golden Yellow -6-",
+      "hex": "#FEC057",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-khaki-splittermuster-base-67",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Khaki / Splittermuster Base -67-",
+      "hex": "#59553A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-bronze-green-splittermuster-green-spots-44",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Bronze Green / Splittermuster Green Spots -44-",
+      "hex": "#3A4131",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-faded-green-splittermuster-rainmarks-47",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Faded Green / Splittermuster Rainmarks -47-",
+      "hex": "#3D3729",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-beige-splittermuster-light-shade-64",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Beige / Splittermuster Light Shade -64-",
+      "hex": "#818F6C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-pale-sand-7",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Pale Sand -7-",
+      "hex": "#FFE090",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-red-vermilion-cadmium-red-31",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Red / Vermilion Cadmium Red -31-",
+      "hex": "#E32A18",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-intense-red-scarlet-32",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Intense Red / Scarlet -32-",
+      "hex": "#E34518",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-brown-grey-waffen-fall-winter-base-38",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Brown Grey / Waffen Fall/ Winter Base -38-",
+      "hex": "#3F3128",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-golden-flesh-waffen-fall-winter-highlights-14",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Golden Flesh / Waffen Fall/ Winter Highlights -14-",
+      "hex": "#D49341",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-dark-brown-waffen-fall-winter-dark-spots-37",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Dark Brown / Waffen Fall/ Winter Dark Spots -37-",
+      "hex": "#33291F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-beige-brown-waffen-fall-winter-orange-spots-26",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Beige Brown / Waffen Fall/ Winter Orange Spots -26-",
+      "hex": "#8F5E36",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-brown-black-waffen-fall-winter-sadow-base-36",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Brown Black / Waffen Fall/ Winter Sadow Base -36-",
+      "hex": "#2B2622",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-light-red-33",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Light Red -33-",
+      "hex": "#F65538",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-intermediate-green-50",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Intermediate Green -50-",
+      "hex": "#648C45",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-deep-green-51",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Deep Green -51-",
+      "hex": "#325735",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-medium-red-brown-waffen-spring-summer-base-18",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Medium Red Brown / Waffen Spring/ Summer Base -18-",
+      "hex": "#574539",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-cork-brown-waffen-spring-summer-highlight-25",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Cork Brown / Waffen Spring/ Summer Highlight -25-",
+      "hex": "#876645",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-golden-olive-waffen-spring-summer-light-green-spots-52",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Golden Olive / Waffen Spring/ Summer Light Green Spots -52-",
+      "hex": "#94AD48",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-green-black-waffen-spring-summer-dark-spots-40",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Green Black / Waffen Spring/ Summer Dark Spots -40-",
+      "hex": "#1D2A19",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-deck-tan-grey-highlights-69",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Deck Tan / Grey Highlights -69-",
+      "hex": "#968F72",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-turquoise-76",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Turquoise -76-",
+      "hex": "#0F3F43",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-intense-blue-77",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Intense Blue -77-",
+      "hex": "#19628F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-dark-olive-green-m-43-uniform-green-olive-43",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Dark Olive Green / M-43 Uniform Green Olive -43-",
+      "hex": "#434B26",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-ocher-khaki-m-44-uniform-green-ocher-khaki-24",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Ocher Khaki / M-44 Uniform Green Ocher Khaki -24-",
+      "hex": "#CA9C24",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-red-brown-red-brown-leather-19",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Red Brown / Red Brown Leather -19-",
+      "hex": "#8E311F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-brown-olive-drab-us-olive-drab-39",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Brown Olive Drab / Us Olive Drab -39-",
+      "hex": "#41372D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-us-field-drab-23",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "US Field Drab -23-",
+      "hex": "#926723",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-canvas-tone-65",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Canvas Tone -65-",
+      "hex": "#9F8F53",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-deep-sky-blue-78",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Deep Sky Blue -78-",
+      "hex": "#3398C4",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-light-blue-79",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Light Blue -79-",
+      "hex": "#7EC3E0",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-american-blue-80",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "American Blue -80-",
+      "hex": "#649E92",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-british-uniform-wwi-british-uniform-base-21",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "British Uniform / WWI British Uniform Base -21-",
+      "hex": "#5E4B2D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-dark-sand-wwi-british-uniform-light-11",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Dark Sand / WWI British Uniform Light -11-",
+      "hex": "#826933",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-umber-british-uniform-shadow-35",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Umber / British Uniform Shadow -35-",
+      "hex": "#2B2620",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-pure-black-84",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Pure Black -84-",
+      "hex": "#000000",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-glaze-medium-90",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Glaze Medium -90-",
+      "hex": "#CACACA",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-gun-metal-88",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Gun Metal -88-",
+      "hex": "#858585",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-bronze-89",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Bronze -89-",
+      "hex": "#C48D28",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-copper-87",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Copper -87-",
+      "hex": "#C78763",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-violet-70",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Violet -70-",
+      "hex": "#543A7B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-dark-violet-71",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Dark Violet -71-",
+      "hex": "#2C223D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-greyish-blue-wwi-french-uniform-base-75",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Greyish Blue / WWI French Uniform Base -75-",
+      "hex": "#3B4F50",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-light-grey-wwi-french-uniform-light-63",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Light Grey / WWI French Uniform Light -63-",
+      "hex": "#8B9475",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-dark-sea-blue-wwi-french-uniform-shadow-72",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Dark Sea Blue / WWI French Uniform Shadow -72-",
+      "hex": "#151F20",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-golden-sand-desert-uniform-base-10",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Golden Sand / Desert Uniform Base -10-",
+      "hex": "#907131",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-desert-yellow-desert-uniform-lights-8",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Desert Yellow / Desert Uniform Lights -8-",
+      "hex": "#C49B4B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-green-uniform-base-48",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Green Uniform Base -48-",
+      "hex": "#3E402B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-olive-green-green-uniform-lights-66",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Olive Green / Green Uniform Lights -66-",
+      "hex": "#616032",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-dark-blue-green-green-uniform-shadows-41",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Dark Blue Green / Green Uniform Shadows -41-",
+      "hex": "#2C2D1D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-russian-uniform-lights-54",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Russian Uniform Lights -54-",
+      "hex": "#878A43",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-russian-uniform-base-49",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Russian Uniform Base -49-",
+      "hex": "#5C5C36",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-russian-uniform-shadow-46",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Russian Uniform Shadow -46-",
+      "hex": "#494A2B",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-prussian-blue-blue-tank-crew-lights-74",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Prussian Blue / Blue Tank Crew Lights -74-",
+      "hex": "#2C3D4D",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-dark-blue-blue-tank-crew-base-73",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Dark Blue / Blue Tank Crew Base -73-",
+      "hex": "#1F282F",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-emblem-red-30",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Emblem Red -30-",
+      "hex": "#9E1F0C",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-olive-grey-field-grey-base-55",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Olive Grey / Field Grey Base -55-",
+      "hex": "#484534",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-granite-grey-field-grey-base-2-56",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Granite Grey / Field Grey Base 2 -56-",
+      "hex": "#45473A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-grey-green-filed-grey-lights-68",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Grey Green / Filed Grey Lights -68-",
+      "hex": "#787A53",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-dark-grey-field-grey-shadows-57",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Dark Grey / Field Grey Shadows -57-",
+      "hex": "#2F2A24",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-medium-grey-german-grey-uniform-58",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Medium Grey / German Grey Uniform -58-",
+      "hex": "#2A3436",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-figure-grey-blue-grey-blue-german-grey-uniform-light-62",
+      "lineId": "ak-interactive-acrylics-figure",
+      "name": "Grey Blue / Grey Blue / German Grey Uniform Light -62-",
+      "hex": "#64706E",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-deck-blue-20-b",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "Deck Blue 20 B",
+      "hex": "#272F31",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-haze-grey-5-h",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "Haze Grey 5 H",
+      "hex": "#767467",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-ocean-gray-5o",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "Ocean Gray 5O",
+      "hex": "#464A49",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-navy-blue-5-n",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "Navy Blue 5 N",
+      "hex": "#333438",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-sea-blue-5-s",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "Sea Blue 5 S",
+      "hex": "#363B37",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-light-grey-5-l",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "Light Grey 5 L",
+      "hex": "#C4C7B4",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-rn-hull-red",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "RN Hull Red",
+      "hex": "#572711",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-507a-admirality-dark-grey",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "507A Admirality Dark Grey",
+      "hex": "#455056",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-507b-admirality-medium-grey",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "507B Admirality Medium Grey",
+      "hex": "#575D59",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-507c-admirality-light-grey",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "507C Admirality Light Grey",
+      "hex": "#909599",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-b5-dark-blue-grey",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "B5 Dark Blue Grey",
+      "hex": "#626D67",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-semtex-green",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "Semtex Green",
+      "hex": "#3C4725",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-western-appoaches-green",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "Western Appoaches Green",
+      "hex": "#709369",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-pb20-dark-blue",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "PB20 Dark Blue",
+      "hex": "#1B1F2A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-western-appoaches-blue",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "Western Appoaches Blue",
+      "hex": "#C1D1C6",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-b20-light-grey",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "B20 Light Grey",
+      "hex": "#80837A",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-naval-ms3-medium-green-grey",
+      "lineId": "ak-interactive-acrylics-naval",
+      "name": "MS3 Medium Green Grey",
+      "hex": "#6B6F60",
+      "type": "acrylic"
+    },
+    {
+      "id": "ak-interactive-acrylics-primer-grey-primer",
+      "lineId": "ak-interactive-acrylics-primer",
+      "name": "Grey Primer",
+      "hex": "#7E7E80",
+      "type": "primer"
+    },
+    {
+      "id": "ak-interactive-acrylics-primer-dark-yellow-primer",
+      "lineId": "ak-interactive-acrylics-primer",
+      "name": "Dark Yellow Primer",
+      "hex": "#A98936",
+      "type": "primer"
+    },
+    {
+      "id": "ak-interactive-acrylics-primer-white-primer",
+      "lineId": "ak-interactive-acrylics-primer",
+      "name": "White Primer",
+      "hex": "#CBCBCD",
+      "type": "primer"
+    },
+    {
+      "id": "ak-interactive-acrylics-primer-black-primer",
+      "lineId": "ak-interactive-acrylics-primer",
+      "name": "Black Primer",
+      "hex": "#2E2E30",
+      "type": "primer"
+    },
+    {
+      "id": "ak-interactive-acrylics-primer-russian-primer",
+      "lineId": "ak-interactive-acrylics-primer",
+      "name": "Russian Primer",
+      "hex": "#2C3D20",
+      "type": "primer"
+    },
+    {
+      "id": "ak-interactive-acrylics-primer-red-primer",
+      "lineId": "ak-interactive-acrylics-primer",
+      "name": "Red Primer",
+      "hex": "#74332E",
+      "type": "primer"
+    },
+    {
+      "id": "ak-interactive-acrylics-primer-desert-sand-primer",
+      "lineId": "ak-interactive-acrylics-primer",
+      "name": "Desert Sand Primer",
+      "hex": "#A79E7F",
+      "type": "primer"
+    },
+    {
+      "id": "ak-interactive-acrylics-primer-olive-drab-primer",
+      "lineId": "ak-interactive-acrylics-primer",
+      "name": "Olive Drab Primer",
+      "hex": "#423B21",
+      "type": "primer"
+    },
+    {
+      "id": "ak-interactive-acrylics-primer-rust-primer",
+      "lineId": "ak-interactive-acrylics-primer",
+      "name": "Rust Primer",
+      "hex": "#7A492A",
+      "type": "primer"
+    },
+    {
+      "id": "ak-interactive-acrylics-primer-tracks-primer",
+      "lineId": "ak-interactive-acrylics-primer",
+      "name": "Tracks Primer",
+      "hex": "#36342E",
+      "type": "primer"
+    }
+  ]
+}

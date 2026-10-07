@@ -1,0 +1,3920 @@
+{
+  "brand": {
+    "id": "scale75",
+    "name": "Scale75",
+    "manufacturer": "Scale75",
+    "website": "https://scale75.com"
+  },
+  "lines": [
+    {
+      "id": "scale75-drop-paint",
+      "name": "Drop & Paint"
+    },
+    {
+      "id": "scale75-instant-colors",
+      "name": "Instant Colors"
+    },
+    {
+      "id": "scale75-mystic-colors",
+      "name": "Mystic Colors"
+    },
+    {
+      "id": "scale75-prism-effect",
+      "name": "Prism Effect"
+    },
+    {
+      "id": "scale75-scalecolor",
+      "name": "Scalecolor"
+    },
+    {
+      "id": "scale75-metal-n-alchemy",
+      "name": "Metal n' Alchemy"
+    },
+    {
+      "id": "scale75-inktensity",
+      "name": "Inktensity"
+    },
+    {
+      "id": "scale75-fantasy-games",
+      "name": "Fantasy & Games"
+    },
+    {
+      "id": "scale75-warfront",
+      "name": "Warfront"
+    },
+    {
+      "id": "scale75-fx-fluor",
+      "name": "FX Fluor"
+    },
+    {
+      "id": "scale75-scalecolor-artist",
+      "name": "Scalecolor Artist"
+    },
+    {
+      "id": "scale75-scalecolor-floww",
+      "name": "Scalecolor Floww"
+    }
+  ],
+  "paints": [
+    {
+      "id": "scale75-drop-paint-golden-flesh",
+      "lineId": "scale75-drop-paint",
+      "name": "Golden Flesh",
+      "hex": "#F9D297",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-medium-skin",
+      "lineId": "scale75-drop-paint",
+      "name": "Medium Skin",
+      "hex": "#F2D1B5",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-tanned-skin",
+      "lineId": "scale75-drop-paint",
+      "name": "Tanned Skin",
+      "hex": "#F8C1A9",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-caucasian-skin",
+      "lineId": "scale75-drop-paint",
+      "name": "Caucasian Skin",
+      "hex": "#EFE0BB",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-brown-skin",
+      "lineId": "scale75-drop-paint",
+      "name": "Brown Skin",
+      "hex": "#F0AC77",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-cold-skin",
+      "lineId": "scale75-drop-paint",
+      "name": "Cold Skin",
+      "hex": "#F2CBD2",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-pink-flesh",
+      "lineId": "scale75-drop-paint",
+      "name": "Pink Flesh",
+      "hex": "#F7CAB2",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-light-skin",
+      "lineId": "scale75-drop-paint",
+      "name": "Light Skin",
+      "hex": "#F1D7B8",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-primary-yellow",
+      "lineId": "scale75-drop-paint",
+      "name": "Primary Yellow",
+      "hex": "#F3EA65",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-primary-red",
+      "lineId": "scale75-drop-paint",
+      "name": "Primary Red",
+      "hex": "#F18B71",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-primary-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Primary Blue",
+      "hex": "#3F68B0",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-complementary-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Complementary Green",
+      "hex": "#66B65B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-complementary-orange",
+      "lineId": "scale75-drop-paint",
+      "name": "Complementary Orange",
+      "hex": "#FABA5E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-complementary-violet",
+      "lineId": "scale75-drop-paint",
+      "name": "Complementary Violet",
+      "hex": "#9377B4",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-white",
+      "lineId": "scale75-drop-paint",
+      "name": "White",
+      "hex": "#F3F0EE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-black",
+      "lineId": "scale75-drop-paint",
+      "name": "Black",
+      "hex": "#68605D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-aquamarine-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Aquamarine Blue",
+      "hex": "#93D4EE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-turquoise",
+      "lineId": "scale75-drop-paint",
+      "name": "Turquoise",
+      "hex": "#4EBCD4",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-light-ultramarine-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Light Ultramarine Blue",
+      "hex": "#67A6DB",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-basic-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Basic Blue",
+      "hex": "#63BFED",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-dark-prussian-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Dark Prussian Blue",
+      "hex": "#3D5561",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-navy-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Navy Blue",
+      "hex": "#558684",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-deep-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Deep Blue",
+      "hex": "#275BA7",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-ultramarine-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Ultramarine Blue",
+      "hex": "#5775B8",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-greenish-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Greenish Blue",
+      "hex": "#398A97",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-chalk-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Chalk Blue",
+      "hex": "#BFDDF6",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-fiji-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Fiji Blue",
+      "hex": "#89CFDC",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-greyish-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Greyish Blue",
+      "hex": "#C4D9E2",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-venus-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Venus Blue",
+      "hex": "#9AB3DE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-caribbean-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Caribbean Blue",
+      "hex": "#69C1DE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-violet-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Violet Blue",
+      "hex": "#7069A8",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-forest-blue",
+      "lineId": "scale75-drop-paint",
+      "name": "Forest Blue",
+      "hex": "#3978BA",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-mcqueen-red",
+      "lineId": "scale75-drop-paint",
+      "name": "Mcqueen Red",
+      "hex": "#DA5F60",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-coral-red",
+      "lineId": "scale75-drop-paint",
+      "name": "Coral Red",
+      "hex": "#F18669",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-imperial-red",
+      "lineId": "scale75-drop-paint",
+      "name": "Imperial Red",
+      "hex": "#F28D55",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-blood-red",
+      "lineId": "scale75-drop-paint",
+      "name": "Blood Red",
+      "hex": "#DC4F4E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-dark-mauve",
+      "lineId": "scale75-drop-paint",
+      "name": "Dark Mauve",
+      "hex": "#D681AA",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-red-anger",
+      "lineId": "scale75-drop-paint",
+      "name": "Red Anger",
+      "hex": "#D25077",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-magenta",
+      "lineId": "scale75-drop-paint",
+      "name": "Magenta",
+      "hex": "#D65B8A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-red-wine",
+      "lineId": "scale75-drop-paint",
+      "name": "Red Wine",
+      "hex": "#AC3961",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-sunset-yellow",
+      "lineId": "scale75-drop-paint",
+      "name": "Sunset Yellow",
+      "hex": "#FACE2A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-glorious-yellow",
+      "lineId": "scale75-drop-paint",
+      "name": "Glorious Yellow",
+      "hex": "#F0C324",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-sand-yellow",
+      "lineId": "scale75-drop-paint",
+      "name": "Sand Yellow",
+      "hex": "#EDDF7B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-lemon-yellow",
+      "lineId": "scale75-drop-paint",
+      "name": "Lemon Yellow",
+      "hex": "#EEE307",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-golden-yellow",
+      "lineId": "scale75-drop-paint",
+      "name": "Golden Yellow",
+      "hex": "#F4D364",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-lime-yellow",
+      "lineId": "scale75-drop-paint",
+      "name": "Lime Yellow",
+      "hex": "#DCDF5A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-yellow-parchment",
+      "lineId": "scale75-drop-paint",
+      "name": "Yellow Parchment",
+      "hex": "#E3DC9D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-nostalgia-yellow",
+      "lineId": "scale75-drop-paint",
+      "name": "Nostalgia Yellow",
+      "hex": "#EAE486",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-violet",
+      "lineId": "scale75-drop-paint",
+      "name": "Violet",
+      "hex": "#836EAF",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-crimson",
+      "lineId": "scale75-drop-paint",
+      "name": "Crimson",
+      "hex": "#DA5A76",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-cold-pink",
+      "lineId": "scale75-drop-paint",
+      "name": "Cold Pink",
+      "hex": "#CF578F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-dark-violet",
+      "lineId": "scale75-drop-paint",
+      "name": "Dark Violet",
+      "hex": "#BA4680",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-cardinal-purple",
+      "lineId": "scale75-drop-paint",
+      "name": "Cardinal Purple",
+      "hex": "#A25798",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-natural-purple",
+      "lineId": "scale75-drop-paint",
+      "name": "Natural Purple",
+      "hex": "#A38AAD",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-mauve",
+      "lineId": "scale75-drop-paint",
+      "name": "Mauve",
+      "hex": "#ABA2D0",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-lavender",
+      "lineId": "scale75-drop-paint",
+      "name": "Lavender",
+      "hex": "#C18DBE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-miami-orange",
+      "lineId": "scale75-drop-paint",
+      "name": "Miami Orange",
+      "hex": "#FED421",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-burnt-orange",
+      "lineId": "scale75-drop-paint",
+      "name": "Burnt Orange",
+      "hex": "#FEC708",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-liquidambar-ochre",
+      "lineId": "scale75-drop-paint",
+      "name": "Liquidambar Ochre",
+      "hex": "#FDE12B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-greenish-ochre",
+      "lineId": "scale75-drop-paint",
+      "name": "Greenish Ochre",
+      "hex": "#D9C704",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-diabolic-orange",
+      "lineId": "scale75-drop-paint",
+      "name": "Diabolic Orange",
+      "hex": "#F9AF2B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-orange-oxide",
+      "lineId": "scale75-drop-paint",
+      "name": "Orange Oxide",
+      "hex": "#E99D75",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-leaf-ochre",
+      "lineId": "scale75-drop-paint",
+      "name": "Leaf Ochre",
+      "hex": "#BA8713",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-ochre-nostalgia",
+      "lineId": "scale75-drop-paint",
+      "name": "Ochre Nostalgia",
+      "hex": "#CEB023",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-lime-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Lime Green",
+      "hex": "#E5E353",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-light-olive-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Light Olive Green",
+      "hex": "#AAC91E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-spring-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Spring Green",
+      "hex": "#AAC923",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-jade-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Jade Green",
+      "hex": "#5BB99E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-pine-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Pine Green",
+      "hex": "#3E5C4A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-irati-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Irati Green",
+      "hex": "#75B72E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-light-moss-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Light Moss Green",
+      "hex": "#6DB470",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-moss-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Moss Green",
+      "hex": "#658435",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-green-toad",
+      "lineId": "scale75-drop-paint",
+      "name": "Green Toad",
+      "hex": "#63862E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-black-jungle-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Black Jungle Green",
+      "hex": "#536652",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-pear-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Pear Green",
+      "hex": "#DFE698",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-spearmint",
+      "lineId": "scale75-drop-paint",
+      "name": "Spearmint",
+      "hex": "#B9D9A5",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-emerald-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Emerald Green",
+      "hex": "#0B8679",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-greyish-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Greyish Green",
+      "hex": "#B5B89B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-olive-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Olive Green",
+      "hex": "#B3B052",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-caterpillar-green",
+      "lineId": "scale75-drop-paint",
+      "name": "Caterpillar Green",
+      "hex": "#F0E97E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-dark-brown",
+      "lineId": "scale75-drop-paint",
+      "name": "Dark Brown",
+      "hex": "#7E5E60",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-chocolate-brown",
+      "lineId": "scale75-drop-paint",
+      "name": "Chocolate Brown",
+      "hex": "#984A4B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-burnt-siena-umber",
+      "lineId": "scale75-drop-paint",
+      "name": "Burnt Siena Umber",
+      "hex": "#E29C76",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-burnt-shade",
+      "lineId": "scale75-drop-paint",
+      "name": "Burnt Shade",
+      "hex": "#BE8869",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-light-brown",
+      "lineId": "scale75-drop-paint",
+      "name": "Light Brown",
+      "hex": "#D1B794",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-brown-donkey",
+      "lineId": "scale75-drop-paint",
+      "name": "Brown Donkey",
+      "hex": "#DAD2A7",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-natural-shade",
+      "lineId": "scale75-drop-paint",
+      "name": "Natural Shade",
+      "hex": "#BC8E60",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-green-earth",
+      "lineId": "scale75-drop-paint",
+      "name": "Green Earth",
+      "hex": "#9D8A51",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-arctic-grey",
+      "lineId": "scale75-drop-paint",
+      "name": "Arctic Grey",
+      "hex": "#BEC0C6",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-graphite-grey",
+      "lineId": "scale75-drop-paint",
+      "name": "Graphite Grey",
+      "hex": "#5E6163",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-confederate-grey",
+      "lineId": "scale75-drop-paint",
+      "name": "Confederate Grey",
+      "hex": "#BCB2A4",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-ufo-grey",
+      "lineId": "scale75-drop-paint",
+      "name": "Ufo Grey",
+      "hex": "#BEB8AE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-bluish-grey",
+      "lineId": "scale75-drop-paint",
+      "name": "Bluish Grey",
+      "hex": "#B0BBBC",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-greenish-grey",
+      "lineId": "scale75-drop-paint",
+      "name": "Greenish Grey",
+      "hex": "#BFBCAA",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-grey-fox",
+      "lineId": "scale75-drop-paint",
+      "name": "Grey Fox",
+      "hex": "#C7BDB6",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-violet-grey",
+      "lineId": "scale75-drop-paint",
+      "name": "Violet Grey",
+      "hex": "#938487",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-blue-cake",
+      "lineId": "scale75-drop-paint",
+      "name": "Blue Cake",
+      "hex": "#C9E2F8",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-turquoise-cake",
+      "lineId": "scale75-drop-paint",
+      "name": "Turquoise Cake",
+      "hex": "#AFDFF9",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-green-pastel",
+      "lineId": "scale75-drop-paint",
+      "name": "Green Pastel",
+      "hex": "#C3E4E8",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-pastel-grey",
+      "lineId": "scale75-drop-paint",
+      "name": "Pastel Grey",
+      "hex": "#DFDEC7",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-mummy-white",
+      "lineId": "scale75-drop-paint",
+      "name": "Mummy White",
+      "hex": "#E5DCBA",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-yellow-cake",
+      "lineId": "scale75-drop-paint",
+      "name": "Yellow Cake",
+      "hex": "#E2E3BF",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-violet-pastel",
+      "lineId": "scale75-drop-paint",
+      "name": "Violet Pastel",
+      "hex": "#E5C3DE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-red-cake",
+      "lineId": "scale75-drop-paint",
+      "name": "Red Cake",
+      "hex": "#F4C0CA",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-black-metal",
+      "lineId": "scale75-drop-paint",
+      "name": "Black Metal",
+      "hex": "#97969C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-burnished-steel",
+      "lineId": "scale75-drop-paint",
+      "name": "Burnished Steel",
+      "hex": "#DACFC8",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-steel",
+      "lineId": "scale75-drop-paint",
+      "name": "Steel",
+      "hex": "#D2D0D3",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-aluminum",
+      "lineId": "scale75-drop-paint",
+      "name": "Aluminum",
+      "hex": "#CFCCD3",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-white-steel",
+      "lineId": "scale75-drop-paint",
+      "name": "White Steel",
+      "hex": "#CDC9CA",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-bluish-metal",
+      "lineId": "scale75-drop-paint",
+      "name": "Bluish Metal",
+      "hex": "#A2C5CE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-greenish-metal",
+      "lineId": "scale75-drop-paint",
+      "name": "Greenish Metal",
+      "hex": "#B8DFDC",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-purplish-metal",
+      "lineId": "scale75-drop-paint",
+      "name": "Purplish Metal",
+      "hex": "#D4C1DF",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-black-gold",
+      "lineId": "scale75-drop-paint",
+      "name": "Black Gold",
+      "hex": "#AB9253",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-viking-gold",
+      "lineId": "scale75-drop-paint",
+      "name": "Viking Gold",
+      "hex": "#C7A162",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-burnt-gold",
+      "lineId": "scale75-drop-paint",
+      "name": "Burnt Gold",
+      "hex": "#E8B864",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-new-gold",
+      "lineId": "scale75-drop-paint",
+      "name": "New Gold",
+      "hex": "#F4D276",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-white-gold",
+      "lineId": "scale75-drop-paint",
+      "name": "White Gold",
+      "hex": "#F4EBD5",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-pinky-gold",
+      "lineId": "scale75-drop-paint",
+      "name": "Pinky Gold",
+      "hex": "#FAD3CC",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-kunzite-gold",
+      "lineId": "scale75-drop-paint",
+      "name": "Kunzite Gold",
+      "hex": "#DBCF9A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-light-brass",
+      "lineId": "scale75-drop-paint",
+      "name": "Light Brass",
+      "hex": "#F9CBDB",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-old-metal",
+      "lineId": "scale75-drop-paint",
+      "name": "Old Metal",
+      "hex": "#A3762B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-old-copper",
+      "lineId": "scale75-drop-paint",
+      "name": "Old Copper",
+      "hex": "#DCAB5D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-garnet-metal",
+      "lineId": "scale75-drop-paint",
+      "name": "Garnet Metal",
+      "hex": "#D87D75",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-ruby-metal",
+      "lineId": "scale75-drop-paint",
+      "name": "Ruby Metal",
+      "hex": "#F299AA",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-pure-copper",
+      "lineId": "scale75-drop-paint",
+      "name": "Pure Copper",
+      "hex": "#EF9C64",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-dark-brass",
+      "lineId": "scale75-drop-paint",
+      "name": "Dark Brass",
+      "hex": "#D2942C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-amber-metal",
+      "lineId": "scale75-drop-paint",
+      "name": "Amber Metal",
+      "hex": "#E9AD6A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-drop-paint-moon-metal",
+      "lineId": "scale75-drop-paint",
+      "name": "Moon Metal",
+      "hex": "#EECCAC",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-instant-colors-black-shadow",
+      "lineId": "scale75-instant-colors",
+      "name": "Black Shadow",
+      "hex": "#605B4E",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-werewolf-brown",
+      "lineId": "scale75-instant-colors",
+      "name": "Werewolf Brown",
+      "hex": "#7D635A",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-dragon-blood",
+      "lineId": "scale75-instant-colors",
+      "name": "Dragon Blood",
+      "hex": "#A62E3A",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-health-red",
+      "lineId": "scale75-instant-colors",
+      "name": "Health Red",
+      "hex": "#DF5048",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-love-affair",
+      "lineId": "scale75-instant-colors",
+      "name": "Love Affair",
+      "hex": "#F05A5E",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-life-red",
+      "lineId": "scale75-instant-colors",
+      "name": "Life Red",
+      "hex": "#F45B4E",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-ragweed-orange",
+      "lineId": "scale75-instant-colors",
+      "name": "Ragweed Orange",
+      "hex": "#F57546",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-drain-life",
+      "lineId": "scale75-instant-colors",
+      "name": "Drain Life",
+      "hex": "#EEB892",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-full-healing",
+      "lineId": "scale75-instant-colors",
+      "name": "Full Healing",
+      "hex": "#FBDB54",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-estus-yellow",
+      "lineId": "scale75-instant-colors",
+      "name": "Estus Yellow",
+      "hex": "#F4E28E",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-zucchini-skin",
+      "lineId": "scale75-instant-colors",
+      "name": "Zucchini Skin",
+      "hex": "#536C4D",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-dead-flesh",
+      "lineId": "scale75-instant-colors",
+      "name": "Dead Flesh",
+      "hex": "#A88782",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-fairy-blood",
+      "lineId": "scale75-instant-colors",
+      "name": "Fairy Blood",
+      "hex": "#666898",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-zombie-skin",
+      "lineId": "scale75-instant-colors",
+      "name": "Zombie Skin",
+      "hex": "#D0C8A1",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-phoenix-feather",
+      "lineId": "scale75-instant-colors",
+      "name": "Phoenix Feather",
+      "hex": "#EFBFAB",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-human-flesh",
+      "lineId": "scale75-instant-colors",
+      "name": "Human Flesh",
+      "hex": "#F0D1CC",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-undead-dragon",
+      "lineId": "scale75-instant-colors",
+      "name": "Undead Dragon",
+      "hex": "#C9D4D0",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-phoenix-egg",
+      "lineId": "scale75-instant-colors",
+      "name": "Phoenix Egg",
+      "hex": "#E3D1BB",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-paralyze-blue",
+      "lineId": "scale75-instant-colors",
+      "name": "Paralyze Blue",
+      "hex": "#4B8ABD",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-evil-root",
+      "lineId": "scale75-instant-colors",
+      "name": "Evil Root",
+      "hex": "#F3A179",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-toad-green",
+      "lineId": "scale75-instant-colors",
+      "name": "Toad Green",
+      "hex": "#6B7962",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-sulfur-yellow",
+      "lineId": "scale75-instant-colors",
+      "name": "Sulfur Yellow",
+      "hex": "#FEEE59",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-belladona-green",
+      "lineId": "scale75-instant-colors",
+      "name": "Belladona Green",
+      "hex": "#6CC7B5",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-corrupted-stamina",
+      "lineId": "scale75-instant-colors",
+      "name": "Corrupted Stamina",
+      "hex": "#839750",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-rotten-pus",
+      "lineId": "scale75-instant-colors",
+      "name": "Rotten Pus",
+      "hex": "#FFC75F",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-acid-green",
+      "lineId": "scale75-instant-colors",
+      "name": "Acid Green",
+      "hex": "#CDD892",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-remove-mana",
+      "lineId": "scale75-instant-colors",
+      "name": "Remove Mana",
+      "hex": "#304957",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-arcane-purple",
+      "lineId": "scale75-instant-colors",
+      "name": "Arcane Purple",
+      "hex": "#57396D",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-elixir-green",
+      "lineId": "scale75-instant-colors",
+      "name": "Elixir Green",
+      "hex": "#328073",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-replenish-blue",
+      "lineId": "scale75-instant-colors",
+      "name": "Replenish Blue",
+      "hex": "#326ABF",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-mana-regeneration",
+      "lineId": "scale75-instant-colors",
+      "name": "Mana Regeneration",
+      "hex": "#61B4E0",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-magic-blue",
+      "lineId": "scale75-instant-colors",
+      "name": "Magic Blue",
+      "hex": "#4899B6",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-grey-spell",
+      "lineId": "scale75-instant-colors",
+      "name": "Grey Spell",
+      "hex": "#A0A7C4",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-ancestral-blue",
+      "lineId": "scale75-instant-colors",
+      "name": "Ancestral Blue",
+      "hex": "#77BACB",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-grizzly-brown",
+      "lineId": "scale75-instant-colors",
+      "name": "Grizzly Brown",
+      "hex": "#6A3237",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-endurance-brown",
+      "lineId": "scale75-instant-colors",
+      "name": "Endurance Brown",
+      "hex": "#B3634C",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-rage-brown",
+      "lineId": "scale75-instant-colors",
+      "name": "Rage Brown",
+      "hex": "#A55242",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-frenzy-orange",
+      "lineId": "scale75-instant-colors",
+      "name": "Frenzy Orange",
+      "hex": "#FF8B44",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-ogre-brown",
+      "lineId": "scale75-instant-colors",
+      "name": "Ogre Brown",
+      "hex": "#E29D5A",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-salmon-fury",
+      "lineId": "scale75-instant-colors",
+      "name": "Salmon Fury",
+      "hex": "#F37D7E",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-wild-beast",
+      "lineId": "scale75-instant-colors",
+      "name": "Wild Beast",
+      "hex": "#DDA67F",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-savage-beige",
+      "lineId": "scale75-instant-colors",
+      "name": "Savage Beige",
+      "hex": "#ECD8A3",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-golem-grey",
+      "lineId": "scale75-instant-colors",
+      "name": "Golem Grey",
+      "hex": "#4C4C4A",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-basilisk-green",
+      "lineId": "scale75-instant-colors",
+      "name": "Basilisk Green",
+      "hex": "#4D6464",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-demon-brown",
+      "lineId": "scale75-instant-colors",
+      "name": "Demon Brown",
+      "hex": "#995150",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-dark-kraken",
+      "lineId": "scale75-instant-colors",
+      "name": "Dark Kraken",
+      "hex": "#417082",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-leviathan-blue",
+      "lineId": "scale75-instant-colors",
+      "name": "Leviathan Blue",
+      "hex": "#27889F",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-instant-colors-spectral-wolf",
+      "lineId": "scale75-instant-colors",
+      "name": "Spectral Wolf",
+      "hex": "#CABECA",
+      "type": "contrast"
+    },
+    {
+      "id": "scale75-mystic-colors-virgo-white",
+      "lineId": "scale75-mystic-colors",
+      "name": "Virgo White",
+      "hex": "#C0BFBB",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-black-hole",
+      "lineId": "scale75-mystic-colors",
+      "name": "Black Hole",
+      "hex": "#0E0E0E",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-solar-yellow",
+      "lineId": "scale75-mystic-colors",
+      "name": "Solar Yellow",
+      "hex": "#D1C442",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-juno-green",
+      "lineId": "scale75-mystic-colors",
+      "name": "Juno Green",
+      "hex": "#007900",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-taurus-emerald",
+      "lineId": "scale75-mystic-colors",
+      "name": "Taurus Emerald",
+      "hex": "#014E36",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-gemini-blue",
+      "lineId": "scale75-mystic-colors",
+      "name": "Gemini Blue",
+      "hex": "#161566",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-aquarius-azure",
+      "lineId": "scale75-mystic-colors",
+      "name": "Aquarius Azure",
+      "hex": "#0036AB",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-scorpio-ultramarine",
+      "lineId": "scale75-mystic-colors",
+      "name": "Scorpio Ultramarine",
+      "hex": "#0E1639",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-aries-red",
+      "lineId": "scale75-mystic-colors",
+      "name": "Aries Red",
+      "hex": "#D83421",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-crater-orange",
+      "lineId": "scale75-mystic-colors",
+      "name": "Crater Orange",
+      "hex": "#FA611E",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-sagittarius-fuchsia",
+      "lineId": "scale75-mystic-colors",
+      "name": "Sagittarius Fuchsia",
+      "hex": "#B31F59",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-jupiter-brown",
+      "lineId": "scale75-mystic-colors",
+      "name": "Jupiter Brown",
+      "hex": "#A84621",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-ophiuchus",
+      "lineId": "scale75-mystic-colors",
+      "name": "Ophiuchus",
+      "hex": "#BDD356",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-capricorn-brown",
+      "lineId": "scale75-mystic-colors",
+      "name": "Capricorn Brown",
+      "hex": "#2D140F",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-ceres-olive",
+      "lineId": "scale75-mystic-colors",
+      "name": "Ceres Olive",
+      "hex": "#504215",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-libra-sand",
+      "lineId": "scale75-mystic-colors",
+      "name": "Libra Sand",
+      "hex": "#C8A660",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-comet-graphite",
+      "lineId": "scale75-mystic-colors",
+      "name": "Comet Graphite",
+      "hex": "#918C88",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-silver-moon",
+      "lineId": "scale75-mystic-colors",
+      "name": "Silver Moon",
+      "hex": "#BDBEC4",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-leo-gold",
+      "lineId": "scale75-mystic-colors",
+      "name": "Leo Gold",
+      "hex": "#BA9533",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-astral-magenta",
+      "lineId": "scale75-mystic-colors",
+      "name": "Astral Magenta",
+      "hex": "#AB1C46",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-cancer-turquoise",
+      "lineId": "scale75-mystic-colors",
+      "name": "Cancer Turquoise",
+      "hex": "#0197A4",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-meteor-orange",
+      "lineId": "scale75-mystic-colors",
+      "name": "Meteor Orange",
+      "hex": "#FF763D",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-pisces-cyan",
+      "lineId": "scale75-mystic-colors",
+      "name": "Pisces Cyan",
+      "hex": "#0066D4",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-vesta-coral",
+      "lineId": "scale75-mystic-colors",
+      "name": "Vesta Coral",
+      "hex": "#FE405B",
+      "type": "other"
+    },
+    {
+      "id": "scale75-mystic-colors-asteroid-fire",
+      "lineId": "scale75-mystic-colors",
+      "name": "Asteroid Fire",
+      "hex": "#FEA522",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-golden-moon",
+      "lineId": "scale75-prism-effect",
+      "name": "Golden Moon",
+      "hex": "#848D94",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-blue-sand",
+      "lineId": "scale75-prism-effect",
+      "name": "Blue Sand",
+      "hex": "#6F6C75",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-green-pearl",
+      "lineId": "scale75-prism-effect",
+      "name": "Green Pearl",
+      "hex": "#6A6C66",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-pink-nacre",
+      "lineId": "scale75-prism-effect",
+      "name": "Pink Nacre",
+      "hex": "#8C7182",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-boreal-beetle",
+      "lineId": "scale75-prism-effect",
+      "name": "Boreal Beetle",
+      "hex": "#577E89",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-emerald-dimension",
+      "lineId": "scale75-prism-effect",
+      "name": "Emerald Dimension",
+      "hex": "#85967C",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-green-sun",
+      "lineId": "scale75-prism-effect",
+      "name": "Green Sun",
+      "hex": "#AD8C15",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-dead-star",
+      "lineId": "scale75-prism-effect",
+      "name": "Dead Star",
+      "hex": "#8E8073",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-golden-coral",
+      "lineId": "scale75-prism-effect",
+      "name": "Golden Coral",
+      "hex": "#B27357",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-copper-fire",
+      "lineId": "scale75-prism-effect",
+      "name": "Copper Fire",
+      "hex": "#BB4236",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-purple-quasar",
+      "lineId": "scale75-prism-effect",
+      "name": "Purple Quasar",
+      "hex": "#6B7E9A",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-solar-sand",
+      "lineId": "scale75-prism-effect",
+      "name": "Solar Sand",
+      "hex": "#93751D",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-silver-sun",
+      "lineId": "scale75-prism-effect",
+      "name": "Silver Sun",
+      "hex": "#857C77",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-violet-sunset",
+      "lineId": "scale75-prism-effect",
+      "name": "Violet Sunset",
+      "hex": "#BF4A50",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-metallic-rose",
+      "lineId": "scale75-prism-effect",
+      "name": "Metallic Rose",
+      "hex": "#BB6754",
+      "type": "other"
+    },
+    {
+      "id": "scale75-prism-effect-sulfur-ore",
+      "lineId": "scale75-prism-effect",
+      "name": "Sulfur Ore",
+      "hex": "#AA8C3D",
+      "type": "other"
+    },
+    {
+      "id": "scale75-scalecolor-black",
+      "lineId": "scale75-scalecolor",
+      "name": "Black",
+      "hex": "#222222",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-white",
+      "lineId": "scale75-scalecolor",
+      "name": "White",
+      "hex": "#FEFEFE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-nacar",
+      "lineId": "scale75-scalecolor",
+      "name": "Nacar",
+      "hex": "#959A8A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-graphite",
+      "lineId": "scale75-scalecolor",
+      "name": "Graphite",
+      "hex": "#848681",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-anthartic-grey",
+      "lineId": "scale75-scalecolor",
+      "name": "Anthartic Grey",
+      "hex": "#373841",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artic-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Artic Blue",
+      "hex": "#9AADB5",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-bering-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Bering Blue",
+      "hex": "#62828F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-caspian-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Caspian Blue",
+      "hex": "#1E424E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-abyssal-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Abyssal Blue",
+      "hex": "#1D1E26",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-white-sands",
+      "lineId": "scale75-scalecolor",
+      "name": "White Sands",
+      "hex": "#F5E0C4",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-tenere-yellow",
+      "lineId": "scale75-scalecolor",
+      "name": "Tenere Yellow",
+      "hex": "#E5C66D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-sahara-yellow",
+      "lineId": "scale75-scalecolor",
+      "name": "Sahara Yellow",
+      "hex": "#A48025",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-gobi-brown",
+      "lineId": "scale75-scalecolor",
+      "name": "Gobi Brown",
+      "hex": "#645133",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-dubai-brown",
+      "lineId": "scale75-scalecolor",
+      "name": "Dubai Brown",
+      "hex": "#4D3114",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-kalahari-orange",
+      "lineId": "scale75-scalecolor",
+      "name": "Kalahari Orange",
+      "hex": "#A04D31",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-adriatic-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Adriatic Blue",
+      "hex": "#068498",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-eclipse-grey",
+      "lineId": "scale75-scalecolor",
+      "name": "Eclipse Grey",
+      "hex": "#2B2B2B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-pale-skin",
+      "lineId": "scale75-scalecolor",
+      "name": "Pale Skin",
+      "hex": "#F1D6CD",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-light-skin",
+      "lineId": "scale75-scalecolor",
+      "name": "Light Skin",
+      "hex": "#DEB58A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-golden-skin",
+      "lineId": "scale75-scalecolor",
+      "name": "Golden Skin",
+      "hex": "#ECC398",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-basic-flesh",
+      "lineId": "scale75-scalecolor",
+      "name": "Basic Flesh",
+      "hex": "#CCB08E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-pink-flesh",
+      "lineId": "scale75-scalecolor",
+      "name": "Pink Flesh",
+      "hex": "#CE8E88",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-arabic-shadow",
+      "lineId": "scale75-scalecolor",
+      "name": "Arabic Shadow",
+      "hex": "#756027",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-indian-shadow",
+      "lineId": "scale75-scalecolor",
+      "name": "Indian Shadow",
+      "hex": "#5E3237",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-african-shadow",
+      "lineId": "scale75-scalecolor",
+      "name": "African Shadow",
+      "hex": "#4C373E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-birch",
+      "lineId": "scale75-scalecolor",
+      "name": "Birch",
+      "hex": "#EDD0AB",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-sandalwood",
+      "lineId": "scale75-scalecolor",
+      "name": "Sandalwood",
+      "hex": "#B48B81",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-iroko",
+      "lineId": "scale75-scalecolor",
+      "name": "Iroko",
+      "hex": "#AE8A40",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-orange-leather",
+      "lineId": "scale75-scalecolor",
+      "name": "Orange Leather",
+      "hex": "#965528",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-walnut",
+      "lineId": "scale75-scalecolor",
+      "name": "Walnut",
+      "hex": "#755B45",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-red-leather",
+      "lineId": "scale75-scalecolor",
+      "name": "Red Leather",
+      "hex": "#542A2B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-brown-leather",
+      "lineId": "scale75-scalecolor",
+      "name": "Brown Leather",
+      "hex": "#402112",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-black-leather",
+      "lineId": "scale75-scalecolor",
+      "name": "Black Leather",
+      "hex": "#361E1E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-sunset-purple",
+      "lineId": "scale75-scalecolor",
+      "name": "Sunset Purple",
+      "hex": "#59234B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-fuchsia",
+      "lineId": "scale75-scalecolor",
+      "name": "Fuchsia",
+      "hex": "#A32861",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-deep-red",
+      "lineId": "scale75-scalecolor",
+      "name": "Deep Red",
+      "hex": "#660D13",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-blood-red",
+      "lineId": "scale75-scalecolor",
+      "name": "Blood Red",
+      "hex": "#8B1B1A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-antares-red",
+      "lineId": "scale75-scalecolor",
+      "name": "Antares Red",
+      "hex": "#BA1215",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-aldebaran-red",
+      "lineId": "scale75-scalecolor",
+      "name": "Aldebaran Red",
+      "hex": "#BA2711",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-mars-orange",
+      "lineId": "scale75-scalecolor",
+      "name": "Mars Orange",
+      "hex": "#AE5E26",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-sol-yellow",
+      "lineId": "scale75-scalecolor",
+      "name": "Sol Yellow",
+      "hex": "#EBCA02",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-black-forest-green",
+      "lineId": "scale75-scalecolor",
+      "name": "Black Forest Green",
+      "hex": "#013D26",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-boreal-green",
+      "lineId": "scale75-scalecolor",
+      "name": "Boreal Green",
+      "hex": "#004D36",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-irati-green",
+      "lineId": "scale75-scalecolor",
+      "name": "Irati Green",
+      "hex": "#008014",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-sherwood-green",
+      "lineId": "scale75-scalecolor",
+      "name": "Sherwood Green",
+      "hex": "#788031",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-ardenes-green",
+      "lineId": "scale75-scalecolor",
+      "name": "Ardenes Green",
+      "hex": "#4D5C3A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-field-gray",
+      "lineId": "scale75-scalecolor",
+      "name": "Field Gray",
+      "hex": "#5F6A64",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-spring-green",
+      "lineId": "scale75-scalecolor",
+      "name": "Spring Green",
+      "hex": "#78B746",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-fall-green",
+      "lineId": "scale75-scalecolor",
+      "name": "Fall Green",
+      "hex": "#C8CF59",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-caribbean-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Caribbean Blue",
+      "hex": "#6BB2A9",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-sky-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Sky Blue",
+      "hex": "#1B91C6",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-mediterranean-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Mediterranean Blue",
+      "hex": "#466CAE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-tesla-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Tesla Blue",
+      "hex": "#384492",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-cantabric-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Cantabric Blue",
+      "hex": "#023D5B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-navy-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Navy Blue",
+      "hex": "#183062",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-deep-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Deep Blue",
+      "hex": "#2C323E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-violet-blue",
+      "lineId": "scale75-scalecolor",
+      "name": "Violet Blue",
+      "hex": "#553D69",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-petroleum-gray",
+      "lineId": "scale75-scalecolor",
+      "name": "Petroleum Gray",
+      "hex": "#4B4340",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-graphene-gray",
+      "lineId": "scale75-scalecolor",
+      "name": "Graphene Gray",
+      "hex": "#3F464E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-brown-gray",
+      "lineId": "scale75-scalecolor",
+      "name": "Brown Gray",
+      "hex": "#746967",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-rainy-gray",
+      "lineId": "scale75-scalecolor",
+      "name": "Rainy Gray",
+      "hex": "#847F7C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-thar-brown",
+      "lineId": "scale75-scalecolor",
+      "name": "Thar Brown",
+      "hex": "#AB9A79",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-mojave-white",
+      "lineId": "scale75-scalecolor",
+      "name": "Mojave White",
+      "hex": "#CFC9B1",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-black-metal",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Black Metal",
+      "hex": "#202020",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-thrash-metal",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Thrash Metal",
+      "hex": "#352D28",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-heavy-metal",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Heavy Metal",
+      "hex": "#5F6063",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-speed-metal",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Speed Metal",
+      "hex": "#B0B1B5",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-white-metal",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "White Metal",
+      "hex": "#CECECE",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-cobalt-metal",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Cobalt Metal",
+      "hex": "#425B71",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-emerald-alchemy",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Emerald Alchemy",
+      "hex": "#55877F",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-amethyst-alchemy",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Amethyst Alchemy",
+      "hex": "#6A5880",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-necro-gold",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Necro Gold",
+      "hex": "#282210",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-viking-gold",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Viking Gold",
+      "hex": "#492906",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-dwarven-gold",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Dwarven Gold",
+      "hex": "#844813",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-elven-gold",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Elven Gold",
+      "hex": "#8B5A1D",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-citrine-alchemy",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Citrine Alchemy",
+      "hex": "#DDB97E",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-tourmaline-alchemy",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Tourmaline Alchemy",
+      "hex": "#DC7F90",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-kunzite-alchemy",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Kunzite Alchemy",
+      "hex": "#B3729E",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-peridot-alchemy",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Peridot Alchemy",
+      "hex": "#5B614E",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-decayed-metal",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Decayed Metal",
+      "hex": "#37231B",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-old-copper",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Old Copper",
+      "hex": "#603829",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-garnet-alchemy",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Garnet Alchemy",
+      "hex": "#58222C",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-ruby-alchemy",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Ruby Alchemy",
+      "hex": "#BC4B55",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-pure-copper",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Pure Copper",
+      "hex": "#974527",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-victorian-brass",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Victorian Brass",
+      "hex": "#7F4D1C",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-amber-alchemy",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Amber Alchemy",
+      "hex": "#866449",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-metal-n-alchemy-moonstone-alchemy",
+      "lineId": "scale75-metal-n-alchemy",
+      "name": "Moonstone Alchemy",
+      "hex": "#89594A",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "scale75-inktensity-inktense-black",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Black",
+      "hex": "#1C1C1C",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-wood",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Wood",
+      "hex": "#3A2617",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-chesnut",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Chesnut",
+      "hex": "#773107",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-violet",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Violet",
+      "hex": "#3E0866",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-blue",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Blue",
+      "hex": "#011A58",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-green",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Green",
+      "hex": "#013424",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-red",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Red",
+      "hex": "#A10F10",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-yellow",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Yellow",
+      "hex": "#E2B900",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-brown",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Brown",
+      "hex": "#2D2220",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-crimson",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Crimson",
+      "hex": "#BB000B",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-oxide",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Oxide",
+      "hex": "#AA290C",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-ochre",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Ochre",
+      "hex": "#F3A22C",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-cyan",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Cyan",
+      "hex": "#26209E",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-lime",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Lime",
+      "hex": "#00E62E",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-olive",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense Olive",
+      "hex": "#496348",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-inktensity-inktense-white",
+      "lineId": "scale75-inktensity",
+      "name": "Inktense White",
+      "hex": "#FFFFFF",
+      "type": "ink"
+    },
+    {
+      "id": "scale75-fantasy-games-decay-black",
+      "lineId": "scale75-fantasy-games",
+      "name": "Decay Black",
+      "hex": "#1C1C1B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-purity-white",
+      "lineId": "scale75-fantasy-games",
+      "name": "Purity White",
+      "hex": "#FEFEFE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-hastur-purple",
+      "lineId": "scale75-fantasy-games",
+      "name": "Hastur Purple",
+      "hex": "#75032F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-mayhem-red",
+      "lineId": "scale75-fantasy-games",
+      "name": "Mayhem Red",
+      "hex": "#A00C21",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-baal-crimson",
+      "lineId": "scale75-fantasy-games",
+      "name": "Baal Crimson",
+      "hex": "#E11937",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-beherit-red",
+      "lineId": "scale75-fantasy-games",
+      "name": "Beherit Red",
+      "hex": "#E1390E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-tiamat-orange",
+      "lineId": "scale75-fantasy-games",
+      "name": "Tiamat Orange",
+      "hex": "#ED7125",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-ishtar-pink",
+      "lineId": "scale75-fantasy-games",
+      "name": "Ishtar Pink",
+      "hex": "#FE9163",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-marduk-yellow",
+      "lineId": "scale75-fantasy-games",
+      "name": "Marduk Yellow",
+      "hex": "#FEEE01",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-lilith-yellow",
+      "lineId": "scale75-fantasy-games",
+      "name": "Lilith Yellow",
+      "hex": "#FCEA7D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-misfits-green",
+      "lineId": "scale75-fantasy-games",
+      "name": "Misfits Green",
+      "hex": "#014931",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-bloodfest-crimson",
+      "lineId": "scale75-fantasy-games",
+      "name": "Bloodfest Crimson",
+      "hex": "#6C003B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-braineater-azure",
+      "lineId": "scale75-fantasy-games",
+      "name": "Braineater Azure",
+      "hex": "#676AAD",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-undead-flesh",
+      "lineId": "scale75-fantasy-games",
+      "name": "Undead Flesh",
+      "hex": "#A7B16F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-resurrection-flesh",
+      "lineId": "scale75-fantasy-games",
+      "name": "Resurrection Flesh",
+      "hex": "#BD8C68",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-harvester-flesh",
+      "lineId": "scale75-fantasy-games",
+      "name": "Harvester Flesh",
+      "hex": "#D0A790",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-hellbound-flesh",
+      "lineId": "scale75-fantasy-games",
+      "name": "Hellbound Flesh",
+      "hex": "#9BB1AC",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-moonray-flesh",
+      "lineId": "scale75-fantasy-games",
+      "name": "Moonray Flesh",
+      "hex": "#EFD6A0",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-riff-green",
+      "lineId": "scale75-fantasy-games",
+      "name": "Riff Green",
+      "hex": "#192C28",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-orcish-dermis",
+      "lineId": "scale75-fantasy-games",
+      "name": "Orcish Dermis",
+      "hex": "#DC7B75",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-merm-green",
+      "lineId": "scale75-fantasy-games",
+      "name": "Merm Green",
+      "hex": "#435335",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-greenskin-flesh",
+      "lineId": "scale75-fantasy-games",
+      "name": "Greenskin Flesh",
+      "hex": "#017033",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-surfer-orc-flesh",
+      "lineId": "scale75-fantasy-games",
+      "name": "Surfer Orc Flesh",
+      "hex": "#03A68C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-slimer-green",
+      "lineId": "scale75-fantasy-games",
+      "name": "Slimer Green",
+      "hex": "#5C8E33",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-goblin-flesh",
+      "lineId": "scale75-fantasy-games",
+      "name": "Goblin Flesh",
+      "hex": "#77B93A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-toxic-waste-green",
+      "lineId": "scale75-fantasy-games",
+      "name": "Toxic Waste Green",
+      "hex": "#C8D635",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-huldra-blue",
+      "lineId": "scale75-fantasy-games",
+      "name": "Huldra Blue",
+      "hex": "#244153",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-eldandil-violet",
+      "lineId": "scale75-fantasy-games",
+      "name": "Eldandil Violet",
+      "hex": "#2B1B3D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-arphen-jade",
+      "lineId": "scale75-fantasy-games",
+      "name": "Arphen Jade",
+      "hex": "#035C54",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-airnrhod-blue",
+      "lineId": "scale75-fantasy-games",
+      "name": "Airnrhod Blue",
+      "hex": "#38398E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-amarth-blue",
+      "lineId": "scale75-fantasy-games",
+      "name": "Amarth Blue",
+      "hex": "#0183C8",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-jorildyn-turquoise",
+      "lineId": "scale75-fantasy-games",
+      "name": "Jorildyn Turquoise",
+      "hex": "#037EA4",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-lendanis-grey",
+      "lineId": "scale75-fantasy-games",
+      "name": "Lendanis Grey",
+      "hex": "#898EA4",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-hiril-blue",
+      "lineId": "scale75-fantasy-games",
+      "name": "Hiril Blue",
+      "hex": "#49A9BE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-arbuckles-brown",
+      "lineId": "scale75-fantasy-games",
+      "name": "Arbuckles Brown",
+      "hex": "#3B2923",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-bosh-chesnut",
+      "lineId": "scale75-fantasy-games",
+      "name": "Bosh Chesnut",
+      "hex": "#67452F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-sharpnel-red",
+      "lineId": "scale75-fantasy-games",
+      "name": "Sharpnel Red",
+      "hex": "#6C2A0A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-chink-orange",
+      "lineId": "scale75-fantasy-games",
+      "name": "Chink Orange",
+      "hex": "#B16118",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-cokum-copper",
+      "lineId": "scale75-fantasy-games",
+      "name": "Cokum Copper",
+      "hex": "#A2701C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-peanut-butter",
+      "lineId": "scale75-fantasy-games",
+      "name": "Peanut Butter",
+      "hex": "#B98201",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-blackert-brown",
+      "lineId": "scale75-fantasy-games",
+      "name": "Blackert Brown",
+      "hex": "#B7815C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-hykey-yellow",
+      "lineId": "scale75-fantasy-games",
+      "name": "Hykey Yellow",
+      "hex": "#ECD390",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-necro-grey",
+      "lineId": "scale75-fantasy-games",
+      "name": "Necro Grey",
+      "hex": "#303037",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-despair-green",
+      "lineId": "scale75-fantasy-games",
+      "name": "Despair Green",
+      "hex": "#18383C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-tindalos-red",
+      "lineId": "scale75-fantasy-games",
+      "name": "Tindalos Red",
+      "hex": "#592922",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-rlyeh-grey",
+      "lineId": "scale75-fantasy-games",
+      "name": "Rlyeh Grey",
+      "hex": "#434C4E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-innsmouth-blue",
+      "lineId": "scale75-fantasy-games",
+      "name": "Innsmouth Blue",
+      "hex": "#005B6B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fantasy-games-miskatonic-grey",
+      "lineId": "scale75-fantasy-games",
+      "name": "Miskatonic Grey",
+      "hex": "#BCB7B4",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-dunkelgelb-yellow",
+      "lineId": "scale75-warfront",
+      "name": "Dunkelgelb Yellow",
+      "hex": "#CCB44E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-olivegrun-green",
+      "lineId": "scale75-warfront",
+      "name": "Olivegrun Green",
+      "hex": "#59642F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-rotbraun-red",
+      "lineId": "scale75-warfront",
+      "name": "Rotbraun Red",
+      "hex": "#4E341E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-rotbraun-primer-red",
+      "lineId": "scale75-warfront",
+      "name": "Rotbraun Primer Red",
+      "hex": "#915349",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-dunkelgrau-gray",
+      "lineId": "scale75-warfront",
+      "name": "Dunkelgrau Gray",
+      "hex": "#57585A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-dunkelbraun-brown",
+      "lineId": "scale75-warfront",
+      "name": "Dunkelbraun Brown",
+      "hex": "#3F3028",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-gelbraun-brown",
+      "lineId": "scale75-warfront",
+      "name": "Gelbraun Brown",
+      "hex": "#D8AA72",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-graugrun-gray",
+      "lineId": "scale75-warfront",
+      "name": "Graugrun Gray",
+      "hex": "#9B8A46",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-medium-brown",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Medium Brown",
+      "hex": "#845C2D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-dark-green",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Dark Green",
+      "hex": "#293320",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-medium-green",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Medium Green",
+      "hex": "#4D4F23",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-light-green",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Light Green",
+      "hex": "#7C8126",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-ocher-brown",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Ocher Brown",
+      "hex": "#D0AD5E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-gray-brown",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Gray Brown",
+      "hex": "#6D513B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-highlights",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Highlights",
+      "hex": "#F9B862",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-flat-black",
+      "lineId": "scale75-warfront",
+      "name": "Flat Black",
+      "hex": "#1B1B1B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-grey",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Grey",
+      "hex": "#8E7F62",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-red-brown",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Red Brown",
+      "hex": "#583B17",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-dark-brown",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Dark Brown",
+      "hex": "#200B05",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-golden-brown",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Golden Brown",
+      "hex": "#F59E01",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-italian-green",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Italian Green",
+      "hex": "#425033",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-yellow-sand",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Yellow Sand",
+      "hex": "#C5A46D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-top-lights",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Top Lights",
+      "hex": "#FCC67E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ss-camo-top-shadows",
+      "lineId": "scale75-warfront",
+      "name": "SS Camo Top Shadows",
+      "hex": "#34332C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-dunkelgelb-44",
+      "lineId": "scale75-warfront",
+      "name": "Dunkelgelb 44",
+      "hex": "#DCD2AB",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-rotbraun-44",
+      "lineId": "scale75-warfront",
+      "name": "Rotbraun 44",
+      "hex": "#924F21",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-olivegrun-44",
+      "lineId": "scale75-warfront",
+      "name": "Olivegrun 44",
+      "hex": "#92A45A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-cremeweiss",
+      "lineId": "scale75-warfront",
+      "name": "Cremeweiss",
+      "hex": "#FCFBE3",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-braun",
+      "lineId": "scale75-warfront",
+      "name": "Braun",
+      "hex": "#E7C79A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-grau",
+      "lineId": "scale75-warfront",
+      "name": "Grau",
+      "hex": "#E9D5C4",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-green-ochre",
+      "lineId": "scale75-warfront",
+      "name": "Green Ochre",
+      "hex": "#957F27",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-desert-yellow",
+      "lineId": "scale75-warfront",
+      "name": "Desert Yellow",
+      "hex": "#DCAD72",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-sand-yellow",
+      "lineId": "scale75-warfront",
+      "name": "Sand Yellow",
+      "hex": "#EDC482",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-dark-earth",
+      "lineId": "scale75-warfront",
+      "name": "Dark Earth",
+      "hex": "#663425",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-pale-earth",
+      "lineId": "scale75-warfront",
+      "name": "Pale Earth",
+      "hex": "#5B4325",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-olive-brown",
+      "lineId": "scale75-warfront",
+      "name": "Olive Brown",
+      "hex": "#424532",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-sahara-sand",
+      "lineId": "scale75-warfront",
+      "name": "Sahara Sand",
+      "hex": "#F1CF5F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-leaden-sky",
+      "lineId": "scale75-warfront",
+      "name": "Leaden Sky",
+      "hex": "#404F6C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-field-grey-1",
+      "lineId": "scale75-warfront",
+      "name": "Field Grey 1",
+      "hex": "#3A543E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-field-grey-2",
+      "lineId": "scale75-warfront",
+      "name": "Field Grey 2",
+      "hex": "#3F4A45",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-titanium-gray",
+      "lineId": "scale75-warfront",
+      "name": "Titanium Gray",
+      "hex": "#3F362D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-smoke-gray",
+      "lineId": "scale75-warfront",
+      "name": "Smoke Gray",
+      "hex": "#85695A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-slate-gray",
+      "lineId": "scale75-warfront",
+      "name": "Slate Gray",
+      "hex": "#362A16",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-russian-green",
+      "lineId": "scale75-warfront",
+      "name": "Russian Green",
+      "hex": "#585024",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-russian-light-green",
+      "lineId": "scale75-warfront",
+      "name": "Russian Light Green",
+      "hex": "#61520F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-russian-uniform",
+      "lineId": "scale75-warfront",
+      "name": "Russian Uniform",
+      "hex": "#675925",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-panzer-grey",
+      "lineId": "scale75-warfront",
+      "name": "Panzer Grey",
+      "hex": "#31383C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-panzer-yellow",
+      "lineId": "scale75-warfront",
+      "name": "Panzer Yellow",
+      "hex": "#D5C78A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-american-olive",
+      "lineId": "scale75-warfront",
+      "name": "American Olive",
+      "hex": "#726833",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ocean-gray",
+      "lineId": "scale75-warfront",
+      "name": "Ocean Gray",
+      "hex": "#566375",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-us-medium-brown",
+      "lineId": "scale75-warfront",
+      "name": "US Medium Brown",
+      "hex": "#D5AC81",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-us-dark-brown",
+      "lineId": "scale75-warfront",
+      "name": "US Dark Brown",
+      "hex": "#B1886E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-us-green",
+      "lineId": "scale75-warfront",
+      "name": "US Green",
+      "hex": "#464632",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-red-label",
+      "lineId": "scale75-warfront",
+      "name": "Red Label",
+      "hex": "#E20614",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-yellow-code",
+      "lineId": "scale75-warfront",
+      "name": "Yellow Code",
+      "hex": "#FDCB03",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-flight-blue",
+      "lineId": "scale75-warfront",
+      "name": "Flight Blue",
+      "hex": "#00678D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-light-sky",
+      "lineId": "scale75-warfront",
+      "name": "Light Sky",
+      "hex": "#7A8DB7",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-shadow-blue",
+      "lineId": "scale75-warfront",
+      "name": "Shadow Blue",
+      "hex": "#2A3144",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-white",
+      "lineId": "scale75-warfront",
+      "name": "White",
+      "hex": "#FEFEFE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-orange",
+      "lineId": "scale75-warfront",
+      "name": "Orange",
+      "hex": "#EC6608",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-ocean-blue",
+      "lineId": "scale75-warfront",
+      "name": "Ocean Blue",
+      "hex": "#0C2143",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-deep-ocean",
+      "lineId": "scale75-warfront",
+      "name": "Deep Ocean",
+      "hex": "#00092C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-winter-shadow",
+      "lineId": "scale75-warfront",
+      "name": "Winter Shadow",
+      "hex": "#393B38",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-warfront-winter-grey",
+      "lineId": "scale75-warfront",
+      "name": "Winter Grey",
+      "hex": "#6E6E70",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fx-fluor-brilli-white",
+      "lineId": "scale75-fx-fluor",
+      "name": "Brilli White",
+      "hex": "#FEFEFE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fx-fluor-orange-neon",
+      "lineId": "scale75-fx-fluor",
+      "name": "Orange Neon",
+      "hex": "#FF6400",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fx-fluor-acid-pink",
+      "lineId": "scale75-fx-fluor",
+      "name": "Acid Pink",
+      "hex": "#FF00FE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fx-fluor-psychedelic-purple",
+      "lineId": "scale75-fx-fluor",
+      "name": "Psychedelic Purple",
+      "hex": "#BB00FF",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fx-fluor-electric-blue",
+      "lineId": "scale75-fx-fluor",
+      "name": "Electric Blue",
+      "hex": "#0000FE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fx-fluor-techno-green",
+      "lineId": "scale75-fx-fluor",
+      "name": "Techno Green",
+      "hex": "#00FE00",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fx-fluor-speed-yellow",
+      "lineId": "scale75-fx-fluor",
+      "name": "Speed Yellow",
+      "hex": "#FEFE00",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-fx-fluor-red-ecstasy",
+      "lineId": "scale75-fx-fluor",
+      "name": "Red Ecstasy",
+      "hex": "#FE1800",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-art-white",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Art White",
+      "hex": "#FEFEFE",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-art-black",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Art Black",
+      "hex": "#111111",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-primary-blue",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Primary Blue",
+      "hex": "#1A76B5",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-primary-yellow",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Primary Yellow",
+      "hex": "#F3E814",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-primary-red",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Primary Red",
+      "hex": "#D53036",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-burnt-sienna-umber",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Burnt Sienna Umber",
+      "hex": "#4C2A20",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-pink-flesh",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Pink Flesh",
+      "hex": "#BC6F65",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-golden-flesh",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Golden Flesh",
+      "hex": "#E2A76D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-light-skin",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Light Skin",
+      "hex": "#D3B5AD",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-crimsom",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Crimsom",
+      "hex": "#C12234",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-moss-green",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Moss Green",
+      "hex": "#444A30",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-burnt-skin",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Burnt Skin",
+      "hex": "#674023",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-buff",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Buff",
+      "hex": "#B39E83",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-pearl-grey",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Pearl Grey",
+      "hex": "#867980",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-violet-grey",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Violet Grey",
+      "hex": "#73737D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-green-grey",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Green Grey",
+      "hex": "#2C3033",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-vanilla-yellow",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Vanilla Yellow",
+      "hex": "#D8CC68",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-naples-yellow",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Naples Yellow",
+      "hex": "#DAAC22",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-intense-yellow",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Intense Yellow",
+      "hex": "#F2CB01",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-yellow-ochre",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Yellow Ochre",
+      "hex": "#A1712F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-raw-sienna",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Raw Sienna",
+      "hex": "#654226",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-orange",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Orange",
+      "hex": "#D55C15",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-magenta",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Magenta",
+      "hex": "#C50984",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-purple",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Purple",
+      "hex": "#912360",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-dark-violet",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Dark Violet",
+      "hex": "#481A3F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-turquoise-blue",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Turquoise Blue",
+      "hex": "#15998E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-cobalt-blue",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Cobalt Blue",
+      "hex": "#005E91",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-light-ultramarine",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Light Ultramarine",
+      "hex": "#253D87",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-dark-ultramarine",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Dark Ultramarine",
+      "hex": "#32297A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-prussian-blue",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Prussian Blue",
+      "hex": "#06293D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-light-moss-green",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Light Moss Green",
+      "hex": "#61701B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-spring-green",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Spring Green",
+      "hex": "#5C9E34",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-emerald-green",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Emerald Green",
+      "hex": "#165341",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-sap-green",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Sap Green",
+      "hex": "#033417",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-olive-green",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Olive Green",
+      "hex": "#585135",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-earth-green",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Earth Green",
+      "hex": "#4A3C2F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-red-ochre",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Red Ochre",
+      "hex": "#81372E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-burnt-umber",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Burnt Umber",
+      "hex": "#51402C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-wood",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Wood",
+      "hex": "#5F473D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-raw-umber",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Raw Umber",
+      "hex": "#765F33",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-dark-brown-ochre",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Dark Brown Ochre",
+      "hex": "#1E1317",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-burnt-sienna",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Burnt Sienna",
+      "hex": "#7D2E07",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-vanilla-white",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Vanilla White",
+      "hex": "#ECE7D3",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-artic-blue",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Artic Blue",
+      "hex": "#888FA1",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-pastel-violet",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Pastel Violet",
+      "hex": "#804A95",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-pastel-green",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Pastel Green",
+      "hex": "#929D97",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-off-white",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Off White",
+      "hex": "#DFD3B9",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-pastel-blue",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Pastel Blue",
+      "hex": "#44646F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-cork-brown",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Cork Brown",
+      "hex": "#AB9982",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-pastel-pink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Pastel Pink",
+      "hex": "#F491CD",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-pale-skin",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Pale Skin",
+      "hex": "#EBCAC4",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-sky-blue",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Sky Blue",
+      "hex": "#B9E4ED",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-cobalt-viotel-grey",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Cobalt Viotel Grey",
+      "hex": "#727589",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-burgundy-wine-red",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Burgundy Wine Red",
+      "hex": "#59281A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-lemon-yellow",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Lemon Yellow",
+      "hex": "#EBE951",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-yellow-oxide",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Yellow Oxide",
+      "hex": "#4C3626",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-permanent-orange",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Permanent Orange",
+      "hex": "#F85D20",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-coral-read",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Coral Read",
+      "hex": "#F83B28",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-violet",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Violet",
+      "hex": "#2D224C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-titanium-grey",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Titanium Grey",
+      "hex": "#404444",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-lime-green",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Lime Green",
+      "hex": "#ACE24B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-alizarin-green",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Alizarin Green",
+      "hex": "#2B914C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-jade-green",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Jade Green",
+      "hex": "#26B4A5",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-turquoise",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Turquoise",
+      "hex": "#0F4C65",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-oxford-blue",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Oxford Blue",
+      "hex": "#3847A5",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-dark-prussian-blue",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Dark Prussian Blue",
+      "hex": "#201E2A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-neon-orange",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Neon Orange",
+      "hex": "#FF9C14",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-neon-pink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Neon Pink",
+      "hex": "#FF3C46",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-neon-red",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Neon Red",
+      "hex": "#EB2E1C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-neon-yellow",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Neon Yellow",
+      "hex": "#ECFF56",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-neon-green",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Neon Green",
+      "hex": "#65F88A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-neon-blue",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Neon Blue",
+      "hex": "#0F84D7",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-yellow-ink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Yellow Ink",
+      "hex": "#F4E660",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-red-ink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Red Ink",
+      "hex": "#B41512",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-blue-ink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Blue Ink",
+      "hex": "#1C1842",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-green-ink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Green Ink",
+      "hex": "#377158",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-orange-ink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Orange Ink",
+      "hex": "#FF6C27",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-violet-ink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Violet Ink",
+      "hex": "#402E3F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-black-ink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Black Ink",
+      "hex": "#3B3836",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-white-ink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "White Ink",
+      "hex": "#FEFBF7",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-crimson-ink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Crimson Ink",
+      "hex": "#EB3951",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-pistachio-green-ink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Pistachio Green Ink",
+      "hex": "#E3ED2B",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-turquoise-ink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Turquoise Ink",
+      "hex": "#09869C",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-artist-chestnut-ink",
+      "lineId": "scale75-scalecolor-artist",
+      "name": "Chestnut Ink",
+      "hex": "#482014",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-titanium-white",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Titanium White",
+      "hex": "#FFFFFF",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-medium-yellow",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Medium Yellow",
+      "hex": "#EDBB00",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-vermilion",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Vermilion",
+      "hex": "#D60004",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-cobalt-blue-light",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Cobalt Blue Light",
+      "hex": "#0243A5",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-ivory-black",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Ivory Black",
+      "hex": "#1E2028",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-turquoise-blue",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Turquoise Blue",
+      "hex": "#006F89",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-paris-red",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Paris Red",
+      "hex": "#8C4042",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-persian-yellow",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Persian Yellow",
+      "hex": "#EE600F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-prussian-blue",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Prussian Blue",
+      "hex": "#08070D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-stencil-yellow",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Stencil Yellow",
+      "hex": "#F7D600",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-olive-green",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Olive Green",
+      "hex": "#2A5A16",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-stone-grey",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Stone Grey",
+      "hex": "#142320",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-toad-green",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Toad Green",
+      "hex": "#BFB7D0",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-antique-pink",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Antique Pink",
+      "hex": "#E46E58",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-moist-soil",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Moist Soil",
+      "hex": "#3B2C2E",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-red-mauve",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Red Mauve",
+      "hex": "#5E1638",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-scroll-white",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Scroll White",
+      "hex": "#EDDFC2",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-bronzed-skin",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Bronzed Skin",
+      "hex": "#F6B571",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-rusty-brown",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Rusty Brown",
+      "hex": "#5A3837",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-raw-umber",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Raw Umber",
+      "hex": "#493A3D",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-sand-yellow",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Sand Yellow",
+      "hex": "#C88D3F",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-brown-sienna",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Brown Sienna",
+      "hex": "#694436",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-swamp-green",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Swamp Green",
+      "hex": "#232A3A",
+      "type": "acrylic"
+    },
+    {
+      "id": "scale75-scalecolor-floww-buff",
+      "lineId": "scale75-scalecolor-floww",
+      "name": "Buff",
+      "hex": "#B09F8E",
+      "type": "acrylic"
+    }
+  ]
+}

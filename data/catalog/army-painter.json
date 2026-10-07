@@ -1,0 +1,3308 @@
+{
+  "brand": {
+    "id": "army-painter",
+    "name": "The Army Painter",
+    "manufacturer": "The Army Painter",
+    "website": "https://thearmypainter.com"
+  },
+  "lines": [
+    {
+      "id": "army-painter-fanatic",
+      "name": "Fanatic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic",
+      "name": "Fanatic Metallic"
+    },
+    {
+      "id": "army-painter-fanatic-wash",
+      "name": "Fanatic Wash"
+    },
+    {
+      "id": "army-painter-speedpaint",
+      "name": "Speedpaint"
+    },
+    {
+      "id": "army-painter-warpaints",
+      "name": "Warpaints"
+    },
+    {
+      "id": "army-painter-masterclass",
+      "name": "Masterclass"
+    },
+    {
+      "id": "army-painter-warpaints-metallic",
+      "name": "Warpaints Metallic"
+    },
+    {
+      "id": "army-painter-warpaints-wash",
+      "name": "Warpaints Wash"
+    },
+    {
+      "id": "army-painter-warpaints-air",
+      "name": "Warpaints Air"
+    }
+  ],
+  "paints": [
+    {
+      "id": "army-painter-fanatic-matt-black",
+      "lineId": "army-painter-fanatic",
+      "name": "Matt Black",
+      "hex": "#000000",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-deep-grey",
+      "lineId": "army-painter-fanatic",
+      "name": "Deep Grey",
+      "hex": "#484B58",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-uniform-grey",
+      "lineId": "army-painter-fanatic",
+      "name": "Uniform Grey",
+      "hex": "#63676E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-ash-grey",
+      "lineId": "army-painter-fanatic",
+      "name": "Ash Grey",
+      "hex": "#7B7E80",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-company-grey",
+      "lineId": "army-painter-fanatic",
+      "name": "Company Grey",
+      "hex": "#B6B7B7",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-brigade-grey",
+      "lineId": "army-painter-fanatic",
+      "name": "Brigade Grey",
+      "hex": "#CCCCCB",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-grey-castle",
+      "lineId": "army-painter-fanatic",
+      "name": "Grey Castle",
+      "hex": "#87877D",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-gargoyle-grey",
+      "lineId": "army-painter-fanatic",
+      "name": "Gargoyle Grey",
+      "hex": "#9E9A8A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-great-hall-grey",
+      "lineId": "army-painter-fanatic",
+      "name": "Great Hall Grey",
+      "hex": "#B5AF9E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-worn-stone",
+      "lineId": "army-painter-fanatic",
+      "name": "Worn Stone",
+      "hex": "#BDBAA8",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-brainmatter-beige",
+      "lineId": "army-painter-fanatic",
+      "name": "Brainmatter Beige",
+      "hex": "#DCD9CB",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-matt-white",
+      "lineId": "army-painter-fanatic",
+      "name": "Matt White",
+      "hex": "#FFFFFF",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-night-sky",
+      "lineId": "army-painter-fanatic",
+      "name": "Night Sky",
+      "hex": "#303F4E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-thunderous-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Thunderous Blue",
+      "hex": "#384D68",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-stratos-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Stratos Blue",
+      "hex": "#3B5D7E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-wolf-grey",
+      "lineId": "army-painter-fanatic",
+      "name": "Wolf Grey",
+      "hex": "#527393",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-runic-cobalt",
+      "lineId": "army-painter-fanatic",
+      "name": "Runic Cobalt",
+      "hex": "#738EA4",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-frost-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Frost Blue",
+      "hex": "#97B7CF",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-augur-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Augur Blue",
+      "hex": "#A8B8D4",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-baron-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Baron Blue",
+      "hex": "#778EBB",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-alpha-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Alpha Blue",
+      "hex": "#6375AA",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-ultramarine-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Ultramarine Blue",
+      "hex": "#2C477B",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-gothic-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Gothic Blue",
+      "hex": "#2C3862",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-triumphant-navy",
+      "lineId": "army-painter-fanatic",
+      "name": "Triumphant Navy",
+      "hex": "#192742",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-bright-sapphire",
+      "lineId": "army-painter-fanatic",
+      "name": "Bright Sapphire",
+      "hex": "#87C7E3",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-arctic-gem",
+      "lineId": "army-painter-fanatic",
+      "name": "Arctic Gem",
+      "hex": "#1C8BBF",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-crystal-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Crystal Blue",
+      "hex": "#0C69A5",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-royal-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Royal Blue",
+      "hex": "#005899",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-regal-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Regal Blue",
+      "hex": "#004675",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-imperial-navy",
+      "lineId": "army-painter-fanatic",
+      "name": "Imperial Navy",
+      "hex": "#0D2F4F",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-deep-ocean-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Deep Ocean Blue",
+      "hex": "#202D36",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-abyssal-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Abyssal Blue",
+      "hex": "#00475B",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-phalanx-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Phalanx Blue",
+      "hex": "#11809E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-shieldwall-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Shieldwall Blue",
+      "hex": "#229AB9",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-tidal-blue",
+      "lineId": "army-painter-fanatic",
+      "name": "Tidal Blue",
+      "hex": "#006483",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-aegis-aqua",
+      "lineId": "army-painter-fanatic",
+      "name": "Aegis Aqua",
+      "hex": "#45ABC3",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-marine-mist",
+      "lineId": "army-painter-fanatic",
+      "name": "Marine Mist",
+      "hex": "#94D0C8",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-neptune-glow",
+      "lineId": "army-painter-fanatic",
+      "name": "Neptune Glow",
+      "hex": "#77C7C6",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-aquamarine",
+      "lineId": "army-painter-fanatic",
+      "name": "Aquamarine",
+      "hex": "#5ABDBE",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-turquoise-siren",
+      "lineId": "army-painter-fanatic",
+      "name": "Turquoise Siren",
+      "hex": "#39ABAB",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-hydra-turquoise",
+      "lineId": "army-painter-fanatic",
+      "name": "Hydra Turquoise",
+      "hex": "#208B8A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-deep-azure",
+      "lineId": "army-painter-fanatic",
+      "name": "Deep Azure",
+      "hex": "#00616A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-amulet-aqua",
+      "lineId": "army-painter-fanatic",
+      "name": "Amulet Aqua",
+      "hex": "#68BEA7",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-aqua-alchemy",
+      "lineId": "army-painter-fanatic",
+      "name": "Aqua Alchemy",
+      "hex": "#3BB297",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-talisman-teal",
+      "lineId": "army-painter-fanatic",
+      "name": "Talisman Teal",
+      "hex": "#10A485",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-pharaoh-guard",
+      "lineId": "army-painter-fanatic",
+      "name": "Pharaoh Guard",
+      "hex": "#007059",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-temple-gate-teal",
+      "lineId": "army-painter-fanatic",
+      "name": "Temple Gate Teal",
+      "hex": "#005649",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-scarab-green",
+      "lineId": "army-painter-fanatic",
+      "name": "Scarab Green",
+      "hex": "#223638",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-ferocious-green",
+      "lineId": "army-painter-fanatic",
+      "name": "Ferocious Green",
+      "hex": "#6FBB73",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-wild-green",
+      "lineId": "army-painter-fanatic",
+      "name": "Wild Green",
+      "hex": "#45AD56",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-greenskin",
+      "lineId": "army-painter-fanatic",
+      "name": "Greenskin",
+      "hex": "#236D3F",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-guardian-green",
+      "lineId": "army-painter-fanatic",
+      "name": "Guardian Green",
+      "hex": "#285841",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-angel-green",
+      "lineId": "army-painter-fanatic",
+      "name": "Angel Green",
+      "hex": "#1F382C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-eternal-hunt",
+      "lineId": "army-painter-fanatic",
+      "name": "Eternal Hunt",
+      "hex": "#329149",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-afterglow",
+      "lineId": "army-painter-fanatic",
+      "name": "Afterglow",
+      "hex": "#E2E68B",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-vivid-volt",
+      "lineId": "army-painter-fanatic",
+      "name": "Vivid Volt",
+      "hex": "#CBDA56",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-electric-lime",
+      "lineId": "army-painter-fanatic",
+      "name": "Electric Lime",
+      "hex": "#B6D038",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-rainforest",
+      "lineId": "army-painter-fanatic",
+      "name": "Rainforest",
+      "hex": "#84BF42",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-leafy-green",
+      "lineId": "army-painter-fanatic",
+      "name": "Leafy Green",
+      "hex": "#71B943",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-emerald-forest",
+      "lineId": "army-painter-fanatic",
+      "name": "Emerald Forest",
+      "hex": "#5AB24C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-mossy-green",
+      "lineId": "army-painter-fanatic",
+      "name": "Mossy Green",
+      "hex": "#AFD7B7",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-forest-faun",
+      "lineId": "army-painter-fanatic",
+      "name": "Forest Faun",
+      "hex": "#9BC2A3",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-autumn-sage",
+      "lineId": "army-painter-fanatic",
+      "name": "Autumn Sage",
+      "hex": "#72A58C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-patagon-pine",
+      "lineId": "army-painter-fanatic",
+      "name": "Patagon Pine",
+      "hex": "#618A75",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-medieval-forest",
+      "lineId": "army-painter-fanatic",
+      "name": "Medieval Forest",
+      "hex": "#447263",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-evergreen-fog",
+      "lineId": "army-painter-fanatic",
+      "name": "Evergreen Fog",
+      "hex": "#395B54",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-grotesque-green",
+      "lineId": "army-painter-fanatic",
+      "name": "Grotesque Green",
+      "hex": "#ACBC95",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-necrotic-flesh",
+      "lineId": "army-painter-fanatic",
+      "name": "Necrotic Flesh",
+      "hex": "#95A27C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-olive-drab",
+      "lineId": "army-painter-fanatic",
+      "name": "Olive Drab",
+      "hex": "#74885A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-camouflage-green",
+      "lineId": "army-painter-fanatic",
+      "name": "Camouflage Green",
+      "hex": "#677A51",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-army-green",
+      "lineId": "army-painter-fanatic",
+      "name": "Army Green",
+      "hex": "#576D4C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-woodland-camo",
+      "lineId": "army-painter-fanatic",
+      "name": "Woodland Camo",
+      "hex": "#455944",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-urban-buff",
+      "lineId": "army-painter-fanatic",
+      "name": "Urban Buff",
+      "hex": "#D3B3A2",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-command-khaki",
+      "lineId": "army-painter-fanatic",
+      "name": "Command Khaki",
+      "hex": "#AB8D80",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-paratrooper-tan",
+      "lineId": "army-painter-fanatic",
+      "name": "Paratrooper Tan",
+      "hex": "#8D7064",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-leather-brown",
+      "lineId": "army-painter-fanatic",
+      "name": "Leather Brown",
+      "hex": "#6F534C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-bootstrap-brown",
+      "lineId": "army-painter-fanatic",
+      "name": "Bootstrap Brown",
+      "hex": "#534746",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-brigandine-brown",
+      "lineId": "army-painter-fanatic",
+      "name": "Brigandine Brown",
+      "hex": "#3C3738",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-barren-dune",
+      "lineId": "army-painter-fanatic",
+      "name": "Barren Dune",
+      "hex": "#D3B56F",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-burnt-turf",
+      "lineId": "army-painter-fanatic",
+      "name": "Burnt Turf",
+      "hex": "#B39357",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-wasteland-clay",
+      "lineId": "army-painter-fanatic",
+      "name": "Wasteland Clay",
+      "hex": "#998151",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-desert-yellow",
+      "lineId": "army-painter-fanatic",
+      "name": "Desert Yellow",
+      "hex": "#776742",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-prairie-ochre",
+      "lineId": "army-painter-fanatic",
+      "name": "Prairie Ochre",
+      "hex": "#5D5B3E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-tundra-taupe",
+      "lineId": "army-painter-fanatic",
+      "name": "Tundra Taupe",
+      "hex": "#44493A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-pale-sand",
+      "lineId": "army-painter-fanatic",
+      "name": "Pale Sand",
+      "hex": "#EFE6CE",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-bony-spikes",
+      "lineId": "army-painter-fanatic",
+      "name": "Bony Spikes",
+      "hex": "#E3D1B9",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-ancient-stone",
+      "lineId": "army-painter-fanatic",
+      "name": "Ancient Stone",
+      "hex": "#C9BE9D",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-skeleton-bone",
+      "lineId": "army-painter-fanatic",
+      "name": "Skeleton Bone",
+      "hex": "#B7AB8B",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-tomb-king-tan",
+      "lineId": "army-painter-fanatic",
+      "name": "Tomb King Tan",
+      "hex": "#98886F",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-dusty-skull",
+      "lineId": "army-painter-fanatic",
+      "name": "Dusty Skull",
+      "hex": "#7E725F",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-ice-yellow",
+      "lineId": "army-painter-fanatic",
+      "name": "Ice Yellow",
+      "hex": "#FFEDA9",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-space-dust",
+      "lineId": "army-painter-fanatic",
+      "name": "Space Dust",
+      "hex": "#FEE185",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-warped-yellow",
+      "lineId": "army-painter-fanatic",
+      "name": "Warped Yellow",
+      "hex": "#FCD151",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-daemonic-yellow",
+      "lineId": "army-painter-fanatic",
+      "name": "Daemonic Yellow",
+      "hex": "#F9C93A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-fiendish-yellow",
+      "lineId": "army-painter-fanatic",
+      "name": "Fiendish Yellow",
+      "hex": "#E2944B",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-demigod-flames",
+      "lineId": "army-painter-fanatic",
+      "name": "Demigod Flames",
+      "hex": "#C57444",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-inner-light",
+      "lineId": "army-painter-fanatic",
+      "name": "Inner Light",
+      "hex": "#F9C662",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-glowing-inferno",
+      "lineId": "army-painter-fanatic",
+      "name": "Glowing Inferno",
+      "hex": "#ED9549",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-flickering-flame",
+      "lineId": "army-painter-fanatic",
+      "name": "Flickering Flame",
+      "hex": "#E98443",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-lava-orange",
+      "lineId": "army-painter-fanatic",
+      "name": "Lava Orange",
+      "hex": "#E57131",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-burning-ore",
+      "lineId": "army-painter-fanatic",
+      "name": "Burning Ore",
+      "hex": "#E15F40",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-molten-lava",
+      "lineId": "army-painter-fanatic",
+      "name": "Molten Lava",
+      "hex": "#E05441",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-raging-rouge",
+      "lineId": "army-painter-fanatic",
+      "name": "Raging Rouge",
+      "hex": "#E9897B",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-violent-vermillion",
+      "lineId": "army-painter-fanatic",
+      "name": "Violent Vermillion",
+      "hex": "#E5745F",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-sacred-scarlet",
+      "lineId": "army-painter-fanatic",
+      "name": "Sacred Scarlet",
+      "hex": "#E15E4A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-legendary-red",
+      "lineId": "army-painter-fanatic",
+      "name": "Legendary Red",
+      "hex": "#DE4740",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-angelic-red",
+      "lineId": "army-painter-fanatic",
+      "name": "Angelic Red",
+      "hex": "#C3313B",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-resplendent-red",
+      "lineId": "army-painter-fanatic",
+      "name": "Resplendent Red",
+      "hex": "#822A2E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-buffed-hide",
+      "lineId": "army-painter-fanatic",
+      "name": "Buffed Hide",
+      "hex": "#A67062",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-ruddy-umber",
+      "lineId": "army-painter-fanatic",
+      "name": "Ruddy Umber",
+      "hex": "#87554B",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-fur-brown",
+      "lineId": "army-painter-fanatic",
+      "name": "Fur Brown",
+      "hex": "#6A3F3E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-dryad-brown",
+      "lineId": "army-painter-fanatic",
+      "name": "Dryad Brown",
+      "hex": "#53342E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-tree-ancient",
+      "lineId": "army-painter-fanatic",
+      "name": "Tree Ancient",
+      "hex": "#43312D",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-oak-brown",
+      "lineId": "army-painter-fanatic",
+      "name": "Oak Brown",
+      "hex": "#2F2626",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-raging-rose",
+      "lineId": "army-painter-fanatic",
+      "name": "Raging Rose",
+      "hex": "#DA615C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-blood-chalice",
+      "lineId": "army-painter-fanatic",
+      "name": "Blood Chalice",
+      "hex": "#C8484B",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-pure-red",
+      "lineId": "army-painter-fanatic",
+      "name": "Pure Red",
+      "hex": "#BA2129",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-dragon-red",
+      "lineId": "army-painter-fanatic",
+      "name": "Dragon Red",
+      "hex": "#AC2D3A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-wyvern-fury",
+      "lineId": "army-painter-fanatic",
+      "name": "Wyvern Fury",
+      "hex": "#86313D",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-basilisk-red",
+      "lineId": "army-painter-fanatic",
+      "name": "Basilisk Red",
+      "hex": "#5B2733",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-doomfire-drab",
+      "lineId": "army-painter-fanatic",
+      "name": "Doomfire Drab",
+      "hex": "#F7D6DF",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-pink-potion",
+      "lineId": "army-painter-fanatic",
+      "name": "Pink Potion",
+      "hex": "#EFB4C9",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-weird-elixir",
+      "lineId": "army-painter-fanatic",
+      "name": "Weird Elixir",
+      "hex": "#D68BB1",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-pixie-pink",
+      "lineId": "army-painter-fanatic",
+      "name": "Pixie Pink",
+      "hex": "#CA699C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-impish-rouge",
+      "lineId": "army-painter-fanatic",
+      "name": "Impish Rouge",
+      "hex": "#C95291",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-wicked-pink",
+      "lineId": "army-painter-fanatic",
+      "name": "Wicked Pink",
+      "hex": "#BA1776",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-kraken-lavender",
+      "lineId": "army-painter-fanatic",
+      "name": "Kraken Lavender",
+      "hex": "#D1C6D8",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-violet-coven",
+      "lineId": "army-painter-fanatic",
+      "name": "Violet Coven",
+      "hex": "#A392B9",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-hexed-violet",
+      "lineId": "army-painter-fanatic",
+      "name": "Hexed Violet",
+      "hex": "#8679AC",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-cultist-purple",
+      "lineId": "army-painter-fanatic",
+      "name": "Cultist Purple",
+      "hex": "#645C98",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-alien-purple",
+      "lineId": "army-painter-fanatic",
+      "name": "Alien Purple",
+      "hex": "#584E8F",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-terrestrial-titan",
+      "lineId": "army-painter-fanatic",
+      "name": "Terrestrial Titan",
+      "hex": "#2C2D3C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-diviner-light",
+      "lineId": "army-painter-fanatic",
+      "name": "Diviner Light",
+      "hex": "#CA97B8",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-enchanted-pink",
+      "lineId": "army-painter-fanatic",
+      "name": "Enchanted Pink",
+      "hex": "#A8649A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-spellbound-fuchsia",
+      "lineId": "army-painter-fanatic",
+      "name": "Spellbound Fuchsia",
+      "hex": "#A04B8C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-warlock-magenta",
+      "lineId": "army-painter-fanatic",
+      "name": "Warlock Magenta",
+      "hex": "#78478A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-magecast-magenta",
+      "lineId": "army-painter-fanatic",
+      "name": "Magecast Magenta",
+      "hex": "#663B83",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-diabolic-plum",
+      "lineId": "army-painter-fanatic",
+      "name": "Diabolic Plum",
+      "hex": "#4C2B5E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-wilted-rose",
+      "lineId": "army-painter-fanatic",
+      "name": "Wilted Rose",
+      "hex": "#E5C0CD",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-figgy-pink",
+      "lineId": "army-painter-fanatic",
+      "name": "Figgy Pink",
+      "hex": "#DAA9BA",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-forbidden-fruit",
+      "lineId": "army-painter-fanatic",
+      "name": "Forbidden Fruit",
+      "hex": "#C28399",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-elder-flower",
+      "lineId": "army-painter-fanatic",
+      "name": "Elder Flower",
+      "hex": "#9A546F",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-moldy-wine",
+      "lineId": "army-painter-fanatic",
+      "name": "Moldy Wine",
+      "hex": "#6C3246",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-mulled-berry",
+      "lineId": "army-painter-fanatic",
+      "name": "Mulled Berry",
+      "hex": "#53313E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-pearl-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Pearl Skin",
+      "hex": "#FCDFD1",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-opal-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Opal Skin",
+      "hex": "#F7CFBD",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-ruby-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Ruby Skin",
+      "hex": "#F1B298",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-barbarian-flesh",
+      "lineId": "army-painter-fanatic",
+      "name": "Barbarian Flesh",
+      "hex": "#EB947A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-agate-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Agate Skin",
+      "hex": "#CB7F74",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-moonstone-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Moonstone Skin",
+      "hex": "#B9746B",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-leopard-stone-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Leopard Stone Skin",
+      "hex": "#E1B0A9",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-tourmaline-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Tourmaline Skin",
+      "hex": "#D89484",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-jasper-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Jasper Skin",
+      "hex": "#AE706C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-topaz-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Topaz Skin",
+      "hex": "#A4554E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-tigers-eye-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Tiger's Eye Skin",
+      "hex": "#81484A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-carnelian-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Carnelian Skin",
+      "hex": "#523B3E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-quartz-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Quartz Skin",
+      "hex": "#EBCDAC",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-dorado-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Dorado Skin",
+      "hex": "#E7C498",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-amber-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Amber Skin",
+      "hex": "#B99A7C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-mocca-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Mocca Skin",
+      "hex": "#775E52",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-onyx-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Onyx Skin",
+      "hex": "#594542",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-obsidian-skin",
+      "lineId": "army-painter-fanatic",
+      "name": "Obsidian Skin",
+      "hex": "#413C3E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-rough-iron",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Rough Iron",
+      "hex": "#231F19",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-red-copper",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Red Copper",
+      "hex": "#5B3736",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-weapon-bronze",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Weapon Bronze",
+      "hex": "#8F541C",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-true-copper",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "True Copper",
+      "hex": "#7A5039",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-evil-chrome",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Evil Chrome",
+      "hex": "#654435",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-true-brass",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "True Brass",
+      "hex": "#6E695B",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-tainted-gold",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Tainted Gold",
+      "hex": "#605C3B",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-greedy-gold",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Greedy Gold",
+      "hex": "#996B29",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-bright-gold",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Bright Gold",
+      "hex": "#876C23",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-mithril",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Mithril",
+      "hex": "#A0A19E",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-shining-silver",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Shining Silver",
+      "hex": "#767776",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-plate-mail-metal",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Plate Mail Metal",
+      "hex": "#545554",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-gun-metal",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Gun Metal",
+      "hex": "#404140",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-cobalt-metal",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Cobalt Metal",
+      "hex": "#2C3E3D",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-death-metal",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Death Metal",
+      "hex": "#202120",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-dark-emerald",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Dark Emerald",
+      "hex": "#354123",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-glittering-green",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Glittering Green",
+      "hex": "#2D6D42",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-metallic-gemstone-red",
+      "lineId": "army-painter-fanatic-metallic",
+      "name": "Gemstone Red",
+      "hex": "#621B20",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-fanatic-wash-dark-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Dark Tone",
+      "hex": "#141413",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-strong-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Strong Tone",
+      "hex": "#1A1511",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-soft-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Soft Tone",
+      "hex": "#34261B",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-light-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Light Tone",
+      "hex": "#4E3312",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-sepia-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Sepia Tone",
+      "hex": "#462813",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-rust-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Rust Tone",
+      "hex": "#2A1B10",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-dark-red-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Dark Red Tone",
+      "hex": "#1B0F12",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-red-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Red Tone",
+      "hex": "#311418",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-orange-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Orange Tone",
+      "hex": "#421F11",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-green-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Green Tone",
+      "hex": "#152218",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-military-shade",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Military Shade",
+      "hex": "#1C1F12",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-blue-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Blue Tone",
+      "hex": "#15212E",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-dark-blue-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Dark Blue Tone",
+      "hex": "#12161B",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-purple-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Purple Tone",
+      "hex": "#201825",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-magenta-tone",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Magenta Tone",
+      "hex": "#400625",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-strong-skin-shade",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Strong Skin Shade",
+      "hex": "#1E1413",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-fanatic-wash-dark-skin-shade",
+      "lineId": "army-painter-fanatic-wash",
+      "name": "Dark Skin Shade",
+      "hex": "#1F1A19",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-speedpaint-grim-black",
+      "lineId": "army-painter-speedpaint",
+      "name": "Grim Black",
+      "hex": "#000000",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-occultist-cloak",
+      "lineId": "army-painter-speedpaint",
+      "name": "Occultist Cloak",
+      "hex": "#303142",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-gravelord-grey",
+      "lineId": "army-painter-speedpaint",
+      "name": "Gravelord Grey",
+      "hex": "#45484F",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-holy-white",
+      "lineId": "army-painter-speedpaint",
+      "name": "Holy White",
+      "hex": "#EDEDED",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-blinding-light",
+      "lineId": "army-painter-speedpaint",
+      "name": "Blinding Light",
+      "hex": "#FFFFFF",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-murder-scene",
+      "lineId": "army-painter-speedpaint",
+      "name": "Murder Scene",
+      "hex": "#71293C",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-slaughter-red",
+      "lineId": "army-painter-speedpaint",
+      "name": "Slaughter Red",
+      "hex": "#A01526",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-blood-red",
+      "lineId": "army-painter-speedpaint",
+      "name": "Blood Red",
+      "hex": "#E63413",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-poppy-red",
+      "lineId": "army-painter-speedpaint",
+      "name": "Poppy Red",
+      "hex": "#CD493E",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-bright-red",
+      "lineId": "army-painter-speedpaint",
+      "name": "Bright Red",
+      "hex": "#EA5D41",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-maize-yellow",
+      "lineId": "army-painter-speedpaint",
+      "name": "Maize Yellow",
+      "hex": "#FEDE15",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-ancient-honey",
+      "lineId": "army-painter-speedpaint",
+      "name": "Ancient Honey",
+      "hex": "#F4C71D",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-zealot-yellow",
+      "lineId": "army-painter-speedpaint",
+      "name": "Zealot Yellow",
+      "hex": "#FFDB00",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-sand-golem",
+      "lineId": "army-painter-speedpaint",
+      "name": "Sand Golem",
+      "hex": "#D39C0C",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-nuclear-sunrise",
+      "lineId": "army-painter-speedpaint",
+      "name": "Nuclear Sunrise",
+      "hex": "#EE7227",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-fire-giant-orange",
+      "lineId": "army-painter-speedpaint",
+      "name": "Fire Giant Orange",
+      "hex": "#F07D27",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-aged-hide",
+      "lineId": "army-painter-speedpaint",
+      "name": "Aged Hide",
+      "hex": "#DD7154",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-peachy-flesh",
+      "lineId": "army-painter-speedpaint",
+      "name": "Peachy Flesh",
+      "hex": "#F5AC6F",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-crusader-skin",
+      "lineId": "army-painter-speedpaint",
+      "name": "Crusader Skin",
+      "hex": "#F4A262",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-fire-drake",
+      "lineId": "army-painter-speedpaint",
+      "name": "Fire Drake",
+      "hex": "#DB9972",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-bony-matter",
+      "lineId": "army-painter-speedpaint",
+      "name": "Bony Matter",
+      "hex": "#BC9979",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-pallid-bone",
+      "lineId": "army-painter-speedpaint",
+      "name": "Pallid Bone",
+      "hex": "#EBD69E",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-howling-sand",
+      "lineId": "army-painter-speedpaint",
+      "name": "Howling Sand",
+      "hex": "#D6D9BE",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-burnt-moss",
+      "lineId": "army-painter-speedpaint",
+      "name": "Burnt Moss",
+      "hex": "#4D5D54",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-gunner-camo",
+      "lineId": "army-painter-speedpaint",
+      "name": "Gunner Camo",
+      "hex": "#204B29",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-absolution-green",
+      "lineId": "army-painter-speedpaint",
+      "name": "Absolution Green",
+      "hex": "#4AB06A",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-orc-skin",
+      "lineId": "army-painter-speedpaint",
+      "name": "Orc Skin",
+      "hex": "#355446",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-mummified-grime",
+      "lineId": "army-painter-speedpaint",
+      "name": "Mummified Grime",
+      "hex": "#696B4C",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-camo-cloak",
+      "lineId": "army-painter-speedpaint",
+      "name": "Camo Cloak",
+      "hex": "#74A74A",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-shamrock-green",
+      "lineId": "army-painter-speedpaint",
+      "name": "Shamrock Green",
+      "hex": "#2D8429",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-ghoul-green",
+      "lineId": "army-painter-speedpaint",
+      "name": "Ghoul Green",
+      "hex": "#6AC0A3",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-forest-sprite",
+      "lineId": "army-painter-speedpaint",
+      "name": "Forest Sprite",
+      "hex": "#66B330",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-brownish-decay",
+      "lineId": "army-painter-speedpaint",
+      "name": "Brownish Decay",
+      "hex": "#807033",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-desolate-brown",
+      "lineId": "army-painter-speedpaint",
+      "name": "Desolate Brown",
+      "hex": "#7D753D",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-algae-green",
+      "lineId": "army-painter-speedpaint",
+      "name": "Algae Green",
+      "hex": "#5E773F",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-ghillie-dew",
+      "lineId": "army-painter-speedpaint",
+      "name": "Ghillie Dew",
+      "hex": "#A2B259",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-charming-chartreuse",
+      "lineId": "army-painter-speedpaint",
+      "name": "Charming Chartreuse",
+      "hex": "#96B522",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-malignant-green",
+      "lineId": "army-painter-speedpaint",
+      "name": "Malignant Green",
+      "hex": "#D2DA4E",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-maggot-skin",
+      "lineId": "army-painter-speedpaint",
+      "name": "Maggot Skin",
+      "hex": "#D3D066",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-rigor-mortis",
+      "lineId": "army-painter-speedpaint",
+      "name": "Rigor Mortis",
+      "hex": "#B5B575",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-ochre-clay",
+      "lineId": "army-painter-speedpaint",
+      "name": "Ochre Clay",
+      "hex": "#C0AF37",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-tyrian-navy",
+      "lineId": "army-painter-speedpaint",
+      "name": "Tyrian Navy",
+      "hex": "#294352",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-beowulf-blue",
+      "lineId": "army-painter-speedpaint",
+      "name": "Beowulf Blue",
+      "hex": "#BECFD9",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-highlord-blue",
+      "lineId": "army-painter-speedpaint",
+      "name": "Highlord Blue",
+      "hex": "#5667AE",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-plasmatic-bolt",
+      "lineId": "army-painter-speedpaint",
+      "name": "Plasmatic Bolt",
+      "hex": "#3CA0A8",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-thunderbird-blue",
+      "lineId": "army-painter-speedpaint",
+      "name": "Thunderbird Blue",
+      "hex": "#02A195",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-lizardfolk-cyan",
+      "lineId": "army-painter-speedpaint",
+      "name": "Lizardfolk Cyan",
+      "hex": "#139BAF",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-raging-sea",
+      "lineId": "army-painter-speedpaint",
+      "name": "Raging Sea",
+      "hex": "#00AEC3",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-caribbean-ocean",
+      "lineId": "army-painter-speedpaint",
+      "name": "Caribbean Ocean",
+      "hex": "#007EC3",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-magic-blue",
+      "lineId": "army-painter-speedpaint",
+      "name": "Magic Blue",
+      "hex": "#11588B",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-tidal-wave",
+      "lineId": "army-painter-speedpaint",
+      "name": "Tidal Wave",
+      "hex": "#007EB9",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-royal-robes",
+      "lineId": "army-painter-speedpaint",
+      "name": "Royal Robes",
+      "hex": "#034088",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-periwinkle-purple",
+      "lineId": "army-painter-speedpaint",
+      "name": "Periwinkle Purple",
+      "hex": "#5C57A2",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-purple-swarm",
+      "lineId": "army-painter-speedpaint",
+      "name": "Purple Swarm",
+      "hex": "#67368C",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-hive-dweller-purple",
+      "lineId": "army-painter-speedpaint",
+      "name": "Hive Dweller Purple",
+      "hex": "#583877",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-moody-mauve",
+      "lineId": "army-painter-speedpaint",
+      "name": "Moody Mauve",
+      "hex": "#A65385",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-moonlake-coral",
+      "lineId": "army-painter-speedpaint",
+      "name": "Moonlake Coral",
+      "hex": "#AC3973",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-purple-alchemy",
+      "lineId": "army-painter-speedpaint",
+      "name": "Purple Alchemy",
+      "hex": "#B3406F",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-familiar-pink",
+      "lineId": "army-painter-speedpaint",
+      "name": "Familiar Pink",
+      "hex": "#DE3189",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-cloudburst-blue",
+      "lineId": "army-painter-speedpaint",
+      "name": "Cloudburst Blue",
+      "hex": "#3C445F",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-runic-grey",
+      "lineId": "army-painter-speedpaint",
+      "name": "Runic Grey",
+      "hex": "#597F94",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-ashen-stone",
+      "lineId": "army-painter-speedpaint",
+      "name": "Ashen Stone",
+      "hex": "#B9C0C6",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-battleship-grey",
+      "lineId": "army-painter-speedpaint",
+      "name": "Battleship Grey",
+      "hex": "#505860",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-dusk-red",
+      "lineId": "army-painter-speedpaint",
+      "name": "Dusk Red",
+      "hex": "#614042",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-satchel-brown",
+      "lineId": "army-painter-speedpaint",
+      "name": "Satchel Brown",
+      "hex": "#5B3E34",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-dark-wood",
+      "lineId": "army-painter-speedpaint",
+      "name": "Dark Wood",
+      "hex": "#4A2E18",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-burnished-red",
+      "lineId": "army-painter-speedpaint",
+      "name": "Burnished Red",
+      "hex": "#693C36",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-ruddy-fur",
+      "lineId": "army-painter-speedpaint",
+      "name": "Ruddy Fur",
+      "hex": "#A44C26",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-hardened-leather",
+      "lineId": "army-painter-speedpaint",
+      "name": "Hardened Leather",
+      "hex": "#91541D",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-noble-skin",
+      "lineId": "army-painter-speedpaint",
+      "name": "Noble Skin",
+      "hex": "#504B3E",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-goddess-glow",
+      "lineId": "army-painter-speedpaint",
+      "name": "Goddess Glow",
+      "hex": "#9F5956",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-warrior-skin",
+      "lineId": "army-painter-speedpaint",
+      "name": "Warrior Skin",
+      "hex": "#AA7657",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-carmine-dragon",
+      "lineId": "army-painter-speedpaint",
+      "name": "Carmine Dragon",
+      "hex": "#E7335E",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-pastel-yellow",
+      "lineId": "army-painter-speedpaint",
+      "name": "Pastel Yellow",
+      "hex": "#FEEB81",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-pastel-salmon",
+      "lineId": "army-painter-speedpaint",
+      "name": "Pastel Salmon",
+      "hex": "#FACBA2",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-princess-pink",
+      "lineId": "army-painter-speedpaint",
+      "name": "Princess Pink",
+      "hex": "#EBA5BD",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-pastel-lavender",
+      "lineId": "army-painter-speedpaint",
+      "name": "Pastel Lavender",
+      "hex": "#DCC7E3",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-pastel-indigo",
+      "lineId": "army-painter-speedpaint",
+      "name": "Pastel Indigo",
+      "hex": "#A2C4E9",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-pastel-seafoam",
+      "lineId": "army-painter-speedpaint",
+      "name": "Pastel Seafoam",
+      "hex": "#BFE0D8",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-glittering-loot",
+      "lineId": "army-painter-speedpaint",
+      "name": "Glittering Loot",
+      "hex": "#443700",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-hoplite-gold",
+      "lineId": "army-painter-speedpaint",
+      "name": "Hoplite Gold",
+      "hex": "#4E3E05",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-golden-armour",
+      "lineId": "army-painter-speedpaint",
+      "name": "Golden Armour",
+      "hex": "#3C2700",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-hoard-bronze",
+      "lineId": "army-painter-speedpaint",
+      "name": "Hoard Bronze",
+      "hex": "#463D22",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-brazen-copper",
+      "lineId": "army-painter-speedpaint",
+      "name": "Brazen Copper",
+      "hex": "#39221D",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-talos-bronze",
+      "lineId": "army-painter-speedpaint",
+      "name": "Talos Bronze",
+      "hex": "#44261B",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-enchanted-steel",
+      "lineId": "army-painter-speedpaint",
+      "name": "Enchanted Steel",
+      "hex": "#2A2F31",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-broadsword-silver",
+      "lineId": "army-painter-speedpaint",
+      "name": "Broadsword Silver",
+      "hex": "#2F2F2F",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-polished-silver",
+      "lineId": "army-painter-speedpaint",
+      "name": "Polished Silver",
+      "hex": "#484848",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-speedpaint-aztec-gold",
+      "lineId": "army-painter-speedpaint",
+      "name": "Aztec Gold",
+      "hex": "#353D19",
+      "type": "speedpaint"
+    },
+    {
+      "id": "army-painter-warpaints-abomination-gore",
+      "lineId": "army-painter-warpaints",
+      "name": "Abomination Gore",
+      "hex": "#A13B37",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-arid-earth",
+      "lineId": "army-painter-warpaints",
+      "name": "Arid Earth",
+      "hex": "#F8E9C4",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-babe-blonde",
+      "lineId": "army-painter-warpaints",
+      "name": "Babe Blonde",
+      "hex": "#F8DB31",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-banshee-brown",
+      "lineId": "army-painter-masterclass",
+      "name": "Banshee Brown",
+      "hex": "#C2B098",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-basilisk-brown",
+      "lineId": "army-painter-warpaints",
+      "name": "Basilisk Brown",
+      "hex": "#CA8428",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-castle-grey",
+      "lineId": "army-painter-warpaints",
+      "name": "Castle Grey",
+      "hex": "#84817A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-centaur-skin",
+      "lineId": "army-painter-warpaints",
+      "name": "Centaur Skin",
+      "hex": "#DBABA1",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-chaotic-red",
+      "lineId": "army-painter-warpaints",
+      "name": "Chaotic Red",
+      "hex": "#692115",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-combat-fatigue",
+      "lineId": "army-painter-warpaints",
+      "name": "Combat Fatigue",
+      "hex": "#868E60",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-commando-green",
+      "lineId": "army-painter-warpaints",
+      "name": "Commando Green",
+      "hex": "#817C3E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-corpse-pale",
+      "lineId": "army-painter-warpaints",
+      "name": "Corpse Pale",
+      "hex": "#EACBAE",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-crusted-sore",
+      "lineId": "army-painter-warpaints",
+      "name": "Crusted Sore",
+      "hex": "#5D1B26",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-crypt-wraith",
+      "lineId": "army-painter-warpaints",
+      "name": "Crypt Wraith",
+      "hex": "#5F6050",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-cultist-robe",
+      "lineId": "army-painter-warpaints",
+      "name": "Cultist Robe",
+      "hex": "#756D61",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-dark-sky",
+      "lineId": "army-painter-warpaints",
+      "name": "Dark Sky",
+      "hex": "#2B4A5F",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-dark-stone",
+      "lineId": "army-painter-warpaints",
+      "name": "Dark Stone",
+      "hex": "#5E5754",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-deep-blue",
+      "lineId": "army-painter-warpaints",
+      "name": "Deep Blue",
+      "hex": "#0A3351",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-dirt-spatter",
+      "lineId": "army-painter-warpaints",
+      "name": "Dirt Spatter",
+      "hex": "#5B3829",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-drake-tooth",
+      "lineId": "army-painter-warpaints",
+      "name": "Drake Tooth",
+      "hex": "#CDCBB5",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-dungeon-grey",
+      "lineId": "army-painter-warpaints",
+      "name": "Dungeon Grey",
+      "hex": "#676C73",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-electric-blue",
+      "lineId": "army-painter-warpaints",
+      "name": "Electric Blue",
+      "hex": "#528BBB",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-elemental-bolt",
+      "lineId": "army-painter-warpaints",
+      "name": "Elemental Bolt",
+      "hex": "#0F9982",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-elf-green",
+      "lineId": "army-painter-warpaints",
+      "name": "Elf Green",
+      "hex": "#495225",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-elven-flesh",
+      "lineId": "army-painter-warpaints",
+      "name": "Elven Flesh",
+      "hex": "#F8BF98",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-field-grey",
+      "lineId": "army-painter-warpaints",
+      "name": "Field Grey",
+      "hex": "#757B78",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-filthy-cape",
+      "lineId": "army-painter-warpaints",
+      "name": "Filthy Cape",
+      "hex": "#7B7963",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-fire-lizard",
+      "lineId": "army-painter-warpaints",
+      "name": "Fire Lizard",
+      "hex": "#D27334",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-fog-grey",
+      "lineId": "army-painter-warpaints",
+      "name": "Fog Grey",
+      "hex": "#6C90AB",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-goblin-green",
+      "lineId": "army-painter-warpaints",
+      "name": "Goblin Green",
+      "hex": "#3A8943",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-gorgon-hide",
+      "lineId": "army-painter-warpaints",
+      "name": "Gorgon Hide",
+      "hex": "#C5D0E2",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-griffon-blue",
+      "lineId": "army-painter-warpaints",
+      "name": "Griffon Blue",
+      "hex": "#285380",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-grimoire-purple",
+      "lineId": "army-painter-warpaints",
+      "name": "Grimoire Purple",
+      "hex": "#7D545A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-hardened-carapace",
+      "lineId": "army-painter-warpaints",
+      "name": "Hardened Carapace",
+      "hex": "#4B4840",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-hemp-rope",
+      "lineId": "army-painter-warpaints",
+      "name": "Hemp Rope",
+      "hex": "#907740",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-ice-storm",
+      "lineId": "army-painter-warpaints",
+      "name": "Ice Storm",
+      "hex": "#659EC7",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-jungle-green",
+      "lineId": "army-painter-warpaints",
+      "name": "Jungle Green",
+      "hex": "#86AD37",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-kobold-skin",
+      "lineId": "army-painter-warpaints",
+      "name": "Kobold Skin",
+      "hex": "#C7A485",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-kraken-skin",
+      "lineId": "army-painter-warpaints",
+      "name": "Kraken Skin",
+      "hex": "#73C492",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-mars-red",
+      "lineId": "army-painter-warpaints",
+      "name": "Mars Red",
+      "hex": "#B43F3C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-monster-brown",
+      "lineId": "army-painter-warpaints",
+      "name": "Monster Brown",
+      "hex": "#815C2E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-moon-dust",
+      "lineId": "army-painter-warpaints",
+      "name": "Moon Dust",
+      "hex": "#E5D46F",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-mouldy-clothes",
+      "lineId": "army-painter-warpaints",
+      "name": "Mouldy Clothes",
+      "hex": "#457C3E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-mummy-robes",
+      "lineId": "army-painter-warpaints",
+      "name": "Mummy Robes",
+      "hex": "#E8DED6",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-mutant-hue",
+      "lineId": "army-painter-warpaints",
+      "name": "Mutant Hue",
+      "hex": "#A38185",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-mythical-orange",
+      "lineId": "army-painter-warpaints",
+      "name": "Mythical Orange",
+      "hex": "#E24330",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-necromancer-cloak",
+      "lineId": "army-painter-warpaints",
+      "name": "Necromancer Cloak",
+      "hex": "#3B3E37",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-oozing-purple",
+      "lineId": "army-painter-warpaints",
+      "name": "Oozing Purple",
+      "hex": "#A793B4",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-orc-blood",
+      "lineId": "army-painter-warpaints",
+      "name": "Orc Blood",
+      "hex": "#906270",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-phoenix-flames",
+      "lineId": "army-painter-warpaints",
+      "name": "Phoenix Flames",
+      "hex": "#F7A832",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-poisonous-cloud",
+      "lineId": "army-painter-warpaints",
+      "name": "Poisonous Cloud",
+      "hex": "#CDDD55",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-royal-cloak",
+      "lineId": "army-painter-warpaints",
+      "name": "Royal Cloak",
+      "hex": "#10999B",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-scaly-hide",
+      "lineId": "army-painter-warpaints",
+      "name": "Scaly Hide",
+      "hex": "#829754",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-scar-tissue",
+      "lineId": "army-painter-warpaints",
+      "name": "Scar Tissue",
+      "hex": "#C88775",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-snake-scales",
+      "lineId": "army-painter-warpaints",
+      "name": "Snake Scales",
+      "hex": "#89B241",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-spaceship-exterior",
+      "lineId": "army-painter-warpaints",
+      "name": "Spaceship Exterior",
+      "hex": "#CCD0D1",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-stone-golem",
+      "lineId": "army-painter-warpaints",
+      "name": "Stone Golem",
+      "hex": "#B6BBB6",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-sulphide-ochre",
+      "lineId": "army-painter-warpaints",
+      "name": "Sulphide Ochre",
+      "hex": "#C38626",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-tanned-flesh",
+      "lineId": "army-painter-warpaints",
+      "name": "Tanned Flesh",
+      "hex": "#B87662",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-toxic-boils",
+      "lineId": "army-painter-warpaints",
+      "name": "Toxic Boils",
+      "hex": "#A17283",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-toxic-mist",
+      "lineId": "army-painter-warpaints",
+      "name": "Toxic Mist",
+      "hex": "#41C0C4",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-troglodyte-blue",
+      "lineId": "army-painter-warpaints",
+      "name": "Troglodyte Blue",
+      "hex": "#0E87B9",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-troll-claws",
+      "lineId": "army-painter-warpaints",
+      "name": "Troll Claws",
+      "hex": "#CB8D55",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-vampire-red",
+      "lineId": "army-painter-warpaints",
+      "name": "Vampire Red",
+      "hex": "#952337",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-venom-wyrm",
+      "lineId": "army-painter-warpaints",
+      "name": "Venom Wyrm",
+      "hex": "#696541",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-viking-blue",
+      "lineId": "army-painter-warpaints",
+      "name": "Viking Blue",
+      "hex": "#086098",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-voidshield-blue",
+      "lineId": "army-painter-warpaints",
+      "name": "Voidshield Blue",
+      "hex": "#33A0D7",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-warlock-purple",
+      "lineId": "army-painter-warpaints",
+      "name": "Warlock Purple",
+      "hex": "#B85E66",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-wasteland-soil",
+      "lineId": "army-painter-warpaints",
+      "name": "Wasteland Soil",
+      "hex": "#754D59",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-werewolf-fur",
+      "lineId": "army-painter-warpaints",
+      "name": "Werewolf Fur",
+      "hex": "#765F50",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-witch-brew",
+      "lineId": "army-painter-warpaints",
+      "name": "Witch Brew",
+      "hex": "#8F9642",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-wizards-orb",
+      "lineId": "army-painter-warpaints",
+      "name": "Wizards Orb",
+      "hex": "#097169",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-metallic-azure-magic",
+      "lineId": "army-painter-warpaints-metallic",
+      "name": "Azure Magic",
+      "hex": "#005F7C",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-warpaints-metallic-elven-armour",
+      "lineId": "army-painter-warpaints-metallic",
+      "name": "Elven Armour",
+      "hex": "#063D86",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-warpaints-metallic-fairy-dust",
+      "lineId": "army-painter-warpaints-metallic",
+      "name": "Fairy Dust",
+      "hex": "#ACAEAD",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-warpaints-metallic-gemstone",
+      "lineId": "army-painter-warpaints-metallic",
+      "name": "Gemstone",
+      "hex": "#9E1E21",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-warpaints-metallic-glitter-green",
+      "lineId": "army-painter-warpaints-metallic",
+      "name": "Glitter Green",
+      "hex": "#147A38",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-warpaints-metallic-night-scales",
+      "lineId": "army-painter-warpaints-metallic",
+      "name": "Night Scales",
+      "hex": "#332C2D",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-warpaints-metallic-royal-purple",
+      "lineId": "army-painter-warpaints-metallic",
+      "name": "Royal Purple",
+      "hex": "#641953",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-warpaints-metallic-zephyr-pink",
+      "lineId": "army-painter-warpaints-metallic",
+      "name": "Zephyr Pink",
+      "hex": "#A44372",
+      "type": "metallic",
+      "finish": "metallic"
+    },
+    {
+      "id": "army-painter-warpaints-wash-flesh-wash",
+      "lineId": "army-painter-warpaints-wash",
+      "name": "Flesh Wash",
+      "hex": "#471717",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-warpaints-wash-mid-brown",
+      "lineId": "army-painter-warpaints-wash",
+      "name": "Mid Brown",
+      "hex": "#905F2D",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-warpaints-wash-military-shader",
+      "lineId": "army-painter-warpaints-wash",
+      "name": "Military Shader",
+      "hex": "#4D642F",
+      "type": "wash"
+    },
+    {
+      "id": "army-painter-masterclass-blighted-green",
+      "lineId": "army-painter-masterclass",
+      "name": "Blighted Green",
+      "hex": "#1E2B2E",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-bloodmoon-red",
+      "lineId": "army-painter-masterclass",
+      "name": "Bloodmoon Red",
+      "hex": "#9A2927",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-emperor-gold",
+      "lineId": "army-painter-masterclass",
+      "name": "Emperor Gold",
+      "hex": "#5D4629",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-grimdark-shadow",
+      "lineId": "army-painter-masterclass",
+      "name": "Grimdark Shadow",
+      "hex": "#2D2E29",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-ironclad-grey",
+      "lineId": "army-painter-masterclass",
+      "name": "Ironclad Grey",
+      "hex": "#333438",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-ivory-white",
+      "lineId": "army-painter-masterclass",
+      "name": "Ivory White",
+      "hex": "#EAD9B5",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-moonbeam-yellow",
+      "lineId": "army-painter-masterclass",
+      "name": "Moonbeam Yellow",
+      "hex": "#F0B71C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-the-darkness",
+      "lineId": "army-painter-masterclass",
+      "name": "The Darkness",
+      "hex": "#21242C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-warm-skin-shade",
+      "lineId": "army-painter-masterclass",
+      "name": "Warm Skin Shade",
+      "hex": "#463121",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-blanched-berry",
+      "lineId": "army-painter-masterclass",
+      "name": "Blanched Berry",
+      "hex": "#38242D",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-fiery-vermilion",
+      "lineId": "army-painter-masterclass",
+      "name": "Fiery Vermilion",
+      "hex": "#B01C13",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-grim-rust",
+      "lineId": "army-painter-masterclass",
+      "name": "Grim Rust",
+      "hex": "#331D0C",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-heavy-metal",
+      "lineId": "army-painter-masterclass",
+      "name": "Heavy Metal",
+      "hex": "#444444",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-midnight-olive",
+      "lineId": "army-painter-masterclass",
+      "name": "Midnight Olive",
+      "hex": "#32352D",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-ruddy-terra",
+      "lineId": "army-painter-masterclass",
+      "name": "Ruddy Terra",
+      "hex": "#794338",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-sunburst-ochre",
+      "lineId": "army-painter-masterclass",
+      "name": "Sunburst Ochre",
+      "hex": "#714629",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-tainted-garden",
+      "lineId": "army-painter-masterclass",
+      "name": "Tainted Garden",
+      "hex": "#3E3F2A",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-turnbull-turquoise",
+      "lineId": "army-painter-masterclass",
+      "name": "Turnbull Turquoise",
+      "hex": "#29373B",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-masterclass-voodoo-shade",
+      "lineId": "army-painter-masterclass",
+      "name": "Voodoo Shade",
+      "hex": "#3A301F",
+      "type": "acrylic"
+    },
+    {
+      "id": "army-painter-warpaints-air-barren-yellow",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Barren Yellow",
+      "hex": "#B58523",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-brethil-blush",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Brethil Blush",
+      "hex": "#E9AB6F",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-broodmother-purple",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Broodmother Purple",
+      "hex": "#413563",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-charred-bone",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Charred Bone",
+      "hex": "#B99D76",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-chimera-red",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Chimera Red",
+      "hex": "#9E142E",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-encarmine-red",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Encarmine Red",
+      "hex": "#AA002D",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-fairy-pink",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Fairy Pink",
+      "hex": "#B55789",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-gnome-cheeks",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Gnome Cheeks",
+      "hex": "#BDA699",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-gremlin-green",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Gremlin Green",
+      "hex": "#6F833B",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-hazardous-smog",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Hazardous Smog",
+      "hex": "#64C5B4",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-husk-brown",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Husk Brown",
+      "hex": "#8D492E",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-incursion-orange",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Incursion Orange",
+      "hex": "#F89501",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-iron-wolf",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Iron Wolf",
+      "hex": "#4E7385",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-magnolia-brown",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Magnolia Brown",
+      "hex": "#4D493E",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-majestic-fortress",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Majestic Fortress",
+      "hex": "#008E7C",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-meteor-rock",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Meteor Rock",
+      "hex": "#F1C301",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-militia-green",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Militia Green",
+      "hex": "#40543B",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-molten-orange",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Molten Orange",
+      "hex": "#B34D24",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-nomad-flesh",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Nomad Flesh",
+      "hex": "#E08667",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-ocean-depths",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Ocean Depths",
+      "hex": "#007183",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-omega-blue",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Omega Blue",
+      "hex": "#145B93",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-pestilent-flesh",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Pestilent Flesh",
+      "hex": "#9E9C52",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-rawhide-brown",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Rawhide Brown",
+      "hex": "#815936",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-regiment-grey",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Regiment Grey",
+      "hex": "#687274",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-ruinous-spell",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Ruinous Spell",
+      "hex": "#3C614F",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-sapphire-gem",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Sapphire Gem",
+      "hex": "#00AFDA",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-savage-green",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Savage Green",
+      "hex": "#00763C",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-shark-white",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Shark White",
+      "hex": "#AFB5B1",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-thunder-storm",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Thunder Storm",
+      "hex": "#2D4255",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-traitor-red",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Traitor Red",
+      "hex": "#89214E",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-undergrowth-green",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Undergrowth Green",
+      "hex": "#6AA233",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-unforgiven-green",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Unforgiven Green",
+      "hex": "#39433B",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-witchbane-plum",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Witchbane Plum",
+      "hex": "#9A1F68",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-raven-black",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Raven Black",
+      "hex": "#445255",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-yeti-white",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Yeti White",
+      "hex": "#CCCDD1",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-archangel-red",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Archangel Red",
+      "hex": "#F8320A",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-bleached-bone",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Bleached Bone",
+      "hex": "#F3E4C7",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-bogey-green",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Bogey Green",
+      "hex": "#B3CF7A",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-bullwhack-brown",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Bullwhack Brown",
+      "hex": "#BA895E",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-cadre-grey",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Cadre Grey",
+      "hex": "#AFB4B7",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-canopy-green",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Canopy Green",
+      "hex": "#BFD25D",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-consul-blue",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Consul Blue",
+      "hex": "#7090B9",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-cosmic-dust",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Cosmic Dust",
+      "hex": "#FEEA91",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-coven-purple",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Coven Purple",
+      "hex": "#AB82AC",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-crow-hue",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Crow Hue",
+      "hex": "#67726E",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-cypress-brown",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Cypress Brown",
+      "hex": "#866957",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-drab-green",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Drab Green",
+      "hex": "#A7A57F",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-exile-green",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Exile Green",
+      "hex": "#689085",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-feral-green",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Feral Green",
+      "hex": "#7AAA7A",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-fey-pink",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Fey Pink",
+      "hex": "#E8A2BF",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-feywild-glow",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Feywild Glow",
+      "hex": "#FEDAB2",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-hobgoblin-hue",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Hobgoblin Hue",
+      "hex": "#FFE6CE",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-imp-yellow",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Imp Yellow",
+      "hex": "#FFD083",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-ionic-blue",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Ionic Blue",
+      "hex": "#00AFE6",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-leviathan-light",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Leviathan Light",
+      "hex": "#CAE1CF",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-orange-magma",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Orange Magma",
+      "hex": "#FEAD69",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-phantasmal-blue",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Phantasmal Blue",
+      "hex": "#38C5C7",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-potion-green",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Potion Green",
+      "hex": "#7BAC96",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-psychic-shock",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Psychic Shock",
+      "hex": "#60BEAC",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-rebel-red",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Rebel Red",
+      "hex": "#A81661",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-storm-wolf",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Storm Wolf",
+      "hex": "#B0C3E3",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-talisman-purple",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Talisman Purple",
+      "hex": "#F3A2B5",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-twilight-sky",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Twilight Sky",
+      "hex": "#006C87",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-viper-brown",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Viper Brown",
+      "hex": "#CA856B",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-wildling-flesh",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Wildling Flesh",
+      "hex": "#FEA688",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-wyrmling-red",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Wyrmling Red",
+      "hex": "#E54E61",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-yellow-dune",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Yellow Dune",
+      "hex": "#E3B258",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-zombie-flesh",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Zombie Flesh",
+      "hex": "#CCC8AF",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-blue-flux",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Blue Flux",
+      "hex": "#00A6CF",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-gauss-green",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Gauss Green",
+      "hex": "#6CBE3E",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-hot-pink",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Hot Pink",
+      "hex": "#FA4FA0",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-neon-yellow",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Neon Yellow",
+      "hex": "#FEE900",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-safety-orange",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Safety Orange",
+      "hex": "#FEA356",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-warpaints-air-violet-volt",
+      "lineId": "army-painter-warpaints-air",
+      "name": "Violet Volt",
+      "hex": "#A862AA",
+      "type": "air"
+    },
+    {
+      "id": "army-painter-speedpaint-speedpaint-medium",
+      "lineId": "army-painter-speedpaint",
+      "name": "Speedpaint Medium",
+      "hex": "#F2EFE9",
+      "type": "technical"
+    }
+  ]
+}

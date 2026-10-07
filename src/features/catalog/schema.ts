@@ -3,6 +3,7 @@ import { z } from "zod";
 // Imported by scripts/build-catalog.ts under plain Node, so this file may only import packages.
 
 export const PAINT_TYPES = [
+  "acrylic",
   "base",
   "layer",
   "shade",

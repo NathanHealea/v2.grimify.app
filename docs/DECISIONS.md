@@ -351,3 +351,47 @@ Alternatives:
 Consequences:
 Positive: removed IDs fail locally and in CI; every new permanent ID is visible in review.
 Trade-off: adding paints takes one extra command. An ID recorded on a branch that is abandoned never merges, so it does no harm.
+
+---
+
+## Decision 017 — `acrylic` paint type
+
+Date: 2026-10-06
+Status: Accepted
+
+Context:
+DATABASE §3's `PaintType` follows Citadel's paint system (base, layer, shade, contrast…). Most other brands sell general-purpose acrylic lines (Vallejo Model Color, Army Painter Fanatic, AK 3rd Gen, Scalecolor…) that are neither base nor layer paints. That's about 1,565 of the 2,837 seed paints.
+
+Decision:
+Add `acrylic` to `PaintType`, in the `opaque` type family.
+
+Alternatives:
+- Map them to `layer`: no schema change, but a "Layer" type filter would return Vallejo Model Color
+- Map them to `other`: wrong for matching, since `other` gets no automatic equivalents
+
+Consequences:
+Positive: type filters stay truthful, and these paints still match against base and layer paints.
+Trade-off: one more type for the Paints tab's type filter.
+
+---
+
+## Decision 018 — Seed catalog scope and conversion rules
+
+Date: 2026-10-06
+Status: Accepted
+
+Context:
+DECISIONS 015 chose the earlier Grimify dataset as the seed. It has six brands and 2,886 paints, but its IDs, types and some names don't fit DATABASE §3, and the PRD left the product lines per brand TBD.
+
+Decision:
+- Brands: Citadel, The Army Painter, Vallejo, AK Interactive, Scale75 and Green Stuff World. Green Stuff World joins the launch brands. Pro Acryl, a launch brand missing from the dataset, gets its own ROADMAP item and data source.
+- Lines: every line in the dataset except AK Abteilung 502, whose 42 oil paints had no PaintPad-sourced hex values.
+- IDs: line `<brandId>-<slug(line)>`, paint `<lineId>-<slug(name)>`. Slugs decode HTML entities, strip accents, drop apostrophes and turn other punctuation into hyphens.
+- Each line maps to one `PaintType` (table in `scripts/catalog/import-legacy.ts`); metallic lines also get `finish: "metallic"`. Army Painter Speedpaint Medium is `technical` because it's a colorless medium.
+- Same-line duplicates with identical hex are merged; the other spelling becomes an alias.
+- The old `comparable` links (334, origin undocumented) and `description` text are not imported.
+
+Consequences:
+Positive: 2,837 paints across six brands, converted by tested, recorded rules (`scripts/import-legacy-catalog.ts`); provenance is in `data/catalog/SOURCES.md`.
+Trade-off: the IDs are permanent, so a slug mistake can only be patched with an alias. Metallic paints inside non-metallic lines (e.g., Citadel Leadbelcher) aren't typed `metallic` yet. Two Vallejo Model Color merges may have joined separate products that share a name.
+
