@@ -21,6 +21,24 @@
   border-bottom: var(--border-width) solid var(--color-border);
 }
 
+.app-shell__back {
+  display: inline-flex;
+  gap: var(--space-1);
+  align-items: center;
+  min-height: var(--touch-target);
+  padding-right: var(--space-2);
+  margin-left: calc(var(--space-2) * -1);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+}
+
+.app-shell__back-icon {
+  width: var(--icon-size-tab);
+  height: var(--icon-size-tab);
+}
+
 .app-shell__main {
   max-width: var(--content-max-width);
   margin-inline: auto;

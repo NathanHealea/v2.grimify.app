@@ -9,6 +9,7 @@ import { SearchChip } from "@/components/search-chip";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+import { CatalogGate } from "./catalog-gate";
 import {
   countActive,
   type FilterParams,
@@ -20,7 +21,6 @@ import { PaintsFilters } from "./paints-filters";
 import { hueLabel, type ParsedQuery, parseQuery, removeToken, suggest } from "./parse-query";
 import type { Catalog } from "./schema";
 import { type NameIndex, searchPaints, type SearchResult } from "./search";
-import { useCatalog } from "./use-catalog";
 
 type Props = {
   /** The committed query from the URL. */
@@ -38,26 +38,11 @@ const PAGE_SIZE = 60;
 const TYPING_DEBOUNCE_MS = 100;
 
 export function PaintsScreen(props: Props) {
-  const state = useCatalog();
-
-  if (state.status === "loading") {
-    return (
-      <p className="paints-screen__status" role="status">
-        Downloading paint catalog…
-      </p>
-    );
-  }
-
-  if (state.status === "error") {
-    return (
-      <div className="paints-screen__status" role="alert">
-        <p>Connect to the internet once to download the paint catalog.</p>
-        <Button onClick={state.retry}>Retry</Button>
-      </div>
-    );
-  }
-
-  return <PaintsSearch {...props} catalog={state.catalog} index={state.index} />;
+  return (
+    <CatalogGate>
+      {(catalog, index) => <PaintsSearch {...props} catalog={catalog} index={index} />}
+    </CatalogGate>
+  );
 }
 
 function PaintsSearch({

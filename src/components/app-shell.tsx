@@ -1,7 +1,7 @@
 import "./app-shell.css";
 
-import { Link, useMatches } from "@tanstack/react-router";
-import { BookMarked, Palette, Settings } from "lucide-react";
+import { Link, useCanGoBack, useMatches, useRouter } from "@tanstack/react-router";
+import { BookMarked, ChevronLeft, Palette, Settings } from "lucide-react";
 import type { ReactNode } from "react";
 
 type Props = {
@@ -17,6 +17,9 @@ const TABS = [
 export function AppShell({ children }: Props) {
   const title = useMatches({
     select: (matches) => matches.findLast((match) => match.staticData.title)?.staticData.title,
+  });
+  const back = useMatches({
+    select: (matches) => matches.findLast((match) => match.staticData.back)?.staticData.back,
   });
 
   return (
@@ -34,9 +37,32 @@ export function AppShell({ children }: Props) {
         </ul>
       </nav>
       <header className="app-shell__header">
+        {back && <BackButton to={back.to} label={back.label} />}
         {title && <h1 className="app-shell__title">{title}</h1>}
       </header>
       <main className="app-shell__main">{children}</main>
     </div>
+  );
+}
+
+/** Goes back when the previous entry is in the app (keeping its search), otherwise opens `to`. */
+function BackButton({ to, label }: { to: "/paints"; label: string }) {
+  const router = useRouter();
+  const canGoBack = useCanGoBack();
+
+  return (
+    <Link
+      to={to}
+      className="app-shell__back"
+      aria-label={`Back to ${label}`}
+      onClick={(event) => {
+        if (!canGoBack) return;
+        event.preventDefault();
+        router.history.back();
+      }}
+    >
+      <ChevronLeft className="app-shell__back-icon" aria-hidden="true" />
+      {label}
+    </Link>
   );
 }

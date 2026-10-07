@@ -42,7 +42,6 @@
   height: var(--space-1);
 }
 
-.paints-screen__status,
 .paints-screen__empty {
   display: flex;
   flex-direction: column;

@@ -517,3 +517,23 @@ Consequences:
 Positive: typed text is never rewritten; the tested search behavior stays as shipped.
 Trade-off: typing "vallejo" with Citadel ticked shows "No paints match"; the two chips explain why. Mirroring is the follow-up if beta users find it confusing.
 
+---
+
+## Decision 025 — How equivalents are presented
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+PRD Feature 2 and UX_FLOWS Flow 3 describe equivalents grouped by brand with a "no close match" fallback and a "Show all types" toggle, but leave the threshold, the number per brand and the toggle's persistence open.
+
+Decision:
+- "Close" means CIEDE2000 ΔE < 10, the edge of "Similar" (DECISIONS 022). A brand with nothing under it shows "No close match in [Brand]" with its single nearest paint, muted and unlabelled.
+- Up to 3 matches per brand; brands are ordered by their closest match.
+- "Show all types" is the `?types=all` search param (written with replace, so Back still returns to the list). Technical and other special paints stay curated-only, as the PRD says, even with the toggle.
+- Equivalents only come from other brands; a brand's own other lines never appear.
+
+Consequences:
+Positive: a short, scannable list per brand that always says something about every brand.
+Trade-off: a painter looking for "the same paint in another line" of the same brand (e.g., Mephiston Red Air) won't find it here. A "Same paint in other lines" section is a possible follow-up.
+

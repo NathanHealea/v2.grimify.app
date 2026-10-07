@@ -185,7 +185,12 @@ Use shadcn `<Input>` and `<Select>`. Search uses `<Input type="search">` with su
 
 - Padding `--space-3`–`--space-4`, `1px solid var(--color-border)`, `--radius-lg`, `--shadow-sm`
 - **Paint row (list item):** swatch (40px) · name (bold) · brand · line/type (muted) · Own/Want toggles on the right. Row height ≥ 56px.
-- **Paint detail header:** large swatch (full width, ~160px tall), name, brand, line, type, finish, hex value (copyable)
+- **Paint detail:**
+  - Hero swatch: full width, `--swatch-hero-height` (160px), `--radius-lg`, type marker at 24px, with "Colors are approximate." under it.
+  - Facts: name as the page's only `<h1>`; "Brand · Line · Type · Finish" (muted); Discontinued badge; "Also known as …".
+  - Hex: an outlined button named "Copy hex #…" that announces "Copied #…" in a status region.
+  - Equivalents (`<h2>`): a "Show all types" checkbox and the family note for metallic, wash and tint paints. Then an `<h3>` per brand with up to 3 linked rows and match labels. A brand with no close match is muted (`--opacity-muted`) under "No close match in [Brand]".
+- **Paint row:** the whole row links to its detail and keeps a ≥ 56px height and an inset focus ring
 
 ### Hue dots
 A horizontal, scrollable row of 13 small circles (12 hues + neutral) under the empty search box. Each has a text label below it (don't rely on color alone).
@@ -209,7 +214,7 @@ Detected brand / hue / hex appear as removable pill chips under the search box (
 ## 11. Navigation
 
 Header:
-Compact top bar with the screen title and a contextual action (e.g., filter button). Respect `env(safe-area-inset-top)`.
+Compact top bar with the screen title and a contextual action (e.g., filter button). Respect `env(safe-area-inset-top)`. Detail screens show a back button instead of a title (`staticData.back`): chevron plus the parent's name, named "Back to Paints". It goes back when the previous history entry is in the app, otherwise it opens the parent. Installed iOS apps have no browser back button, so this is the only way back there.
 
 Navigation bar:
 One floating nav bar on every screen and every breakpoint, with three destinations:

@@ -74,3 +74,22 @@ test("filters by brand and type through the sheet", async ({ page }) => {
   await page.goBack();
   await expect(page.getByRole("button", { name: "Remove Type: Metallic" })).toBeVisible();
 });
+
+test("opens a paint and its equivalents, then returns to the search", async ({ page }) => {
+  await page.goto("/paints");
+  await searchBox(page).fill("citadel mephiston");
+  await page.getByRole("link", { name: /Mephiston Red.*Citadel · Base · Base/ }).click();
+
+  await expect(page).toHaveURL(/\/paints\/citadel-base-mephiston-red$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Mephiston Red" })).toBeVisible();
+  await expect(page.getByText("Colors are approximate.")).toBeVisible();
+  const equivalents = page.getByRole("region", { name: "Equivalents" });
+  const brands = await equivalents.getByRole("heading", { level: 3 }).allTextContents();
+  expect(brands.length).toBeGreaterThan(0);
+  expect(brands).not.toContain("Citadel");
+  await expect(equivalents.getByText(/Very close|Close|Similar/).first()).toBeVisible();
+
+  await page.getByRole("link", { name: "Back to Paints" }).click();
+  await expect(page).toHaveURL(/\/paints\?q=citadel(\+|%20)mephiston$/);
+  await expect(searchBox(page)).toHaveValue("citadel mephiston");
+});

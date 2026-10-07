@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as MyPaintsRouteImport } from './routes/my-paints'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as PaintsIndexRouteImport } from './routes/paints/index'
+import { Route as PaintsPaintIdRouteImport } from './routes/paints/$paintId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,17 +35,24 @@ const PaintsIndexRoute = PaintsIndexRouteImport.update({
   path: '/paints/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PaintsPaintIdRoute = PaintsPaintIdRouteImport.update({
+  id: '/paints/$paintId',
+  path: '/paints/$paintId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/my-paints': typeof MyPaintsRoute
   '/settings': typeof SettingsRoute
+  '/paints/$paintId': typeof PaintsPaintIdRoute
   '/paints/': typeof PaintsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/my-paints': typeof MyPaintsRoute
   '/settings': typeof SettingsRoute
+  '/paints/$paintId': typeof PaintsPaintIdRoute
   '/paints': typeof PaintsIndexRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,28 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/my-paints': typeof MyPaintsRoute
   '/settings': typeof SettingsRoute
+  '/paints/$paintId': typeof PaintsPaintIdRoute
   '/paints/': typeof PaintsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/my-paints' | '/settings' | '/paints/'
+  fullPaths: '/' | '/my-paints' | '/settings' | '/paints/$paintId' | '/paints/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/my-paints' | '/settings' | '/paints'
-  id: '__root__' | '/' | '/my-paints' | '/settings' | '/paints/'
+  to: '/' | '/my-paints' | '/settings' | '/paints/$paintId' | '/paints'
+  id:
+    | '__root__'
+    | '/'
+    | '/my-paints'
+    | '/settings'
+    | '/paints/$paintId'
+    | '/paints/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   MyPaintsRoute: typeof MyPaintsRoute
   SettingsRoute: typeof SettingsRoute
+  PaintsPaintIdRoute: typeof PaintsPaintIdRoute
   PaintsIndexRoute: typeof PaintsIndexRoute
 }
 
@@ -99,6 +115,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PaintsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/paints/$paintId': {
+      id: '/paints/$paintId'
+      path: '/paints/$paintId'
+      fullPath: '/paints/$paintId'
+      preLoaderRoute: typeof PaintsPaintIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -106,6 +129,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   MyPaintsRoute: MyPaintsRoute,
   SettingsRoute: SettingsRoute,
+  PaintsPaintIdRoute: PaintsPaintIdRoute,
   PaintsIndexRoute: PaintsIndexRoute,
 }
 export const routeTree = rootRouteImport

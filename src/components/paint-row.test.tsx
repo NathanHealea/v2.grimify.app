@@ -1,13 +1,14 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { catalogPaint } from "@/test/catalog-fixture";
+import { renderWithRouter } from "@/test/render-with-router";
 
 import { PaintRow } from "./paint-row";
 
 function renderRow(...args: Parameters<typeof catalogPaint>) {
   const paint = catalogPaint(...args);
-  return render(
+  return renderWithRouter(
     <ul>
       <PaintRow paint={paint} brandName="Citadel" lineName="Base" />
     </ul>,
@@ -15,8 +16,8 @@ function renderRow(...args: Parameters<typeof catalogPaint>) {
 }
 
 describe("PaintRow", () => {
-  it("renders a swatch with the paint color and no color-only meaning", () => {
-    const { container } = renderRow({
+  it("renders a swatch with the paint color and no color-only meaning", async () => {
+    const { container } = await renderRow({
       brandId: "citadel",
       name: "Leadbelcher",
       hex: "#888D8F",
@@ -32,9 +33,16 @@ describe("PaintRow", () => {
     expect(screen.queryByText("Discontinued")).toBeNull();
   });
 
-  it("marks discontinued paints in text", () => {
-    renderRow({ brandId: "citadel", name: "Old Red", hex: "#9B130B", discontinued: true });
+  it("marks discontinued paints in text", async () => {
+    await renderRow({ brandId: "citadel", name: "Old Red", hex: "#9B130B", discontinued: true });
 
     expect(screen.getByText("Discontinued")).toBeInTheDocument();
+  });
+
+  it("links each row to its detail", async () => {
+    await renderRow({ brandId: "citadel", name: "Mephiston Red", hex: "#9B130B" });
+
+    const link = screen.getByRole("link", { name: /Mephiston Red/ });
+    expect(link).toHaveAttribute("href", "/paints/citadel-base-mephiston-red");
   });
 });

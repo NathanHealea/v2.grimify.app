@@ -1,0 +1,106 @@
+.paint-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.paint-detail__disclaimer,
+.paint-detail__note,
+.paint-detail__meta {
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+  color: var(--color-muted-text);
+}
+
+.paint-detail__disclaimer {
+  margin-top: var(--space-2);
+}
+
+.paint-detail__facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  align-items: flex-start;
+}
+
+.paint-detail__badge {
+  padding-inline: var(--space-2);
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+  color: var(--color-muted-text);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.paint-detail__hex {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  min-height: var(--touch-target);
+  padding: 0 var(--space-3);
+  margin-top: var(--space-2);
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+  cursor: pointer;
+  background: transparent;
+  border: var(--border-width) solid var(--color-input-border);
+  border-radius: var(--radius-md);
+
+  & svg {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+}
+
+.paint-detail__copied {
+  min-height: var(--leading-small);
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+  color: var(--color-muted-text);
+}
+
+.paint-detail__equivalents {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.paint-detail__toggle {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  min-height: var(--touch-target);
+  cursor: pointer;
+
+  & input {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    margin: 0;
+    accent-color: var(--color-primary);
+  }
+}
+
+.paint-detail__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.paint-detail__list {
+  padding: 0;
+  list-style: none;
+
+  &[data-muted] {
+    opacity: var(--opacity-muted);
+  }
+}
+
+.paint-detail__missing {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+  padding-block: var(--space-12);
+  text-align: center;
+}

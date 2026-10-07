@@ -83,9 +83,13 @@ N/A (local data).
 3. "Equivalents" section lists the closest paints from **other** brands **in the same type family** (e.g., contrast ↔ speedpaint), grouped by brand, ranked by Delta-E, with labels (Very close / Close / Similar). A "Show all types" toggle widens the comparison.
 4. Owned equivalents show a "You own this" badge
 5. Tap an equivalent → navigates to its detail (back returns)
+6. The header's "Back to Paints" returns to the list with its search and filters; from a freshly opened link it goes to `/paints`
+
+Details (DECISIONS 025): up to 3 matches per brand, brands ordered by their closest match; "Show all types" is `?types=all` and doesn't apply to technical or other special paints, which only list curated equivalents ("No automatic equivalents for technical and special paints" when there are none).
 
 Edge:
-No match under the threshold → "No close match in [Brand]" plus the nearest result, muted.
+No match under the threshold (ΔE 10, the edge of "Similar") → "No close match in [Brand]" plus the nearest result, muted.
+Unknown paint ID → "This paint isn't in the catalog" with a link to Paints.
 
 Note:
 Disclaimer under the swatch: "Colors are approximate."

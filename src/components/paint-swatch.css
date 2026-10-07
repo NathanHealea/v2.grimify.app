@@ -19,9 +19,21 @@
     width: var(--space-12);
     height: var(--space-12);
   }
+
+  &[data-size="hero"] {
+    width: 100%;
+    height: var(--swatch-hero-height);
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+  }
 }
 
 .paint-swatch__icon {
   width: var(--icon-size-sm);
   height: var(--icon-size-sm);
+
+  [data-size="hero"] > & {
+    width: var(--icon-size-tab);
+    height: var(--icon-size-tab);
+  }
 }

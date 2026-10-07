@@ -8,7 +8,7 @@ import type { PaintType } from "@/features/catalog/schema";
 type Props = {
   hex: string;
   type?: PaintType;
-  size?: "md" | "lg";
+  size?: "md" | "lg" | "hero";
 };
 
 // Hex can't show sheen or transparency, so these types get a marker (DESIGN_SYSTEM §10).
