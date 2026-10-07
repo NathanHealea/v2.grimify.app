@@ -1,14 +1,14 @@
 ---
 type: story
 slug: paints-search
-status: staged
+status: released
 branch: story/paints-search
 worktree_path: ../grimify-v2-worktrees/story-paints-search
 created: 2026-10-07
 approved: 2026-10-07
-version:
-tag:
-merge_commit:
+version: 0.2.0
+tag: v0.2.0
+merge_commit: a780962 (squash of story/paints-search)
 ---
 
 # Paints list and smart search
@@ -213,3 +213,4 @@ Unit and component tests stay colocated under `src/` (TESTING §4). Playwright s
   - Suggestions also appear in the screen test (T13) rather than only in unit tests; the parser's `suggest` has its own unit test.
   - Main JS bundle grew from 98 to 122 KB gzipped (culori, Fuse and Zod load with the app).
 - 2026-10-07 — Staged. Version 0.2.0; no changelog in the repo. Not pushed: the owner's rules keep pushes to the release step, so review is the local branch `story/paints-search`. Manual checks still open: AC1 (offline first load), AC8 on a phone, AC9 (VoiceOver), and the 100 ms feel on a mid-range phone.
+- 2026-10-07 — Released. Owner approved the review. Squash-merged 13 commits from `story/paints-search` into `main` as 0.2.0 (a780962), tagged `v0.2.0`. Worktree and branch removed.
