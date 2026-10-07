@@ -49,7 +49,7 @@ describe("PaintsScreen", () => {
     fireEvent.click(screen.getByRole("button", { name: "Retry" }));
     expect(await screen.findByText("Mephiston Red")).toBeInTheDocument();
     expect(fetch).toHaveBeenCalledTimes(2);
-    expect(screen.getByRole("status")).toHaveTextContent("4 paints");
+    expect(within(screen.getByRole("main")).getByRole("status")).toHaveTextContent("4 paints");
   });
 
   it("shows chips, hue dots and suggestions", async () => {

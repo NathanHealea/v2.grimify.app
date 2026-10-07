@@ -26,6 +26,7 @@ A mobile-first PWA for miniature painters: search paints across brands, find cro
 
 ## Work Item Workflow
 - `work_items_root`: `docs/implementation-plans`
+- `bug_tracking`: GitHub Issues on `NathanHealea/v2.grimify.app` (label `bug`, or `enhancement` for follow-ups). Found a bug or follow-up outside the current item? File an issue instead of fixing it in passing. A work item that fixes an issue links it (DECISIONS 026).
 
 <!-- convex-ai-start -->
 

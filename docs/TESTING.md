@@ -125,7 +125,7 @@ Prioritize:
 | Purpose | Command |
 |---|---|
 | Unit + integration tests | `npm test` (Vitest) |
-| E2E | `npm run test:e2e` (Playwright; builds and serves the app for the run). First time: `npx playwright install chromium webkit`. Not part of `check` |
+| E2E | `npm run test:e2e` (Playwright; builds and serves the app for the run). First time: `npx playwright install chromium webkit`. Not part of `check`. `tests/e2e/offline.spec.ts` runs on Chromium only (Playwright's WebKit service-worker support is limited); iPhone offline stays on the manual list |
 | Lint | `npm run lint` |
 | Type check | `npm run typecheck` (`tsc -b`) |
 | Validate catalog | `npm run catalog:validate` |

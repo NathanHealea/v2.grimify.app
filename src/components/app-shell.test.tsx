@@ -1,5 +1,5 @@
-import { screen, within } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { act, screen, within } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 
 import { renderRoute } from "@/test/render-route";
 
@@ -54,5 +54,18 @@ describe("AppShell", () => {
     const icons = (await findMainNav()).querySelectorAll("svg");
     expect(icons).toHaveLength(3);
     icons.forEach((icon) => expect(icon).toHaveAttribute("aria-hidden", "true"));
+  });
+
+  it("shows the Offline pill in the header", async () => {
+    const onLine = vi.spyOn(navigator, "onLine", "get").mockReturnValue(false);
+    renderRoute("/settings");
+
+    const header = await screen.findByRole("banner");
+    expect(within(header).getByRole("status")).toHaveTextContent("Offline");
+
+    onLine.mockReturnValue(true);
+    act(() => void window.dispatchEvent(new Event("online")));
+    expect(within(header).getByRole("status")).toBeEmptyDOMElement();
+    onLine.mockRestore();
   });
 });

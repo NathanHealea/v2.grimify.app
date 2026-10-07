@@ -5,7 +5,7 @@ const rowNames = (page: Page) => page.locator(".paint-row__name");
 
 test("searches by name, hex, brand and hue", async ({ page }) => {
   await page.goto("/paints");
-  await expect(page.getByRole("status")).toHaveText("2,837 paints");
+  await expect(page.getByRole("main").getByRole("status")).toHaveText("2,837 paints");
 
   await searchBox(page).fill("mephston");
   await expect(rowNames(page).first()).toHaveText("Mephiston Red");

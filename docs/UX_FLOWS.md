@@ -31,9 +31,10 @@ Routes (TanStack Router):
 1. User opens the URL in mobile Safari or Chrome
 2. App shell loads; "Downloading paint catalog…" shows while `catalog.json` downloads
 3. Paints tab shows the full catalog
-4. After the 2nd visit or ~30s of use, the install hint appears:
-   - **Android/Chrome:** "Install app" button → native install prompt
-   - **iOS Safari:** banner: "Install: tap Share, then Add to Home Screen" with an illustration
+4. After the 2nd visit (counted once per browser session) or ~30s of use, the install hint appears at the top of the page:
+   - **Android/Chrome:** "Install app" button → native install prompt. Chrome only offers this once the manifest has icons (GitHub issue #3)
+   - **iOS Safari (iPhone, and iPad reporting as a Mac):** "Install Grimify: tap Share, then Add to Home Screen" with the Share icon
+   - Never shown when already running from the home screen
 5. User installs → the app opens standalone from the home screen
 
 Success:

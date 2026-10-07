@@ -38,7 +38,7 @@ Brand Name:
 **TBD** (see PRD open questions)
 
 Logo:
-**TBD.** Needs a square app icon (192px, 512px, 512px maskable, 180px apple-touch-icon).
+**TBD**, awaiting artwork (GitHub issue #3). Needs a square app icon (192px, 512px, 512px maskable, 180px apple-touch-icon). The PWA shipped without icons: until they exist, Chrome won't offer install and iOS uses a page screenshot.
 
 Brand Voice:
 Friendly and concise; standard paint terms only (base, layer, shade, contrast). Short labels, no exclamation marks.
@@ -264,7 +264,13 @@ Disabled:
 Own/Want toggles when signed out still render; tapping them opens the sign-in sheet.
 
 Offline:
-Small "Offline" pill in the header.
+Small "Offline" pill at the right of the header: Secondary background, `--color-input-border` edge, semibold small text. It's a live `status` region that's always present (empty while online), so the change is announced.
+
+Update available:
+A bar fixed above the nav bar on phones (bottom edge from 640px), `--z-toast`. It reads "Update available" with "Later" (ghost) and "Reload" (primary) buttons at full 44px height. "Later" hides it for the session.
+
+Install hint:
+A bordered card at the top of the page content, region "Install Grimify", with "Not now" (ghost) and, on Chrome, "Install app" (primary). On iOS it reads "Tap Share [share icon], then Add to Home Screen." It never covers the nav.
 
 ---
 

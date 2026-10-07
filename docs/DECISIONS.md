@@ -537,3 +537,24 @@ Consequences:
 Positive: a short, scannable list per brand that always says something about every brand.
 Trade-off: a painter looking for "the same paint in another line" of the same brand (e.g., Mephiston Red Air) won't find it here. A "Same paint in other lines" section is a possible follow-up.
 
+---
+
+## Decision 026 — Bugs and follow-ups are tracked in GitHub Issues
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+Defects and follow-ups found during work items (e.g., metallic paints typed as opaque, the app icon still missing) had nowhere to live except progress logs and chat.
+
+Decision:
+Track them as GitHub Issues on `NathanHealea/v2.grimify.app`: label `bug` for defects, `enhancement` for follow-ups. Work items stay in `docs/implementation-plans/`; a work item that fixes an issue links it. The first issues are #1 (metallics typed as opaque), #2 (Vallejo Model Color merges) and #3 (app icon).
+
+Alternatives:
+- Bug work items as markdown files only: no single list, and easy to lose between items
+- Progress-log notes: already proved easy to miss
+
+Consequences:
+Positive: one visible backlog of known problems, outside any single branch.
+Trade-off: issues live outside the repo's docs, so a work item that fixes one should restate the problem in its own context.
+

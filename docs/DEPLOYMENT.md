@@ -58,7 +58,8 @@ CI: GitHub Actions on every pull request: `npm ci` → `npm run check` → `npm 
 - [ ] Convex schema deployed without validation errors
 - [ ] Auth provider production instance allows the production domain
 - [ ] `catalog.json` is served and cached; the app works offline after the first load
-- [ ] Manifest and icons valid (Lighthouse PWA check)
+- [ ] Manifest and icons valid (Lighthouse PWA check). Icons pending (GitHub issue #3), so installability fails until then
+- [ ] `/sw.js` served with `Cache-Control: no-cache` (add to `public/_headers`), so installed apps can't get stuck on an old service worker
 - [ ] Smoke tests pass: search, detail, sign in, own/want, My Paints
 - [ ] Tested as an installed PWA on iPhone and Android
 

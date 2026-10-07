@@ -4,6 +4,9 @@ import { Link, useCanGoBack, useMatches, useRouter } from "@tanstack/react-route
 import { BookMarked, ChevronLeft, Palette, Settings } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { InstallBanner } from "@/features/pwa/install-banner";
+import { useOnlineStatus } from "@/features/pwa/use-online-status";
+
 type Props = {
   children: ReactNode;
 };
@@ -18,6 +21,7 @@ export function AppShell({ children }: Props) {
   const title = useMatches({
     select: (matches) => matches.findLast((match) => match.staticData.title)?.staticData.title,
   });
+  const online = useOnlineStatus();
   const back = useMatches({
     select: (matches) => matches.findLast((match) => match.staticData.back)?.staticData.back,
   });
@@ -39,8 +43,14 @@ export function AppShell({ children }: Props) {
       <header className="app-shell__header">
         {back && <BackButton to={back.to} label={back.label} />}
         {title && <h1 className="app-shell__title">{title}</h1>}
+        <p className="app-shell__offline" role="status">
+          {!online && "Offline"}
+        </p>
       </header>
-      <main className="app-shell__main">{children}</main>
+      <main className="app-shell__main">
+        <InstallBanner />
+        {children}
+      </main>
     </div>
   );
 }
