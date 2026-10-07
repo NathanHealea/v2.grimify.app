@@ -1,14 +1,14 @@
 ---
 type: task
 slug: hue-classification
-status: staged
+status: released
 branch: task/hue-classification
 worktree_path: ../grimify-v2-worktrees/task-hue-classification
 created: 2026-10-06
 approved: 2026-10-06
-version:
-tag:
-merge_commit:
+version: 0.1.3
+tag: v0.1.3
+merge_commit: 54f0425 (squash of task/hue-classification)
 ---
 
 # Hue-family classification
@@ -132,3 +132,4 @@ The artist's wheel gives half its circle to red through yellow, but OKLCh fits t
 - 2026-10-06 — Implementation started in worktree `../grimify-v2-worktrees/task-hue-classification` on `task/hue-classification`.
 - 2026-10-06 — Steps 1–5 done. AC1: Mephiston Red red/mid, Yriel Yellow yellow/light, Macragge Blue blue/dark, Mechanicus Standard Grey neutral/mid. AC2: a scratch `hueOverride: "orange"` on Mephiston Red gave orange, and red again once removed. AC3: hue and value counts match the plan's tables exactly. `npm run check` (74 tests in 10 files, catalog valid), `npm run build` (91.4 KB gzipped) and `prettier --check .` exit 0. Drift: step 1 was split so every commit type-checks. `ValueBand` landed with the classifier, and `hue`/`value` on `CatalogPaint` landed with the compiler.
 - 2026-10-06 — Staged. Version 0.1.3; no changelog in the repo. Not pushed: the owner's rules keep pushes to the release step, so review is the local branch `task/hue-classification`.
+- 2026-10-07 — Released. Owner approved the review. Squash-merged 6 commits from `task/hue-classification` into `main` as 0.1.3 (54f0425), tagged `v0.1.3`. Worktree and branch removed.
