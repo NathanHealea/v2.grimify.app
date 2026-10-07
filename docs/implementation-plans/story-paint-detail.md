@@ -1,14 +1,14 @@
 ---
 type: story
 slug: paint-detail
-status: staged
+status: released
 branch: story/paint-detail
 worktree_path: ../grimify-v2-worktrees/story-paint-detail
 created: 2026-10-07
 approved: 2026-10-07
-version:
-tag:
-merge_commit:
+version: 0.4.0
+tag: v0.4.0
+merge_commit: 7dc2535 (squash of story/paint-detail)
 ---
 
 # Paint detail and equivalents
@@ -161,3 +161,4 @@ What the docs fix:
   - The copy failure path announces "Couldn't copy; select the hex instead." and logs the error.
   - Seen in screenshots, not a bug in this item: Citadel Leadbelcher is typed `base` with hex `#455051` in the seed data, so it gets no metallic note and matches dark greys. That's the known "metallics inside non-metallic lines" gap from the seed catalog.
 - 2026-10-07 — Staged. Version 0.4.0; no changelog in the repo. Not pushed: the owner's rules keep pushes to the release step, so review is the local branch `story/paint-detail`. Manual checks still open: AC6's VoiceOver announcement, and the back button in an installed iOS app (after the PWA item).
+- 2026-10-07 — Released. Owner approved the review. Squash-merged 12 commits from `story/paint-detail` into `main` as 0.4.0 (7dc2535), tagged `v0.4.0`. Worktree and branch removed.
