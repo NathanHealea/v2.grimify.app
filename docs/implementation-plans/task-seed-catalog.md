@@ -1,14 +1,14 @@
 ---
 type: task
 slug: seed-catalog
-status: staged
+status: released
 branch: task/seed-catalog
 worktree_path: ../grimify-v2-worktrees/task-seed-catalog
 created: 2026-10-06
 approved: 2026-10-06
-version:
-tag:
-merge_commit:
+version: 0.1.2
+tag: v0.1.2
+merge_commit: 10fdb2f (squash of task/seed-catalog)
 ---
 
 # Seed catalog
@@ -173,3 +173,4 @@ The conversion is pure functions in `scripts/catalog/import-legacy.ts`, tested i
 
   `npm run check` (53 tests in 9 files, catalog valid), `npm run build` and `prettier --check .` exit 0. Drift: none. The Vallejo Yellow Green and Dark Blue Grey merges produce no alias, because both entries had the same name. Brand files were formatted with Prettier after the import.
 - 2026-10-06 — Staged. Version 0.1.2; no changelog in the repo. Not pushed: the owner's rules keep pushes to the release step, so review is the local branch `task/seed-catalog`.
+- 2026-10-06 — Released. Owner approved the review. Squash-merged 9 commits from `task/seed-catalog` into `main` as 0.1.2 (10fdb2f), tagged `v0.1.2`. Worktree and branch removed. The 2,837 paint IDs are now permanent.
