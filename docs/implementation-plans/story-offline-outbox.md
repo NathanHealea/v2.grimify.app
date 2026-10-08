@@ -1,7 +1,7 @@
 ---
 type: story
 slug: offline-outbox
-status: staged
+status: released
 branch: story/offline-outbox
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/story-offline-outbox
 created: 2026-10-08
@@ -10,7 +10,7 @@ commit_type:         # optional override for the merge commit type (default: sto
 version: 0.9.0
 review_approved: 2026-10-08
 pr:                  # set by `wi pr`
-tag:                 # set by `wi release`; the tag sits on the merge commit
+tag: v0.9.0
 ---
 
 # Offline outbox
@@ -222,3 +222,4 @@ Today, then, a signed-in painter who opens the app offline has neither a collect
 - 2026-10-08 — Build done: steps 1-10 landed; wi verify passes (170 unit tests, build). E1 passes on Pixel 7 (skipped on iPhone 15 by design). Added risks 8-9 from the build.
 - 2026-10-08 — Staged: verification passed; version 0.8.0 → 0.9.0; no changelog file.
 - 2026-10-08 — Review approved.
+- 2026-10-08 — Released 0.9.0 as v0.9.0.
