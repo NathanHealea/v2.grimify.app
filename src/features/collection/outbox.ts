@@ -55,6 +55,12 @@ export async function flushOutbox(
 ): Promise<"done" | "stopped"> {
   const pending = [...getOutbox()].sort((a, b) => a.clientUpdatedAt - b.clientUpdatedAt);
   for (const entry of pending) {
+    // Gone means discarded (sign-out, another user) or replaced by a newer change sent later.
+    const current = getOutbox().some(
+      (queued) =>
+        queued.paintId === entry.paintId && queued.clientUpdatedAt === entry.clientUpdatedAt,
+    );
+    if (!current) continue;
     try {
       await send(entry);
     } catch (error) {

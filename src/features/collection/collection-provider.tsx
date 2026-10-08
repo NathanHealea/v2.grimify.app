@@ -135,8 +135,14 @@ export function CollectionProvider({ children }: { children: ReactNode }) {
     if (clerkUserId && record && record.userId !== clerkUserId) commit(undefined);
   }, [clerkUserId, stored, commit]);
 
+  // Set by sign-out until Clerk drops the user, so a late listMine answer can't re-save their record.
+  const signingOut = useRef(false);
   useEffect(() => {
-    if (!rows || !clerkUserId || !stored.read) return;
+    signingOut.current = false;
+  }, [clerkUserId]);
+
+  useEffect(() => {
+    if (!rows || !clerkUserId || !stored.read || signingOut.current) return;
     const record = recordRef.current;
     commit({
       userId: clerkUserId,
@@ -200,7 +206,10 @@ export function CollectionProvider({ children }: { children: ReactNode }) {
     [deviceUserId, commit, flush],
   );
 
-  const clear = useCallback(() => commit(undefined), [commit]);
+  const clear = useCallback(() => {
+    signingOut.current = true;
+    commit(undefined);
+  }, [commit]);
   const writer = useMemo(
     () => ({ write, clear, userId: deviceUserId }),
     [write, clear, deviceUserId],

@@ -103,6 +103,29 @@ describe("outbox", () => {
     expect(outbox).toEqual([{ paintId: RED, owned: false, clientUpdatedAt: 4_000 }]);
   });
 
+  it("stops sending entries removed mid-flush", async () => {
+    let outbox: OutboxEntry[] = [
+      { paintId: RED, owned: true, clientUpdatedAt: 1_000 },
+      { paintId: GREEN, owned: true, clientUpdatedAt: 2_000 },
+    ];
+    const sent: string[] = [];
+    const send = vi.fn((entry: OutboxEntry) => {
+      sent.push(entry.paintId);
+      // Signing out discards the outbox while the first send is in flight.
+      outbox = [];
+      return Promise.resolve();
+    });
+
+    await expect(
+      flushOutbox(
+        () => outbox,
+        send,
+        () => {},
+      ),
+    ).resolves.toBe("done");
+    expect(sent).toEqual([RED]);
+  });
+
   it("drops validation errors and keeps the rest", async () => {
     const invalid: OutboxEntry = { paintId: RED, clientUpdatedAt: 1_000 };
     const valid: OutboxEntry = { paintId: GREEN, owned: true, clientUpdatedAt: 2_000 };
