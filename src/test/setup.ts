@@ -28,9 +28,18 @@ vi.mock("convex/react", () => {
   };
 });
 
+// jsdom has no IndexedDB: the device store keeps its record in memory, emptied after each test.
+const idb = vi.hoisted(() => new Map<string, unknown>());
+vi.mock("idb-keyval", () => ({
+  get: vi.fn((key: string) => Promise.resolve(idb.get(key))),
+  set: vi.fn((key: string, value: unknown) => Promise.resolve(void idb.set(key, value))),
+  del: vi.fn((key: string) => Promise.resolve(void idb.delete(key))),
+}));
+
 // Testing Library only auto-cleans when Vitest globals are enabled; they are not.
 afterEach(() => {
   cleanup();
+  idb.clear();
   resetCatalogCache();
   vi.unstubAllGlobals();
   stubBrowserGlobals();

@@ -43,9 +43,8 @@ export const set = mutation({
     const favorite = args.favorite ?? existing?.favorite ?? false;
     const updatedAt = args.clientUpdatedAt;
 
-    if (!owned && !wishlisted && !favorite) {
-      if (existing) await ctx.db.delete("userPaints", existing._id);
-    } else if (existing) {
+    // An all-false row stays as a tombstone so its updatedAt still beats older queued changes (#4).
+    if (existing) {
       await ctx.db.patch("userPaints", existing._id, { owned, wishlisted, favorite, updatedAt });
     } else {
       await ctx.db.insert("userPaints", {
@@ -82,12 +81,14 @@ export const listMine = query({
       .query("userPaints")
       .withIndex("by_userId_and_paintId", (q) => q.eq("userId", user._id))
       .take(LIST_LIMIT);
-    return rows.map(({ paintId, owned, wishlisted, favorite, updatedAt }) => ({
-      paintId,
-      owned,
-      wishlisted,
-      favorite: favorite ?? false,
-      updatedAt,
-    }));
+    return rows
+      .filter((row) => row.owned || row.wishlisted || row.favorite)
+      .map(({ paintId, owned, wishlisted, favorite, updatedAt }) => ({
+        paintId,
+        owned,
+        wishlisted,
+        favorite: favorite ?? false,
+        updatedAt,
+      }));
   },
 });

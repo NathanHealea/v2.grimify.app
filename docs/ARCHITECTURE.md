@@ -143,12 +143,14 @@ Clerk issues the session JWT → Convex verifies it (auth.config.ts).
 
 ### Mark a paint as owned
 1. The user taps "Own"
-2. The UI updates optimistically
-3. The change is written to the local outbox (IndexedDB) and the cached collection; if online, the Convex mutation `userPaints.set({ paintId, owned: true, clientUpdatedAt })` is called right away. If offline, it's sent automatically on reconnect.
+2. `useSetPaintFlags` adds the change to the device outbox (IndexedDB); the toggle fills at once because the shown collection is the cached or live one with the outbox applied
+3. If Convex is authenticated and the `users` row exists, the outbox is flushed now through `userPaints.set({ paintId, owned: true, clientUpdatedAt })`; otherwise on reconnect or when that becomes true
 4. Convex verifies the auth identity → resolves `userId`
-5. The arguments are validated; the row is upserted
-6. The Convex query `userPaints.listMine` re-runs automatically; all devices update
-7. On a non-network error (e.g., validation) → revert the optimistic update, drop the outbox entry, and show a toast. Network errors leave the entry queued for retry.
+5. The arguments are validated; the row is upserted (all-false rows stay as tombstones, DECISIONS 035)
+6. The Convex query `userPaints.listMine` re-runs automatically; all devices update. The entry leaves the outbox and the new answer is stored on the device
+7. On a validation error → drop the entry (the toggle reverts) and show a toast. Any other error keeps the entry for the next try
+
+Offline launch: Clerk's script can't load, so the collection uses the user ID stored on the device to show the cached collection and accept changes (DECISIONS 036).
 
 ---
 

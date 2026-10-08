@@ -21,8 +21,8 @@
   border-bottom: var(--border-width) solid var(--color-border);
 }
 
-.app-shell__offline {
-  margin-left: auto;
+.app-shell__offline,
+.app-shell__pending {
   font-size: var(--text-small);
   font-weight: var(--weight-semibold);
   line-height: var(--leading-small);
@@ -34,6 +34,14 @@
     border: var(--border-width) solid var(--color-input-border);
     border-radius: var(--radius-pill);
   }
+}
+
+.app-shell__offline {
+  margin-left: auto;
+}
+
+.app-shell__pending:not(:empty) {
+  margin-left: var(--space-2);
 }
 
 .app-shell__back {

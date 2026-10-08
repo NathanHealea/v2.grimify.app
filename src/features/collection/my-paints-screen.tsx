@@ -53,7 +53,8 @@ export function MyPaintsScreen({ tab, ...searchProps }: Props) {
     );
   }
 
-  if (!isLoaded || collection.loading) return <SkeletonRows />;
+  // Clerk never loads offline; the collection still answers from the device for the stored user.
+  if (collection.loading) return <SkeletonRows />;
 
   const scope = collectionView(tab, collection);
 

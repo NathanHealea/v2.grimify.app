@@ -1,7 +1,22 @@
-import { act, screen, within } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { act, cleanup, screen, within } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
+import type { CollectionState } from "@/features/collection/collection-provider";
 import { renderRoute } from "@/test/render-route";
+
+const collection = vi.hoisted(() => ({ state: undefined as CollectionState | undefined }));
+
+vi.mock("@/features/collection/collection-provider", async (importActual) => {
+  const actual = await importActual<typeof import("@/features/collection/collection-provider")>();
+  return {
+    ...actual,
+    useCollection: () => collection.state ?? actual.useCollection(),
+  };
+});
+
+afterEach(() => {
+  collection.state = undefined;
+});
 
 async function findMainNav() {
   return screen.findByRole("navigation", { name: "Main" });
@@ -61,11 +76,42 @@ describe("AppShell", () => {
     renderRoute("/settings");
 
     const header = await screen.findByRole("banner");
-    expect(within(header).getByRole("status")).toHaveTextContent("Offline");
+    expect(within(header).getAllByRole("status")[0]).toHaveTextContent("Offline");
 
     onLine.mockReturnValue(true);
     act(() => void window.dispatchEvent(new Event("online")));
-    expect(within(header).getByRole("status")).toBeEmptyDOMElement();
+    expect(within(header).getAllByRole("status")[0]).toBeEmptyDOMElement();
     onLine.mockRestore();
+  });
+
+  it("shows how many changes are waiting", async () => {
+    const withPending = (pending: number): CollectionState => ({
+      loading: false,
+      flags: new Map(),
+      owned: new Set(),
+      wishlisted: new Set(),
+      favorites: new Set(),
+      pending,
+    });
+    const statusTexts = async () => {
+      const header = await screen.findByRole("banner");
+      return within(header)
+        .getAllByRole("status")
+        .map((region) => region.textContent);
+    };
+
+    collection.state = withPending(0);
+    renderRoute("/settings");
+    expect(await statusTexts()).toEqual(["", ""]);
+    cleanup();
+
+    collection.state = withPending(1);
+    renderRoute("/settings");
+    expect(await statusTexts()).toEqual(["", "1 change waiting to sync"]);
+    cleanup();
+
+    collection.state = withPending(3);
+    renderRoute("/settings");
+    expect(await statusTexts()).toEqual(["", "3 changes waiting to sync"]);
   });
 });

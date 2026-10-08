@@ -39,7 +39,8 @@ Permissions:
 Authorization must be enforced server-side (in Convex functions):
 - Every user-data function calls `requireUser(ctx)` (see `convex/lib/auth.ts`)
 - `userId` always comes from `ctx.auth`, **never** from client arguments
-- The offline outbox is stored in the browser's IndexedDB; it holds only paint IDs and flags (no tokens or personal data)
+- The device store (browser IndexedDB, DECISIONS 036) holds the Clerk user ID, the last collection (paint IDs and flags) and the outbox. No tokens, email or name. The user ID only decides which cached collection to show offline; it's never sent as an argument, and the server still derives the user from the auth token on every call
+- A different user signing in on the device clears the store before anything shows; signing out clears it (after a warning if changes haven't synced)
 - Queries always filter by the caller's `userId` using an index
 
 ---

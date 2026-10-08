@@ -13,15 +13,10 @@ export type PendingAction = { paintId: string; change: FlagChange };
 type SignInApi = {
   /** Opens the sheet; the optional action runs after sign-in. */
   open: (pending?: PendingAction) => void;
-  /** Already signed in with Clerk but Convex isn't authenticated yet: hold the action, no sheet. */
-  queue: (pending: PendingAction) => void;
 };
 
 const SignInContext = createContext<SignInApi>({
   open: () => {
-    throw new Error("useSignIn must be used inside SignInProvider");
-  },
-  queue: () => {
     throw new Error("useSignIn must be used inside SignInProvider");
   },
 });
@@ -53,14 +48,7 @@ export function SignInProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <SignInContext.Provider
-      value={{
-        open: openSignIn,
-        queue: (action) => {
-          pending.current = action;
-        },
-      }}
-    >
+    <SignInContext.Provider value={{ open: openSignIn }}>
       {children}
       <SignInSheet
         open={open}
@@ -77,9 +65,4 @@ export function SignInProvider({ children }: { children: ReactNode }) {
 /** Opens the app-wide sign-in sheet, optionally finishing a toggle afterwards. */
 export function useSignIn() {
   return useContext(SignInContext).open;
-}
-
-/** Holds a toggle until Convex is authenticated for an already signed-in user. */
-export function useQueueAfterSignIn() {
-  return useContext(SignInContext).queue;
 }

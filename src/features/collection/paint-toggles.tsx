@@ -1,9 +1,8 @@
 import "./paint-toggles.css";
 
-import { useUser } from "@clerk/react";
 import { Bookmark, Heart, Plus } from "lucide-react";
 
-import { useQueueAfterSignIn, useSignIn } from "@/features/auth/sign-in-provider";
+import { useSignIn } from "@/features/auth/sign-in-provider";
 import { useToast } from "@/features/feedback/toast-provider";
 import { useOnlineStatus } from "@/features/pwa/use-online-status";
 
@@ -21,15 +20,12 @@ export function PaintToggles({ paintId, paintName }: Props) {
   const canSave = useCanSavePaints();
   const setFlags = useSetPaintFlags();
   const openSignIn = useSignIn();
-  const queueAfterSignIn = useQueueAfterSignIn();
-  const { isSignedIn } = useUser();
   const toast = useToast();
   const online = useOnlineStatus();
 
   const apply = (change: FlagChange) => {
+    // Known user, even offline or before Convex connects: the outbox sends it later.
     if (canSave) setFlags(paintId, change);
-    // Signed in, but Convex's authenticated connection is still starting (right after a load).
-    else if (isSignedIn) queueAfterSignIn({ paintId, change });
     // Clerk's sign-in loads from its servers, so offline there is nothing to open.
     else if (!online) toast("Signing in needs an internet connection.");
     else openSignIn({ paintId, change });

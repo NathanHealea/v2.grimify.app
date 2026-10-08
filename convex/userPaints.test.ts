@@ -17,7 +17,7 @@ async function signedIn(subject: string) {
 }
 
 describe("userPaints.set", () => {
-  it("inserts, updates and deletes a user's paint flags", async () => {
+  it("inserts, updates and clears a user's paint flags", async () => {
     const { as } = await signedIn("a");
 
     await as.mutation(api.userPaints.set, { paintId: RED, owned: true, clientUpdatedAt: 1 });
@@ -71,6 +71,55 @@ describe("userPaints.set", () => {
     expect(await t.run((ctx) => ctx.db.query("userPaints").collect())).toHaveLength(1);
     expect(await as.query(api.userPaints.listMine, {})).toEqual([
       { paintId: RED, owned: true, wishlisted: false, favorite: false, updatedAt: 20 },
+    ]);
+  });
+
+  it("ignores an older change after every flag is cleared", async () => {
+    const { as } = await signedIn("a");
+
+    await as.mutation(api.userPaints.set, { paintId: RED, owned: true, clientUpdatedAt: 5 });
+    await as.mutation(api.userPaints.set, {
+      paintId: RED,
+      owned: false,
+      wishlisted: false,
+      favorite: false,
+      clientUpdatedAt: 20,
+    });
+    await as.mutation(api.userPaints.set, { paintId: RED, owned: true, clientUpdatedAt: 10 });
+
+    expect(await as.query(api.userPaints.listMine, {})).toEqual([]);
+  });
+
+  it("keeps a cleared row as a tombstone", async () => {
+    const { t, as } = await signedIn("a");
+    const BLUE = "citadel-base-macragge-blue";
+    const rows = () =>
+      t.run(async (ctx) =>
+        (await ctx.db.query("userPaints").collect()).map(
+          ({ paintId, owned, wishlisted, favorite, updatedAt }) => ({
+            paintId,
+            owned,
+            wishlisted,
+            favorite,
+            updatedAt,
+          }),
+        ),
+      );
+
+    await as.mutation(api.userPaints.set, { paintId: RED, owned: true, clientUpdatedAt: 1 });
+    await as.mutation(api.userPaints.set, { paintId: RED, owned: false, clientUpdatedAt: 2 });
+    await as.mutation(api.userPaints.set, { paintId: BLUE, wishlisted: false, clientUpdatedAt: 3 });
+
+    expect(await rows()).toEqual([
+      { paintId: RED, owned: false, wishlisted: false, favorite: false, updatedAt: 2 },
+      { paintId: BLUE, owned: false, wishlisted: false, favorite: false, updatedAt: 3 },
+    ]);
+    expect(await as.query(api.userPaints.listMine, {})).toEqual([]);
+
+    await as.mutation(api.userPaints.set, { paintId: RED, favorite: true, clientUpdatedAt: 4 });
+    expect(await rows()).toHaveLength(2);
+    expect(await as.query(api.userPaints.listMine, {})).toEqual([
+      { paintId: RED, owned: false, wishlisted: false, favorite: true, updatedAt: 4 },
     ]);
   });
 

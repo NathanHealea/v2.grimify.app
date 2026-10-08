@@ -271,6 +271,12 @@ Own/Want toggles when signed out still render; tapping them opens the app-wide s
 Offline:
 Small "Offline" pill at the right of the header: Secondary background, `--color-input-border` edge, semibold small text. It's a live `status` region that's always present (empty while online), so the change is announced.
 
+Waiting to sync:
+"1 change waiting to sync" / "n changes waiting to sync", a second pill after the Offline one in the same style, `--space-2` apart. Also an always-present `status` region, empty when nothing is queued.
+
+Confirm dialog:
+A bottom sheet (the app's `Sheet`, a modal Radix dialog: title, focus trap, Escape closes, focus returns to the button that opened it) with the question as the title, the detail as the description, and Cancel (outline) and the action (destructive) in the footer. Used for signing out with unsynced changes.
+
 Update available:
 A bar fixed above the nav bar on phones (bottom edge from 640px), `--z-toast`. It reads "Update available" with "Later" (ghost) and "Reload" (primary) buttons at full 44px height. "Later" hides it for the session.
 
