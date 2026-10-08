@@ -160,16 +160,16 @@ Today, then, a signed-in painter who opens the app offline has neither a collect
 
 ## Implementation plan
 
-1. [ ] Tombstones in `set` and `listMine`; read `convex/_generated/ai/guidelines.md` first — touches `convex/userPaints.ts`, `convex/userPaints.test.ts` — tests T1, T2
-2. [ ] Add `idb-keyval@6.3.0` (exact) and the device store module — touches `package.json`, `package-lock.json`, `src/features/collection/device-store.ts`, `src/features/collection/device-store.test.ts` — tests T4
-3. [ ] Pure outbox logic: merge, apply to rows, flush with an injected send — touches `src/features/collection/outbox.ts`, `src/features/collection/outbox.test.ts` — tests T3, T5, T6
-4. [ ] `CollectionProvider` resolves the device user, reads and writes the cache, overlays the outbox and runs the flush; `useSetPaintFlags` enqueues; Convex optimistic update removed — touches `src/features/collection/collection-provider.tsx`, `src/features/collection/collection-provider.test.tsx`, `src/features/collection/use-set-paint-flags.ts`, `src/features/collection/use-set-paint-flags.test.tsx` — tests T7, T8, T9
-5. [ ] Toggles queue for a known user offline; retire `SignInProvider`'s signed-in queue — touches `src/features/collection/paint-toggles.tsx`, `src/features/collection/paint-toggles.test.tsx`, `src/features/auth/sign-in-provider.tsx`, `src/features/auth/sign-in-provider.test.tsx` — tests T10
-6. [ ] My Paints uses the device user, not Clerk alone, so it renders offline — touches `src/features/collection/my-paints-screen.tsx`, `src/features/collection/my-paints-screen.test.tsx` — tests T13
-7. [ ] Header "waiting to sync" badge — touches `src/components/app-shell.tsx`, `src/components/app-shell.css`, `src/components/app-shell.test.tsx` — tests T12
-8. [ ] Sign-out confirmation and store clearing — touches `src/features/auth/account-section.tsx`, `src/features/auth/account-section.css`, `src/features/auth/account-section.test.tsx` — tests T11
-9. [ ] Offline E2E journey — touches `tests/e2e/collection.spec.ts` — tests E1
-10. [ ] Docs:
+1. [x] Tombstones in `set` and `listMine`; read `convex/_generated/ai/guidelines.md` first — touches `convex/userPaints.ts`, `convex/userPaints.test.ts` — tests T1, T2
+2. [x] Add `idb-keyval@6.3.0` (exact) and the device store module — touches `package.json`, `package-lock.json`, `src/features/collection/device-store.ts`, `src/features/collection/device-store.test.ts` — tests T4
+3. [x] Pure outbox logic: merge, apply to rows, flush with an injected send — touches `src/features/collection/outbox.ts`, `src/features/collection/outbox.test.ts` — tests T3, T5, T6
+4. [x] `CollectionProvider` resolves the device user, reads and writes the cache, overlays the outbox and runs the flush; `useSetPaintFlags` enqueues; Convex optimistic update removed — touches `src/features/collection/collection-provider.tsx`, `src/features/collection/collection-provider.test.tsx`, `src/features/collection/use-set-paint-flags.ts`, `src/features/collection/use-set-paint-flags.test.tsx` — tests T7, T8, T9
+5. [x] Toggles queue for a known user offline; retire `SignInProvider`'s signed-in queue — touches `src/features/collection/paint-toggles.tsx`, `src/features/collection/paint-toggles.test.tsx`, `src/features/auth/sign-in-provider.tsx`, `src/features/auth/sign-in-provider.test.tsx` — tests T10
+6. [x] My Paints uses the device user, not Clerk alone, so it renders offline — touches `src/features/collection/my-paints-screen.tsx`, `src/features/collection/my-paints-screen.test.tsx` — tests T13
+7. [x] Header "waiting to sync" badge — touches `src/components/app-shell.tsx`, `src/components/app-shell.css`, `src/components/app-shell.test.tsx` — tests T12
+8. [x] Sign-out confirmation and store clearing — touches `src/features/auth/account-section.tsx`, `src/features/auth/account-section.css`, `src/features/auth/account-section.test.tsx` — tests T11
+9. [x] Offline E2E journey — touches `tests/e2e/collection.spec.ts` — tests E1
+10. [x] Docs:
     - **DECISIONS 035:** tombstones, closes #4.
     - **DECISIONS 036:** a device store with the Clerk user ID for offline identity and cache.
     - **API §2b** and **DATABASE:** tombstones.
@@ -209,6 +209,8 @@ Today, then, a signed-in painter who opens the app offline has neither a collect
 6. **iOS storage eviction.** Safari can clear site storage for non-installed sites after 7 days without use. An unsynced outbox in a browser tab could be lost that way, while installed PWAs are exempt. Documented, not solved.
 7. **Removing Convex's optimistic update.** The outbox overlay must cover every case it did. T7 and T9 assert the toggle changes immediately, and the E2E checks it end to end.
 8. **Estimate:** 2–3 sessions; step 4 is most of it.
+8. **Found in build: no stored user before the first collection load.** The device record is written when `listMine` first answers. Someone who signs in and goes offline before that has no stored user, so an offline tap shows "Signing in needs an internet connection." instead of queuing. Matches R7 ("known user"); E1 waits for the collection before going offline.
+9. **Checked in build: Clerk recovers without a reload.** Offline reload, then back online: Clerk and Convex reconnected in about 1s and the queued change synced (exploratory Playwright run, short outage). A long outage past the session token's life is untested.
 
 ## Progress log
 
@@ -216,3 +218,5 @@ Today, then, a signed-in painter who opens the app offline has neither a collect
 - 2026-10-08 — Plan approved.
 - 2026-10-08 — Approved with both decisions: add idb-keyval 6.3.0, and store the Clerk user ID on the device (SECURITY to be updated).
 - 2026-10-08 — Started on branch story/offline-outbox from origin/main.
+- 2026-10-08 — Step 4 landed. Drift: DeviceRecord.rows is optional (absent until the first listMine answer), device-store functions are async, src/test/setup.ts mocks idb-keyval in memory, and the My Paints test mock now has a Clerk user ID. The check of whether Clerk retries after an offline launch moves to the E2E in step 9, since it needs a browser.
+- 2026-10-08 — Build done: steps 1-10 landed; wi verify passes (170 unit tests, build). E1 passes on Pixel 7 (skipped on iPhone 15 by design). Added risks 8-9 from the build.
