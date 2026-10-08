@@ -119,16 +119,16 @@ Loading State:
 ## Flow 5 — Mark Owned / Wishlist / Favorite
 
 1. Signed-in user taps the Own (plus) toggle on a list row or the detail screen
-2. Toggle fills immediately (optimistic)
+2. Toggle fills immediately (the change is queued on the phone first)
 3. `userPaints.set` runs; the My Paints tab and other devices update in real time
 4. Tapping again → un-own (`owned: false`)
 5. Own, Want (bookmark) and Favorite (heart) are independent: a paint can be any combination (e.g., you own it and want a replacement)
 
 Error State:
-Toggle reverts plus toast: "Couldn't save. Check your connection."
+A change the server rejects as invalid reverts the toggle with the toast "Couldn't save that change." A lost connection is not an error: the change waits.
 
 Offline:
-The toggle still updates immediately. The change is queued on the phone and a small "1 change waiting to sync" badge appears in the header. It syncs automatically when the connection returns, then the badge disappears.
+The toggle still updates immediately. The change is queued on the phone and a small "1 change waiting to sync" badge appears in the header. It syncs automatically when the connection returns, then the badge disappears. Opening the app offline shows the collection last loaded on this phone, and My Paints works.
 
 ---
 
@@ -171,6 +171,8 @@ Three skeleton rows (hidden from screen readers) and a "Loading your paints…" 
 ---
 
 ## Flow 9 — Settings & Account Deletion
+
+Sign out: with changes waiting to sync, a dialog asks "Discard unsynced changes?" — "2 changes haven't synced. Sign out and discard them?" — with Cancel and Sign out. Signing out clears the collection stored on the phone.
 
 Settings shows: account email, Sign out, Theme (follows system in MVP), "How to install", About/credits/data sources, Privacy, **Delete account**.
 

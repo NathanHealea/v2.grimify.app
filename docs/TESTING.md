@@ -18,7 +18,7 @@ Critical functionality:
 ### Unit Testing
 Test:
 - `features/matching`: hex → Lab conversion, Delta-E, `findEquivalents` (type-family filtering, "show all" toggle, ranking, thresholds)
-- `features/collection`: outbox (queue, collapse duplicates, flush order, keep on network error, drop on validation error)
+- `features/collection`: outbox (queue, collapse duplicates, flush order, keep on network error, drop on validation error), device store, cached and pending flags in `CollectionProvider`, device user (offline, other user, signed out)
 - `features/catalog`: query parser (`parse-query`): hex detection (`#abc`, `abc123`, invalid hex), brand detection (case/alias), hue names (`red-orange`, `red orange`), combinations, plain text fallback
 - `features/catalog`: search (fuzzy, aliases), filter combinations, URL search-param parsing
 - `features/matching`: hue classification (known reference colors → expected family; neutral threshold; `hueOverride` wins)
@@ -29,7 +29,7 @@ Test:
 Test (with `convex-test`):
 - `users.store` is idempotent
 - `userPaints.set` inserts, then updates (no duplicate rows); owned and wishlisted are independent
-- `userPaints.set` deletes the row when both flags are false
+- `userPaints.set` keeps a cleared row as a tombstone, and an older change can't bring it back (issue #4); `listMine` leaves tombstones out
 - `userPaints.set` ignores an older `clientUpdatedAt` (last-write-wins); replaying is idempotent
 - Unauthenticated calls throw `UNAUTHENTICATED`
 - User A cannot read or modify user B's data
@@ -44,7 +44,7 @@ Test critical user journeys (Playwright with mobile device emulation: iPhone 15 
 - Filter by brand/type → URL updates → reload keeps filters
 - Sign in (test-mode auth) → mark owned → appears in My Paints: `tests/e2e/collection.spec.ts`, with `@clerk/testing`. Global setup creates `grimify-e2e+clerk_test@example.com` in the Clerk development instance if missing (DECISIONS 032); each device profile uses a different paint and un-owns it at the end
 - Offline: load app, go offline (`context.setOffline(true)`), search still works
-- Offline toggle: go offline, mark a paint owned, go online → change synced (visible after reload)
+- Offline toggle: go offline, reload, mark a paint owned, see "1 change waiting to sync", go online → change synced (visible in a fresh context): `tests/e2e/collection.spec.ts`, Chromium only like `offline.spec.ts`
 
 ### Manual Testing (real devices, before each release)
 Automated tools can't fully cover installed iOS PWA behavior:

@@ -718,3 +718,45 @@ Consequences:
 Positive: no new dependency; rows stay compact.
 Trade-off: sighted users rely on the icons alone. A pressed plus still reads as "add"; the filled Primary circle is the only on-state cue.
 
+---
+
+## Decision 035 — Cleared collection rows stay as tombstones
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+`userPaints.set` deleted a row when every flag became false, losing its `updatedAt`. A change queued offline before the clear, sent after it, then found no row and re-created the paint (GitHub issue #4). The outbox makes that ordering routine.
+
+Decision:
+`set` never deletes. An all-false row stays with its `updatedAt` (or is inserted, when the first change for a paint clears it), so last-write-wins still has the timestamp. `listMine` leaves all-false rows out. Closes #4.
+
+Alternatives:
+- A separate deletions table with timestamps: same effect, two tables to keep in step
+- Ignore changes older than the client's own last sync: needs per-device state on the server
+
+Consequences:
+Positive: one rule, one table; replays stay idempotent.
+Trade-off: rows are permanent until account deletion, at most one per user and paint (2,837). Reverting this change leaves the tombstones; the old `listMine` would return them with every flag false, which still reads as not in the collection.
+
+---
+
+## Decision 036 — A device store with the Clerk user ID for offline use
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+Offline, Clerk's script can't load, so the app couldn't tell who was signed in: My Paints loaded forever and toggles asked to sign in. The outbox (DECISIONS 010) needs to know whose changes it holds, and SECURITY said the outbox held no personal data.
+
+Decision:
+One IndexedDB record via `idb-keyval` 6.3.0 holds the Clerk user ID, the last `listMine` answer and the outbox. While Clerk hasn't loaded, the stored user ID stands in: the cached collection shows and changes queue. Once Clerk loads, its user wins: a different user clears the record, signed out hides it. Signing out clears it, after a confirmation when changes are pending. The server is unchanged: it never sees the stored ID and derives the user from the token.
+
+Alternatives:
+- No stored identity: no offline collection or queueing until Clerk loads, which offline is never
+- `localStorage`: synchronous and enough for the size, but DECISIONS 010 and API.md chose IndexedDB
+- Raw IndexedDB: about 60 lines instead of a 600-byte dependency
+
+Consequences:
+Positive: the app works offline for a returning user, and changes survive reloads.
+Trade-off: an opaque user ID sits in browser storage; anyone with the unlocked device can already see the app. iOS may evict storage for a non-installed site after 7 days unused, losing unsynced changes; installed PWAs are exempt. Not solved.

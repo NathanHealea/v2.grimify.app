@@ -163,7 +163,7 @@ Fields:
 - `favorite?: boolean` — independent of the other two (DECISIONS 033). Optional because rows saved before favorites lack it; missing means `false`
 - `updatedAt: number` — **client** timestamp of the latest change (used for offline last-write-wins)
 
-No quantity, notes or "running low" fields in MVP. The row is deleted when all three flags become false.
+No quantity, notes or "running low" fields in MVP. When all three flags become false the row stays as a tombstone with its `updatedAt`, so an older queued change can't bring it back (DECISIONS 035). `listMine` leaves tombstones out. At most one row per user and paint, so at most 2,837 per user.
 - `_creationTime`
 
 ### Convex schema (reference)
@@ -236,7 +236,7 @@ Foreign Keys:
 ## 9. Soft Delete
 
 Catalog: yes, via `discontinued: true` (never delete).
-Convex: no. Removing a paint from a collection deletes the `userPaints` row.
+Convex: removing a paint from a collection keeps its `userPaints` row with every flag `false` (a tombstone, DECISIONS 035). Deleting the account removes all rows.
 
 ---
 

@@ -86,11 +86,10 @@ Args:
 Behavior:
 - Look up the row via `by_userId_and_paintId`
 - Errors: `UNAUTHENTICATED`, `INVALID_PAINT_ID`, `NO_FLAGS`, `CLOCK_IN_FUTURE` (as `ConvexError` data)
-- Known gap: deleting the row loses its timestamp, so an older queued change can re-create it (GitHub issue #4; resolve in the outbox item)
 - If the row exists and `row.updatedAt > clientUpdatedAt` → ignore (a newer change already won; last-write-wins)
 - Otherwise apply the provided flags and set `updatedAt = clientUpdatedAt`
 - If no row exists → insert (missing flags default to `false`)
-- If all three flags end up `false` → delete the row
+- If all three flags end up `false` → keep the row with every flag `false` (a tombstone), so its `updatedAt` still beats an older queued change (DECISIONS 035). Never deletes
 - Idempotent: replaying the same call has no further effect
 Validation:
 - `paintId` matches `^[a-z0-9-]{3,100}$`
@@ -102,12 +101,15 @@ Returns: `null`
 
 ## 2b. Offline Outbox (client)
 
-Own/Want changes made offline are queued and replayed (DECISIONS 010):
-- Each toggle writes `{ paintId, owned?, wishlisted?, clientUpdatedAt }` to an IndexedDB outbox (`idb-keyval`) **and** updates the local cached collection immediately
-- When online (and signed in), the outbox is flushed in order by calling `userPaints.set`; entries are removed only after success
-- Multiple queued changes to the same paint are collapsed to the latest one before sending
-- The UI shows a small "n changes waiting to sync" indicator while the outbox isn't empty
-- Sign-out with a non-empty outbox → warn the user before discarding
+Every Own/Want/Favorite change goes through the outbox, online or not (DECISIONS 010, 036). Code: `src/features/collection/` (`outbox.ts` pure logic, `device-store.ts` storage, `collection-provider.tsx` wiring).
+- One IndexedDB record (`idb-keyval`, key `grimify-device`): `{ userId, rows?, outbox }`. `userId` is the Clerk user ID; `rows` is the last `listMine` answer; `outbox` holds one `{ paintId, owned?, wishlisted?, favorite?, clientUpdatedAt }` entry per paint
+- A change to a paint already queued merges into its entry: later flags win, the newer `clientUpdatedAt` is kept
+- The screen shows the live `listMine` answer, or the stored `rows` for the same user, with the outbox applied on top. There is no Convex optimistic update
+- Flush: when Convex is authenticated and `users.me` is non-null; after each change, when that becomes true, and on the browser's `online` event. Oldest first, one at a time; an entry is removed only after `set` succeeds, and only if the paint wasn't changed again meanwhile
+- `INVALID_PAINT_ID`, `NO_FLAGS`, `CLOCK_IN_FUTURE` → drop the entry (the toggle reverts) and toast "Couldn't save that change." Any other error keeps the entry and stops the flush until the next trigger
+- Device user: Clerk's user when Clerk has loaded; the stored `userId` while it hasn't (offline launch). Clerk signed out hides the collection and keeps the record; a different user signing in clears it
+- The header shows "1 change waiting to sync" / "n changes waiting to sync" while the outbox isn't empty
+- Sign out clears the record; with pending changes it asks first
 
 ## 3. Error Format
 
