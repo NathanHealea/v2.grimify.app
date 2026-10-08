@@ -9,7 +9,7 @@ Clerk (free tier), integrated with Convex via `ConvexProviderWithClerk`. See DEC
 
 Methods:
 - **Email one-time code (primary).** This is the most reliable option inside an installed iOS PWA, because the user types the code into the app and never leaves it.
-- OAuth (Google / Discord via Clerk): **TBD**. If added, test it inside the installed iOS PWA, where redirects can open Safari and lose the session.
+- OAuth (Google / Discord via Clerk): **not for MVP** (DECISIONS 027); revisit after the beta. If added, test it inside the installed iOS PWA, where redirects can open Safari and lose the session.
 - Magic links: **not used** (they open in Safari, not the installed PWA, on iOS)
 - Passwords: **not used**
 
@@ -98,7 +98,7 @@ Headers (Cloudflare Pages `_headers` file):
 ## 6. Data Protection
 
 Sensitive data:
-- Email address, display name (held by the auth provider; optionally copied to `users`)
+- Email address, display name (held only by the auth provider; never copied to Convex, DECISIONS 028)
 - A user's collection (low sensitivity, but private by default)
 
 Encryption:

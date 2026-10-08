@@ -7,6 +7,13 @@ import { resetCatalogCache } from "@/features/catalog/load-catalog";
 
 import { FakeIntersectionObserver } from "./intersection-observer";
 
+// Clerk talks to its servers; tests use a signed-out, loaded user unless a test overrides these mocks.
+vi.mock("@clerk/react", () => ({
+  useUser: vi.fn(() => ({ isLoaded: true, isSignedIn: false, user: null })),
+  useClerk: vi.fn(() => ({ signOut: vi.fn(() => Promise.resolve()) })),
+  SignIn: () => "Clerk sign-in form",
+}));
+
 // Testing Library only auto-cleans when Vitest globals are enabled; they are not.
 afterEach(() => {
   cleanup();

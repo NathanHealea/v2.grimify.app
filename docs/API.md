@@ -53,10 +53,10 @@ Returns: `Id<"users">`
 Authentication: Optional (returns `null` when signed out)
 Returns:
 ```ts
-{ _id: Id<"users">; name?: string; email?: string } | null
+{ _id: Id<"users"> } | null   // null when signed out or not stored yet; profile data comes from Clerk on the device
 ```
 
-### users.deleteAccount — mutation
+### users.deleteAccount — mutation (Settings item; not built yet)
 Authentication: Required
 Purpose: Delete all of the user's `userPaints` and their `users` row. (The auth-provider account is deleted separately through the provider's API or UI.)
 Returns: `null`

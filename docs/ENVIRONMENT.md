@@ -17,7 +17,9 @@ VITE_APP_URL=                 # e.g. http://localhost:5173 / https://<project>.p
 
 ### Convex deployment environment (set in the Convex dashboard or `npx convex env set`)
 ```bash
-CLERK_JWT_ISSUER_DOMAIN=      # from Clerk dashboard → JWT Templates → "convex" template issuer URL
+CLERK_JWT_ISSUER_DOMAIN=      # Clerk Frontend API URL, shown when you activate Clerk dashboard → Integrations → Convex
+                              # (e.g. https://<name>.clerk.accounts.dev). Read by convex/auth.config.ts.
+                              # Keep a copy in .env.local for reference; Convex reads only the deployment's value.
 ```
 
 ### CI / hosting secrets (Cloudflare Pages build settings or GitHub Actions secrets)
@@ -42,7 +44,9 @@ CONVEX_DEPLOY_KEY=            # production deploy key from the Convex dashboard
 
 ## Rules
 
-- Never commit real secrets. Commit `.env.example` with empty values only.
+- Never commit real secrets. `.env.example` lists every variable with empty values; copy it to `.env.local`.
+- The app refuses to start without `VITE_CLERK_PUBLISHABLE_KEY` and `VITE_CONVEX_URL`, and shows the missing name.
+- Clerk dashboard (dev and prod instances): enable Email address with Email verification code; turn off password, email links and social connections (DECISIONS 027).
 - `.env.local` and `.env*.local` are in `.gitignore`
 - Never put a secret in a `VITE_` variable
 - Keep local and production configuration separate (different Convex deployments, Clerk dev vs. prod instances)

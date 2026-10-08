@@ -1,0 +1,31 @@
+/* Clerk reads --clerk-* variables from the stylesheet (Clerk changelog 2025-07-15), so its
+   form follows our tokens without CSS-in-JS. Values cascade from tokens.css, light and dark. */
+.clerk-theme {
+  --clerk-color-primary: var(--color-primary);
+  --clerk-color-primary-foreground: var(--color-primary-foreground);
+  --clerk-color-background: var(--color-surface);
+  --clerk-color-foreground: var(--color-text);
+  --clerk-color-muted-foreground: var(--color-muted-text);
+  --clerk-color-input: var(--color-surface);
+  --clerk-color-input-foreground: var(--color-text);
+  --clerk-color-border: var(--color-input-border);
+  --clerk-color-ring: var(--color-ring);
+  --clerk-color-danger: var(--color-error);
+  --clerk-font-family: var(--font-sans);
+  --clerk-font-size: var(--text-body);
+  --clerk-border-radius: var(--radius-md);
+
+  display: flex;
+  justify-content: center;
+}
+
+/* Clerk's input edge is a translucent shadow under the 3:1 a control needs (WCAG 1.4.11, DECISIONS 019).
+   cl-formFieldInput is Clerk's stable class; matched by attribute since it isn't kebab-case. */
+.clerk-theme [class~="cl-formFieldInput"] {
+  box-shadow: 0 0 0 var(--border-width) var(--color-input-border);
+
+  &:focus-visible {
+    outline: var(--focus-ring-width) solid var(--color-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+}

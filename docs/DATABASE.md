@@ -145,8 +145,7 @@ One row per signed-in person; links the auth identity to app data.
 Fields:
 - `_id`
 - `tokenIdentifier: string` — from the auth provider (unique)
-- `name?: string`
-- `email?: string`
+- No email, name or other profile data: those stay in Clerk and are read on the device (DECISIONS 028)
 - `_creationTime`
 
 > Auth is Clerk. `tokenIdentifier` comes from the Clerk JWT via `ctx.auth.getUserIdentity()`. The row is created by `users.store` after first sign-in.
@@ -175,9 +174,7 @@ import { v } from "convex/values";
 export default defineSchema({
   users: defineTable({
     tokenIdentifier: v.string(),
-    name: v.optional(v.string()),
-    email: v.optional(v.string()),
-  }).index("by_token", ["tokenIdentifier"]),
+  }).index("by_tokenIdentifier", ["tokenIdentifier"]),
 
   userPaints: defineTable({
     userId: v.id("users"),
@@ -222,7 +219,7 @@ Foreign Keys:
 
 | Index | Reason |
 |---|---|
-| `users.by_token` | Resolve the current user from the auth identity |
+| `users.by_tokenIdentifier` | Resolve the current user from the auth identity (index names list every field, per the Convex guidelines) |
 | `userPaints.by_user` | Load the full collection (owned and wishlist lists are filtered client-side; a user has at most a few hundred rows) |
 | `userPaints.by_user_paint` | Upsert/toggle a single paint |
 
@@ -252,10 +249,10 @@ Not needed for MVP. `_creationTime` and `updatedAt` are enough. Catalog history 
 ## 11. Sensitive Data
 
 Sensitive fields:
-- `users.email`, `users.name`
+- None stored in Convex. `users` holds only `tokenIdentifier`; email and name live in Clerk (DECISIONS 028)
 
 Protection:
-- Never returned to other users
+- `tokenIdentifier` is never returned to clients (`users.me` returns only `_id`)
 - Not logged
 - Deleted when the account is deleted (see SECURITY.md)
 

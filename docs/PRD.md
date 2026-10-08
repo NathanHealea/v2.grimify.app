@@ -183,7 +183,7 @@ Let users save their collection.
 Acceptance Criteria:
 - Email one-time code sign-in (via Clerk) works inside the installed iOS PWA
 - Browsing the catalog does **not** require an account
-- **TBD:** offer Google/Discord OAuth as well?
+- Email code only for MVP; OAuth revisited after the beta (DECISIONS 027)
 
 ---
 
@@ -272,7 +272,7 @@ Timeline:
 - What is the product name?
 - Which brands and product lines are in the launch catalog?
 - Where does the hex data come from (manual entry, community datasets, color-picking from swatches)? Licensing must be checked.
-- Email code only, or also OAuth providers (Clerk supports Google/Discord)?
+- ~~Email code only, or also OAuth providers?~~ Email code only for MVP (DECISIONS 027).
 - Which product lines of each brand are in the launch set (e.g., all current Citadel ranges, or only Base/Layer/Shade/Contrast)?
 - ~~Should "brown" also work as a search alias?~~ Not for MVP: "brown" is a name search (DECISIONS 021).
 

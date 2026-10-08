@@ -558,3 +558,43 @@ Consequences:
 Positive: one visible backlog of known problems, outside any single branch.
 Trade-off: issues live outside the repo's docs, so a work item that fixes one should restate the problem in its own context.
 
+---
+
+## Decision 027 — Email code only for MVP sign-in
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+PRD §6 and SECURITY §1 left OAuth (Google, Discord) TBD next to the email one-time code.
+
+Decision:
+Email one-time code only for MVP, through Clerk's `SignIn` with `withSignUp`, so new and returning users take the same flow. Password, email links and social connections are turned off in the Clerk dashboard.
+
+Alternatives:
+- Add Google and/or Discord: faster for people who use them, but OAuth redirects in an installed iOS PWA can open Safari and lose the session, and each provider needs its own setup and real-iPhone testing
+
+Consequences:
+Positive: the user never leaves the installed app; nothing extra to configure.
+Trade-off: typing a code is slower than one tap. Revisit after the beta; adding a provider is mostly dashboard configuration.
+
+---
+
+## Decision 028 — No profile data copied into Convex
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+DATABASE §4 listed optional `name` and `email` on `users`, and SECURITY §8 said they were "optionally copied" from Clerk. Nothing in the MVP needs them server-side.
+
+Decision:
+`users` stores only `tokenIdentifier`. The UI reads email and name from Clerk on the device (e.g., "Signed in as …" in Settings). `users.me` returns only `_id`.
+
+Alternatives:
+- Copy email and name into `users` on `users.store`: needed only if server-side code ever emails users
+
+Consequences:
+Positive: less personal data in a second system, nothing to keep in sync, and less to clean up on account deletion.
+Trade-off: server-side email features would need the fields added later (optional fields, a non-breaking change).
+

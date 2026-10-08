@@ -24,7 +24,7 @@ Frontend: Cloudflare Pages connected to the GitHub repo
 - Output directory: `dist`
 - Build env vars: `CONVEX_DEPLOY_KEY` (secret), `VITE_CLERK_PUBLISHABLE_KEY`
 - SPA fallback: Cloudflare Pages serves `index.html` for unknown paths when there's no `404.html`. Confirm deep links like `/paints/<id>` load directly.
-- Security headers: `public/_headers` (see SECURITY.md §5)
+- Security headers: `public/_headers` (see SECURITY.md §5). The Content-Security-Policy must allow Clerk's Frontend API and script domains (production instance) and the Convex deployment URL, or sign-in and data calls are blocked
 
 Backend: Convex Cloud (free plan); production deployment created in the Convex dashboard.
 

@@ -70,7 +70,7 @@ PWA audit: Lighthouse (Chrome DevTools or `@lhci/cli` in CI, optional)
 
 ```text
 src/**/*.test.ts(x)     # unit tests colocated next to the code
-convex/**/*.test.ts     # Convex integration tests (convex-test)
+convex/**/*.test.ts     # Convex integration tests (convex-test), run in Vitest's `convex` project (edge-runtime); `src/`, `lint/` and `scripts/` run in the `app` project. Clerk is mocked globally in `src/test/setup.ts` as signed out
 scripts/**/*.test.ts    # catalog build/validation tests
 lint/**/*.test.js       # local ESLint rule + Stylelint config tests
 tests/
