@@ -1,5 +1,5 @@
 import { useClerk, useUser } from "@clerk/react";
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { type CollectionState, useCollection } from "@/features/collection/collection-provider";
@@ -78,7 +78,7 @@ describe("AccountSection", () => {
     expect(screen.getByRole("button", { name: "Sign in" })).toBeDisabled();
   });
 
-  it("confirms before discarding pending changes", () => {
+  it("confirms before discarding pending changes", async () => {
     const signOut = vi.fn(() => Promise.resolve());
     vi.mocked(useClerk).mockReturnValue({ signOut } as unknown as ReturnType<typeof useClerk>);
     signedIn("me@example.com");
@@ -95,13 +95,23 @@ describe("AccountSection", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     expect(signOut).not.toHaveBeenCalled();
     expect(clearDevice).not.toHaveBeenCalled();
+    // Radix restores focus after the close finishes, on a timer.
+    await waitFor(() => expect(screen.getByRole("button", { name: "Sign out" })).toHaveFocus());
+
+    fireEvent.click(screen.getByRole("button", { name: "Sign out" }));
+    dialog = screen.getByRole("dialog", { name: "Discard unsynced changes?" });
+    fireEvent.keyDown(dialog, { key: "Escape" });
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    await waitFor(() => expect(screen.getByRole("button", { name: "Sign out" })).toHaveFocus());
 
     fireEvent.click(screen.getByRole("button", { name: "Sign out" }));
     dialog = screen.getByRole("dialog", { name: "Discard unsynced changes?" });
     fireEvent.click(within(dialog).getByRole("button", { name: "Sign out" }));
     expect(clearDevice).toHaveBeenCalledOnce();
     expect(signOut).toHaveBeenCalledOnce();
-    expect(clearDevice.mock.invocationCallOrder[0]).toBeLessThan(signOut.mock.invocationCallOrder[0]);
+    expect(clearDevice.mock.invocationCallOrder[0]).toBeLessThan(
+      signOut.mock.invocationCallOrder[0],
+    );
     unmount();
 
     clearDevice.mockReset();
@@ -121,6 +131,8 @@ describe("AccountSection", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     expect(clearDevice).toHaveBeenCalledOnce();
     expect(signOut).toHaveBeenCalledOnce();
-    expect(clearDevice.mock.invocationCallOrder[0]).toBeLessThan(signOut.mock.invocationCallOrder[0]);
+    expect(clearDevice.mock.invocationCallOrder[0]).toBeLessThan(
+      signOut.mock.invocationCallOrder[0],
+    );
   });
 });

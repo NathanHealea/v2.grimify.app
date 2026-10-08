@@ -1,7 +1,7 @@
 import "./account-section.css";
 
 import { useClerk, useUser } from "@clerk/react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -27,6 +27,7 @@ export function AccountSection() {
   const { pending } = useCollection();
   const clearDevice = useClearDevice();
   const [confirming, setConfirming] = useState(false);
+  const signOutButton = useRef<HTMLButtonElement>(null);
 
   // The device record belongs to this user, so it goes before Clerk forgets who they were.
   const signOutNow = () => {
@@ -41,13 +42,20 @@ export function AccountSection() {
       <>
         <p>Signed in as {user.primaryEmailAddress?.emailAddress ?? "your account"}</p>
         <Button
+          ref={signOutButton}
           variant="outline"
           onClick={() => (pending > 0 ? setConfirming(true) : signOutNow())}
         >
           Sign out
         </Button>
         <Sheet open={confirming} onOpenChange={setConfirming}>
-          <SheetContent>
+          <SheetContent
+            // Radix only refocuses a SheetTrigger; this sheet opens from state, so focus is put back by hand.
+            onCloseAutoFocus={(event) => {
+              event.preventDefault();
+              signOutButton.current?.focus();
+            }}
+          >
             <SheetHeader>
               <SheetTitle>Discard unsynced changes?</SheetTitle>
             </SheetHeader>
