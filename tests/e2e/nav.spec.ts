@@ -92,6 +92,19 @@ test("keeps nav text readable over any swatch", async ({ page }) => {
         `${colorScheme} pill`,
       ).toBeGreaterThanOrEqual(3);
     }
+
+    // The focus ring is drawn outside the item, on the glass, so it needs 3:1 against the same blends.
+    const target = inactive.first().locator("..");
+    // WebKit doesn't Tab to links by default; a script focus with no pointer use still counts as keyboard focus.
+    await target.focus();
+    expect(await target.evaluate((el) => el.matches(":focus-visible"))).toBe(true);
+    const ring = await computedColor(target, "outline-color");
+    for (const backdrop of backdrops) {
+      expect(
+        contrast(over(ring, backdrop), backdrop),
+        `${colorScheme} focus ring`,
+      ).toBeGreaterThanOrEqual(3);
+    }
   }
 });
 

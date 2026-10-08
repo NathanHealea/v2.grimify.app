@@ -86,8 +86,9 @@
   box-shadow: var(--shadow-md);
 }
 
-/* Glass only where the blur works; a translucent bar without it is hard to read. */
-@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+/* Glass only where the blur and the colour mix both work; without either the bar would be hard to read. */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) and
+  (color: color-mix(in srgb, currentcolor 50%, transparent)) {
   .app-shell__tabs {
     background: var(--color-glass);
     /* stylelint-disable-next-line property-no-vendor-prefix -- Safari before 18 only knows the prefixed name */
@@ -128,15 +129,22 @@
   justify-content: center;
   min-width: var(--touch-target);
   min-height: var(--touch-target);
-  padding-inline: var(--space-2);
+  padding-inline: var(--space-1);
   font-size: var(--text-small);
   line-height: var(--leading-small);
-  white-space: nowrap;
+
+  /* Content-sized, so labels stay on one line when they fit; with large system text they wrap rather than leave the screen. */
+  text-align: center;
 
   /* Full text colour, not muted: muted grey drops under 4.5:1 on glass over dark swatches. */
   color: var(--color-text);
   text-decoration: none;
   border-radius: var(--radius-pill);
+
+  /* The ring sits on the glass; the default ring grey falls under 3:1 there over dark content. */
+  &:focus-visible {
+    outline-color: var(--color-text);
+  }
 
   &[aria-current="page"] {
     font-weight: var(--weight-semibold);
@@ -146,6 +154,7 @@
 }
 
 .app-shell__tab-icon {
+  flex-shrink: 0;
   width: var(--icon-size-tab);
   height: var(--icon-size-tab);
 }
