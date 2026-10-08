@@ -114,15 +114,16 @@
   list-style: none;
 }
 
+/* Sized by content, then sharing the spare width: equal thirds can't fit "My Paints" at 320px. */
 .app-shell__tab-item {
   display: flex;
-  flex: 1;
+  flex: 1 1 auto;
 }
 
 .app-shell__tab {
   display: flex;
-  flex: 1;
-  flex-direction: column;
+  flex: 1 1 auto;
+  gap: var(--space-1);
   align-items: center;
   justify-content: center;
   min-width: var(--touch-target);
@@ -130,6 +131,7 @@
   padding-inline: var(--space-2);
   font-size: var(--text-small);
   line-height: var(--leading-small);
+  white-space: nowrap;
 
   /* Full text colour, not muted: muted grey drops under 4.5:1 on glass over dark swatches. */
   color: var(--color-text);
@@ -172,7 +174,6 @@
   }
 
   .app-shell__tab {
-    flex-direction: row;
     gap: var(--space-2);
     padding-inline: var(--space-4);
   }

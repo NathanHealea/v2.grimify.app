@@ -94,3 +94,71 @@ test("keeps nav text readable over any swatch", async ({ page }) => {
     }
   }
 });
+
+const SPACE_3 = 12;
+
+async function box(target: Locator) {
+  const rect = await target.boundingBox();
+  if (!rect) throw new Error("element has no layout box");
+  return rect;
+}
+
+async function expectOneLineItems(page: Page, width: number) {
+  const tabs = nav(page).locator(".app-shell__tab");
+  await expect(tabs).toHaveCount(3);
+  const overflow = await nav(page)
+    .locator(".app-shell__tab-list")
+    .evaluate((list) => list.scrollWidth - list.clientWidth);
+  expect.soft(overflow, `items fit inside the bar at ${width}px`).toBeLessThanOrEqual(0);
+  for (const tab of await tabs.all()) {
+    const name = `${await tab.innerText()} at ${width}px`;
+    const icon = await box(tab.locator("svg.app-shell__tab-icon"));
+    const labelEl = tab.locator("span");
+    const label = await box(labelEl);
+    const lineHeight = await labelEl.evaluate((el) => parseFloat(getComputedStyle(el).lineHeight));
+
+    expect
+      .soft(
+        Math.abs(icon.y + icon.height / 2 - (label.y + label.height / 2)),
+        `${name}: shared row`,
+      )
+      .toBeLessThanOrEqual(2);
+    expect.soft(icon.x + icon.width, `${name}: icon left of label`).toBeLessThanOrEqual(label.x);
+    expect.soft(label.height, `${name}: label on one line`).toBeLessThanOrEqual(lineHeight + 1);
+  }
+}
+
+async function expectBottomBar(page: Page, width: number) {
+  const viewport = page.viewportSize();
+  if (!viewport) throw new Error("no viewport");
+  const bar = await box(nav(page));
+  expect.soft(bar.x, `left inset at ${width}px`).toBeCloseTo(SPACE_3, 0);
+  expect
+    .soft(viewport.width - (bar.x + bar.width), `right inset at ${width}px`)
+    .toBeCloseTo(SPACE_3, 0);
+  expect
+    .soft(bar.y + bar.height, `bottom above viewport at ${width}px`)
+    .toBeLessThan(viewport.height);
+}
+
+test("lays the nav out per screen size", async ({ page }) => {
+  await page.goto("/paints");
+  await expect(nav(page)).toBeVisible();
+
+  const device = page.viewportSize();
+  if (!device) throw new Error("no viewport");
+  await expectOneLineItems(page, device.width);
+  await expectBottomBar(page, device.width);
+
+  // R1 says every width; 320px is the narrowest phone and the tightest fit (risk 3).
+  await page.setViewportSize({ width: 320, height: 640 });
+  await expectOneLineItems(page, 320);
+  await expectBottomBar(page, 320);
+
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await expectOneLineItems(page, 1280);
+  const bar = await box(nav(page));
+  expect.soft(bar.y, "bar at the top").toBeLessThanOrEqual(SPACE_3 + 1);
+  expect.soft(Math.abs(bar.x - (1280 - (bar.x + bar.width))), "bar centred").toBeLessThanOrEqual(1);
+  expect.soft(bar.width, "bar narrower than viewport").toBeLessThan(1280);
+});
