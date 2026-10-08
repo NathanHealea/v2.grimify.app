@@ -760,3 +760,45 @@ Alternatives:
 Consequences:
 Positive: the app works offline for a returning user, and changes survive reloads.
 Trade-off: an opaque user ID sits in browser storage; anyone with the unlocked device can already see the app. iOS may evict storage for a non-installed site after 7 days unused, losing unsynced changes; installed PWAs are exempt. Not solved.
+
+---
+
+## Decision 037 — Delete the Clerk account from the browser
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+API.md left open how the auth account is deleted after `users.deleteAccount`. Clerk offers `user.delete()` in the browser (when the instance allows self-deletion) and a server API that needs the Clerk secret key.
+
+Decision:
+Delete account runs `users.deleteAccount`, clears the device record, then calls Clerk's `user.delete()` from the browser. The order matters: Convex needs the Clerk session to know who is asking. The confirmation is typing DELETE in a sheet.
+
+Alternatives:
+- A Convex action that deletes the data and calls Clerk's Backend API: closer to one operation, but needs `CLERK_SECRET_KEY` in Convex and still fails halfway the same way
+- Confirm twice instead of typing: fewer steps, weaker guard for an action that can't be undone
+
+Consequences:
+Positive: no Clerk secret on the server; no new server code beyond the mutation.
+Trade-off: not atomic. If `user.delete()` fails, the account exists with no data; the sheet says so and a retry finishes it. The Clerk instance must allow self-deletion (ENVIRONMENT.md); the app reads `deleteSelfEnabled` and explains when it's off.
+
+---
+
+## Decision 038 — Clear the device only after the session ends
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+Sign-out cleared the device record before Clerk's sign-out finished. A failed sign-out lost unsynced changes (#8), and a `listMine` answer during sign-out could save the record again (#6). A first fix, a guard reset only when Clerk's user changed, stuck after a failed sign-out.
+
+Decision:
+`useEndSession(action)` runs the Clerk step (sign out, or deletion) with saving to the device and sending the outbox paused. It clears the device record only if the step succeeds; on failure both resume and the error is shown. Account deletion clears the device as soon as the server data is gone, before the Clerk step.
+
+Alternatives:
+- Clear first, restore on failure: needs a copy of the record and can still lose changes made in between
+- Sign out first, clear on the next signed-out render: leaves a window where the record is re-saved
+
+Consequences:
+Positive: a failed sign-out loses nothing; a successful one leaves nothing behind.
+Trade-off: while sign-out is pending, a change made on another tab or a server update isn't saved to this device until it finishes or fails.

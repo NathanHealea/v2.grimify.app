@@ -1,11 +1,11 @@
 import { useUser } from "@clerk/react";
-import { render, renderHook, screen } from "@testing-library/react";
-import { useConvexAuth, useQuery } from "convex/react";
+import { act, render, renderHook, screen } from "@testing-library/react";
+import { useConvexAuth, useMutation, useQuery } from "convex/react";
 import { getFunctionName } from "convex/server";
 import type { ReactNode } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { CollectionProvider, useCollection } from "./collection-provider";
+import { CollectionProvider, useCollection, useEndSession } from "./collection-provider";
 import {
   clearDeviceRecord,
   type DeviceRecord,
@@ -263,5 +263,142 @@ describe("CollectionProvider", () => {
       { paintId: BLUE, wishlisted: true, clientUpdatedAt: 5 },
       { paintId: GREEN, owned: true, clientUpdatedAt: 9 },
     ]);
+  });
+
+  describe("ends a session before clearing the device", () => {
+    const STORED_ROWS = [row(RED, { owned: true })];
+    const NEWER_ROWS = [row(GREEN, { owned: true }, 9)];
+    const LATER_ROWS = [row(BLUE, { owned: true }, 12)];
+    const PENDING = { paintId: BLUE, wishlisted: true, clientUpdatedAt: 5 };
+    const ME = { _id: "users_1" };
+    const mutate = vi.fn(() => Promise.resolve(null));
+
+    function answers({ rows, me }: { rows: unknown; me: unknown }) {
+      vi.mocked(useUser).mockReturnValue({
+        isLoaded: true,
+        isSignedIn: true,
+        user: { id: "user_a" },
+      } as unknown as ReturnType<typeof useUser>);
+      vi.mocked(useConvexAuth).mockReturnValue({
+        isLoading: false,
+        isRefreshing: false,
+        isAuthenticated: true,
+      });
+      vi.mocked(useQuery).mockImplementation(((
+        query: Parameters<typeof getFunctionName>[0],
+        args: unknown,
+      ) => {
+        if (args === "skip") return undefined;
+        return getFunctionName(query) === "userPaints:listMine" ? rows : me;
+      }) as typeof useQuery);
+    }
+
+    function deferred() {
+      let resolve: () => void = () => {};
+      let reject: (error: Error) => void = () => {};
+      const promise = new Promise<void>((res, rej) => {
+        resolve = res;
+        reject = rej;
+      });
+      return { promise, resolve, reject };
+    }
+
+    async function startEnding() {
+      device.record = { userId: "user_a", rows: STORED_ROWS, outbox: [PENDING] };
+      mutate.mockClear();
+      vi.mocked(useMutation).mockReturnValue(mutate as unknown as ReturnType<typeof useMutation>);
+      // users.me is null at first, so the stored outbox waits until the gate opens mid-sign-out.
+      answers({ rows: STORED_ROWS, me: null });
+      const wrapper = ({ children }: { children: ReactNode }) => (
+        <CollectionProvider>{children}</CollectionProvider>
+      );
+      const hook = renderHook(
+        () => ({ endSession: useEndSession(), collection: useCollection() }),
+        { wrapper },
+      );
+      await vi.waitFor(() => expect(hook.result.current.collection.loading).toBe(false));
+
+      const action = deferred();
+      let ending: Promise<void> = Promise.resolve();
+      act(() => {
+        ending = hook.result.current.endSession(() => action.promise);
+      });
+      // Swallowed here so an expected rejection isn't reported as unhandled before the test awaits it.
+      ending.catch(() => {});
+
+      vi.mocked(writeDeviceRecord).mockClear();
+      answers({ rows: NEWER_ROWS, me: ME });
+      hook.rerender();
+      await new Promise((resolve) => setTimeout(resolve, 0));
+
+      expect(writeDeviceRecord).not.toHaveBeenCalledWith(
+        expect.objectContaining({ rows: NEWER_ROWS }),
+      );
+      expect(device.record).toEqual({ userId: "user_a", rows: STORED_ROWS, outbox: [PENDING] });
+      expect(mutate).not.toHaveBeenCalled();
+
+      return { hook, action, ending };
+    }
+
+    it("stops a flush already sending when the session starts ending", async () => {
+      const LATER = { paintId: GREEN, owned: true, clientUpdatedAt: 7 };
+      device.record = { userId: "user_a", rows: STORED_ROWS, outbox: [PENDING, LATER] };
+      const firstSend = deferred();
+      mutate.mockClear();
+      mutate.mockImplementationOnce(() => firstSend.promise.then(() => null));
+      vi.mocked(useMutation).mockReturnValue(mutate as unknown as ReturnType<typeof useMutation>);
+      answers({ rows: STORED_ROWS, me: ME });
+      const wrapper = ({ children }: { children: ReactNode }) => (
+        <CollectionProvider>{children}</CollectionProvider>
+      );
+      const hook = renderHook(
+        () => ({ endSession: useEndSession(), collection: useCollection() }),
+        { wrapper },
+      );
+      await vi.waitFor(() => expect(mutate).toHaveBeenCalledWith(PENDING));
+
+      const action = deferred();
+      act(() => {
+        hook.result.current.endSession(() => action.promise).catch(() => {});
+      });
+      await act(async () => {
+        firstSend.resolve();
+        await firstSend.promise;
+      });
+      await new Promise((resolve) => setTimeout(resolve, 0));
+
+      expect(mutate).toHaveBeenCalledOnce();
+      expect(device.record?.outbox).toEqual([LATER]);
+    });
+
+    it("clears the record once the Clerk step succeeds", async () => {
+      const { action, ending } = await startEnding();
+      expect(clearDeviceRecord).not.toHaveBeenCalled();
+
+      action.resolve();
+
+      await expect(ending).resolves.toBeUndefined();
+      await vi.waitFor(() => expect(clearDeviceRecord).toHaveBeenCalled());
+      expect(device.record).toBeUndefined();
+      expect(mutate).not.toHaveBeenCalled();
+    });
+
+    it("keeps the record and resumes saving and sending when the Clerk step fails", async () => {
+      const { hook, action, ending } = await startEnding();
+      const failure = new Error("network down");
+
+      action.reject(failure);
+
+      await expect(ending).rejects.toBe(failure);
+      expect(clearDeviceRecord).not.toHaveBeenCalled();
+      expect(device.record?.userId).toBe("user_a");
+
+      await vi.waitFor(() => expect(mutate).toHaveBeenCalledWith(PENDING));
+      await vi.waitFor(() => expect(device.record?.outbox).toEqual([]));
+
+      answers({ rows: LATER_ROWS, me: ME });
+      hook.rerender();
+      await vi.waitFor(() => expect(device.record?.rows).toEqual(LATER_ROWS));
+    });
   });
 });

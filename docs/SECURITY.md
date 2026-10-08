@@ -109,7 +109,9 @@ Retention:
 Kept until the user deletes their account.
 
 Deletion:
-"Delete account" in Settings → `users.deleteAccount` removes all Convex data → the auth-provider account is deleted. Must complete within the same session.
+"Delete account" in Settings (type DELETE to confirm) → `users.deleteAccount` removes all Convex data → the device record is cleared → Clerk's `user.delete()` removes the auth account (DECISIONS 037). Collections over 500 rows finish deleting in scheduled batches seconds later. If the Clerk step fails, the account exists with no data and the user is told to retry; a retry completes it. Needs "Allow users to delete their accounts" on in the Clerk instance (ENVIRONMENT.md).
+
+Signing out clears the device record only after Clerk's sign-out succeeds; while it runs, nothing is saved to the device or sent (DECISIONS 038).
 
 Privacy:
 - No tracking cookies. Analytics (if any) is cookieless (Cloudflare Web Analytics).
@@ -154,6 +156,6 @@ If photo color-picking ships later: process the image **client-side only** (canv
 - [ ] Secrets only in Convex, Cloudflare or GitHub secret stores
 - [ ] `.env.local` gitignored
 - [ ] Security headers configured
-- [ ] Account deletion works end to end
+- [ ] Account deletion works end to end (built; manual check on the dev instance pending)
 - [ ] Errors don't expose sensitive details
 - [ ] `npm audit` reviewed; dependencies kept minimal

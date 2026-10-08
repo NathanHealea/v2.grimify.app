@@ -172,11 +172,25 @@ Three skeleton rows (hidden from screen readers) and a "Loading your paints…" 
 
 ## Flow 9 — Settings & Account Deletion
 
-Sign out: with changes waiting to sync, a dialog asks "Discard unsynced changes?" — "2 changes haven't synced. Sign out and discard them?" — with Cancel and Sign out. Signing out clears the collection stored on the phone.
+Settings shows three sections:
+- **Account:** the email, Sign out, Delete account (signed in), or Sign in (signed out).
+- **Appearance:** "Theme: Follows your system" (dark mode is a NEXT item).
+- **About:** the version, where paint colors come from (PaintPad, manufacturer pages) and "Grimify isn't affiliated with any paint manufacturer."
+"How to install" (the install banner covers it) and Privacy (public launch) aren't in the MVP.
 
-Settings shows: account email, Sign out, Theme (follows system in MVP), "How to install", About/credits/data sources, Privacy, **Delete account**.
+Sign out:
+- With changes waiting to sync, a dialog asks "Discard unsynced changes?" — "2 changes haven't synced. Sign out and discard them?" — with Cancel and Sign out.
+- The collection stored on the phone is cleared once sign-out succeeds. If it fails: toast "Couldn't sign out. Check your connection.", nothing is lost.
+- Afterwards focus is on the Account heading.
 
 Delete account:
-1. Tap Delete account → confirmation dialog (type "DELETE" or confirm twice)
-2. `users.deleteAccount` runs; the auth account is deleted
-3. User is signed out and returned to the Paints tab with the toast "Account deleted"
+1. Tap Delete account → sheet "Delete your account?": "This permanently deletes your Grimify account and your saved paints. It can't be undone." plus, with pending changes, "n changes that haven't synced will be lost too."
+2. Type DELETE in "Type DELETE to confirm"; the sheet's Delete account button enables
+3. `users.deleteAccount` runs, the phone's copy is cleared, then the Clerk account is deleted
+4. User lands on the Paints tab, signed out, with the toast "Account deleted"
+
+Errors (shown in the sheet, which stays open):
+- Server step failed: "Couldn't delete your account. Check your connection and try again."
+- Clerk step failed: "Couldn't finish deleting your account. Try again."
+
+Disabled: offline → "Deleting your account needs an internet connection."; self-deletion off in Clerk → "Account deletion isn't available right now."

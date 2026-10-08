@@ -55,6 +55,7 @@ CLERK_SECRET_KEY=             # sk_test_… from the Clerk dev instance; Playwri
 - Never commit real secrets. `.env.example` lists every variable with empty values; copy it to `.env.local`.
 - The app refuses to start without `VITE_CLERK_PUBLISHABLE_KEY` and `VITE_CONVEX_URL`, and shows the missing name.
 - Clerk dashboard (dev and prod instances): enable Email address with Email verification code; turn off password, email links and social connections (DECISIONS 027).
+- Clerk dashboard (dev and prod instances): allow users to delete their own accounts (User & authentication settings). Delete account calls `user.delete()` from the browser (DECISIONS 037); when it's off, Settings shows "Account deletion isn't available right now."
 - `.env.local` and `.env*.local` are in `.gitignore`
 - Never put a secret in a `VITE_` variable
 - Keep local and production configuration separate (different Convex deployments, Clerk dev vs. prod instances)

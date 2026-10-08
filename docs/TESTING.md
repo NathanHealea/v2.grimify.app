@@ -33,7 +33,9 @@ Test (with `convex-test`):
 - `userPaints.set` ignores an older `clientUpdatedAt` (last-write-wins); replaying is idempotent
 - Unauthenticated calls throw `UNAUTHENTICATED`
 - User A cannot read or modify user B's data
-- `users.deleteAccount` removes all of the user's data
+- `users.deleteAccount` removes all of the user's data (tombstones included) and nobody else's, in scheduled batches past 500 rows; signed out → `UNAUTHENTICATED`, nothing left → `null`
+
+Deleting an account isn't covered by E2E: it would delete the shared test user (DECISIONS 032) during parallel runs. Check it by hand on the dev instance with a throwaway email.
 
 ### End-to-End Testing
 Test critical user journeys (Playwright with mobile device emulation: iPhone 15 and Pixel 7 profiles):

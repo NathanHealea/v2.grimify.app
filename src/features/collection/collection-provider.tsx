@@ -62,6 +62,7 @@ type Writer = (paintId: string, change: FlagChange) => void;
 const WriterContext = createContext<{
   write: Writer;
   clear: () => void;
+  endSession: (action: () => Promise<void>) => Promise<void>;
   userId: string | undefined;
 }>({
   write: () => {
@@ -69,6 +70,9 @@ const WriterContext = createContext<{
   },
   clear: () => {
     throw new Error("useClearDevice must be used inside CollectionProvider");
+  },
+  endSession: () => {
+    throw new Error("useEndSession must be used inside CollectionProvider");
   },
   userId: undefined,
 });
@@ -88,6 +92,9 @@ export function CollectionProvider({ children }: { children: ReactNode }) {
   const send = useMutation(api.userPaints.set);
 
   const [stored, setStored] = useState<{ read: boolean; record?: DeviceRecord }>({ read: false });
+  // True while a sign-out or account deletion runs; the ref stops a flush already in progress.
+  const [ending, setEnding] = useState(false);
+  const endingRef = useRef(false);
   // The latest record without waiting for a render, so back-to-back changes and flush results stack.
   const recordRef = useRef<DeviceRecord | undefined>(undefined);
 
@@ -136,16 +143,16 @@ export function CollectionProvider({ children }: { children: ReactNode }) {
   }, [clerkUserId, stored, commit]);
 
   useEffect(() => {
-    if (!rows || !clerkUserId || !stored.read) return;
+    if (!rows || !clerkUserId || !stored.read || ending) return;
     const record = recordRef.current;
     commit({
       userId: clerkUserId,
       rows,
       outbox: record?.userId === clerkUserId ? record.outbox : [],
     });
-  }, [rows, clerkUserId, stored.read, commit]);
+  }, [rows, clerkUserId, stored.read, ending, commit]);
 
-  const canFlush = isAuthenticated && !!me && !!clerkUserId && stored.read;
+  const canFlush = isAuthenticated && !!me && !!clerkUserId && stored.read && !ending;
   const canFlushRef = useRef(canFlush);
   useEffect(() => {
     canFlushRef.current = canFlush;
@@ -166,6 +173,8 @@ export function CollectionProvider({ children }: { children: ReactNode }) {
         result = await flushOutbox(
           () => recordRef.current?.outbox ?? [],
           async (entry) => {
+            // A flush already running when sign-out starts stops here instead of sending more.
+            if (endingRef.current) throw new Error("Session is ending");
             await send(entry);
           },
           (entry, outcome) => {
@@ -201,9 +210,25 @@ export function CollectionProvider({ children }: { children: ReactNode }) {
   );
 
   const clear = useCallback(() => commit(undefined), [commit]);
+
+  const endSession = useCallback(
+    async (action: () => Promise<void>) => {
+      endingRef.current = true;
+      setEnding(true);
+      try {
+        await action();
+        commit(undefined);
+      } finally {
+        endingRef.current = false;
+        setEnding(false);
+      }
+    },
+    [commit],
+  );
+
   const writer = useMemo(
-    () => ({ write, clear, userId: deviceUserId }),
-    [write, clear, deviceUserId],
+    () => ({ write, clear, endSession, userId: deviceUserId }),
+    [write, clear, endSession, deviceUserId],
   );
 
   const base = rows ?? mine?.rows;
@@ -245,7 +270,16 @@ export function useCollectionWriter(): Writer {
   return useContext(WriterContext).write;
 }
 
-/** Forgets this device's stored collection and unsent changes, for signing out. */
+/**
+ * Runs a Clerk step that ends the session (sign out, account deletion) and clears the device record
+ * only if it succeeds (#8). Meanwhile nothing is saved to the device or sent (#6); on failure both
+ * resume and the error is rethrown.
+ */
+export function useEndSession(): (action: () => Promise<void>) => Promise<void> {
+  return useContext(WriterContext).endSession;
+}
+
+/** Forgets this device's stored collection and unsent changes at once; sign-out uses useEndSession. */
 export function useClearDevice(): () => void {
   return useContext(WriterContext).clear;
 }
