@@ -18,6 +18,7 @@ import { useCollection, useEndSession } from "@/features/collection/collection-p
 import { useToast } from "@/features/feedback/toast-provider";
 import { useOnlineStatus } from "@/features/pwa/use-online-status";
 
+import { DeleteAccount } from "./delete-account";
 import { useSignIn } from "./sign-in-provider";
 
 export function AccountSection() {
@@ -91,6 +92,7 @@ export function AccountSection() {
             </SheetFooter>
           </SheetContent>
         </Sheet>
+        <DeleteAccount />
       </>
     );
   } else if (!online) {
