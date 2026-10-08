@@ -17,7 +17,9 @@ test("works offline after the first visit", async ({ page, context }) => {
 
   await context.setOffline(true);
   await page.reload();
-  await expect(page.getByRole("banner").getByRole("status")).toHaveText("Offline");
+  await expect(
+    page.getByRole("banner").getByRole("status").filter({ hasText: "Offline" }),
+  ).toHaveText("Offline");
   await page.getByRole("searchbox", { name: "Search paints" }).fill("mephston");
   await expect(page.locator(".paint-row__name").first()).toHaveText("Mephiston Red");
 
