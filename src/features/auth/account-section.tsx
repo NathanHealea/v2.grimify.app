@@ -1,7 +1,7 @@
 import "./account-section.css";
 
 import { useClerk, useUser } from "@clerk/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -14,7 +14,8 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { useClearDevice, useCollection } from "@/features/collection/collection-provider";
+import { useCollection, useEndSession } from "@/features/collection/collection-provider";
+import { useToast } from "@/features/feedback/toast-provider";
 import { useOnlineStatus } from "@/features/pwa/use-online-status";
 
 import { useSignIn } from "./sign-in-provider";
@@ -25,15 +26,29 @@ export function AccountSection() {
   const online = useOnlineStatus();
   const openSignIn = useSignIn();
   const { pending } = useCollection();
-  const clearDevice = useClearDevice();
+  const endSession = useEndSession();
+  const toast = useToast();
   const [confirming, setConfirming] = useState(false);
   const signOutButton = useRef<HTMLButtonElement>(null);
+  const heading = useRef<HTMLHeadingElement>(null);
+  const signedOutHere = useRef(false);
 
-  // The device record belongs to this user, so it goes before Clerk forgets who they were.
+  // The Sign out button disappears with the signed-in view; keep keyboard focus in this section (#11).
+  useEffect(() => {
+    if (isSignedIn || !signedOutHere.current) return;
+    signedOutHere.current = false;
+    heading.current?.focus();
+  }, [isSignedIn]);
+
   const signOutNow = () => {
     setConfirming(false);
-    clearDevice();
-    signOut().catch((error: unknown) => console.error("Sign out failed", error));
+    // Set first: Clerk may report signed out before signOut() resolves.
+    signedOutHere.current = true;
+    endSession(() => signOut()).catch((error: unknown) => {
+      signedOutHere.current = false;
+      console.error("Sign out failed", error);
+      toast("Couldn't sign out. Check your connection.");
+    });
   };
 
   let body;
@@ -100,7 +115,9 @@ export function AccountSection() {
 
   return (
     <section className="account-section" aria-labelledby="account-heading">
-      <h2 id="account-heading">Account</h2>
+      <h2 id="account-heading" ref={heading} tabIndex={-1}>
+        Account
+      </h2>
       {body}
     </section>
   );
