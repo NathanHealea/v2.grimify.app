@@ -1,14 +1,14 @@
 ---
 type: story
 slug: clerk-auth
-status: staged
+status: released
 branch: story/clerk-auth
 worktree_path: ../grimify-v2-worktrees/story-clerk-auth
 created: 2026-10-07
 approved: 2026-10-07
-version:
-tag:
-merge_commit:
+version: 0.6.0
+tag: v0.6.0
+merge_commit: eafec5e (squash of story/clerk-auth)
 ---
 
 # Clerk auth (email code) and Convex users
@@ -217,3 +217,4 @@ Versions checked against the npm registry on 2026-10-07.
   - The main JS bundle grew from 90 to about 144 KB gzipped, because Clerk's React SDK loads with the app. Lazy-loading Clerk until Settings or sign-in is a possible follow-up.
   - `userPaints` index names in DATABASE (`by_user`, `by_user_paint`) also break the guideline's naming rule; they'll be renamed when the collection item builds them.
 - 2026-10-07 — Staged. Version 0.6.0; no changelog in the repo. Not pushed: the owner's rules keep pushes to the release step, so review is the local branch `story/clerk-auth`. Still open: the manual sign-in (AC1–AC3, AC6) after turning Google off and confirming email code plus the Convex integration in the Clerk dashboard.
+- 2026-10-07 — Released. Owner approved the review; the manual sign-in result (AC1–AC3, AC6) wasn't reported in the approval. Squash-merged 10 commits from `story/clerk-auth` into `main` as 0.6.0 (eafec5e), tagged `v0.6.0`. Worktree and branch removed.
