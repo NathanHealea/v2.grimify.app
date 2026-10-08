@@ -65,6 +65,10 @@
   /* Shadows */
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 5%);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%);
+
+  /* Frosted bars (DECISIONS 039): 70% Surface keeps text ≥ 4.5:1 over black or white behind it. */
+  --color-glass: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  --glass-blur: 16px;
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%);
 
   /* Sizing */
