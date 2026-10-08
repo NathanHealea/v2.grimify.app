@@ -89,9 +89,9 @@ Restyles the floating nav bar before the first deploy. It gets a frosted-glass b
 
 ## Implementation plan
 
-1. [ ] Glass tokens (`--color-glass` light and dark from Surface at 70%, `--glass-blur`) and the bar's glass background with the `@supports` and `prefers-reduced-transparency` fallbacks; inactive items to `--color-text` — touches `src/styles/tokens.css`, `src/components/app-shell.css`, `tests/e2e/nav.spec.ts` — tests E2, E3
-2. [ ] One-line items on phones (row layout at every width; spacing adjusted so three items fit at 320px) — touches `src/components/app-shell.css`, `tests/e2e/nav.spec.ts` — tests E1, T1
-3. [ ] Docs:
+1. [x] Glass tokens (`--color-glass` light and dark from Surface at 70%, `--glass-blur`) and the bar's glass background with the `@supports` and `prefers-reduced-transparency` fallbacks; inactive items to `--color-text` — touches `src/styles/tokens.css`, `src/components/app-shell.css`, `tests/e2e/nav.spec.ts` — tests E2, E3
+2. [x] One-line items on phones (row layout at every width; spacing adjusted so three items fit at 320px) — touches `src/components/app-shell.css`, `tests/e2e/nav.spec.ts` — tests E1, T1
+3. [x] Docs:
     - **DESIGN_SYSTEM §11:** look, glass, contrast, one-line items.
     - **DESIGN_SYSTEM tokens table:** the two new tokens.
     - **DECISIONS 039:** glass nav with a solid fallback and full-colour inactive labels.
@@ -121,3 +121,4 @@ Restyles the floating nav bar before the first deploy. It gets a frosted-glass b
 - 2026-10-08 — Planned. Decided with the owner: one-line items on phones; keep floating placement (bottom on phones spanning the width, top on desktop sized to content); frosted glass at about 70% with a solid fallback and full-colour inactive labels.
 - 2026-10-08 — Plan approved.
 - 2026-10-08 — Started on branch story/glass-nav from origin/main.
+- 2026-10-08 — Step 1: E3 failed once on iPhone 15 on the first run (cold server), then passed 27 runs including --repeat-each 8; cause not found, no retry added.
