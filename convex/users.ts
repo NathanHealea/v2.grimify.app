@@ -1,6 +1,8 @@
 import { v } from "convex/values";
 
-import { mutation, query } from "./_generated/server";
+import { internal } from "./_generated/api";
+import type { Id } from "./_generated/dataModel";
+import { internalMutation, mutation, type MutationCtx, query } from "./_generated/server";
 import { findUser, requireIdentity } from "./lib/auth";
 
 /** Creates the caller's `users` row on first sign-in; idempotent. */
@@ -24,5 +26,47 @@ export const me = query({
     if (!identity) return null;
     const user = await findUser(ctx, identity.tokenIdentifier);
     return user ? { _id: user._id } : null;
+  },
+});
+
+// Rows deleted per transaction, well under Convex's per-transaction write limit.
+export const DELETE_BATCH = 500;
+
+/** Deletes one batch of a user's paints and schedules the next until none are left. */
+async function deletePaintBatch(ctx: MutationCtx, userId: Id<"users">) {
+  const rows = await ctx.db
+    .query("userPaints")
+    .withIndex("by_userId_and_paintId", (q) => q.eq("userId", userId))
+    .take(DELETE_BATCH);
+  for (const row of rows) await ctx.db.delete("userPaints", row._id);
+  if (rows.length === DELETE_BATCH) {
+    await ctx.scheduler.runAfter(0, internal.users.deletePaints, { userId });
+  }
+}
+
+/**
+ * Deletes the caller's collection (tombstones included) and `users` row; the Clerk account is
+ * deleted by the client afterwards (DECISIONS 037). Returns null when there is nothing left, so a
+ * retry after a failed Clerk step is safe.
+ */
+export const deleteAccount = mutation({
+  args: {},
+  returns: v.null(),
+  handler: async (ctx) => {
+    const identity = await requireIdentity(ctx);
+    const user = await findUser(ctx, identity.tokenIdentifier);
+    if (!user) return null;
+    await deletePaintBatch(ctx, user._id);
+    await ctx.db.delete("users", user._id);
+    return null;
+  },
+});
+
+export const deletePaints = internalMutation({
+  args: { userId: v.id("users") },
+  returns: v.null(),
+  handler: async (ctx, args) => {
+    await deletePaintBatch(ctx, args.userId);
+    return null;
   },
 });
