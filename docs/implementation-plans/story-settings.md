@@ -1,7 +1,7 @@
 ---
 type: story
 slug: settings
-status: staged
+status: released
 branch: story/settings
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/story-settings
 created: 2026-10-08
@@ -10,7 +10,7 @@ commit_type:         # optional override for the merge commit type (default: sto
 version: 0.10.0
 review_approved: 2026-10-08
 pr:                  # set by `wi pr`
-tag:                 # set by `wi release`; the tag sits on the merge commit
+tag: v0.10.0
 ---
 
 # Settings: sign out, delete account, about
@@ -168,3 +168,4 @@ Finishes the Settings screen for the MVP. A signed-in painter can delete their a
 - 2026-10-08 — Build done: steps 1-7 landed. Convex dev deployment has deleteAccount for the manual check.
 - 2026-10-08 — Staged: verification passed; version 0.9.0 → 0.10.0; no changelog file.
 - 2026-10-08 — Review approved.
+- 2026-10-08 — Released 0.10.0 as v0.10.0.
