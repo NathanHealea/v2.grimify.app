@@ -8,8 +8,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { ToastProvider } from "@/features/feedback/toast-provider";
 
-import { CollectionProvider, usePaintFlags } from "./collection-provider";
-import { type DeviceRecord, writeDeviceRecord } from "./device-store";
+import { CollectionProvider, useCollection, usePaintFlags } from "./collection-provider";
+import { type DeviceRecord, readDeviceRecord, writeDeviceRecord } from "./device-store";
 import { useSetPaintFlags } from "./use-set-paint-flags";
 
 const device = vi.hoisted(() => ({ record: undefined as DeviceRecord | undefined }));
@@ -27,7 +27,11 @@ vi.mock("./device-store", () => ({
 }));
 
 const RED = "citadel-base-mephiston-red";
+const BLUE = "citadel-base-macragge-blue";
 const mutate = vi.fn();
+// Stable answers: a fresh [] on every render would re-run the provider's live-rows effect each time.
+const NO_ROWS: never[] = [];
+const ME = { _id: "users_1" };
 
 function signedIn(clerk: "loading" | "signed-out" | { userId: string }) {
   const known = typeof clerk === "object";
@@ -46,7 +50,7 @@ function signedIn(clerk: "loading" | "signed-out" | { userId: string }) {
     args: unknown,
   ) => {
     if (args === "skip") return undefined;
-    return getFunctionName(query) === "userPaints:listMine" ? [] : { _id: "users_1" };
+    return getFunctionName(query) === "userPaints:listMine" ? NO_ROWS : ME;
   }) as typeof useQuery);
 }
 
@@ -70,9 +74,10 @@ const wrapper = ({ children }: { children: ReactNode }) => (
 );
 
 function renderWriter() {
-  return renderHook(() => ({ setFlags: useSetPaintFlags(), red: usePaintFlags(RED) }), {
-    wrapper,
-  });
+  return renderHook(
+    () => ({ setFlags: useSetPaintFlags(), red: usePaintFlags(RED), collection: useCollection() }),
+    { wrapper },
+  );
 }
 
 describe("useSetPaintFlags", () => {
@@ -125,5 +130,60 @@ describe("useSetPaintFlags", () => {
 
     expect(() => result.current.setFlags(RED, { owned: true })).toThrow(Error);
     expect(mutate).not.toHaveBeenCalled();
+  });
+
+  it("sends a change made while an earlier send is in flight", async () => {
+    signedIn({ userId: "user_a" });
+    let finishFirst: () => void = () => {};
+    mutate.mockImplementationOnce(
+      () =>
+        new Promise<null>((resolve) => {
+          finishFirst = () => resolve(null);
+        }),
+    );
+    const { result } = renderWriter();
+    await vi.waitFor(() => expect(result.current.collection.loading).toBe(false));
+
+    result.current.setFlags(RED, { owned: true });
+    await vi.waitFor(() => expect(mutate).toHaveBeenCalledTimes(1));
+    result.current.setFlags(BLUE, { owned: true });
+    finishFirst();
+
+    await vi.waitFor(() =>
+      expect(mutate).toHaveBeenLastCalledWith(expect.objectContaining({ paintId: BLUE })),
+    );
+    expect(mutate).toHaveBeenCalledTimes(2);
+    await vi.waitFor(() => expect(device.record?.outbox).toEqual([]));
+  });
+
+  it("retries a failed send when the browser comes back online", async () => {
+    signedIn({ userId: "user_a" });
+    mutate.mockRejectedValueOnce(new Error("network down"));
+    const { result } = renderWriter();
+    await vi.waitFor(() => expect(result.current.collection.loading).toBe(false));
+
+    result.current.setFlags(RED, { owned: true });
+    await vi.waitFor(() => expect(mutate).toHaveBeenCalledTimes(1));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(device.record?.outbox).toEqual([expect.objectContaining({ paintId: RED, owned: true })]);
+
+    window.dispatchEvent(new Event("online"));
+
+    await vi.waitFor(() => expect(mutate).toHaveBeenCalledTimes(2));
+    await vi.waitFor(() => expect(device.record?.outbox).toEqual([]));
+  });
+
+  it("sends a stored outbox once the device record is read", async () => {
+    const entry = { paintId: RED, owned: true, clientUpdatedAt: 5 };
+    const stored: DeviceRecord = { userId: "user_a", rows: [], outbox: [entry] };
+    vi.mocked(readDeviceRecord).mockImplementationOnce(
+      () => new Promise((resolve) => setTimeout(() => resolve(stored), 20)),
+    );
+    signedIn({ userId: "user_a" });
+
+    renderWriter();
+
+    await vi.waitFor(() => expect(mutate).toHaveBeenCalledWith(entry));
+    await vi.waitFor(() => expect(device.record?.outbox).toEqual([]));
   });
 });

@@ -63,6 +63,28 @@ describe("outbox", () => {
     });
   });
 
+  it("keeps flags an entry doesn't set", () => {
+    const rows: StoredRow[] = [
+      { paintId: RED, owned: true, wishlisted: false, favorite: false, updatedAt: 100 },
+      { paintId: BLUE, owned: false, wishlisted: true, favorite: false, updatedAt: 100 },
+    ];
+    const outbox: OutboxEntry[] = [
+      { paintId: RED, wishlisted: true, clientUpdatedAt: 1_000 },
+      { paintId: BLUE, owned: true, clientUpdatedAt: 1_000 },
+    ];
+
+    const result = applyOutbox(rows, outbox);
+
+    expect(result.find((row) => row.paintId === RED)).toMatchObject({
+      owned: true,
+      wishlisted: true,
+    });
+    expect(result.find((row) => row.paintId === BLUE)).toMatchObject({
+      owned: true,
+      wishlisted: true,
+    });
+  });
+
   it("flushes oldest first and removes after success", async () => {
     let outbox: OutboxEntry[] = [
       { paintId: BLUE, owned: true, clientUpdatedAt: 3_000 },
@@ -161,4 +183,28 @@ describe("outbox", () => {
       expect(settled).toEqual([]);
     }
   });
+
+  it.each(["INVALID_PAINT_ID", "NO_FLAGS", "CLOCK_IN_FUTURE"])(
+    "drops a %s rejection and keeps sending",
+    async (code) => {
+      const invalid: OutboxEntry = { paintId: RED, owned: true, clientUpdatedAt: 1_000 };
+      const valid: OutboxEntry = { paintId: GREEN, owned: true, clientUpdatedAt: 2_000 };
+      const settled: Array<[string, string]> = [];
+
+      const result = await flushOutbox(
+        () => [valid, invalid],
+        (entry) =>
+          entry.paintId === RED ? Promise.reject(new ConvexError(code)) : Promise.resolve(),
+        (entry, outcome) => {
+          settled.push([entry.paintId, outcome]);
+        },
+      );
+
+      expect(result).toBe("done");
+      expect(settled).toEqual([
+        [RED, "dropped"],
+        [GREEN, "sent"],
+      ]);
+    },
+  );
 });

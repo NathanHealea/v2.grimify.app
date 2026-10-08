@@ -79,6 +79,26 @@ describe("PaintToggles", () => {
     expect(setFlags).not.toHaveBeenCalled();
   });
 
+  it("hands off to sign-in when no user is known on the device", async () => {
+    await useRealDeviceUser();
+    vi.mocked(useUser).mockReturnValue({
+      isLoaded: true,
+      isSignedIn: false,
+      user: null,
+    } as unknown as ReturnType<typeof useUser>);
+    vi.spyOn(navigator, "onLine", "get").mockReturnValue(true);
+    render(
+      <CollectionProvider>
+        <PaintToggles paintId={RED} paintName="Mephiston Red" />
+      </CollectionProvider>,
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "Mark Mephiston Red as wanted" }));
+
+    expect(openSignIn).toHaveBeenCalledWith({ paintId: RED, change: { wishlisted: true } });
+    expect(setFlags).not.toHaveBeenCalled();
+  });
+
   it("saves while Convex auth catches up with Clerk", async () => {
     await useRealDeviceUser();
     vi.mocked(useUser).mockReturnValue({

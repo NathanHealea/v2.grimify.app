@@ -1,11 +1,18 @@
 import { useUser } from "@clerk/react";
-import { render, screen } from "@testing-library/react";
+import { render, renderHook, screen } from "@testing-library/react";
 import { useConvexAuth, useQuery } from "convex/react";
 import { getFunctionName } from "convex/server";
+import type { ReactNode } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { CollectionProvider, useCollection } from "./collection-provider";
-import { clearDeviceRecord, type DeviceRecord, writeDeviceRecord } from "./device-store";
+import {
+  clearDeviceRecord,
+  type DeviceRecord,
+  readDeviceRecord,
+  writeDeviceRecord,
+} from "./device-store";
+import { useSetPaintFlags } from "./use-set-paint-flags";
 
 const device = vi.hoisted(() => ({ record: undefined as DeviceRecord | undefined }));
 
@@ -87,6 +94,7 @@ beforeEach(() => {
 afterEach(() => {
   state({ clerk: "signed-out", authenticated: false, rows: undefined });
   vi.mocked(useQuery).mockImplementation((() => undefined) as typeof useQuery);
+  vi.restoreAllMocks();
 });
 
 describe("CollectionProvider", () => {
@@ -193,5 +201,67 @@ describe("CollectionProvider", () => {
     expect(seen.some((text) => text.includes(RED) || text.includes(BLUE))).toBe(false);
     expect(clearDeviceRecord).not.toHaveBeenCalled();
     expect(device.record?.outbox).toEqual(stored.outbox);
+  });
+
+  it("counts pending changes per paint until they are sent", async () => {
+    const rows: never[] = [];
+    state({ clerk: { userId: "user_a" }, authenticated: true, rows });
+    const wrapper = ({ children }: { children: ReactNode }) => (
+      <CollectionProvider>{children}</CollectionProvider>
+    );
+    const { result, rerender } = renderHook(
+      () => ({ setFlags: useSetPaintFlags(), collection: useCollection() }),
+      { wrapper },
+    );
+    await vi.waitFor(() => expect(result.current.collection.loading).toBe(false));
+
+    result.current.setFlags(RED, { owned: true });
+    result.current.setFlags(RED, { owned: false });
+    result.current.setFlags(BLUE, { owned: true });
+    await vi.waitFor(() => expect(result.current.collection.pending).toBe(2));
+
+    const me = { _id: "users_1" };
+    vi.mocked(useQuery).mockImplementation(((
+      query: Parameters<typeof getFunctionName>[0],
+      args: unknown,
+    ) => {
+      if (args === "skip") return undefined;
+      return getFunctionName(query) === "userPaints:listMine" ? rows : me;
+    }) as typeof useQuery);
+    rerender();
+
+    await vi.waitFor(() => expect(result.current.collection.pending).toBe(0));
+  });
+
+  it("adds a change made before the stored record is read", async () => {
+    let finishRead: (record: DeviceRecord) => void = () => {};
+    vi.mocked(readDeviceRecord).mockImplementationOnce(
+      () =>
+        new Promise((resolve) => {
+          finishRead = resolve;
+        }),
+    );
+    state({ clerk: { userId: "user_a" }, authenticated: false, rows: undefined });
+    const wrapper = ({ children }: { children: ReactNode }) => (
+      <CollectionProvider>{children}</CollectionProvider>
+    );
+    const { result } = renderHook(
+      () => ({ setFlags: useSetPaintFlags(), collection: useCollection() }),
+      { wrapper },
+    );
+    vi.spyOn(Date, "now").mockReturnValue(9);
+
+    result.current.setFlags(GREEN, { owned: true });
+    finishRead({
+      userId: "user_a",
+      rows: [],
+      outbox: [{ paintId: BLUE, wishlisted: true, clientUpdatedAt: 5 }],
+    });
+
+    await vi.waitFor(() => expect(result.current.collection.pending).toBe(2));
+    expect(device.record?.outbox).toEqual([
+      { paintId: BLUE, wishlisted: true, clientUpdatedAt: 5 },
+      { paintId: GREEN, owned: true, clientUpdatedAt: 9 },
+    ]);
   });
 });
