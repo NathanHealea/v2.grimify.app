@@ -56,9 +56,13 @@ Returns:
 { _id: Id<"users"> } | null   // null when signed out or not stored yet; profile data comes from Clerk on the device
 ```
 
-### users.deleteAccount — mutation (Settings item; not built yet)
-Authentication: Required
-Purpose: Delete all of the user's `userPaints` and their `users` row. (The auth-provider account is deleted separately through the provider's API or UI.)
+### users.deleteAccount — mutation
+Authentication: Required (`UNAUTHENTICATED` when signed out)
+Args: none
+Purpose: Delete all of the caller's `userPaints` (tombstones included) and their `users` row. The Clerk account is deleted afterwards by the client with `user.delete()` (DECISIONS 037).
+Behavior:
+- No `users` row for the caller → returns `null` without changes, so a retry after a failed Clerk step is safe
+- Deletes up to `DELETE_BATCH` (500) `userPaints` rows, then the `users` row. If a full batch was deleted, the internal mutation `users.deletePaints({ userId })` continues in scheduled batches until none are left
 Returns: `null`
 
 ### userPaints.listMine — query
