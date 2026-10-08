@@ -1,6 +1,4 @@
-import { useConvexAuth } from "convex/react";
-
-import { useCollectionWriter } from "./collection-provider";
+import { useCollectionWriter, useDeviceUserId } from "./collection-provider";
 
 export type FlagChange = { owned?: boolean; wishlisted?: boolean; favorite?: boolean };
 
@@ -12,7 +10,7 @@ export function useSetPaintFlags() {
   return useCollectionWriter();
 }
 
-/** Whether writes can be sent now; when false, toggles open sign-in instead. */
+/** Whether a user is known on this device, so changes can be queued; when false, toggles open sign-in. */
 export function useCanSavePaints() {
-  return useConvexAuth().isAuthenticated;
+  return useDeviceUserId() !== undefined;
 }
