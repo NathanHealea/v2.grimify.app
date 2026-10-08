@@ -42,6 +42,8 @@ export type CollectionState = {
   owned: ReadonlySet<string>;
   wishlisted: ReadonlySet<string>;
   favorites: ReadonlySet<string>;
+  /** Changes in the device user's outbox not yet sent. */
+  pending: number;
 };
 
 const EMPTY: CollectionState = {
@@ -50,6 +52,7 @@ const EMPTY: CollectionState = {
   owned: new Set(),
   wishlisted: new Set(),
   favorites: new Set(),
+  pending: 0,
 };
 
 const CollectionContext = createContext<CollectionState>(EMPTY);
@@ -207,6 +210,7 @@ export function CollectionProvider({ children }: { children: ReactNode }) {
       owned: new Set(list.filter((row) => row.owned).map((row) => row.paintId)),
       wishlisted: new Set(list.filter((row) => row.wishlisted).map((row) => row.paintId)),
       favorites: new Set(list.filter((row) => row.favorite).map((row) => row.paintId)),
+      pending: outbox?.length ?? 0,
     };
   }, [base, outbox, stored.read, deviceUserId, isLoaded]);
 

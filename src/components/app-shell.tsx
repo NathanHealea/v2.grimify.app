@@ -4,6 +4,7 @@ import { Link, useCanGoBack, useMatches, useRouter } from "@tanstack/react-route
 import { ChevronLeft, Library, Palette, Settings } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { useCollection } from "@/features/collection/collection-provider";
 import { InstallBanner } from "@/features/pwa/install-banner";
 import { useOnlineStatus } from "@/features/pwa/use-online-status";
 
@@ -22,6 +23,7 @@ export function AppShell({ children }: Props) {
     select: (matches) => matches.findLast((match) => match.staticData.title)?.staticData.title,
   });
   const online = useOnlineStatus();
+  const { pending } = useCollection();
   const back = useMatches({
     select: (matches) => matches.findLast((match) => match.staticData.back)?.staticData.back,
   });
@@ -45,6 +47,9 @@ export function AppShell({ children }: Props) {
         {title && <h1 className="app-shell__title">{title}</h1>}
         <p className="app-shell__offline" role="status">
           {!online && "Offline"}
+        </p>
+        <p className="app-shell__pending" role="status">
+          {pending > 0 && `${pending} ${pending === 1 ? "change" : "changes"} waiting to sync`}
         </p>
       </header>
       <main className="app-shell__main">
