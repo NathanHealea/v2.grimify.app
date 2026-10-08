@@ -45,4 +45,23 @@ describe("PaintRow", () => {
     const link = screen.getByRole("link", { name: /Mephiston Red/ });
     expect(link).toHaveAttribute("href", "/paints/citadel-base-mephiston-red");
   });
+
+  it("keeps the row link and toggles separate", async () => {
+    const paint = catalogPaint({ brandId: "citadel", name: "Mephiston Red", hex: "#9B130B" });
+    await renderWithRouter(
+      <ul>
+        <PaintRow
+          paint={paint}
+          brandName="Citadel"
+          lineName="Base"
+          actions={<button type="button">Own</button>}
+        />
+      </ul>,
+    );
+
+    const link = screen.getByRole("link", { name: /Mephiston Red/ });
+    const own = screen.getByRole("button", { name: "Own" });
+    expect(link).not.toContainElement(own);
+    expect(screen.getByRole("listitem")).toContainElement(own);
+  });
 });

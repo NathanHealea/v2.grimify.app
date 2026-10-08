@@ -102,7 +102,7 @@ Disclaimer under the swatch: "Colors are approximate."
 1. Signed-out user taps Own/Want (or Settings → Sign in)
 2. Sign-in bottom sheet opens: email field → "Send code"
 3. User receives the email and types the 6-digit code into the app (the user never leaves the PWA)
-4. On success: the sheet closes, `users.store` runs, and the pending Own/Want action completes automatically
+4. On success: the sheet closes, `users.store` runs, and the pending Own/Want action completes automatically once the `users` row exists (`users.me` non-null). Closing the sheet without signing in drops it. Sign-in returns to the page it was opened from
 
 Success:
 Signed in; the action they started is done.

@@ -8,6 +8,7 @@ import { PaintSwatch } from "@/components/paint-swatch";
 import { SearchChip } from "@/components/search-chip";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { PaintToggles } from "@/features/collection/paint-toggles";
 
 import { CatalogGate } from "./catalog-gate";
 import {
@@ -223,6 +224,7 @@ function PaintsSearch({
                 brandName={brandNames.get(paint.brandId) ?? paint.brandId}
                 lineName={lineNames.get(paint.lineId) ?? paint.lineId}
                 match={label}
+                actions={<PaintToggles paintId={paint.id} paintName={paint.name} />}
               />
             ))}
           </ul>

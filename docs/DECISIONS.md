@@ -598,3 +598,40 @@ Consequences:
 Positive: less personal data in a second system, nothing to keep in sync, and less to clean up on account deletion.
 Trade-off: server-side email features would need the fields added later (optional fields, a non-breaking change).
 
+---
+
+## Decision 029 — A small in-app toast instead of Sonner
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+DESIGN_SYSTEM §12 named shadcn's Sonner for failed-mutation toasts. The MVP has one toast message ("Couldn't save. Check your connection.").
+
+Decision:
+A ~40-line `Toast` component and `ToastProvider`: one message at a time, an always-mounted `status` live region, a Dismiss button, and a 6 s auto-hide.
+
+Alternatives:
+- Sonner: stacking, swipe and promise toasts, but a dependency and a styling conversion for one message
+
+Consequences:
+Positive: no dependency; styled with tokens like everything else.
+Trade-off: no stacking or swipe. Switch to Sonner if more toast types appear.
+
+---
+
+## Decision 030 — App-wide sign-in sheet with a pending action
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+UX_FLOWS Flow 4 says a signed-out Own/Want tap opens sign-in and the action completes afterwards. The sign-in sheet lived inside Settings.
+
+Decision:
+One `SignInProvider` owns the sheet. `useSignIn()(pending?)` opens it from anywhere and remembers at most one pending action. It applies the action once `users.me` is non-null, so `userPaints.set` never races `users.store`. Closing the sheet without signing in drops it. Sign-in returns to the page it was opened from.
+
+Consequences:
+Positive: one tap works for signed-out users; Settings and toggles share the same sheet.
+Trade-off: if storing the user fails, the pending action is silently dropped (the error is logged).
+

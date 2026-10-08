@@ -35,7 +35,7 @@ Timestamps:
 - Add `updatedAt: number` (ms since epoch) where updates matter
 
 Indexes:
-`by_<field>` / `by_<field1>_<field2>`, e.g., `by_user_paint`
+`by_<field>` / `by_<field1>_and_<field2>`, naming every field in order (Convex guidelines), e.g., `by_userId_and_paintId`
 
 ---
 
@@ -183,8 +183,7 @@ export default defineSchema({
     wishlisted: v.boolean(),
     updatedAt: v.number(),
   })
-    .index("by_user", ["userId"])
-    .index("by_user_paint", ["userId", "paintId"]),
+    .index("by_userId_and_paintId", ["userId", "paintId"]),
 });
 ```
 
@@ -207,7 +206,7 @@ Required:
 Unique:
 - Catalog `id` (enforced by the build script)
 - `users.tokenIdentifier` (enforced in code: look up via index before insert)
-- One `userPaints` row per (`userId`, `paintId`), enforced in the mutation via `by_user_paint`. Owned and wishlisted are independent flags on that one row.
+- One `userPaints` row per (`userId`, `paintId`), enforced in the mutation via `by_userId_and_paintId`. Owned and wishlisted are independent flags on that one row.
 
 Foreign Keys:
 - `userPaints.userId` → `users._id`
@@ -220,8 +219,7 @@ Foreign Keys:
 | Index | Reason |
 |---|---|
 | `users.by_tokenIdentifier` | Resolve the current user from the auth identity (index names list every field, per the Convex guidelines) |
-| `userPaints.by_user` | Load the full collection (owned and wishlist lists are filtered client-side; a user has at most a few hundred rows) |
-| `userPaints.by_user_paint` | Upsert/toggle a single paint |
+| `userPaints.by_userId_and_paintId` | Upsert/toggle a single paint, and load the whole collection by its `userId` prefix (no separate `by_userId` index needed). Lists are bounded at 5,000 rows, above the catalog's 2,837 paints |
 
 ---
 

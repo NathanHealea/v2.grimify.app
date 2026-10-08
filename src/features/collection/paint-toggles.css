@@ -1,0 +1,39 @@
+.paint-toggles {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-1);
+}
+
+.paint-toggles__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  color: var(--color-text);
+  cursor: pointer;
+  background: transparent;
+
+  /* A control boundary: 3:1 against the page (WCAG 1.4.11, DECISIONS 019). */
+  border: var(--border-width) solid var(--color-input-border);
+  border-radius: var(--radius-pill);
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    color var(--duration-fast) var(--easing-standard);
+
+  & svg {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+
+  /* Pressed is a filled shape, not just a color change (DESIGN_SYSTEM §8). */
+  &[aria-pressed="true"] {
+    color: var(--color-primary-foreground);
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  &[data-kind="want"][aria-pressed="true"] svg {
+    fill: currentcolor;
+  }
+}

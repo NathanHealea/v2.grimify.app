@@ -8,9 +8,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 import { readAuthEnv } from "@/features/auth/env";
-import { StoreUser } from "@/features/auth/use-store-user";
 import { ServiceWorkerUpdates } from "@/features/pwa/service-worker-updates";
 import { createAppRouter } from "@/router";
+
+import { AppProviders } from "./app-providers";
 
 const rootElement = document.getElementById("root");
 
@@ -39,8 +40,9 @@ createRoot(rootElement).render(
       routerReplace={(to) => router.navigate({ href: to, replace: true })}
     >
       <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
-        <RouterProvider router={router} />
-        <StoreUser />
+        <AppProviders>
+          <RouterProvider router={router} />
+        </AppProviders>
       </ConvexProviderWithClerk>
     </ClerkProvider>
     <ServiceWorkerUpdates />

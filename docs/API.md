@@ -64,6 +64,7 @@ Returns: `null`
 ### userPaints.listMine — query
 Authentication: Required (returns `[]` when signed out, so the UI doesn't error)
 Args: none
+Bounded: at most 5,000 rows (a user has at most one per catalog paint).
 Returns:
 ```ts
 Array<{ paintId: string; owned: boolean; wishlisted: boolean; updatedAt: number }>
@@ -81,7 +82,9 @@ Args:
 }
 ```
 Behavior:
-- Look up the row via `by_user_paint`
+- Look up the row via `by_userId_and_paintId`
+- Errors: `UNAUTHENTICATED`, `INVALID_PAINT_ID`, `NO_FLAGS`, `CLOCK_IN_FUTURE` (as `ConvexError` data)
+- Known gap: deleting the row loses its timestamp, so an older queued change can re-create it (GitHub issue #4; resolve in the outbox item)
 - If the row exists and `row.updatedAt > clientUpdatedAt` → ignore (a newer change already won; last-write-wins)
 - Otherwise apply the provided flags and set `updatedAt = clientUpdatedAt`
 - If no row exists → insert (missing flags default to `false`)

@@ -14,6 +14,20 @@ vi.mock("@clerk/react", () => ({
   SignIn: () => "Clerk sign-in form",
 }));
 
+// No Convex backend in unit tests: signed out, empty collection, mutations that resolve. Tests that
+// need other behavior mock convex/react themselves.
+vi.mock("convex/react", () => {
+  const mutation = Object.assign(
+    vi.fn(() => Promise.resolve(null)),
+    { withOptimisticUpdate: () => mutation },
+  );
+  return {
+    useQuery: vi.fn(() => undefined),
+    useMutation: vi.fn(() => mutation),
+    useConvexAuth: vi.fn(() => ({ isLoading: false, isAuthenticated: false, isRefreshing: false })),
+  };
+});
+
 // Testing Library only auto-cleans when Vitest globals are enabled; they are not.
 afterEach(() => {
   cleanup();

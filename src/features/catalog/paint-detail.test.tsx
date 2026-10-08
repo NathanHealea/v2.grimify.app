@@ -1,8 +1,12 @@
 import { fireEvent, screen, within } from "@testing-library/react";
+import { useQuery } from "convex/react";
+import { type FunctionReference, getFunctionName } from "convex/server";
 import { describe, expect, it, vi } from "vitest";
 
 import { catalogOf, catalogPaint } from "@/test/catalog-fixture";
 import { renderRoute } from "@/test/render-route";
+
+import { api } from "../../../convex/_generated/api";
 
 const red = catalogPaint({
   brandId: "citadel",
@@ -94,5 +98,25 @@ describe("PaintDetail", () => {
     ).toBeInTheDocument();
     fireEvent.click(screen.getByRole("link", { name: "Back to Paints" }));
     await vi.waitFor(() => expect(router.state.location.pathname).toBe("/paints"));
+  });
+
+  it("marks owned equivalents", async () => {
+    serve();
+    const bloodRed = catalog.paints.find((p) => p.name === "Blood Red")!;
+    vi.mocked(useQuery).mockImplementation(((query: unknown) =>
+      getFunctionName(query as FunctionReference<"query">) ===
+      getFunctionName(api.userPaints.listMine)
+        ? [{ paintId: bloodRed.id, owned: true, wishlisted: false, updatedAt: 1 }]
+        : undefined) as typeof useQuery);
+    renderRoute(`/paints/${red.id}`);
+
+    const section = await screen.findByRole("region", { name: "Equivalents" });
+    const owned = within(section).getAllByText("You own this");
+    expect(owned).toHaveLength(1);
+    expect(owned[0].closest("li")).toHaveTextContent("Blood Red");
+    expect(
+      within(section).getByRole("button", { name: "Mark Blood Red as owned" }),
+    ).toHaveAttribute("aria-pressed", "true");
+    vi.mocked(useQuery).mockImplementation((() => undefined) as typeof useQuery);
   });
 });

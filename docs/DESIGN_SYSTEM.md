@@ -166,7 +166,7 @@ Use shadcn `<Button>` variants only.
 - Loading: show a spinner icon and keep the button width; disable while pending
 - Minimum touch target: 44×44px (`--touch-target`). Exception: the `sm` size (36px, `--touch-target-sm`) is allowed for secondary controls only.
 
-Own/Want toggles: icon toggle buttons (e.g., check and heart/bookmark), filled when active, with an `aria-pressed` state.
+Own/Want toggles: 44px circular icon buttons, Own = `CircleCheck`, Want = `Heart`, with `aria-pressed` and names like "Mark Mephiston Red as owned" / "… as wanted". Off: outlined in `--color-input-border` (3:1). On: filled with Primary, icon in Primary foreground (the heart itself also fills). They're always siblings of a row's link, never inside it.
 
 ---
 
@@ -207,7 +207,7 @@ Detected brand / hue / hex appear as removable pill chips under the search box (
 
 ### Paint row (`<PaintRow>`)
 - Swatch · name (semibold) · "Brand · Line · Type" (muted) · match label or "Discontinued" on the right
-- Own/Want toggles join the row with the collection item
+- Own/Want toggles sit to the right of the row's link (`actions` slot); owned equivalents add "You own this" under the meta line
 
 ---
 
@@ -255,13 +255,13 @@ Empty:
 Icon, one-line explanation and a primary action. Examples: "No paints match" → Clear all (clears the search box and every filter). "You haven't added any paints yet" → Browse paints.
 
 Error:
-Inline message with Retry; toast (shadcn `Sonner`) for failed mutations.
+Inline message with Retry; a small in-app toast for failed saves (DECISIONS 029): Primary card above the nav bar, `--z-toast`, a 44px Dismiss button, auto-hides after 6 s, in an always-mounted `status` region so it's announced.
 
 Success:
 Optimistic UI; no toast for routine toggles.
 
 Disabled:
-Own/Want toggles when signed out still render; tapping them opens the sign-in sheet.
+Own/Want toggles when signed out still render; tapping them opens the app-wide sign-in sheet and the tap is applied after sign-in (DECISIONS 030). Offline and signed out, a tap shows the toast "Signing in needs an internet connection."
 
 Offline:
 Small "Offline" pill at the right of the header: Secondary background, `--color-input-border` edge, semibold small text. It's a live `status` region that's always present (empty while online), so the change is announced.

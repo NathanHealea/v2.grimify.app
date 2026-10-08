@@ -5,12 +5,13 @@ import { useClerk, useUser } from "@clerk/react";
 import { Button } from "@/components/ui/button";
 import { useOnlineStatus } from "@/features/pwa/use-online-status";
 
-import { SignInSheet } from "./sign-in-sheet";
+import { useSignIn } from "./sign-in-provider";
 
 export function AccountSection() {
   const { isLoaded, isSignedIn, user } = useUser();
   const { signOut } = useClerk();
   const online = useOnlineStatus();
+  const openSignIn = useSignIn();
 
   const signOutNow = () => {
     signOut().catch((error: unknown) => console.error("Sign out failed", error));
@@ -41,7 +42,7 @@ export function AccountSection() {
     body = (
       <>
         <p>Sign in to save the paints you own and want.</p>
-        <SignInSheet />
+        <Button onClick={() => openSignIn()}>Sign in</Button>
       </>
     );
   }

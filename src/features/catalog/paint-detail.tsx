@@ -6,6 +6,8 @@ import { useMemo, useState } from "react";
 
 import { PaintRow } from "@/components/paint-row";
 import { PaintSwatch } from "@/components/paint-swatch";
+import { usePaintFlags } from "@/features/collection/collection-provider";
+import { PaintToggles } from "@/features/collection/paint-toggles";
 import type { MatchLabel } from "@/features/matching/delta-e";
 import { findEquivalents } from "@/features/matching/find-equivalents";
 import { type TypeFamily, typeFamily } from "@/features/matching/type-families";
@@ -93,7 +95,7 @@ function PaintFacts({
   };
 
   const row = (match: CatalogPaint, label?: MatchLabel) => (
-    <PaintRow
+    <EquivalentRow
       key={match.id}
       paint={match}
       brandName={brandNames.get(match.brandId) ?? match.brandId}
@@ -125,6 +127,7 @@ function PaintFacts({
           {paint.hex}
           <Copy aria-hidden="true" />
         </button>
+        <PaintToggles paintId={paint.id} paintName={paint.name} />
         <p className="paint-detail__copied" role="status">
           {copyStatus}
         </p>
@@ -169,5 +172,30 @@ function PaintFacts({
         ))}
       </section>
     </article>
+  );
+}
+
+/** PRD Feature 2: equivalents the painter already owns say so. */
+function EquivalentRow({
+  paint,
+  brandName,
+  lineName,
+  match,
+}: {
+  paint: CatalogPaint;
+  brandName: string;
+  lineName: string;
+  match?: MatchLabel;
+}) {
+  const { owned } = usePaintFlags(paint.id);
+  return (
+    <PaintRow
+      paint={paint}
+      brandName={brandName}
+      lineName={lineName}
+      match={match}
+      note={owned ? "You own this" : undefined}
+      actions={<PaintToggles paintId={paint.id} paintName={paint.name} />}
+    />
   );
 }

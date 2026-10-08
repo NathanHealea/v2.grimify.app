@@ -1,8 +1,11 @@
 import { useClerk, useUser } from "@clerk/react";
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { AccountSection } from "./account-section";
+
+const openSignIn = vi.fn();
+vi.mock("./sign-in-provider", () => ({ useSignIn: () => openSignIn }));
 
 afterEach(() => vi.restoreAllMocks());
 
@@ -22,8 +25,7 @@ describe("AccountSection", () => {
       "Sign in to save the paints you own and want.",
     );
     fireEvent.click(screen.getByRole("button", { name: "Sign in" }));
-    const dialog = screen.getByRole("dialog", { name: "Sign in" });
-    expect(within(dialog).getByText("Clerk sign-in form")).toBeInTheDocument();
+    expect(openSignIn).toHaveBeenCalledWith();
     unmount();
 
     const signOut = vi.fn(() => Promise.resolve());
