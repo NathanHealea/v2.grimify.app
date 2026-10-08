@@ -157,9 +157,11 @@ describe("DeleteAccount", () => {
     const confirm = () => within(dialog).getByRole("button", { name: "Delete account" });
     fireEvent.click(confirm());
 
-    const alert = await within(dialog).findByRole("alert");
-    expect(alert).toHaveTextContent(
-      "Couldn't delete your account. Check your connection and try again.",
+    // The alert region is always rendered, so wait for its text rather than for the element.
+    await waitFor(() =>
+      expect(within(dialog).getByRole("alert")).toHaveTextContent(
+        "Couldn't delete your account. Check your connection and try again.",
+      ),
     );
     expect(screen.getByRole("dialog", { name: "Delete your account?" })).toBeInTheDocument();
     expect(userDelete).not.toHaveBeenCalled();
@@ -240,8 +242,10 @@ describe("DeleteAccount", () => {
     // In a browser the clicked confirm button disables and focus drops to the page body.
     (document.activeElement as HTMLElement | null)?.blur();
     fail(new Error("network down"));
-    expect(await within(dialog).findByRole("alert")).toHaveTextContent(
-      "Couldn't finish deleting your account. Try again.",
+    await waitFor(() =>
+      expect(within(dialog).getByRole("alert")).toHaveTextContent(
+        "Couldn't finish deleting your account. Try again.",
+      ),
     );
     // Focus goes back into the sheet so a keyboard user can retry from where they were.
     expect(within(dialog).getByLabelText("Type DELETE to confirm")).toHaveFocus();
@@ -254,5 +258,53 @@ describe("DeleteAccount", () => {
     expect(screen.getByRole("button", { name: "Delete account" })).toHaveAccessibleDescription(
       "Account deletion isn't available right now.",
     );
+  });
+
+  it("disables the confirm button while deleting", async () => {
+    userDelete.mockImplementation(() => new Promise<void>(() => {}));
+    renderDeleteAccount();
+    const dialog = openSheet();
+    typeConfirmation(dialog, "DELETE");
+    const confirm = within(dialog).getByRole("button", { name: "Delete account" });
+    expect(confirm).toBeEnabled();
+
+    fireEvent.click(confirm);
+    await waitFor(() => expect(userDelete).toHaveBeenCalled());
+
+    expect(within(dialog).getByRole("button", { name: "Delete account" })).toBeDisabled();
+  });
+
+  it("starts empty again after Cancel", () => {
+    renderDeleteAccount();
+    let dialog = openSheet();
+    typeConfirmation(dialog, "DELETE");
+    expect(within(dialog).getByRole("button", { name: "Delete account" })).toBeEnabled();
+
+    fireEvent.click(within(dialog).getByRole("button", { name: "Cancel" }));
+    dialog = openSheet();
+
+    expect(within(dialog).getByLabelText("Type DELETE to confirm")).toHaveValue("");
+    expect(within(dialog).getByRole("button", { name: "Delete account" })).toBeDisabled();
+  });
+
+  it("finishes when signing out after deletion fails", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    const signOut = vi.fn(() => Promise.reject(new Error("session already gone")));
+    vi.mocked(useClerk).mockReturnValue({ signOut } as unknown as ReturnType<typeof useClerk>);
+    renderDeleteAccount();
+    const dialog = openSheet();
+    typeConfirmation(dialog, "DELETE");
+    fireEvent.click(within(dialog).getByRole("button", { name: "Delete account" }));
+
+    await waitFor(() => expect(navigate).toHaveBeenCalledWith({ to: "/paints" }));
+    expect(signOut).toHaveBeenCalledOnce();
+    expect(await screen.findByText("Account deleted")).toBeInTheDocument();
+  });
+
+  it("warns about a single unsynced change", () => {
+    withPending(1);
+    renderDeleteAccount();
+
+    expect(openSheet()).toHaveTextContent("1 change that hasn't synced will be lost too.");
   });
 });

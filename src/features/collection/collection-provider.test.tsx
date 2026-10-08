@@ -340,6 +340,37 @@ describe("CollectionProvider", () => {
       return { hook, action, ending };
     }
 
+    it("stops a flush already sending when the session starts ending", async () => {
+      const LATER = { paintId: GREEN, owned: true, clientUpdatedAt: 7 };
+      device.record = { userId: "user_a", rows: STORED_ROWS, outbox: [PENDING, LATER] };
+      const firstSend = deferred();
+      mutate.mockClear();
+      mutate.mockImplementationOnce(() => firstSend.promise.then(() => null));
+      vi.mocked(useMutation).mockReturnValue(mutate as unknown as ReturnType<typeof useMutation>);
+      answers({ rows: STORED_ROWS, me: ME });
+      const wrapper = ({ children }: { children: ReactNode }) => (
+        <CollectionProvider>{children}</CollectionProvider>
+      );
+      const hook = renderHook(
+        () => ({ endSession: useEndSession(), collection: useCollection() }),
+        { wrapper },
+      );
+      await vi.waitFor(() => expect(mutate).toHaveBeenCalledWith(PENDING));
+
+      const action = deferred();
+      act(() => {
+        hook.result.current.endSession(() => action.promise).catch(() => {});
+      });
+      await act(async () => {
+        firstSend.resolve();
+        await firstSend.promise;
+      });
+      await new Promise((resolve) => setTimeout(resolve, 0));
+
+      expect(mutate).toHaveBeenCalledOnce();
+      expect(device.record?.outbox).toEqual([LATER]);
+    });
+
     it("clears the record once the Clerk step succeeds", async () => {
       const { action, ending } = await startEnding();
       expect(clearDeviceRecord).not.toHaveBeenCalled();

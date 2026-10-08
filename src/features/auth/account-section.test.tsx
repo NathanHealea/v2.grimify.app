@@ -116,6 +116,18 @@ describe("AccountSection", () => {
     expect(signOut).toHaveBeenCalledOnce();
   });
 
+  it("offers account deletion when signed in", async () => {
+    signedIn("me@example.com");
+    render(<AccountSection />, { wrapper: Providers });
+    await storedRecordRead();
+
+    expect(
+      within(screen.getByRole("region", { name: "Account" })).getByRole("button", {
+        name: "Delete account",
+      }),
+    ).toBeInTheDocument();
+  });
+
   it("explains that signing in needs a connection", () => {
     vi.spyOn(navigator, "onLine", "get").mockReturnValue(false);
     vi.mocked(useUser).mockReturnValue({
@@ -238,5 +250,69 @@ describe("AccountSection", () => {
 
     expect(screen.getByRole("button", { name: "Sign in" })).toBeInTheDocument();
     await waitFor(() => expect(screen.getByRole("heading", { name: "Account" })).toHaveFocus());
+  });
+
+  it("leaves focus alone when the session ends without this Sign out", async () => {
+    signedIn("me@example.com");
+    const { rerender } = render(
+      <>
+        <button type="button">Elsewhere</button>
+        <AccountSection />
+      </>,
+      { wrapper: Providers },
+    );
+    await storedRecordRead();
+    screen.getByRole("button", { name: "Elsewhere" }).focus();
+
+    signedOut();
+    rerender(
+      <>
+        <button type="button">Elsewhere</button>
+        <AccountSection />
+      </>,
+    );
+    await storedRecordRead();
+
+    expect(screen.getByRole("button", { name: "Sign in" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Account" })).not.toHaveFocus();
+    expect(screen.getByRole("button", { name: "Elsewhere" })).toHaveFocus();
+  });
+
+  it("leaves focus alone on a later sign-out after a failed one", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    const failing = deferred();
+    clerkSignOut(vi.fn(() => failing.promise));
+    signedIn("me@example.com");
+    const { rerender } = render(
+      <>
+        <button type="button">Elsewhere</button>
+        <AccountSection />
+      </>,
+      { wrapper: Providers },
+    );
+    await storedRecordRead();
+
+    fireEvent.click(screen.getByRole("button", { name: "Sign out" }));
+    await act(async () => {
+      failing.reject(new Error("network down"));
+      await failing.promise.catch(() => {});
+    });
+    expect(
+      await screen.findByText("Couldn't sign out. Check your connection."),
+    ).toBeInTheDocument();
+
+    screen.getByRole("button", { name: "Elsewhere" }).focus();
+    signedOut();
+    rerender(
+      <>
+        <button type="button">Elsewhere</button>
+        <AccountSection />
+      </>,
+    );
+    await storedRecordRead();
+
+    expect(screen.getByRole("button", { name: "Sign in" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Account" })).not.toHaveFocus();
+    expect(screen.getByRole("button", { name: "Elsewhere" })).toHaveFocus();
   });
 });

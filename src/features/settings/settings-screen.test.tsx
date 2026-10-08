@@ -5,6 +5,7 @@ import { describe, expect, it, vi } from "vitest";
 import { CollectionProvider } from "@/features/collection/collection-provider";
 import { ToastProvider } from "@/features/feedback/toast-provider";
 
+import packageJson from "../../../package.json";
 import { SettingsScreen } from "./settings-screen";
 
 vi.mock("@/features/auth/sign-in-provider", () => ({ useSignIn: () => vi.fn() }));
@@ -35,5 +36,9 @@ describe("SettingsScreen", () => {
     expect(about).toHaveTextContent(
       "Paint and brand names are trademarks of their owners. Grimify isn't affiliated with any paint manufacturer.",
     );
+  });
+
+  it("reports the package.json version", () => {
+    expect(__APP_VERSION__).toBe(packageJson.version);
   });
 });
