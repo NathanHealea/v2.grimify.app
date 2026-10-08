@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { fileURLToPath, URL } from "node:url";
 
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
@@ -5,7 +6,15 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 import { defineConfig } from "vitest/config";
 
+const { version } = JSON.parse(
+  readFileSync(new URL("./package.json", import.meta.url), "utf8"),
+) as {
+  version: string;
+};
+
 export default defineConfig({
+  // Settings › About shows it; `wi stage` bumps package.json, so the build always matches the release.
+  define: { __APP_VERSION__: JSON.stringify(version) },
   // The router plugin must run before the React plugin.
   plugins: [
     tanstackRouter({ target: "react", autoCodeSplitting: true }),
