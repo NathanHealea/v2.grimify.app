@@ -1,14 +1,14 @@
 ---
 type: story
 slug: own-want-toggles
-status: staged
+status: released
 branch: story/own-want-toggles
 worktree_path: ../grimify-v2-worktrees/story-own-want-toggles
 created: 2026-10-07
 approved: 2026-10-07
-version:
-tag:
-merge_commit:
+version: 0.7.0
+tag: v0.7.0
+merge_commit: 65dc900 (squash of story/own-want-toggles)
 ---
 
 # Own/Want toggles
@@ -159,3 +159,4 @@ What the docs fix:
   - Added beyond the plan: a signed-out tap while offline shows "Signing in needs an internet connection." instead of opening an empty sheet.
   - Test mocks compare Convex function references with `getFunctionName`, because `api.x.y` returns a new reference on each access.
 - 2026-10-07 — Staged. Version 0.7.0; no changelog in the repo. Not pushed: the owner's rules keep pushes to the release step, so review is the local branch `story/own-want-toggles`.
+- 2026-10-07 — Released. Owner approved the review; the manual signed-in results (AC1–AC6) weren't reported in the approval. Squash-merged 10 commits from `story/own-want-toggles` into `main` as 0.7.0 (65dc900), tagged `v0.7.0`. Worktree (only ignored files left: the copied `.env.local`, build output, test results) and branch removed. Issue #4 stays open for the outbox item.
