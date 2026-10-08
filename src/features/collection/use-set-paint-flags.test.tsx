@@ -32,7 +32,15 @@ const wrapper = ({ children }: { children: ReactNode }) => (
 );
 
 function fakeStore(
-  rows: { paintId: string; owned: boolean; wishlisted: boolean; updatedAt: number }[] | undefined,
+  rows:
+    | {
+        paintId: string;
+        owned: boolean;
+        wishlisted: boolean;
+        favorite: boolean;
+        updatedAt: number;
+      }[]
+    | undefined,
 ) {
   let value = rows;
   const store = {
@@ -69,11 +77,13 @@ describe("useSetPaintFlags", () => {
 
   it("mirrors the server rules in the optimistic update", () => {
     const { store, read } = fakeStore([
-      { paintId: RED, owned: true, wishlisted: false, updatedAt: 1 },
+      { paintId: RED, owned: true, wishlisted: false, favorite: false, updatedAt: 1 },
     ]);
 
     applyOptimisticFlags(store, { paintId: RED, wishlisted: true, clientUpdatedAt: 2 });
-    expect(read()).toEqual([{ paintId: RED, owned: true, wishlisted: true, updatedAt: 2 }]);
+    expect(read()).toEqual([
+      { paintId: RED, owned: true, wishlisted: true, favorite: false, updatedAt: 2 },
+    ]);
 
     applyOptimisticFlags(store, {
       paintId: RED,
@@ -81,6 +91,14 @@ describe("useSetPaintFlags", () => {
       wishlisted: false,
       clientUpdatedAt: 3,
     });
+    expect(read()).toEqual([]);
+
+    applyOptimisticFlags(store, { paintId: RED, favorite: true, clientUpdatedAt: 4 });
+    expect(read()).toEqual([
+      { paintId: RED, owned: false, wishlisted: false, favorite: true, updatedAt: 4 },
+    ]);
+
+    applyOptimisticFlags(store, { paintId: RED, favorite: false, clientUpdatedAt: 5 });
     expect(read()).toEqual([]);
 
     const loading = fakeStore(undefined);

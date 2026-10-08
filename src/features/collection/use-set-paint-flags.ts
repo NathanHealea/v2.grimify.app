@@ -6,7 +6,7 @@ import { useToast } from "@/features/feedback/toast-provider";
 
 import { api } from "../../../convex/_generated/api";
 
-export type FlagChange = { owned?: boolean; wishlisted?: boolean };
+export type FlagChange = { owned?: boolean; wishlisted?: boolean; favorite?: boolean };
 
 type SetArgs = FlagChange & { paintId: string; clientUpdatedAt: number };
 
@@ -19,12 +19,16 @@ export function applyOptimisticFlags(store: OptimisticLocalStore, args: SetArgs)
   const previous = current.find((row) => row.paintId === args.paintId);
   const owned = args.owned ?? previous?.owned ?? false;
   const wishlisted = args.wishlisted ?? previous?.wishlisted ?? false;
+  const favorite = args.favorite ?? previous?.favorite ?? false;
   const others = current.filter((row) => row.paintId !== args.paintId);
   store.setQuery(
     api.userPaints.listMine,
     {},
-    owned || wishlisted
-      ? [...others, { paintId: args.paintId, owned, wishlisted, updatedAt: args.clientUpdatedAt }]
+    owned || wishlisted || favorite
+      ? [
+          ...others,
+          { paintId: args.paintId, owned, wishlisted, favorite, updatedAt: args.clientUpdatedAt },
+        ]
       : others,
   );
 }

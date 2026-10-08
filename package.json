@@ -1,7 +1,7 @@
 {
   "name": "grimify",
   "private": true,
-  "version": "0.7.0",
+  "version": "0.8.0",
   "type": "module",
   "engines": {
     "node": ">=24"
@@ -20,6 +20,7 @@
     "zod": "4.6.5"
   },
   "devDependencies": {
+    "@clerk/testing": "2.2.44",
     "@edge-runtime/vm": "5.0.0",
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.63.0",

@@ -152,7 +152,7 @@ Fields:
 
 ### userPaints
 Purpose:
-A user's relationship to a catalog paint (owned or wishlist).
+A user's relationship to a catalog paint (owned, wishlist, favorite).
 
 Fields:
 - `_id`
@@ -160,9 +160,10 @@ Fields:
 - `paintId: string` — catalog paint ID
 - `owned: boolean`
 - `wishlisted: boolean` — both may be true (e.g., own one pot, want a replacement)
+- `favorite?: boolean` — independent of the other two (DECISIONS 033). Optional because rows saved before favorites lack it; missing means `false`
 - `updatedAt: number` — **client** timestamp of the latest change (used for offline last-write-wins)
 
-No quantity, notes or "running low" fields in MVP. The row is deleted when both flags become false.
+No quantity, notes or "running low" fields in MVP. The row is deleted when all three flags become false.
 - `_creationTime`
 
 ### Convex schema (reference)
@@ -181,6 +182,7 @@ export default defineSchema({
     paintId: v.string(),
     owned: v.boolean(),
     wishlisted: v.boolean(),
+    favorite: v.optional(v.boolean()),
     updatedAt: v.number(),
   })
     .index("by_userId_and_paintId", ["userId", "paintId"]),
@@ -206,7 +208,7 @@ Required:
 Unique:
 - Catalog `id` (enforced by the build script)
 - `users.tokenIdentifier` (enforced in code: look up via index before insert)
-- One `userPaints` row per (`userId`, `paintId`), enforced in the mutation via `by_userId_and_paintId`. Owned and wishlisted are independent flags on that one row.
+- One `userPaints` row per (`userId`, `paintId`), enforced in the mutation via `by_userId_and_paintId`. Owned, wishlisted and favorite are independent flags on that one row.
 
 Foreign Keys:
 - `userPaints.userId` → `users._id`

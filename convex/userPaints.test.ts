@@ -22,12 +22,12 @@ describe("userPaints.set", () => {
 
     await as.mutation(api.userPaints.set, { paintId: RED, owned: true, clientUpdatedAt: 1 });
     expect(await as.query(api.userPaints.listMine, {})).toEqual([
-      { paintId: RED, owned: true, wishlisted: false, updatedAt: 1 },
+      { paintId: RED, owned: true, wishlisted: false, favorite: false, updatedAt: 1 },
     ]);
 
     await as.mutation(api.userPaints.set, { paintId: RED, wishlisted: true, clientUpdatedAt: 2 });
     expect(await as.query(api.userPaints.listMine, {})).toEqual([
-      { paintId: RED, owned: true, wishlisted: true, updatedAt: 2 },
+      { paintId: RED, owned: true, wishlisted: true, favorite: false, updatedAt: 2 },
     ]);
 
     await as.mutation(api.userPaints.set, {
@@ -36,6 +36,20 @@ describe("userPaints.set", () => {
       wishlisted: false,
       clientUpdatedAt: 3,
     });
+    expect(await as.query(api.userPaints.listMine, {})).toEqual([]);
+
+    await as.mutation(api.userPaints.set, { paintId: RED, favorite: true, clientUpdatedAt: 4 });
+    expect(await as.query(api.userPaints.listMine, {})).toEqual([
+      { paintId: RED, owned: false, wishlisted: false, favorite: true, updatedAt: 4 },
+    ]);
+
+    await as.mutation(api.userPaints.set, { paintId: RED, owned: true, clientUpdatedAt: 5 });
+    await as.mutation(api.userPaints.set, { paintId: RED, favorite: false, clientUpdatedAt: 6 });
+    expect(await as.query(api.userPaints.listMine, {})).toEqual([
+      { paintId: RED, owned: true, wishlisted: false, favorite: false, updatedAt: 6 },
+    ]);
+
+    await as.mutation(api.userPaints.set, { paintId: RED, owned: false, clientUpdatedAt: 7 });
     expect(await as.query(api.userPaints.listMine, {})).toEqual([]);
   });
 
@@ -50,13 +64,13 @@ describe("userPaints.set", () => {
       clientUpdatedAt: 10,
     });
     expect(await as.query(api.userPaints.listMine, {})).toEqual([
-      { paintId: RED, owned: true, wishlisted: false, updatedAt: 20 },
+      { paintId: RED, owned: true, wishlisted: false, favorite: false, updatedAt: 20 },
     ]);
 
     await as.mutation(api.userPaints.set, { paintId: RED, owned: true, clientUpdatedAt: 20 });
     expect(await t.run((ctx) => ctx.db.query("userPaints").collect())).toHaveLength(1);
     expect(await as.query(api.userPaints.listMine, {})).toEqual([
-      { paintId: RED, owned: true, wishlisted: false, updatedAt: 20 },
+      { paintId: RED, owned: true, wishlisted: false, favorite: false, updatedAt: 20 },
     ]);
   });
 
@@ -83,6 +97,33 @@ describe("userPaints.set", () => {
       clientUpdatedAt: now + 4 * 60_000,
     });
     expect(await as.query(api.userPaints.listMine, {})).toHaveLength(1);
+
+    await as.mutation(api.userPaints.set, {
+      paintId: "citadel-base-macragge-blue",
+      favorite: true,
+      clientUpdatedAt: 1,
+    });
+    expect(await as.query(api.userPaints.listMine, {})).toHaveLength(2);
+  });
+
+  it("treats rows saved before favorites as not favorite", async () => {
+    const { t, as } = await signedIn("a");
+    await t.run(async (ctx) => {
+      const user = await ctx.db.query("users").first();
+      await ctx.db.insert("userPaints", {
+        userId: user!._id,
+        paintId: RED,
+        owned: true,
+        wishlisted: false,
+        updatedAt: 1,
+      });
+    });
+
+    expect(await as.query(api.userPaints.listMine, {})).toEqual([
+      { paintId: RED, owned: true, wishlisted: false, favorite: false, updatedAt: 1 },
+    ]);
+    await as.mutation(api.userPaints.set, { paintId: RED, owned: false, clientUpdatedAt: 2 });
+    expect(await as.query(api.userPaints.listMine, {})).toEqual([]);
   });
 
   it("keeps users apart and requires sign-in", async () => {
@@ -99,7 +140,7 @@ describe("userPaints.set", () => {
     expect(await asB.query(api.userPaints.listMine, {})).toEqual([]);
     await asB.mutation(api.userPaints.set, { paintId: RED, wishlisted: true, clientUpdatedAt: 2 });
     expect(await asA.query(api.userPaints.listMine, {})).toEqual([
-      { paintId: RED, owned: true, wishlisted: false, updatedAt: 1 },
+      { paintId: RED, owned: true, wishlisted: false, favorite: false, updatedAt: 1 },
     ]);
   });
 });

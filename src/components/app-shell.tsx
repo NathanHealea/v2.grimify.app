@@ -1,7 +1,7 @@
 import "./app-shell.css";
 
 import { Link, useCanGoBack, useMatches, useRouter } from "@tanstack/react-router";
-import { BookMarked, ChevronLeft, Palette, Settings } from "lucide-react";
+import { ChevronLeft, Library, Palette, Settings } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { InstallBanner } from "@/features/pwa/install-banner";
@@ -13,7 +13,7 @@ type Props = {
 
 const TABS = [
   { to: "/paints", label: "Paints", Icon: Palette },
-  { to: "/my-paints", label: "My Paints", Icon: BookMarked },
+  { to: "/my-paints", label: "My Paints", Icon: Library },
   { to: "/settings", label: "Settings", Icon: Settings },
 ] as const;
 

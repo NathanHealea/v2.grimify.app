@@ -67,7 +67,8 @@ Args: none
 Bounded: at most 5,000 rows (a user has at most one per catalog paint).
 Returns:
 ```ts
-Array<{ paintId: string; owned: boolean; wishlisted: boolean; updatedAt: number }>
+Array<{ paintId: string; owned: boolean; wishlisted: boolean; favorite: boolean; updatedAt: number }>
+// favorite is false for rows saved before favorites existed
 ```
 
 ### userPaints.set — mutation
@@ -78,6 +79,7 @@ Args:
   paintId: string;
   owned?: boolean;        // omit to leave unchanged
   wishlisted?: boolean;   // omit to leave unchanged
+  favorite?: boolean;     // omit to leave unchanged (DECISIONS 033)
   clientUpdatedAt: number; // ms timestamp of when the user made the change (may be in the past if queued offline)
 }
 ```
@@ -88,11 +90,11 @@ Behavior:
 - If the row exists and `row.updatedAt > clientUpdatedAt` → ignore (a newer change already won; last-write-wins)
 - Otherwise apply the provided flags and set `updatedAt = clientUpdatedAt`
 - If no row exists → insert (missing flags default to `false`)
-- If both flags end up `false` → delete the row
+- If all three flags end up `false` → delete the row
 - Idempotent: replaying the same call has no further effect
 Validation:
 - `paintId` matches `^[a-z0-9-]{3,100}$`
-- At least one of `owned` / `wishlisted` is provided
+- At least one of `owned` / `wishlisted` / `favorite` is provided
 - `clientUpdatedAt` is not more than 5 minutes in the future (clock-skew guard)
 Returns: `null`
 

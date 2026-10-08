@@ -106,7 +106,7 @@ describe("PaintDetail", () => {
     vi.mocked(useQuery).mockImplementation(((query: unknown) =>
       getFunctionName(query as FunctionReference<"query">) ===
       getFunctionName(api.userPaints.listMine)
-        ? [{ paintId: bloodRed.id, owned: true, wishlisted: false, updatedAt: 1 }]
+        ? [{ paintId: bloodRed.id, owned: true, wishlisted: false, favorite: false, updatedAt: 1 }]
         : undefined) as typeof useQuery);
     renderRoute(`/paints/${red.id}`);
 

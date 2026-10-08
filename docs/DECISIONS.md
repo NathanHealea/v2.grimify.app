@@ -635,3 +635,86 @@ Consequences:
 Positive: one tap works for signed-out users; Settings and toggles share the same sheet.
 Trade-off: if storing the user fails, the pending action is silently dropped (the error is logged).
 
+---
+
+## Decision 031 — My Paints reuses the catalog search, scoped to the collection
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+UX_FLOWS Flow 6 asks for the same rows and search box as the catalog in My Paints. The Paints filter sheet also needed "Show only: Owned / Wishlist / All". AGENTS §3 allows one search code path.
+
+Decision:
+`searchPaints` takes an optional scope (a set of paint IDs). My Paints renders the same search screen with the scope set to the active tab's paints, its own URL state, and no Show only filter. The Paints sheet's Show only filter turns into a scope from the collection. Its URL param is `show=owned|wishlist`, replacing the `owned=` placeholder.
+
+Alternatives:
+- A separate, simpler My Paints list: less reuse, and a second search path to keep consistent
+- `owned=wishlist`: reads wrong
+
+Consequences:
+Positive: My Paints gets search, chips, hue dots and filters for free, and they behave identically.
+Trade-off: the shared search screen carries a few scope-specific props (`scope`, `emptyScope`, `hideShow`).
+
+---
+
+## Decision 032 — An auto-created E2E test user in the Clerk dev instance
+
+Date: 2026-10-07
+Status: Accepted
+
+Context:
+`@clerk/testing`'s `clerk.signIn({ emailAddress })` needs the user to exist already. TESTING §5's "Save a paint" journey needs a signed-in user.
+
+Decision:
+Playwright global setup ensures `grimify-e2e+clerk_test@example.com` exists in the Clerk development instance, through Clerk's Backend API with `CLERK_SECRET_KEY`. It's idempotent: lookup, then create. `+clerk_test` addresses are never emailed. The journey writes to the dev Convex deployment and cleans up after itself; each device profile uses a different paint.
+
+Alternatives:
+- Create the user by hand in the dashboard: one less moving part, but a manual setup step for every new environment, CI included
+
+Consequences:
+Positive: `npm run test:e2e` exercises real Clerk and Convex auth end to end. It caught the inactive Convex integration that had blocked every sign-in.
+Trade-off: E2E needs `CLERK_SECRET_KEY` and Clerk's servers; the test user lives in the dev instance.
+
+---
+
+## Decision 033 — Favorites is a third independent flag
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+During the My Paints review the owner asked for favorites, shown as a heart, alongside Own and Want, and chose to add it to that work item.
+
+Decision:
+`userPaints` gains `favorite`, independent of `owned` and `wishlisted` like DECISIONS 011: a paint can be a favorite whether or not it's owned or wanted. A row lives while any flag is true. My Paints gets a Favorites tab (`tab=favorites`) and the sheet's Show only gets `show=favorites`. The field is `v.optional`: the dev deployment already held rows without it, and a missing value reads as `false`, so no migration is needed.
+
+Alternatives:
+- Favorites only among owned paints: simpler meaning, but blocks marking a paint you've used from a friend's pot
+- A required field with a backfill: cleaner schema, but a migration for no user-visible gain
+
+Consequences:
+Positive: one write path and one row per paint still cover everything.
+Trade-off: three toggles per row take about 148px of a 375px phone row. The deleted-row timestamp gap (issue #4) now covers three flags; the outbox item still owns it.
+
+---
+
+## Decision 034 — Toggle icons: plus, bookmark, heart; no tooltips
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+The owner asked for a bookmark for Want, a heart for Favorite and a plus for Own, and asked for tooltips, then dropped them.
+
+Decision:
+Own = `Plus`, Want = `Bookmark`, Favorite = `Heart`, `--space-2` apart. No tooltips and no visible labels; each toggle keeps its accessible name ("Mark X as owned / wanted / favorite"). The My Paints nav icon changes from `BookMarked` to `Library`, because a bookmark on every row looked nearly the same as the nav icon.
+
+Alternatives:
+- Radix Tooltip: desktop only (it doesn't open on touch) and a new dependency
+- Visible labels under icons: work everywhere, but make every row taller
+
+Consequences:
+Positive: no new dependency; rows stay compact.
+Trade-off: sighted users rely on the icons alone. A pressed plus still reads as "add"; the filled Primary circle is the only on-state cue.
+

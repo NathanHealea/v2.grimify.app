@@ -8,6 +8,7 @@ import {
   NO_FILTERS,
   normalizeFilters,
   parseFilterParams,
+  scopeFor,
   serializeFilters,
 } from "./filters";
 
@@ -33,6 +34,27 @@ describe("filter params", () => {
       serializeFilters({ brands: ["vallejo", "citadel"], lines: [], types: ["air"], hues: [] }),
     ).toEqual({ brand: "vallejo,citadel", type: "air" });
     expect(countActive({ brands: ["a", "b"], lines: ["c"], types: [], hues: ["red"] })).toBe(4);
+  });
+});
+
+describe("show filter", () => {
+  it("parses and serializes the show filter", () => {
+    expect(parseFilterParams({ show: "owned" }).show).toBe("owned");
+    expect(parseFilterParams({ show: "wishlist" }).show).toBe("wishlist");
+    expect(parseFilterParams({ show: "favorites" }).show).toBe("favorites");
+    expect(parseFilterParams({ show: "everything" }).show).toBeUndefined();
+    expect(serializeFilters({ ...NO_FILTERS, show: "wishlist" })).toEqual({ show: "wishlist" });
+    expect(serializeFilters(NO_FILTERS)).toEqual({});
+    expect(countActive({ ...NO_FILTERS, brands: ["vallejo"], show: "owned" })).toBe(2);
+
+    const collection = {
+      owned: new Set(["a", "b"]),
+      wishlisted: new Set(["c"]),
+      favorites: new Set(["b", "d"]),
+    };
+    expect(scopeFor(undefined, "favorites", collection)).toEqual(new Set(["b", "d"]));
+    expect(scopeFor(new Set(["a", "b"]), "favorites", collection)).toEqual(new Set(["b"]));
+    expect(scopeFor(new Set(["a"]), undefined, collection)).toEqual(new Set(["a"]));
   });
 });
 

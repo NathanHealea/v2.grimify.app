@@ -12,7 +12,14 @@ const text = z
   .catch(undefined);
 
 // Filters are comma-separated lists; values are checked against the catalog once it loads.
-const searchSchema = z.object({ q: text, brand: text, line: text, type: text, hue: text });
+const searchSchema = z.object({
+  q: text,
+  brand: text,
+  line: text,
+  type: text,
+  hue: text,
+  show: text,
+});
 
 export const Route = createFileRoute("/paints/")({
   staticData: { title: "Paints" },

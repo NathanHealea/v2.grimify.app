@@ -14,8 +14,18 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useCollection } from "@/features/collection/collection-provider";
 
-import { countActive, type Filters, lineOptions, NO_FILTERS, normalizeFilters } from "./filters";
+import {
+  COLLECTION_VIEW_LABELS,
+  COLLECTION_VIEWS,
+  countActive,
+  type Filters,
+  lineOptions,
+  NO_FILTERS,
+  normalizeFilters,
+  scopeFor,
+} from "./filters";
 import type { ParsedQuery } from "./parse-query";
 import { type Catalog, PAINT_TYPES } from "./schema";
 import { type NameIndex, searchPaints } from "./search";
@@ -27,17 +37,32 @@ type Props = {
   query: ParsedQuery;
   filters: Filters;
   onApply: (filters: Filters) => void;
+  /** The screen's own scope (My Paints), so the live count matches the list. */
+  baseScope?: ReadonlySet<string>;
+  /** Signed in and not inside My Paints: offer Show only (DECISIONS 031). */
+  showFilter: boolean;
 };
 
 /** Filters sheet: edits a draft; "Show N paints" commits it, closing any other way discards it. */
-export function PaintsFilters({ catalog, index, query, filters, onApply }: Props) {
+export function PaintsFilters({
+  catalog,
+  index,
+  query,
+  filters,
+  onApply,
+  baseScope,
+  showFilter,
+}: Props) {
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState(filters);
+  const collection = useCollection();
 
   const active = countActive(filters);
   const matching = useMemo(
-    () => searchPaints(catalog, index, query, draft).length,
-    [catalog, index, query, draft],
+    () =>
+      searchPaints(catalog, index, query, draft, scopeFor(baseScope, draft.show, collection))
+        .length,
+    [catalog, index, query, draft, baseScope, collection],
   );
   const typeCounts = useMemo(() => {
     const counts = new Map<string, number>();
@@ -72,6 +97,28 @@ export function PaintsFilters({ catalog, index, query, filters, onApply }: Props
         </SheetHeader>
 
         <SheetBody className="paints-filters">
+          {showFilter && (
+            <fieldset className="paints-filters__group">
+              <legend className="paints-filters__legend">Show only</legend>
+              <div className="paints-filters__options">
+                {[
+                  [undefined, "All"] as const,
+                  ...COLLECTION_VIEWS.map((view) => [view, COLLECTION_VIEW_LABELS[view]] as const),
+                ].map(([value, label]) => (
+                  <label key={label} className="paints-filters__option">
+                    <input
+                      type="radio"
+                      name="show"
+                      checked={draft.show === value}
+                      onChange={() => update({ ...draft, show: value })}
+                    />
+                    <span>{label}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          )}
+
           <CheckboxGroup
             legend="Brand"
             options={catalog.brands.map((brand) => ({ value: brand.id, label: brand.name }))}

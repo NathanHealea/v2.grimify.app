@@ -34,16 +34,42 @@
 .paints-filters__options {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--option-column-min-width), 1fr));
+  gap: var(--space-2);
   padding: 0;
   list-style: none;
 }
 
+/* Sized and edged like an outline button; the native input stays as the non-color checked cue. */
 .paints-filters__option {
   display: flex;
   gap: var(--space-3);
   align-items: center;
+  height: 100%;
   min-height: var(--touch-target);
+  padding: 0 var(--space-4);
   cursor: pointer;
+
+  /* A control boundary: 3:1 against the page (WCAG 1.4.11, DECISIONS 019). */
+  border: var(--border-width) solid var(--color-input-border);
+  border-radius: var(--radius-md);
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    border-color var(--duration-fast) var(--easing-standard);
+
+  &:hover {
+    background: var(--color-secondary);
+  }
+
+  &:has(input:checked) {
+    background: var(--color-secondary);
+    border-color: var(--color-primary);
+  }
+
+  /* The ring goes on the whole box so it reads as one control. */
+  &:has(input:focus-visible) {
+    outline: var(--focus-ring-width) solid var(--color-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
 
   & input {
     flex-shrink: 0;
@@ -51,12 +77,15 @@
     height: var(--icon-size);
     margin: 0;
     accent-color: var(--color-primary);
+
+    &:focus-visible {
+      outline: none;
+    }
   }
 }
 
 .paints-filters__count {
   margin-left: auto;
-  padding-right: var(--space-3);
   font-size: var(--text-small);
   line-height: var(--leading-small);
   color: var(--color-muted-text);

@@ -1,6 +1,6 @@
 import "./paints-screen.css";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 
 import { HueDots } from "@/components/hue-dots";
 import { PaintRow } from "@/components/paint-row";
@@ -8,15 +8,19 @@ import { PaintSwatch } from "@/components/paint-swatch";
 import { SearchChip } from "@/components/search-chip";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useCollection } from "@/features/collection/collection-provider";
 import { PaintToggles } from "@/features/collection/paint-toggles";
+import { useCanSavePaints } from "@/features/collection/use-set-paint-flags";
 
 import { CatalogGate } from "./catalog-gate";
 import {
+  COLLECTION_VIEW_LABELS,
   countActive,
   type FilterParams,
   type Filters,
   normalizeFilters,
   parseFilterParams,
+  scopeFor,
 } from "./filters";
 import { PaintsFilters } from "./paints-filters";
 import { hueLabel, type ParsedQuery, parseQuery, removeToken, suggest } from "./parse-query";
@@ -33,6 +37,12 @@ type Props = {
   onFiltersChange: (filters: Filters) => void;
   /** Clears the query and every filter in one history entry. */
   onClearAll: () => void;
+  /** Search only these paints (My Paints); undefined searches the catalog. */
+  scope?: ReadonlySet<string>;
+  /** Shown instead of the list when `scope` is empty, e.g. "Nothing on your wishlist". */
+  emptyScope?: ReactNode;
+  /** Hides the sheet's Show only filter where the screen already decides it (My Paints). */
+  hideShow?: boolean;
 };
 
 const PAGE_SIZE = 60;
@@ -52,9 +62,14 @@ function PaintsSearch({
   filterParams,
   onFiltersChange,
   onClearAll,
+  scope,
+  emptyScope,
+  hideShow = false,
   catalog,
   index,
 }: Props & { catalog: Catalog; index: NameIndex }) {
+  const collection = useCollection();
+  const canShow = useCanSavePaints() && !hideShow;
   const inputRef = useRef<HTMLInputElement>(null);
   const [draft, setDraft] = useState(query);
   const [syncedQuery, setSyncedQuery] = useState(query);
@@ -94,9 +109,13 @@ function PaintsSearch({
     () => normalizeFilters(catalog, parseFilterParams(filterParams)),
     [catalog, filterParams],
   );
+  const effectiveScope = useMemo(
+    () => scopeFor(scope, filters.show, collection),
+    [scope, filters.show, collection],
+  );
   const results: SearchResult[] = useMemo(
-    () => searchPaints(catalog, index, parsed, filters),
-    [catalog, index, parsed, filters],
+    () => searchPaints(catalog, index, parsed, filters, effectiveScope),
+    [catalog, index, parsed, filters, effectiveScope],
   );
   const brandNames = useMemo(() => new Map(catalog.brands.map((b) => [b.id, b.name])), [catalog]);
   const lineNames = useMemo(() => new Map(catalog.lines.map((l) => [l.id, l.name])), [catalog]);
@@ -122,6 +141,15 @@ function PaintsSearch({
       label: `Hue: ${hueLabel(hue)}`,
       next: { ...filters, hues: filters.hues.filter((h) => h !== hue) },
     })),
+    ...(filters.show
+      ? [
+          {
+            key: `show-${filters.show}`,
+            label: `Show: ${COLLECTION_VIEW_LABELS[filters.show]}`,
+            next: { ...filters, show: undefined },
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -132,7 +160,7 @@ function PaintsSearch({
             ref={inputRef}
             type="search"
             aria-label="Search paints"
-            placeholder={`Search ${catalog.paints.length.toLocaleString("en")} paints…`}
+            placeholder={`Search ${(scope?.size ?? catalog.paints.length).toLocaleString("en")} paints…`}
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             autoComplete="off"
@@ -146,6 +174,8 @@ function PaintsSearch({
             query={parsed}
             filters={filters}
             onApply={onFiltersChange}
+            baseScope={scope}
+            showFilter={canShow}
           />
         </div>
 
@@ -187,48 +217,56 @@ function PaintsSearch({
         )}
       </form>
 
-      {query === "" && countActive(filters) === 0 && <HueDots onSelect={(hue) => apply(hue)} />}
-
-      {parsed.hex && (
-        <div className="paints-screen__hex">
-          <PaintSwatch hex={parsed.hex} size="lg" />
-          <p>Paints closest to {parsed.hex}</p>
-        </div>
-      )}
-
-      <p className="paints-screen__count" role="status">
-        {results.length === 1 ? "1 paint" : `${results.length.toLocaleString("en")} paints`}
-      </p>
-
-      {results.length === 0 ? (
-        <div className="paints-screen__empty">
-          <p>No paints match</p>
-          <Button
-            variant="outline"
-            onClick={() => {
-              setDraft("");
-              setSentQuery("");
-              onClearAll();
-            }}
-          >
-            Clear all
-          </Button>
-        </div>
+      {scope?.size === 0 ? (
+        emptyScope
       ) : (
         <>
-          <ul className="paints-screen__list">
-            {results.slice(0, limit).map(({ paint, label }) => (
-              <PaintRow
-                key={paint.id}
-                paint={paint}
-                brandName={brandNames.get(paint.brandId) ?? paint.brandId}
-                lineName={lineNames.get(paint.lineId) ?? paint.lineId}
-                match={label}
-                actions={<PaintToggles paintId={paint.id} paintName={paint.name} />}
-              />
-            ))}
-          </ul>
-          {limit < results.length && <LoadMore onVisible={() => setLimit((n) => n + PAGE_SIZE)} />}
+          {query === "" && countActive(filters) === 0 && <HueDots onSelect={(hue) => apply(hue)} />}
+
+          {parsed.hex && (
+            <div className="paints-screen__hex">
+              <PaintSwatch hex={parsed.hex} size="lg" />
+              <p>Paints closest to {parsed.hex}</p>
+            </div>
+          )}
+
+          <p className="paints-screen__count" role="status">
+            {results.length === 1 ? "1 paint" : `${results.length.toLocaleString("en")} paints`}
+          </p>
+
+          {results.length === 0 ? (
+            <div className="paints-screen__empty">
+              <p>No paints match</p>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  setDraft("");
+                  setSentQuery("");
+                  onClearAll();
+                }}
+              >
+                Clear all
+              </Button>
+            </div>
+          ) : (
+            <>
+              <ul className="paints-screen__list">
+                {results.slice(0, limit).map(({ paint, label }) => (
+                  <PaintRow
+                    key={paint.id}
+                    paint={paint}
+                    brandName={brandNames.get(paint.brandId) ?? paint.brandId}
+                    lineName={lineNames.get(paint.lineId) ?? paint.lineId}
+                    match={label}
+                    actions={<PaintToggles paintId={paint.id} paintName={paint.name} />}
+                  />
+                ))}
+              </ul>
+              {limit < results.length && (
+                <LoadMore onVisible={() => setLimit((n) => n + PAGE_SIZE)} />
+              )}
+            </>
+          )}
         </>
       )}
     </div>

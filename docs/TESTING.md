@@ -42,7 +42,7 @@ Test critical user journeys (Playwright with mobile device emulation: iPhone 15 
 - Type a brand name → brand chip + only that brand's paints
 - Tap a hue dot → only that hue family
 - Filter by brand/type → URL updates → reload keeps filters
-- Sign in (test-mode auth) → mark owned → appears in My Paints
+- Sign in (test-mode auth) → mark owned → appears in My Paints: `tests/e2e/collection.spec.ts`, with `@clerk/testing`. Global setup creates `grimify-e2e+clerk_test@example.com` in the Clerk development instance if missing (DECISIONS 032); each device profile uses a different paint and un-owns it at the end
 - Offline: load app, go offline (`context.setOffline(true)`), search still works
 - Offline toggle: go offline, mark a paint owned, go online → change synced (visible after reload)
 
@@ -125,7 +125,7 @@ Prioritize:
 | Purpose | Command |
 |---|---|
 | Unit + integration tests | `npm test` (Vitest) |
-| E2E | `npm run test:e2e` (Playwright; builds and serves the app for the run). First time: `npx playwright install chromium webkit`. Not part of `check`. `tests/e2e/offline.spec.ts` runs on Chromium only (Playwright's WebKit service-worker support is limited); iPhone offline stays on the manual list |
+| E2E | `npm run test:e2e` (Playwright; builds and serves the app for the run). First time: `npx playwright install chromium webkit`. Not part of `check`. `tests/e2e/offline.spec.ts` runs on Chromium only (Playwright's WebKit service-worker support is limited); iPhone offline stays on the manual list. Needs `CLERK_SECRET_KEY` in `.env.local` (global setup fails with its name if missing) and writes to the dev Clerk and Convex instances |
 | Lint | `npm run lint` |
 | Type check | `npm run typecheck` (`tsc -b`) |
 | Validate catalog | `npm run catalog:validate` |

@@ -16,7 +16,7 @@ const catalog = catalogOf([
 ]);
 const index = createNameIndex(catalog.paints);
 
-function renderFilters(filters: Filters = NO_FILTERS) {
+function renderFilters(filters: Filters = NO_FILTERS, showFilter = false) {
   const onApply = vi.fn();
   render(
     <PaintsFilters
@@ -25,6 +25,7 @@ function renderFilters(filters: Filters = NO_FILTERS) {
       query={parseQuery("", catalog.brands)}
       filters={filters}
       onApply={onApply}
+      showFilter={showFilter}
     />,
   );
   return onApply;
@@ -83,5 +84,27 @@ describe("PaintsFilters", () => {
       "false",
     );
     expect(within(dialog).getByRole("button", { name: "Show 4 paints" })).toBeInTheDocument();
+  });
+
+  it("offers Show only when signed in", () => {
+    const onApply = renderFilters(NO_FILTERS, true);
+    const dialog = openSheet();
+
+    const group = within(dialog).getByRole("group", { name: "Show only" });
+    for (const name of ["Owned", "Wishlist", "Favorites"]) {
+      expect(within(group).getByRole("radio", { name })).not.toBeChecked();
+    }
+    expect(within(group).getByRole("radio", { name: "All" })).toBeChecked();
+    fireEvent.click(within(group).getByRole("radio", { name: "Owned" }));
+    fireEvent.click(within(dialog).getByRole("button", { name: /^Show \d+ paints?$/ }));
+
+    expect(onApply).toHaveBeenCalledWith({ ...NO_FILTERS, show: "owned" });
+  });
+
+  it("hides Show only when signed out or inside My Paints", () => {
+    renderFilters(NO_FILTERS, false);
+    const dialog = openSheet();
+
+    expect(within(dialog).queryByRole("group", { name: "Show only" })).toBeNull();
   });
 });

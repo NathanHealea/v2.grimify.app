@@ -97,6 +97,25 @@ describe("searchPaints", () => {
     expect(text).toEqual([]);
   });
 
+  it("restricts results to a set of paints", () => {
+    const ids = new Set(
+      paints.filter((p) => ["Macragge Blue", "Blood Red"].includes(p.name)).map((p) => p.id),
+    );
+    const scoped = (q: string) =>
+      searchPaints(catalog, index, parseQuery(q, catalog.brands), NO_FILTERS, ids).map(
+        (r) => `${r.paint.name} (${r.paint.brandId})`,
+      );
+
+    expect(scoped("")).toEqual([
+      "Blood Red (army-painter)",
+      "Blood Red (vallejo)",
+      "Macragge Blue (citadel)",
+    ]);
+    expect(scoped("vallejo")).toEqual(["Blood Red (vallejo)"]);
+    expect(scoped("blue")).toEqual(["Macragge Blue (citadel)"]);
+    expect(scoped("#9B130B")[0]).toMatch(/^Blood Red/);
+  });
+
   it("sorts the full catalog by name, then brand", () => {
     expect(names("")).toEqual([
       "Blood Red (army-painter)",

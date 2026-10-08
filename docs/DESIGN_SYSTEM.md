@@ -166,7 +166,7 @@ Use shadcn `<Button>` variants only.
 - Loading: show a spinner icon and keep the button width; disable while pending
 - Minimum touch target: 44×44px (`--touch-target`). Exception: the `sm` size (36px, `--touch-target-sm`) is allowed for secondary controls only.
 
-Own/Want toggles: 44px circular icon buttons, Own = `CircleCheck`, Want = `Heart`, with `aria-pressed` and names like "Mark Mephiston Red as owned" / "… as wanted". Off: outlined in `--color-input-border` (3:1). On: filled with Primary, icon in Primary foreground (the heart itself also fills). They're always siblings of a row's link, never inside it.
+Own/Want/Favorite toggles: 44px circular icon buttons, `--space-2` apart, Own = `Plus`, Want = `Bookmark`, Favorite = `Heart` (DECISIONS 034), with `aria-pressed` and names like "Mark Mephiston Red as owned" / "… as wanted" / "… as favorite". No tooltips or visible labels. Off: outlined in `--color-input-border` (3:1). On: filled with Primary, icon in Primary foreground (the bookmark and heart themselves also fill). They're always siblings of a row's link, never inside it.
 
 ---
 
@@ -242,14 +242,19 @@ Behavior:
 Sidebar:
 None at any breakpoint.
 
+Segmented control (My Paints):
+Two links in a Secondary pill track inside a `nav` named "Collection"; the active one is the same Primary-filled pill as the nav bar's current item, with `aria-current="page"`. Each is at least 44px tall and shows its count as text ("Owned (2)").
+
 Filters open in a bottom sheet: shadcn `Sheet` (`side="bottom"`) on Radix Dialog, not the vaul-based `Drawer` (DECISIONS 023). It's a modal dialog: focus trap, Escape, focus returns to the trigger. There's no swipe-to-dismiss. Max height `--sheet-max-height`, `--radius-lg` top corners, `--color-overlay` backdrop, a scrolling body with header and footer fixed, and bottom safe-area padding. The sheet edits a draft; the primary "Show N paints" commits it, and any other close discards it.
+
+Sheet options (Show only, brand, line, type) are outline-button boxes: `--touch-target` tall, `--space-4` side padding, `--radius-md`, a `--color-input-border` edge, `--space-2` apart, the whole box is the hit area. The native checkbox or radio stays visible inside as the non-color checked cue; checked adds a Primary edge and Secondary fill, and the focus ring wraps the whole box. Hue dots keep their own style.
 
 ---
 
 ## 12. States
 
 Loading:
-Skeleton rows for Convex data. The catalog loads from cache and should be instant; on first visit show a single progress state ("Downloading paint catalog…").
+Skeleton rows for Convex data: `--row-min-height` blocks in Secondary with `--radius-md`, `aria-hidden`, plus a visible "Loading …" status line. The catalog loads from cache and should be instant; on first visit show a single progress state ("Downloading paint catalog…").
 
 Empty:
 Icon, one-line explanation and a primary action. Examples: "No paints match" → Clear all (clears the search box and every filter). "You haven't added any paints yet" → Browse paints.

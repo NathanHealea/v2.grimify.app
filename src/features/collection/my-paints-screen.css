@@ -1,0 +1,59 @@
+.my-paints {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.my-paints__tabs {
+  display: flex;
+  padding: var(--space-1);
+  background: var(--color-secondary);
+  border-radius: var(--radius-pill);
+}
+
+.my-paints__tab {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--touch-target);
+  padding-inline: var(--space-2);
+  color: var(--color-text);
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+
+  /* Same marker as the nav bar's current item: a Primary-filled pill (DESIGN_SYSTEM §11). */
+  &[data-current] {
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary-foreground);
+    background: var(--color-primary);
+  }
+}
+
+.my-paints__message {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+  padding-block: var(--space-12);
+  text-align: center;
+}
+
+.my-paints__note {
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+  color: var(--color-muted-text);
+}
+
+.my-paints__skeleton {
+  padding: 0;
+  list-style: none;
+}
+
+.my-paints__skeleton-row {
+  height: var(--row-min-height);
+  margin-bottom: var(--space-2);
+  background: var(--color-secondary);
+  border-radius: var(--radius-md);
+}

@@ -185,7 +185,7 @@ grimify/
 │   ├── features/
 │   │   ├── catalog/         # schema.ts (shared with scripts/), loading, query parsing, search, filters
 │   │   ├── matching/        # color distance, equivalents, hue classification
-│   │   ├── collection/      # owned / wishlist, offline outbox + cache
+│   │   ├── collection/      # owned / wishlist / favorites, offline outbox + cache
 │   │   └── pwa/             # install banner, update prompt, offline status
 │   ├── lib/                 # shared utils (formatters)
 │   ├── types/               # shared TS types (Paint, Brand…)

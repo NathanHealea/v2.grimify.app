@@ -10,19 +10,20 @@ const MAX_FUTURE_SKEW_MS = 5 * 60 * 1000;
 // Above the catalog's 2,837 paints: a user has at most one row per paint.
 const LIST_LIMIT = 5000;
 
-/** Sets a paint's owned and/or wishlisted flags for the caller; last write by client time wins. */
+/** Sets any of a paint's owned, wishlisted and favorite flags for the caller; last write by client time wins. */
 export const set = mutation({
   args: {
     paintId: v.string(),
     owned: v.optional(v.boolean()),
     wishlisted: v.optional(v.boolean()),
+    favorite: v.optional(v.boolean()),
     clientUpdatedAt: v.number(),
   },
   returns: v.null(),
   handler: async (ctx, args) => {
     const user = await requireUser(ctx);
     if (!PAINT_ID.test(args.paintId)) throw new ConvexError("INVALID_PAINT_ID");
-    if (args.owned === undefined && args.wishlisted === undefined) {
+    if (args.owned === undefined && args.wishlisted === undefined && args.favorite === undefined) {
       throw new ConvexError("NO_FLAGS");
     }
     if (args.clientUpdatedAt > Date.now() + MAX_FUTURE_SKEW_MS) {
@@ -39,18 +40,20 @@ export const set = mutation({
 
     const owned = args.owned ?? existing?.owned ?? false;
     const wishlisted = args.wishlisted ?? existing?.wishlisted ?? false;
+    const favorite = args.favorite ?? existing?.favorite ?? false;
     const updatedAt = args.clientUpdatedAt;
 
-    if (!owned && !wishlisted) {
+    if (!owned && !wishlisted && !favorite) {
       if (existing) await ctx.db.delete("userPaints", existing._id);
     } else if (existing) {
-      await ctx.db.patch("userPaints", existing._id, { owned, wishlisted, updatedAt });
+      await ctx.db.patch("userPaints", existing._id, { owned, wishlisted, favorite, updatedAt });
     } else {
       await ctx.db.insert("userPaints", {
         userId: user._id,
         paintId: args.paintId,
         owned,
         wishlisted,
+        favorite,
         updatedAt,
       });
     }
@@ -62,6 +65,7 @@ const userPaintValidator = v.object({
   paintId: v.string(),
   owned: v.boolean(),
   wishlisted: v.boolean(),
+  favorite: v.boolean(),
   updatedAt: v.number(),
 });
 
@@ -78,10 +82,11 @@ export const listMine = query({
       .query("userPaints")
       .withIndex("by_userId_and_paintId", (q) => q.eq("userId", user._id))
       .take(LIST_LIMIT);
-    return rows.map(({ paintId, owned, wishlisted, updatedAt }) => ({
+    return rows.map(({ paintId, owned, wishlisted, favorite, updatedAt }) => ({
       paintId,
       owned,
       wishlisted,
+      favorite: favorite ?? false,
       updatedAt,
     }));
   },

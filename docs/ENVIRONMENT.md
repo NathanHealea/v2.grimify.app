@@ -20,11 +20,19 @@ VITE_APP_URL=                 # e.g. http://localhost:5173 / https://<project>.p
 CLERK_JWT_ISSUER_DOMAIN=      # Clerk Frontend API URL, shown when you activate Clerk dashboard → Integrations → Convex
                               # (e.g. https://<name>.clerk.accounts.dev). Read by convex/auth.config.ts.
                               # Keep a copy in .env.local for reference; Convex reads only the deployment's value.
+                              # Symptom if the Convex integration isn't active: Clerk signs in, but
+                              # .../tokens/convex returns 404 and Convex treats everyone as signed out.
 ```
 
 ### CI / hosting secrets (Cloudflare Pages build settings or GitHub Actions secrets)
 ```bash
 CONVEX_DEPLOY_KEY=            # production deploy key from the Convex dashboard
+```
+
+### Local only, and CI secrets
+```bash
+CLERK_SECRET_KEY=             # sk_test_… from the Clerk dev instance; Playwright's signed-in E2E only.
+                              # Never VITE_-prefixed (that would ship it to the browser). In CI: a GitHub Actions secret.
 ```
 
 ### Local only

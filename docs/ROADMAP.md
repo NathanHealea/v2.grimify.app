@@ -14,8 +14,8 @@
 - Paint detail + computed equivalents (CIEDE2000)
 - PWA: manifest, icons, service worker, offline catalog, update prompt, iOS install banner
 - Clerk auth (email code) + Convex `users`
-- Own / Want toggles (independent) + My Paints tab
-- Offline outbox for Own/Want changes
+- Own / Want toggles (independent) + My Paints tab, with Favorites (added in review, DECISIONS 033)
+- Offline outbox for Own/Want/Favorite changes
 - Settings: sign out, delete account, about/data sources
 - Deploy to Cloudflare Pages + Convex production
 - Ask PaintPad for permission to use the derived hex data (DECISIONS 015); before anything public

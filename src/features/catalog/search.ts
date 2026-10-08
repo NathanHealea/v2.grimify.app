@@ -27,9 +27,13 @@ export function searchPaints(
   index: NameIndex,
   query: ParsedQuery,
   filters: Filters = NO_FILTERS,
+  /** Only these paint IDs are searched (e.g. My Paints); undefined searches the whole catalog. */
+  scope?: ReadonlySet<string>,
 ): SearchResult[] {
   const passes = (paint: CatalogPaint) =>
-    matchesQuery(paint, query) && matchesFilters(paint, filters);
+    (scope === undefined || scope.has(paint.id)) &&
+    matchesQuery(paint, query) &&
+    matchesFilters(paint, filters);
 
   const candidates = query.text
     ? index

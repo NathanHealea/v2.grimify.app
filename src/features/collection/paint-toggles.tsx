@@ -1,8 +1,9 @@
 import "./paint-toggles.css";
 
-import { CircleCheck, Heart } from "lucide-react";
+import { useUser } from "@clerk/react";
+import { Bookmark, Heart, Plus } from "lucide-react";
 
-import { useSignIn } from "@/features/auth/sign-in-provider";
+import { useQueueAfterSignIn, useSignIn } from "@/features/auth/sign-in-provider";
 import { useToast } from "@/features/feedback/toast-provider";
 import { useOnlineStatus } from "@/features/pwa/use-online-status";
 
@@ -14,17 +15,21 @@ type Props = {
   paintName: string;
 };
 
-/** Own and Want, independent (DECISIONS 011); signed out, a tap opens sign-in and finishes afterwards. */
+/** Own, Want and Favorite, independent (DECISIONS 011, 033); signed out, a tap opens sign-in and finishes afterwards. */
 export function PaintToggles({ paintId, paintName }: Props) {
   const flags = usePaintFlags(paintId);
   const canSave = useCanSavePaints();
   const setFlags = useSetPaintFlags();
   const openSignIn = useSignIn();
+  const queueAfterSignIn = useQueueAfterSignIn();
+  const { isSignedIn } = useUser();
   const toast = useToast();
   const online = useOnlineStatus();
 
   const apply = (change: FlagChange) => {
     if (canSave) setFlags(paintId, change);
+    // Signed in, but Convex's authenticated connection is still starting (right after a load).
+    else if (isSignedIn) queueAfterSignIn({ paintId, change });
     // Clerk's sign-in loads from its servers, so offline there is nothing to open.
     else if (!online) toast("Signing in needs an internet connection.");
     else openSignIn({ paintId, change });
@@ -39,7 +44,7 @@ export function PaintToggles({ paintId, paintName }: Props) {
         aria-label={`Mark ${paintName} as owned`}
         onClick={() => apply({ owned: !flags.owned })}
       >
-        <CircleCheck aria-hidden="true" />
+        <Plus aria-hidden="true" />
       </button>
       <button
         type="button"
@@ -48,6 +53,16 @@ export function PaintToggles({ paintId, paintName }: Props) {
         aria-pressed={flags.wishlisted}
         aria-label={`Mark ${paintName} as wanted`}
         onClick={() => apply({ wishlisted: !flags.wishlisted })}
+      >
+        <Bookmark aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        className="paint-toggles__button"
+        data-kind="favorite"
+        aria-pressed={flags.favorite}
+        aria-label={`Mark ${paintName} as favorite`}
+        onClick={() => apply({ favorite: !flags.favorite })}
       >
         <Heart aria-hidden="true" />
       </button>

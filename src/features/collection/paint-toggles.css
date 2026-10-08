@@ -1,7 +1,7 @@
 .paint-toggles {
   display: flex;
   flex-shrink: 0;
-  gap: var(--space-1);
+  gap: var(--space-2);
 }
 
 .paint-toggles__button {
@@ -33,7 +33,7 @@
     border-color: var(--color-primary);
   }
 
-  &[data-kind="want"][aria-pressed="true"] svg {
+  &:is([data-kind="want"], [data-kind="favorite"])[aria-pressed="true"] svg {
     fill: currentcolor;
   }
 }

@@ -9,18 +9,18 @@ Open app (installed PWA or browser)
    ↓
 Paints tab (catalog) ──► Paint detail ──► Equivalents ──► another paint
    │                          │
-   │                          └─► Own / Want ──(signed out)──► Sign in sheet
+   │                          └─► Own / Want / Favorite ──(signed out)──► Sign in sheet
    ↓
-My Paints tab (Owned | Wishlist)
+My Paints tab (Owned | Wishlist | Favorites)
    ↓
 Settings (account, install help, about)
 ```
 
 Routes (TanStack Router):
 - `/` → redirects to `/paints`
-- `/paints?q=&brand=&line=&type=&hue=&owned=` — catalog list (also handles hex color search via `q`)
+- `/paints?q=&brand=&line=&type=&hue=&show=` — catalog list (also handles hex color search via `q`); `show=owned|wishlist|favorites` is the signed-in Show only filter (DECISIONS 031)
 - `/paints/$paintId` — paint detail
-- `/my-paints?tab=owned|wishlist`
+- `/my-paints?tab=owned|wishlist|favorites&q=&brand=&line=&type=&hue=` — the collection, searched like the catalog; a missing or unknown `tab` means Owned
 - `/settings`
 - `/sign-in`
 
@@ -116,13 +116,13 @@ Loading State:
 
 ---
 
-## Flow 5 — Mark Owned / Wishlist
+## Flow 5 — Mark Owned / Wishlist / Favorite
 
-1. Signed-in user taps the Own (check) toggle on a list row or the detail screen
+1. Signed-in user taps the Own (plus) toggle on a list row or the detail screen
 2. Toggle fills immediately (optimistic)
 3. `userPaints.set` runs; the My Paints tab and other devices update in real time
 4. Tapping again → un-own (`owned: false`)
-5. Own and Want are independent: a paint can be both (e.g., you own it and want a replacement)
+5. Own, Want (bookmark) and Favorite (heart) are independent: a paint can be any combination (e.g., you own it and want a replacement)
 
 Error State:
 Toggle reverts plus toast: "Couldn't save. Check your connection."
@@ -135,19 +135,21 @@ The toggle still updates immediately. The change is queued on the phone and a sm
 ## Flow 6 — My Paints
 
 1. User opens the My Paints tab
-2. Segmented control: **Owned (n)** | **Wishlist (n)**
-3. Same row design and search box as the catalog; grouped or filtered by brand
+2. Segmented control: **Owned (n)** | **Wishlist (n)** | **Favorites (n)**, three links (`nav` "Collection", `aria-current` on the active one), each its own URL
+3. The catalog's search screen scoped to that view: same rows, toggles, search box, chips, hue dots and filters sheet (without Show only). Filtered by brand through the search or the sheet; no brand headers
 4. Tap a paint → detail
+5. Un-owning, un-wanting or un-favoriting a paint removes it from that view right away
 
 Empty State:
 - Owned: "You haven't added any paints yet" → Browse paints
 - Wishlist: "Nothing on your wishlist" → Browse paints
+- Favorites: "No favorites yet" → Browse paints
 
 Signed Out:
-Explanation plus a Sign in button.
+"Sign in to see the paints you own and want, on any device." plus a Sign in button (the app-wide sheet). Offline and signed out: "Signing in needs an internet connection."
 
 Loading State:
-Skeleton rows (from the Convex query); cached data shows instantly when available.
+Three skeleton rows (hidden from screen readers) and a "Loading your paints…" status while the Convex query loads.
 
 ---
 

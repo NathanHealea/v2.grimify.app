@@ -4,6 +4,8 @@ const PORT = 4173;
 
 export default defineConfig({
   testDir: "tests/e2e",
+  // Creates the Clerk test user and testing token; needs CLERK_SECRET_KEY (docs/TESTING.md).
+  globalSetup: "./tests/e2e/global-setup.ts",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,

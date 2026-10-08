@@ -107,7 +107,7 @@ Search modes (detected automatically from what the user types):
 | A combination, e.g., `vallejo red-orange` | Brand + hue applied together |
 
 Inputs:
-Search text; filters for brand, product line, paint type, hue family, and owned/wishlist status (when signed in).
+Search text; filters for brand, product line, paint type, hue family, and owned/wishlist/favorite status (when signed in).
 
 Outputs:
 A list of paints showing a color swatch, name, brand, product line, type and ownership badge.
@@ -148,10 +148,10 @@ Edge Cases:
 ### Feature 3 — My Paints (Collection & Wishlist)
 
 Purpose:
-Track the paints the user owns and wants.
+Track the paints the user owns, wants and loves using.
 
 User Flow:
-On any paint (list or detail), tap "Own" and/or "Want" → the change saves immediately → the My Paints tab shows Owned and Wishlist lists. A paint can be both owned and wishlisted (e.g., want a replacement pot).
+On any paint (list or detail), tap "Own", "Want" and/or "Favorite" → the change saves immediately → the My Paints tab shows Owned, Wishlist and Favorites lists. A paint can be both owned and wishlisted (e.g., want a replacement pot).
 
 Acceptance Criteria:
 - Requires sign-in; signed-out users are prompted to sign in when they tap Own/Want
