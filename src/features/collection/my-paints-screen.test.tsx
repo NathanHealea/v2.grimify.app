@@ -8,6 +8,7 @@ import { catalogOf, catalogPaint } from "@/test/catalog-fixture";
 import { renderRoute } from "@/test/render-route";
 
 import { api } from "../../../convex/_generated/api";
+import { writeDeviceRecord } from "./device-store";
 
 const red = catalogPaint({ brandId: "citadel", name: "Mephiston Red", hex: "#9B130B" });
 const blue = catalogPaint({ brandId: "citadel", name: "Macragge Blue", hex: "#193A79" });
@@ -143,5 +144,32 @@ describe("MyPaintsScreen", () => {
       "aria-current",
       "page",
     );
+  });
+
+  it("shows the cached collection offline", async () => {
+    vi.mocked(useUser).mockReturnValue({
+      isLoaded: false,
+      isSignedIn: undefined,
+      user: undefined,
+    } as unknown as ReturnType<typeof useUser>);
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(() => Promise.resolve(Response.json(catalog))),
+    );
+    await writeDeviceRecord({
+      userId: "user_test",
+      rows: [
+        { paintId: red.id, owned: true, wishlisted: false, favorite: false, updatedAt: 1 },
+        { paintId: blue.id, owned: true, wishlisted: true, favorite: false, updatedAt: 2 },
+      ],
+      outbox: [{ paintId: vallejo.id, favorite: true, clientUpdatedAt: 3 }],
+    });
+    renderRoute("/my-paints");
+
+    const tabs = await screen.findByRole("navigation", { name: "Collection" });
+    expect(within(tabs).getByRole("link", { name: "Owned (2)" })).toBeInTheDocument();
+    expect(within(tabs).getByRole("link", { name: "Wishlist (1)" })).toBeInTheDocument();
+    expect(within(tabs).getByRole("link", { name: "Favorites (1)" })).toBeInTheDocument();
+    expect(screen.queryByText("Loading your paints…")).not.toBeInTheDocument();
   });
 });
