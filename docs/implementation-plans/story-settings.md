@@ -67,7 +67,7 @@ Finishes the Settings screen for the MVP. A signed-in painter can delete their a
 - **R3** — Sign out that fails shows the toast "Couldn't sign out. Check your connection." and keeps any pending changes and the signed-in view.
 - **R4** — After sign-out completes, keyboard focus is on the Account heading. (Fixes #11.)
 - **R5** — Signed in, Settings shows a "Delete account" button (destructive). It opens a modal sheet titled "Delete your account?" with the text "This permanently deletes your Grimify account and your saved paints. It can't be undone." When there are pending changes, it adds "n changes that haven't synced will be lost too." It has a text field labelled "Type DELETE to confirm", a Cancel button, and a "Delete account" button that stays disabled until the field is exactly `DELETE`.
-- **R6** — Confirming runs `users.deleteAccount`, then Clerk's `user.delete()`, then clears the device. The app then opens `/paints` and shows the toast "Account deleted".
+- **R6** — Confirming runs `users.deleteAccount`, clears the device (its data no longer exists on the server), then runs Clerk's `user.delete()`. The app then opens `/paints` and shows the toast "Account deleted".
 - **R7** — If `users.deleteAccount` fails, nothing is deleted on the device, the sheet stays open, and the sheet shows "Couldn't delete your account. Check your connection and try again." If `users.deleteAccount` succeeds but `user.delete()` fails, the device record is still cleared (its data no longer exists on the server). The sheet then shows "Couldn't finish deleting your account. Try again.", and retrying completes it.
 - **R8** — Offline, the Delete account button is disabled with the note "Deleting your account needs an internet connection." When Clerk reports `deleteSelfEnabled` false, it is disabled with the note "Account deletion isn't available right now."
 - **R9** — Settings is organised as three sections with `h2` headings: Account, Appearance ("Theme: Follows your system"), and About.
@@ -100,7 +100,7 @@ Finishes the Settings screen for the MVP. A signed-in painter can delete their a
 | T4 | R2 | `ends a session before clearing the device` (regression, #6 and #8) | `src/features/collection/collection-provider.test.tsx` | While `endSession(action)` is pending, a new `listMine` answer isn't saved and the outbox isn't sent; action resolves → record cleared; action rejects → record intact, a later `listMine` answer is saved again, the outbox flushes. Fails on current code |
 | T5 | R2, R3 | `keeps pending changes when sign-out fails` (regression, #8) | `src/features/auth/account-section.test.tsx` | `signOut` rejects → toast "Couldn't sign out. Check your connection.", device record not cleared, still signed-in view; `signOut` resolves → cleared after it |
 | T6 | R4 | `moves focus to the Account heading after sign-out` (regression, #11) | `src/features/auth/account-section.test.tsx` | Sign out, then Clerk reports signed out → the Account `h2` has focus |
-| T7 | R5, R6, R11 | `deletes the account after typing DELETE` | `src/features/auth/delete-account.test.tsx` | Confirm button disabled for "", "delete", "DELETE " and enabled for "DELETE"; pending-changes line shown with count; confirm calls `deleteAccount`, then `user.delete`, then clears the device, navigates to `/paints` and shows the toast "Account deleted"; focus returns to Delete account on Cancel |
+| T7 | R5, R6, R11 | `deletes the account after typing DELETE` | `src/features/auth/delete-account.test.tsx` | Confirm button disabled for "", "delete", "DELETE " and enabled for "DELETE"; pending-changes line shown with count; confirm calls `deleteAccount`, then clears the device, then `user.delete`, navigates to `/paints` and shows the toast "Account deleted"; focus returns to Delete account on Cancel |
 | T8 | R7 | `reports a failed deletion` | `src/features/auth/delete-account.test.tsx` | `deleteAccount` rejects → error text in a live region, `user.delete` not called, device not cleared; `deleteAccount` resolves and `user.delete` rejects → device cleared, "Couldn't finish deleting your account. Try again."; retry completes |
 | T9 | R8 | `explains when deletion is unavailable` | `src/features/auth/delete-account.test.tsx` | Offline → disabled + "Deleting your account needs an internet connection."; `deleteSelfEnabled: false` → disabled + "Account deletion isn't available right now." |
 | T10 | R9, R10 | `shows account, appearance and about` | `src/features/settings/settings-screen.test.tsx` | Three `h2` headings in order; "Theme: Follows your system"; "Version " + the injected version; the PaintPad sentence and the disclaimer |
@@ -111,13 +111,13 @@ Finishes the Settings screen for the MVP. A signed-in painter can delete their a
 
 ## Implementation plan
 
-1. [ ] `users.deleteAccount` with batched deletion of `userPaints` (internal continuation mutation) and the `users` row; read `convex/_generated/ai/guidelines.md` first — touches `convex/users.ts`, `convex/users.test.ts` — tests T1, T2, T3
-2. [ ] `CollectionProvider` `useEndSession()`: `endSession(action)` blocks write-back and sending while `action` runs, clears the device record when it resolves, resumes when it rejects; also `clearDevice` for the delete path's partial success; replaces `useClearDevice` — touches `src/features/collection/collection-provider.tsx`, `src/features/collection/collection-provider.test.tsx` — tests T4
-3. [ ] Sign out through `endSession`, the failure toast, focus to the Account heading — touches `src/features/auth/account-section.tsx`, `src/features/auth/account-section.css`, `src/features/auth/account-section.test.tsx` — tests T5, T6
-4. [ ] Delete account button and sheet — touches `src/features/auth/delete-account.tsx`, `src/features/auth/delete-account.css`, `src/features/auth/delete-account.test.tsx`, `src/features/auth/account-section.tsx` — tests T7, T8, T9
-5. [ ] App version at build time (`define` in Vite with a type declaration) — touches `vite.config.ts`, `src/env.d.ts` — tests none (wiring; T10 reads it)
-6. [ ] Settings screen with Account, Appearance and About — touches `src/features/settings/settings-screen.tsx`, `src/features/settings/settings-screen.css`, `src/features/settings/settings-screen.test.tsx`, `src/routes/settings.tsx` — tests T10
-7. [ ] Docs:
+1. [x] `users.deleteAccount` with batched deletion of `userPaints` (internal continuation mutation) and the `users` row; read `convex/_generated/ai/guidelines.md` first — touches `convex/users.ts`, `convex/users.test.ts` — tests T1, T2, T3
+2. [x] `CollectionProvider` `useEndSession()`: `endSession(action)` blocks write-back and sending while `action` runs, clears the device record when it resolves, resumes when it rejects; also `clearDevice` for the delete path's partial success; replaces `useClearDevice` — touches `src/features/collection/collection-provider.tsx`, `src/features/collection/collection-provider.test.tsx` — tests T4
+3. [x] Sign out through `endSession`, the failure toast, focus to the Account heading — touches `src/features/auth/account-section.tsx`, `src/features/auth/account-section.css`, `src/features/auth/account-section.test.tsx` — tests T5, T6
+4. [x] Delete account button and sheet — touches `src/features/auth/delete-account.tsx`, `src/features/auth/delete-account.css`, `src/features/auth/delete-account.test.tsx`, `src/features/auth/account-section.tsx` — tests T7, T8, T9
+5. [x] App version at build time (`define` in Vite with a type declaration) — touches `vite.config.ts`, `src/env.d.ts` — tests none (wiring; T10 reads it)
+6. [x] Settings screen with Account, Appearance and About — touches `src/features/settings/settings-screen.tsx`, `src/features/settings/settings-screen.css`, `src/features/settings/settings-screen.test.tsx`, `src/routes/settings.tsx` — tests T10
+7. [x] Docs:
     - **DECISIONS 037:** the Clerk account is deleted from the browser after `users.deleteAccount`.
     - **DECISIONS 038:** the device is cleared only after the Clerk step succeeds (#6, #8).
     - **API** (`users.deleteAccount`, now built).
@@ -164,3 +164,5 @@ Finishes the Settings screen for the MVP. A signed-in painter can delete their a
   - Type-DELETE confirmation.
 - 2026-10-08 — Plan approved.
 - 2026-10-08 — Started on branch story/settings from origin/main.
+- 2026-10-08 — R6/T7 order corrected to deleteAccount → clear device → user.delete, the only order that meets R7 (device cleared even if Clerk's step fails).
+- 2026-10-08 — Build done: steps 1-7 landed. Convex dev deployment has deleteAccount for the manual check.
