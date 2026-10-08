@@ -1,4 +1,4 @@
-import { useUser } from "@clerk/react";
+import { useClerk, useUser } from "@clerk/react";
 import { useNavigate } from "@tanstack/react-router";
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { useMutation } from "convex/react";
@@ -201,5 +201,56 @@ describe("DeleteAccount", () => {
 
     expect(screen.getByRole("button", { name: "Delete account" })).toBeDisabled();
     expect(screen.getByText("Account deletion isn't available right now.")).toBeInTheDocument();
+  });
+
+  it("ends the Clerk session after deleting", async () => {
+    const signOut = vi.fn(() => Promise.resolve());
+    vi.mocked(useClerk).mockReturnValue({ signOut } as unknown as ReturnType<typeof useClerk>);
+    renderDeleteAccount();
+    const dialog = openSheet();
+    typeConfirmation(dialog, "DELETE");
+    fireEvent.click(within(dialog).getByRole("button", { name: "Delete account" }));
+
+    await waitFor(() => expect(navigate).toHaveBeenCalledWith({ to: "/paints" }));
+    expect(signOut).toHaveBeenCalledTimes(1);
+    expect(userDelete.mock.invocationCallOrder[0]).toBeLessThan(
+      signOut.mock.invocationCallOrder[0],
+    );
+  });
+
+  it("can't be closed while deleting, and shows a late failure", async () => {
+    let fail: (error: Error) => void = () => {};
+    userDelete.mockImplementation(
+      () =>
+        new Promise<void>((_, reject) => {
+          fail = reject;
+        }),
+    );
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    renderDeleteAccount();
+    const dialog = openSheet();
+    typeConfirmation(dialog, "DELETE");
+    fireEvent.click(within(dialog).getByRole("button", { name: "Delete account" }));
+    await waitFor(() => expect(userDelete).toHaveBeenCalled());
+
+    expect(within(dialog).getByRole("button", { name: "Cancel" })).toBeDisabled();
+    fireEvent.keyDown(dialog, { key: "Escape" });
+    expect(screen.getByRole("dialog", { name: "Delete your account?" })).toBeInTheDocument();
+
+    fail(new Error("network down"));
+    expect(await within(dialog).findByRole("alert")).toHaveTextContent(
+      "Couldn't finish deleting your account. Try again.",
+    );
+    // Focus goes back into the sheet so a keyboard user can retry from where they were.
+    expect(within(dialog).getByLabelText("Type DELETE to confirm")).toHaveFocus();
+  });
+
+  it("ties the disabled reason to the button", () => {
+    signedIn({ deleteSelfEnabled: false });
+    renderDeleteAccount();
+
+    expect(screen.getByRole("button", { name: "Delete account" })).toHaveAccessibleDescription(
+      "Account deletion isn't available right now.",
+    );
   });
 });

@@ -1,6 +1,6 @@
 import "./delete-account.css";
 
-import { useUser } from "@clerk/react";
+import { useClerk, useUser } from "@clerk/react";
 import { useNavigate } from "@tanstack/react-router";
 import { useMutation } from "convex/react";
 import { useRef, useState } from "react";
@@ -32,6 +32,7 @@ const CONFIRM_WORD = "DELETE";
 /** UX_FLOWS Flow 9: Convex data first, then the Clerk account, from the browser (DECISIONS 037). */
 export function DeleteAccount() {
   const { user } = useUser();
+  const { signOut } = useClerk();
   const deleteAccount = useMutation(api.users.deleteAccount);
   const endSession = useEndSession();
   const clearDevice = useClearDevice();
@@ -44,6 +45,7 @@ export function DeleteAccount() {
   const [error, setError] = useState<string | null>(null);
   const [deleting, setDeleting] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
+  const field = useRef<HTMLInputElement>(null);
 
   if (!user) return null;
 
@@ -63,6 +65,11 @@ export function DeleteAccount() {
       // The server copy is gone, so the device copy goes too even if Clerk's step fails.
       clearDevice();
       await user.delete();
+      // Clerk is expected to end the session when the user is deleted; unverified (plan risk 5), so
+      // sign out too. The account is already gone, so a failure here only gets logged.
+      await signOut().catch((cause: unknown) => {
+        console.error("Signing out after deleting the account failed", cause);
+      });
     })
       .then(() => {
         setOpen(false);
@@ -76,6 +83,8 @@ export function DeleteAccount() {
             ? "Couldn't finish deleting your account. Try again."
             : "Couldn't delete your account. Check your connection and try again.",
         );
+        // The disabled confirm button may have dropped focus; put it back where a retry starts.
+        field.current?.focus();
       })
       .finally(() => setDeleting(false));
   };
@@ -86,14 +95,21 @@ export function DeleteAccount() {
         ref={trigger}
         variant="destructive"
         disabled={unavailable !== null}
+        aria-describedby={unavailable ? "delete-account-unavailable" : undefined}
         onClick={() => setOpen(true)}
       >
         Delete account
       </Button>
-      {unavailable && <p className="delete-account__note">{unavailable}</p>}
+      {unavailable && (
+        <p id="delete-account-unavailable" className="delete-account__note">
+          {unavailable}
+        </p>
+      )}
       <Sheet
         open={open}
         onOpenChange={(next) => {
+          // Closing mid-deletion would hide a failure that arrives afterwards.
+          if (deleting) return;
           setOpen(next);
           if (!next) {
             setTyped("");
@@ -122,6 +138,7 @@ export function DeleteAccount() {
               Type {CONFIRM_WORD} to confirm
             </label>
             <Input
+              ref={field}
               id="delete-account-confirm"
               autoComplete="off"
               autoCapitalize="characters"
@@ -134,7 +151,9 @@ export function DeleteAccount() {
           </SheetBody>
           <SheetFooter>
             <SheetClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button variant="outline" disabled={deleting}>
+                Cancel
+              </Button>
             </SheetClose>
             <Button
               variant="destructive"
