@@ -237,6 +237,8 @@ describe("DeleteAccount", () => {
     fireEvent.keyDown(dialog, { key: "Escape" });
     expect(screen.getByRole("dialog", { name: "Delete your account?" })).toBeInTheDocument();
 
+    // In a browser the clicked confirm button disables and focus drops to the page body.
+    (document.activeElement as HTMLElement | null)?.blur();
     fail(new Error("network down"));
     expect(await within(dialog).findByRole("alert")).toHaveTextContent(
       "Couldn't finish deleting your account. Try again.",
