@@ -12,19 +12,19 @@ export type StoredRow = {
 
 export type OutboxEntry = FlagChange & { paintId: string; clientUpdatedAt: number };
 
-/** What this device remembers between launches: whose collection it is, the last copy, and unsent changes. */
-export type DeviceRecord = { userId: string; rows: StoredRow[]; outbox: OutboxEntry[] };
+/** What this device remembers between launches: whose collection it is, the last copy (once loaded), and unsent changes. */
+export type DeviceRecord = { userId: string; rows?: StoredRow[]; outbox: OutboxEntry[] };
 
 const KEY = "grimify-device";
 
-export function readDeviceRecord(): Promise<DeviceRecord | undefined> {
+export async function readDeviceRecord(): Promise<DeviceRecord | undefined> {
   return get<DeviceRecord>(KEY);
 }
 
-export function writeDeviceRecord(record: DeviceRecord): Promise<void> {
+export async function writeDeviceRecord(record: DeviceRecord): Promise<void> {
   return set(KEY, record);
 }
 
-export function clearDeviceRecord(): Promise<void> {
+export async function clearDeviceRecord(): Promise<void> {
   return del(KEY);
 }

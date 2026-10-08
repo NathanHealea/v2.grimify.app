@@ -26,7 +26,7 @@ function signedInWith(rows: Row[] | undefined) {
   vi.mocked(useUser).mockReturnValue({
     isLoaded: true,
     isSignedIn: true,
-    user: null,
+    user: { id: "user_test" },
   } as unknown as ReturnType<typeof useUser>);
   vi.mocked(useConvexAuth).mockReturnValue({
     isLoading: false,
