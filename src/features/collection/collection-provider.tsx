@@ -59,9 +59,16 @@ const CollectionContext = createContext<CollectionState>(EMPTY);
 
 type Writer = (paintId: string, change: FlagChange) => void;
 
-const WriterContext = createContext<{ write: Writer; userId: string | undefined }>({
+const WriterContext = createContext<{
+  write: Writer;
+  clear: () => void;
+  userId: string | undefined;
+}>({
   write: () => {
     throw new Error("useSetPaintFlags must be used inside CollectionProvider");
+  },
+  clear: () => {
+    throw new Error("useClearDevice must be used inside CollectionProvider");
   },
   userId: undefined,
 });
@@ -193,7 +200,11 @@ export function CollectionProvider({ children }: { children: ReactNode }) {
     [deviceUserId, commit, flush],
   );
 
-  const writer = useMemo(() => ({ write, userId: deviceUserId }), [write, deviceUserId]);
+  const clear = useCallback(() => commit(undefined), [commit]);
+  const writer = useMemo(
+    () => ({ write, clear, userId: deviceUserId }),
+    [write, clear, deviceUserId],
+  );
 
   const base = rows ?? mine?.rows;
   const outbox = mine?.outbox;
@@ -232,6 +243,11 @@ export function useCollection(): CollectionState {
 /** The outbox writer behind useSetPaintFlags; components use that hook, not this. */
 export function useCollectionWriter(): Writer {
   return useContext(WriterContext).write;
+}
+
+/** Forgets this device's stored collection and unsent changes, for signing out. */
+export function useClearDevice(): () => void {
+  return useContext(WriterContext).clear;
 }
 
 /** The user whose collection this device holds: Clerk's, or the stored one while Clerk can't load. */
