@@ -1,14 +1,14 @@
 ---
 type: story
 slug: my-paints
-status: staged
+status: released
 branch: story/my-paints
 worktree_path: ../grimify-v2-worktrees/story-my-paints
 created: 2026-10-07
 approved: 2026-10-07
-version:
-tag:
-merge_commit:
+version: 0.8.0
+tag: v0.8.0
+merge_commit: 1638003 (squash of story/my-paints)
 ---
 
 # My Paints tab
@@ -268,3 +268,4 @@ R14 and R15 aren't unit testable. Stylelint enforces tokens, and screenshots and
 
   `npm run check` (158 tests; catalog valid), `npm run build`, `npm run test:e2e` (11 passed, 1 skipped) and `prettier --check .` all exit 0. Afterwards `userPaints` held only the owner's 3 rows; the E2E user had none. Screenshots at 375px (paint rows, the filter sheet, the Favorites tab) were checked by eye through a temporary spec, then removed.
 - 2026-10-08 — Re-staged with the review changes. Version stays 0.8.0, since the changes land before release. Self-review found no leftover old icons, debug output or TODOs. Still not pushed; the review is on the local branch `story/my-paints`.
+- 2026-10-08 — Released. Squash-merged to `main` as 1638003, tagged `v0.8.0`, pushed; worktree and branch removed.
