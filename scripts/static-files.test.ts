@@ -168,10 +168,40 @@ describe("wrangler.json", () => {
     expect(config).not.toHaveProperty("main");
     expect(config.name).toBe("v2-grimify-app");
     expect(config.compatibility_date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-    expect(Object.keys(config).sort()).toEqual(["assets", "compatibility_date", "name"]);
+    expect(Object.keys(config).sort()).toEqual([
+      "assets",
+      "compatibility_date",
+      "env",
+      "name",
+      "routes",
+    ]);
     expect(Object.keys(config.assets as object).sort()).toEqual([
       "directory",
       "not_found_handling",
     ]);
+  });
+
+  it("wrangler.json deploys three assets-only Workers on their domains", () => {
+    const config = readWrangler();
+    const spaAssets = { directory: "./dist", not_found_handling: "single-page-application" };
+
+    expect(config.name).toBe("v2-grimify-app");
+    expect(config).not.toHaveProperty("main");
+    expect(config.routes).toEqual([{ pattern: "grimify.app", custom_domain: true }]);
+
+    const env = config.env as Record<string, Record<string, unknown>>;
+    expect(Object.keys(env).sort()).toEqual(["dev", "stage"]);
+
+    expect(Object.keys(env.dev).sort()).toEqual(["assets", "routes"]);
+    expect(env.dev.assets).toEqual(spaAssets);
+    expect(env.dev.routes).toEqual([{ pattern: "dev.grimify.app", custom_domain: true }]);
+    expect(env.dev).not.toHaveProperty("main");
+    expect(env.dev).not.toHaveProperty("name");
+
+    expect(Object.keys(env.stage).sort()).toEqual(["assets", "routes"]);
+    expect(env.stage.assets).toEqual(spaAssets);
+    expect(env.stage.routes).toEqual([{ pattern: "stage.grimify.app", custom_domain: true }]);
+    expect(env.stage).not.toHaveProperty("main");
+    expect(env.stage).not.toHaveProperty("name");
   });
 });
