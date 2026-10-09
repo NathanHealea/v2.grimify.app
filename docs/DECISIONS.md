@@ -850,7 +850,7 @@ Trade-off: the title takes about 48px of content height until you scroll. The he
 ## Decision 041 — Deploy from Cloudflare Pages' own build, with Convex first
 
 Date: 2026-10-08
-Status: Accepted; hosting amended by 043 (a Worker, not Pages; the build command and Convex order stand)
+Status: Accepted; hosting amended by 043 (a Worker, not Pages); deploys and the CSP amended by 044 (one command per environment from the owner's machine; the CSP host is filled in at build). The Convex-first order stands.
 
 Context:
 The MVP needs a production home for the private beta. DECISIONS 007 chose Cloudflare Pages from GitHub. The Clerk production instance is on `grimify.app` (Clerk production needs a domain you own), and the Convex production deployment is `nautical-toucan-398`.
@@ -894,7 +894,7 @@ Trade-off: Rolldown wraps modules with init helpers, about 32 KB more JavaScript
 ## Decision 043 — Host on Cloudflare Workers static assets instead of Pages
 
 Date: 2026-10-08
-Status: Accepted
+Status: Accepted; amended by 044 (Workers Builds replaced by `npm run deploy:<env>`; Wrangler pinned; dev and stage Workers added)
 
 Context:
 DECISIONS 007 and 041 planned a Pages project. Cloudflare's dashboard now creates Workers by default (Pages sits behind a "Looking for Pages?" link), and Cloudflare is folding Pages into Workers, with new features landing on Workers only. The owner connected the repo as the Worker `v2-grimify-app`. Unlike Pages, a Worker with no configuration answers unknown paths with an empty 404, so opening or reloading `/paints`, or launching the installed app at its `start_url`, failed.
@@ -910,3 +910,30 @@ Consequences:
 Positive: deep links and reloads work; the hosting follows Cloudflare's direction; one more file pins the deploy target.
 Trade-off: a request for a missing hashed asset also gets `index.html` (200, HTML), so a stale tab sees a script MIME-type error rather than a 404; the update prompt is the recovery path. `npx wrangler deploy` downloads the latest Wrangler on every build, unpinned. Renaming the Worker means changing `wrangler.json` in the same change, or the deploy creates a second Worker.
 
+---
+
+## Decision 044 — Dev and stage environments, deployed by one command each
+
+Date: 2026-10-09
+Status: Accepted
+
+Context:
+Only `main` deployed, from Workers Builds, so nothing could be tried on real hosting with real sign-in before reaching users. A branch build would have pushed that branch's Convex functions to production (041). The owner wants `main ← stage ← dev ← work items`, hotfixes to `main`, dev and stage both deployed, and "a simple command for each deployment" with no web UI. Cloudflare's branch preview URLs are on `*.workers.dev`, where production Clerk keys don't work, and preview deployments in Convex expire.
+
+Decision:
+- Three Workers from one `wrangler.json`: production at the top level (`v2-grimify-app`, `grimify.app`), and environments `dev` (`v2-grimify-app-dev`, `dev.grimify.app`) and `stage` (`v2-grimify-app-stage`, `stage.grimify.app`). Domains are declared as custom-domain routes, so `wrangler deploy` creates DNS and certificates.
+- Each non-production environment has its own production-type Convex deployment in the existing project (`develop`, `stage`), so dev and stage never touch production collections and a dev deploy can't overwrite stage's functions. All three use the production Clerk instance, which works on subdomains of `grimify.app`.
+- `npm run deploy:<env>` (`scripts/deploy.ts`) replaces Workers Builds: it refuses the wrong branch, a dirty or unpushed tree, missing settings, a `pk_test_` key or another deployment's deploy key; then runs `convex deploy` with `--env-file .env.deploy.<env>.local` and no `CONVEX_DEPLOYMENT`, checks the built CSP names that deployment, and runs `wrangler deploy`. Wrangler is a pinned dev dependency.
+- `public/_headers` is a template; the build fills in the Convex host from `VITE_CONVEX_URL` and fails on a non-Convex URL. 041 rejected this as "a script for a value that rarely changes"; with three deployments it changes per build.
+- Work items use `base_branch: dev`. Promotions are `git merge --no-ff`; hotfixes are done by hand because `wi` has one base branch. Version tags stay on `wi release` merges into `dev`.
+
+Alternatives:
+- Workers Builds with branch builds and Cloudflare preview URLs: no laptop deploys, but previews on `*.workers.dev` can't use production Clerk, and every build would need per-branch Convex keys in the dashboard
+- Keep Workers Builds for `main` and add commands for dev and stage: production deploys on push, but two deploy paths to keep in step, and a push from a red branch still deploys
+- One shared non-production Convex deployment: fewer deployments, but a dev deploy would change stage's functions mid-check
+- Production Convex for dev and stage: real collections, but untested code writing real user data, and a dev schema change would break the dev site until it reached `main`
+- Allow `*.convex.cloud` in the CSP: no build step, but any Convex deployment (including someone else's) would be a permitted destination
+
+Consequences:
+Positive: three environments with real sign-in, isolated data and one command each; a deploy can't run from unpushed code or with the wrong keys; Wrangler no longer floats.
+Trade-off: deploys need the owner's machine, with `wrangler login` and three local settings files; nothing deploys on push. Dev and stage share production accounts, so Delete account there deletes the real account, and a sign-in on one `*.grimify.app` site signs in on all. Dev and stage data holds production account IDs. Two more Convex deployments count against the free plan.

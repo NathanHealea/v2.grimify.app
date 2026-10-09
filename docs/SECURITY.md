@@ -80,7 +80,7 @@ Rate limiting:
 Not required for MVP. If abuse appears, add the `@convex-dev/rate-limiter` component to mutations. The auth provider rate-limits code emails.
 
 CORS:
-Not applicable. The Convex client handles its own origin; there are no custom HTTP endpoints. If Convex HTTP actions are added later, allow only the production and preview origins.
+Not applicable. The Convex client handles its own origin; there are no custom HTTP endpoints. If Convex HTTP actions are added later, allow only the grimify.app, stage.grimify.app and dev.grimify.app origins.
 
 Authentication:
 Required for all user-data functions.
@@ -89,10 +89,12 @@ Authorization:
 Ownership is checked by deriving `userId` from the identity (see §2).
 
 Headers (`public/_headers`, applied by the Cloudflare Worker to every static response, including the single-page-app fallback; `scripts/static-files.test.ts` pins them):
-- `Content-Security-Policy`: `'self'` plus the production Convex deployment (`https` and `wss`), Clerk's Frontend API (`clerk.grimify.app`) and the hosts in [Clerk's CSP list](https://clerk.com/docs/guides/secure/best-practices/csp-headers) (Turnstile, `*.protect.clerk.com`, `img.clerk.com`). No `'unsafe-eval'` or inline scripts; `style-src 'unsafe-inline'` because Clerk injects styles at runtime. `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'self'`.
+- `Content-Security-Policy`: `'self'` plus the build's own Convex deployment (`https` and `wss`; the build fills `{{CONVEX_HOST}}` from `VITE_CONVEX_URL` and fails on anything but `https://<name>.convex.cloud`, and the deploy checks it names that environment's deployment), Clerk's Frontend API (`clerk.grimify.app`) and the hosts in [Clerk's CSP list](https://clerk.com/docs/guides/secure/best-practices/csp-headers) (Turnstile, `*.protect.clerk.com`, `img.clerk.com`). No `'unsafe-eval'` or inline scripts; `style-src 'unsafe-inline'` because Clerk injects styles at runtime. `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'self'`.
 - `X-Content-Type-Options: nosniff`
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()`. Allow `camera` when barcode scanning ships.
+
+Environments: dev.grimify.app and stage.grimify.app use the production Clerk instance with their own Convex deployments, so they hold real account IDs (no student or personnel data) and get the same care as production. Deploy keys live only in git-ignored `.env.deploy.<env>.local` files; the deploy script never prints them.
 
 Crawlers: `public/robots.txt` disallows everything during the private beta. It isn't access control; anyone with the link can open the app.
 
