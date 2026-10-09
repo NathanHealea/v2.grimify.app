@@ -1,7 +1,7 @@
 ---
 type: story
 slug: glass-nav
-status: staged
+status: released
 branch: story/glass-nav
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/story-glass-nav
 created: 2026-10-08
@@ -10,7 +10,7 @@ commit_type:         # optional override for the merge commit type (default: sto
 version: 0.11.0
 review_approved: 2026-10-08
 pr:                  # set by `wi pr`
-tag:                 # set by `wi release`; the tag sits on the merge commit
+tag: v0.11.0
 ---
 
 # Glass nav bar with one-line items
@@ -124,3 +124,4 @@ Restyles the floating nav bar before the first deploy. It gets a frosted-glass b
 - 2026-10-08 — Step 1: E3 failed once on iPhone 15 on the first run (cold server), then passed 27 runs including --repeat-each 8; cause not found, no retry added.
 - 2026-10-08 — Staged: verification passed; version 0.10.0 → 0.11.0; no changelog file.
 - 2026-10-08 — Review approved.
+- 2026-10-08 — Released 0.11.0 as v0.11.0.
