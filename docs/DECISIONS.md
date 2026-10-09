@@ -987,4 +987,4 @@ Alternatives:
 
 Consequences:
 Positive: the phone and desktop bars look like the same glass; desktop keeps the page name in view while scrolling.
-Trade-off: the phone bar's edge on a plain screen is only the tint change, and with reduced transparency (solid Surface on a Surface-coloured page) it shows no edge at all, only its items. The title strip covers about 40px of the list while it shows. The bar and the strip are two glass layers that meet at an edge.
+Trade-off: the phone bar's edge on a plain screen is only the tint change, and with reduced transparency in light mode (solid Surface on a Surface-coloured page) it shows no edge at all, only its items. The title strip covers about 40px of the list while it shows. The bar and the strip are two glass layers that meet at an edge.
