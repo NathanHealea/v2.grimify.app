@@ -8,7 +8,7 @@ created: 2026-10-08
 approved: 2026-10-08
 commit_type:         # optional override for the merge commit type (default: story=feat, bug=fix, task=chore)
 version: 0.12.0
-review_approved:     # set by `wi accept`
+review_approved: 2026-10-08
 pr:                  # set by `wi pr`
 tag:                 # set by `wi release`; the tag sits on the merge commit
 ---
@@ -135,3 +135,4 @@ Gives every screen an iOS-style large title, as in the owner-approved preview (h
 - 2026-10-08 — E1/AC4 reworded: the small title is centred, so it's checked as centred on the content column, with the header's outer columns aligned to the column edges.
 - 2026-10-08 — R4 reworded: the header border appears with the small title (tied to the large title), not on any scroll.
 - 2026-10-08 — Staged: verification passed; version 0.11.0 → 0.12.0; no changelog file.
+- 2026-10-08 — Review approved.
