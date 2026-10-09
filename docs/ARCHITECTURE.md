@@ -4,7 +4,7 @@
 
 ## 1. System Overview
 
-A client-side single-page app (SPA), installable as a Progressive Web App (PWA), and hosted as static files on Cloudflare Pages.
+A client-side single-page app (SPA), installable as a Progressive Web App (PWA), and hosted as static files on a Cloudflare Worker (static assets, no Worker code; DECISIONS 043).
 
 The system has two kinds of data:
 
@@ -53,7 +53,7 @@ Storage:
 - None for MVP (swatches are rendered from hex values in CSS). Convex file storage is available later if needed.
 
 Hosting:
-- Cloudflare Pages (static frontend)
+- Cloudflare Workers static assets (static frontend)
 - Convex Cloud (backend)
 
 Payments:
@@ -118,7 +118,7 @@ Responsibilities:
                  └──────────────┬───────────────┘
                                 │ static files
                                 ▼
-                       Cloudflare Pages (CDN)
+                       Cloudflare Worker (CDN)
                                 ▲
                                 │ build & deploy
                     GitHub repo (code + data/catalog)
@@ -214,7 +214,7 @@ grimify/
 
 ## 9. Key Technical Decisions
 
-See `DECISIONS.md`, entries 001–009: Vite SPA over Next.js, PWA, Convex, static catalog, Clerk auth, TanStack Router, Cloudflare Pages, client-side color matching, unified smart search.
+See `DECISIONS.md`, entries 001–009: Vite SPA over Next.js, PWA, Convex, static catalog, Clerk auth, TanStack Router, Cloudflare Pages (now Workers static assets, 043), client-side color matching, unified smart search.
 
 ---
 

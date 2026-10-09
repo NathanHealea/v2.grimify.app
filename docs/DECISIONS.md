@@ -143,7 +143,7 @@ Trade-off: smaller ecosystem; a slightly steeper start.
 ## Decision 007 — Cloudflare Pages hosting
 
 Date: 2026-10-05
-Status: Proposed
+Status: Superseded by 043 (Cloudflare Workers static assets)
 
 Context:
 Free static hosting.
@@ -850,7 +850,7 @@ Trade-off: the title takes about 48px of content height until you scroll. The he
 ## Decision 041 — Deploy from Cloudflare Pages' own build, with Convex first
 
 Date: 2026-10-08
-Status: Accepted
+Status: Accepted; hosting amended by 043 (a Worker, not Pages; the build command and Convex order stand)
 
 Context:
 The MVP needs a production home for the private beta. DECISIONS 007 chose Cloudflare Pages from GitHub. The Clerk production instance is on `grimify.app` (Clerk production needs a domain you own), and the Convex production deployment is `nautical-toucan-398`.
@@ -888,4 +888,25 @@ Alternatives:
 Consequences:
 Positive: a clean console under the CSP, so any violation in the live checks is real. Import order in `main.tsx` means what it says.
 Trade-off: Rolldown wraps modules with init helpers, about 32 KB more JavaScript (about 11.5 KB gzipped, 5%). Zod validates the few search-param schemas without its compiled fast path. The bundle also splits differently: the route files' eager parts get their own preloaded chunks, and `.page-title` moves to a stylesheet linked before `index.css`. It still wins today (`h1.page-title` beats the bare `h1`), but a future single-class rule in `index.css` on the same element would now beat it.
+
+---
+
+## Decision 043 — Host on Cloudflare Workers static assets instead of Pages
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+DECISIONS 007 and 041 planned a Pages project. Cloudflare's dashboard now creates Workers by default (Pages sits behind a "Looking for Pages?" link), and Cloudflare is folding Pages into Workers, with new features landing on Workers only. The owner connected the repo as the Worker `v2-grimify-app`. Unlike Pages, a Worker with no configuration answers unknown paths with an empty 404, so opening or reloading `/paints`, or launching the installed app at its `start_url`, failed.
+
+Decision:
+Keep the Worker. `wrangler.json` makes it assets-only (no `main`), serves `./dist`, and sets `not_found_handling: "single-page-application"`, so unmatched paths get `index.html` with 200. Workers Builds runs the 041 build command, then `npx wrangler deploy`. `public/_headers` and `public/robots.txt` work unchanged; Workers apply `_headers` to static responses.
+
+Alternatives:
+- Recreate as a Pages project: no repo change, but puts the app on the product being folded into Workers
+- Keep the Worker and add a 404 page: deep links would still fail; the router needs `index.html`
+
+Consequences:
+Positive: deep links and reloads work; the hosting follows Cloudflare's direction; one more file pins the deploy target.
+Trade-off: a request for a missing hashed asset also gets `index.html` (200, HTML), so a stale tab sees a script MIME-type error rather than a 404; the update prompt is the recovery path. `npx wrangler deploy` downloads the latest Wrangler on every build, unpinned. Renaming the Worker means changing `wrangler.json` in the same change, or the deploy creates a second Worker.
 

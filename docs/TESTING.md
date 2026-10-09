@@ -61,7 +61,7 @@ Automated tools can't fully cover installed iOS PWA behavior:
 Run them in a private window or with the service worker unregistered: a cached `index.html` keeps the CSP it was cached with.
 - [ ] `curl -sI https://grimify.app/paints` shows the CSP, `nosniff`, `Referrer-Policy` and `Permissions-Policy`
 - [ ] `https://grimify.app/robots.txt` reads `User-agent: *` / `Disallow: /`
-- [ ] A paint URL pasted into a new tab loads the paint, not a 404
+- [ ] A paint URL pasted into a new tab loads the paint, not a 404; reloading on `/my-paints` keeps you there; `curl -s -o /dev/null -w "%{http_code}" https://grimify.app/paints` prints `200`
 - [ ] Desktop browser: sign in with an email code, own a paint, see it in My Paints, sign out; the console shows no CSP violations
 - [ ] iPhone Safari and the installed app: the same journey; the paint owned on desktop shows up
 - [ ] `npx convex function-spec --prod` lists the app's functions, and Settings › About shows the released version

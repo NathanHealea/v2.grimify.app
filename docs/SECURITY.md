@@ -52,7 +52,7 @@ Rules:
 - Never commit production secrets (`.env.local` is gitignored; commit `.env.example` only)
 - Never expose private secrets to the client. Only `VITE_*` variables reach the browser, and those must be safe to be public.
 - Store Convex server-side secrets in the Convex dashboard (environment variables)
-- Store CI/deploy secrets in Cloudflare Pages and GitHub Actions secrets
+- Store CI/deploy secrets as Cloudflare Worker build secrets (type Secret, not Variable) and GitHub Actions secrets
 - Rotate compromised credentials immediately
 
 ---
@@ -88,7 +88,7 @@ Required for all user-data functions.
 Authorization:
 Ownership is checked by deriving `userId` from the identity (see §2).
 
-Headers (`public/_headers`, served by Cloudflare Pages on every path; `scripts/static-files.test.ts` pins them):
+Headers (`public/_headers`, applied by the Cloudflare Worker to every static response, including the single-page-app fallback; `scripts/static-files.test.ts` pins them):
 - `Content-Security-Policy`: `'self'` plus the production Convex deployment (`https` and `wss`), Clerk's Frontend API (`clerk.grimify.app`) and the hosts in [Clerk's CSP list](https://clerk.com/docs/guides/secure/best-practices/csp-headers) (Turnstile, `*.protect.clerk.com`, `img.clerk.com`). No `'unsafe-eval'` or inline scripts; `style-src 'unsafe-inline'` because Clerk injects styles at runtime. `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'self'`.
 - `X-Content-Type-Options: nosniff`
 - `Referrer-Policy: strict-origin-when-cross-origin`
