@@ -493,6 +493,26 @@ test("doesn't move content when the title row appears", async ({ page }) => {
     .toBeCloseTo(before.rowOffset, 0);
 });
 
+test("switches the phone title as the large one slides under the header", async ({ page }) => {
+  await page.goto("/paints");
+  await expect(page.getByRole("main").getByRole("status")).toHaveText("2,837 paints");
+
+  // On phones the bar has no box, so the switch point is set by the header's height alone.
+  const switchAt = await page.evaluate(() => {
+    const title = document.querySelector("main h1.page-title");
+    const banner = document.querySelector(".app-shell__header");
+    if (!title || !banner) throw new Error("missing large title or header");
+    return (
+      title.getBoundingClientRect().bottom + window.scrollY - banner.getBoundingClientRect().height
+    );
+  });
+
+  await page.evaluate((y) => window.scrollTo(0, y), switchAt - 8);
+  await expect(header(page)).toHaveAttribute("data-scrolled", "false");
+  await page.evaluate((y) => window.scrollTo(0, y), switchAt + 8);
+  await expect(header(page)).toHaveAttribute("data-scrolled", "true");
+});
+
 test("draws the bar's line under the title row", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto("/paints");
