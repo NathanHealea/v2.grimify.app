@@ -1,13 +1,13 @@
 ---
 type: task
 slug: production-deploy
-status: in-progress
+status: staged
 branch: task/production-deploy
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/task-production-deploy
 created: 2026-10-08
 approved: 2026-10-08
 commit_type:         # optional override for the merge commit type (default: story=feat, bug=fix, task=chore)
-version:             # set by `wi stage`
+version: 0.12.1
 review_approved:     # set by `wi accept`
 pr:                  # set by `wi pr`
 tag:                 # set by `wi release`; the tag sits on the merge commit
@@ -83,6 +83,7 @@ Puts Grimify on `https://grimify.app` for the private beta. Cloudflare Pages bui
 | T3 | R2 | `the site sends nosniff, a referrer policy and a deny-all permissions policy` | `scripts/static-files.test.ts` | The three headers exist in the `/*` block with those exact values; `Permissions-Policy` has `camera=()`, `microphone=()`, `geolocation=()`, `payment=()` |
 | T4 | R1, R2 | `_headers stays within Cloudflare's limits` | `scripts/static-files.test.ts` | Every line ≤ 2,000 characters; ≤ 100 header rules |
 | T6 | R8 | `zod runs jitless before any schema is built` | `src/zod-config.test.ts` | After importing `@/zod-config`, `z.config().jitless` is `true`; `src/main.tsx` imports `@/zod-config` before any import that binds names; `vite.config.ts` sets `strictExecutionOrder: true` |
+| T7 | R1, R2 | `has a single rule, so no path can detach the headers` | `scripts/static-files.test.ts` | `_headers` has exactly one rule, `/*` (added at stage from the test audit) |
 | T5 | R3 | `robots.txt disallows every crawler` | `scripts/static-files.test.ts` | `User-agent: *` followed by `Disallow: /` |
 
 **Not unit testable:** Vite copies `public/` into `dist/` as-is, so the build output isn't tested separately; AC2 and AC3 check it live. R4, R5, R6 and the live half of R1–R3 depend on Cloudflare, Convex production and Clerk production. The owner verifies them on grimify.app after the first deploy with AC1–AC6 (TESTING.md gets the checklist). R7 is a doc review at stage.
@@ -95,7 +96,7 @@ Puts Grimify on `https://grimify.app` for the private beta. Cloudflare Pages bui
 
 After release (owner, not a commit): create the Pages project and set the variables per ENVIRONMENT.md, then push the release; run AC1–AC6 on the live site and file any failure as an issue.
 
-**Must not change:** application code and `vite.config.ts` other than step 3, the Convex schema and functions, `convex/auth.config.ts`, `vite.config.ts`, `package.json` scripts and dependencies.
+**Must not change:** application code and `vite.config.ts` other than step 3, the Convex schema and functions, `convex/auth.config.ts`, `package.json` scripts and dependencies.
 
 **High-risk steps:** None in the branch: it adds two static files and docs, and `git revert` undoes them. The first push after release is outward-facing: it publishes the app at grimify.app and pushes the schema to Convex production. That happens only when the owner pushes, after the Pages project and secrets are set. I never handle the deploy key or `pk_live` key.
 
@@ -119,3 +120,6 @@ After release (owner, not a commit): create the Pages project and set the variab
 - 2026-10-08 — Stage review: zod 4's eval probe (new Function) logs a CSP violation on every load, so AC1 could never pass. Owner approved adding z.config({ jitless: true }) at startup: R8, AC8, T6, step 3 added; Must not change relaxed for step 3.
 - 2026-10-08 — Step 3 approach changed: z.config in a module imported first by main.tsx ran too late (Rolldown evaluates the shared chunk holding zod and the schemas before index; a browser check under the CSP still showed 3 eval violations). Now a src/lib/zod.ts wrapper sets jitless and re-exports z, and ESLint forbids importing zod directly.
 - 2026-10-08 — Step 3 done with owner approval of strictExecutionOrder: served under the CSP, eval violations went from 3 to 0; bundle +32 KB raw / +11.5 KB gzip. DECISIONS 042.
+- 2026-10-08 — The src/lib/zod.ts wrapper was abandoned before commit: src/features/catalog/schema.ts also runs under plain Node and may only import packages. Re-review LOWs fixed in docs: Must-not-change wording, deploy atomicity wording, CSS order trade-off in DECISIONS 042.
+- 2026-10-08 — Test audit: 18/25 mutants killed; tightened T3, T5, T6 and added T7, all 7 survivors now killed (M9 by the parser and T7).
+- 2026-10-08 — Staged: verification passed; version 0.12.0 → 0.12.1; no changelog file.
