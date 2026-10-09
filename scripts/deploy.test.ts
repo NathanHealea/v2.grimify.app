@@ -9,6 +9,7 @@ import {
   type GitState,
   type Plan,
   planDeploy,
+  readGitState,
   runPlan,
   settingsFile,
 } from "./deploy.ts";
@@ -202,7 +203,7 @@ describe("planDeploy", () => {
 
   it("refuses a dirty tree or a HEAD that differs from origin", () => {
     const dirty: GitState = { branch: "stage", dirty: true, ahead: 0, behind: 0 };
-    const ahead: GitState = { branch: "stage", dirty: false, ahead: 2, behind: 0 };
+    const ahead: GitState = { branch: "stage", dirty: false, ahead: 1, behind: 0 };
     const behind: GitState = { branch: "stage", dirty: false, ahead: 0, behind: 1 };
 
     expect(() =>
@@ -257,6 +258,7 @@ describe("planDeploy", () => {
       { key: "dev:happy-otter-123|secretBBB", secret: "secretBBB" },
       { key: "preview:team:proj|secretCCC", secret: "secretCCC" },
       { key: "garbageWithoutAPipeDDD", secret: "garbageWithoutAPipeDDD" },
+      { key: "prod:happy-otter-1234|secretEEE", secret: "secretEEE" },
     ];
 
     for (const { key, secret } of cases) {
@@ -329,5 +331,71 @@ describe("runPlan", () => {
       expect(code).toBe(1);
       expect(calls.map((c) => c.argv[2])).toEqual(["convex"]);
     }
+  });
+});
+
+describe("checkBuiltHeaders without a CSP", () => {
+  it("refuses a build whose _headers has no Content-Security-Policy", () => {
+    expect(() =>
+      checkBuiltHeaders("/*\n  X-Content-Type-Options: nosniff\n", "happy-otter-123"),
+    ).toThrow(/Content-Security-Policy/);
+  });
+});
+
+describe("runPlan failures", () => {
+  function devPlan(): Plan {
+    return planDeploy("dev", cleanGit("dev"), settings(DEV_DEPLOY_KEY), {}, testEnvironments);
+  }
+
+  it("returns the Worker upload's exit code when it fails", async () => {
+    const codes = [0, 2];
+    const code = await runPlan(devPlan(), {
+      run: () => Promise.resolve(codes.shift() ?? 0),
+      readBuiltHeaders: () => Promise.resolve(headersFor("happy-otter-123")),
+    });
+
+    expect(code).toBe(2);
+  });
+
+  it("fails without uploading when dist/_headers can't be read", async () => {
+    const calls: string[][] = [];
+    const code = await runPlan(devPlan(), {
+      run: (argv) => {
+        calls.push(argv);
+        return Promise.resolve(0);
+      },
+      readBuiltHeaders: () => Promise.reject(new Error("ENOENT: dist/_headers")),
+    });
+
+    expect(code).toBe(1);
+    expect(calls.map((argv) => argv[2])).toEqual(["convex"]);
+  });
+});
+
+describe("readGitState", () => {
+  function fakeGit(outputs: Record<string, string>) {
+    const calls: string[] = [];
+    const git = (...args: string[]) => {
+      calls.push(args[0] ?? "");
+      return outputs[args[0] ?? ""] ?? "";
+    };
+    return { calls, git };
+  }
+
+  it("fetches, then reads behind and ahead in rev-list's left-right order", () => {
+    const { calls, git } = fakeGit({ "rev-parse": "dev", status: "", "rev-list": "3\t1" });
+
+    expect(readGitState("dev", git)).toEqual({ branch: "dev", dirty: false, ahead: 1, behind: 3 });
+    expect(calls.indexOf("fetch")).toBeGreaterThanOrEqual(0);
+    expect(calls.indexOf("fetch")).toBeLessThan(calls.indexOf("rev-list"));
+  });
+
+  it("doesn't contact GitHub on the wrong branch or a dirty tree", () => {
+    const wrongBranch = fakeGit({ "rev-parse": "main", status: "" });
+    const dirty = fakeGit({ "rev-parse": "dev", status: " M package.json" });
+
+    expect(readGitState("dev", wrongBranch.git).branch).toBe("main");
+    expect(readGitState("dev", dirty.git).dirty).toBe(true);
+    expect([...wrongBranch.calls, ...dirty.calls]).not.toContain("fetch");
   });
 });

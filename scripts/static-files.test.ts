@@ -225,3 +225,21 @@ describe("vite.config.ts", () => {
     expect(config).toMatch(/^\s*envDir: process\.env\.GRIMIFY_DEPLOY \? false : undefined,$/m);
   });
 });
+
+describe("build and deploy wiring", () => {
+  it("the build runs the CSP plugin", () => {
+    const config = readFileSync(new URL("../vite.config.ts", import.meta.url), "utf8");
+
+    expect(config).toMatch(/^\s*cspHeaders\(\),$/m);
+  });
+
+  it("each deploy script runs its own environment", () => {
+    const { scripts } = JSON.parse(
+      readFileSync(new URL("../package.json", import.meta.url), "utf8"),
+    ) as { scripts: Record<string, string> };
+
+    for (const env of ["dev", "stage", "prod"]) {
+      expect(scripts[`deploy:${env}`], env).toBe(`node scripts/deploy.ts ${env}`);
+    }
+  });
+});

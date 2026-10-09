@@ -194,11 +194,14 @@ export async function runPlan(
   return 0;
 }
 
-function git(...args: string[]): string {
+function runGit(...args: string[]): string {
   return execFileSync("git", args, { encoding: "utf8" }).trim();
 }
 
-function readGitState(branch: string): GitState {
+export function readGitState(
+  branch: string,
+  git: (...args: string[]) => string = runGit,
+): GitState {
   const current = git("rev-parse", "--abbrev-ref", "HEAD");
   const dirty = git("status", "--porcelain") !== "";
   // planDeploy refuses these first, so don't contact GitHub for them.

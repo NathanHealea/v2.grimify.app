@@ -1,9 +1,12 @@
 // @vitest-environment node
 import { readFileSync } from "node:fs";
+import { mkdir, mkdtemp, readFile, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { convexHost, renderHeaders } from "./csp-headers.ts";
+import { convexHost, cspHeaders, renderHeaders } from "./csp-headers.ts";
 
 const template = readFileSync(new URL("../public/_headers", import.meta.url), "utf8");
 
@@ -70,8 +73,57 @@ describe("convexHost", () => {
       "http://happy-otter-123.convex.cloud",
       "https://evil.example",
       "https://a.convex.cloud.evil.example",
+      "https://a.b.convex.cloud",
+      "https://x.convex.cloud:8443",
+      "https://x.convex.cloud/api",
+      "https://xconvex.cloud",
     ]) {
       expect(() => convexHost(url), String(url)).toThrow(/VITE_CONVEX_URL/);
     }
+  });
+});
+
+describe("renderHeaders without a placeholder", () => {
+  it("refuses a template with a hard-coded host", () => {
+    expect(() =>
+      renderHeaders(
+        "/*\n  Content-Security-Policy: default-src 'self'\n",
+        "https://happy-otter-123.convex.cloud",
+      ),
+    ).toThrow(/placeholder/);
+  });
+});
+
+describe("cspHeaders plugin", () => {
+  async function pluginWith(convexUrl: string | undefined) {
+    const root = await mkdtemp(join(tmpdir(), "csp-headers-"));
+    await mkdir(join(root, "dist"));
+    await writeFile(join(root, "dist", "_headers"), template);
+    const plugin = cspHeaders();
+    const call = (hook: unknown, ...args: unknown[]) =>
+      (hook as (...a: unknown[]) => unknown).call({}, ...args);
+    call(plugin.configResolved, {
+      root,
+      env: { VITE_CONVEX_URL: convexUrl },
+      build: { outDir: "dist" },
+    });
+    return { root, plugin, call };
+  }
+
+  it("fails the build at start on a bad Convex URL", async () => {
+    const { plugin, call } = await pluginWith("https://evil.example");
+
+    expect(() => call(plugin.buildStart)).toThrow(/VITE_CONVEX_URL/);
+  });
+
+  it("writes the build's host into dist/_headers", async () => {
+    const { root, plugin, call } = await pluginWith("https://happy-otter-123.convex.cloud");
+
+    call(plugin.buildStart);
+    await call(plugin.writeBundle);
+    const written = await readFile(join(root, "dist", "_headers"), "utf8");
+
+    expect(written).toContain("wss://happy-otter-123.convex.cloud");
+    expect(written).not.toContain("{{");
   });
 });
