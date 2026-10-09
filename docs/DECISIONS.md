@@ -943,7 +943,7 @@ Trade-off: deploys need the owner's machine, with `wrangler login` and three loc
 ## Decision 045 — Thinner glass, and one glass bar on desktop
 
 Date: 2026-10-09
-Status: Accepted
+Status: Accepted; amended by 046 (the bar has `--space-3` above and below its row, the small title returns on desktop as a strip under the bar, and the phone nav loses its outline and shadow)
 
 Context:
 On a phone the owner found the nav bar "looks solid when colors are under the bar": the 16px blur mixes small swatches with the gaps between them, and 70% Surface on top (039) left almost nothing showing. On desktop the nav (placed at the top by 014) floated in a strip the sticky glass header reserved, so content never passed behind the nav and the screen showed two stacked glass layers. The owner asked for "one cohesive glass effect navbar" on desktop and chose a full-width bar with the back link, tabs and status pills in one row.
@@ -963,3 +963,28 @@ Alternatives:
 Consequences:
 Positive: colour shows through the glass on phones; desktop has one glass surface with content passing under it.
 Trade-off: dark mode can only get a little thinner, so the saturation boost does most of the visible work. Tab reaches the tabs before the back link that sits to their left on desktop (unchanged from 039's layout). With both status pills at 640–800px they stack in their column and the bar grows taller. `subgrid` needs Safari 16, Chrome 117 or Firefox 71.
+
+---
+
+## Decision 046 — A roomier desktop bar with a title strip, and a plain glass phone nav
+
+Date: 2026-10-09
+Status: Accepted
+
+Context:
+On dev.grimify.app the owner saw swatch colour glow through the desktop bar but not the phone's bottom bar, and asked for the phone bars to match it. The glass values were already identical; the bottom bar differed by its outline and shadow (and its solid active pill sits over the swatch column). On desktop the owner asked for more room in the bar and for the page title to show at the bottom of the bar once the large title has scrolled under it, which 045 had dropped.
+
+Decision:
+- The phone nav has no outline and no shadow: plain glass like the desktop bar. The active item stays a solid Primary pill, since its label must stay 4.5:1 over any swatch.
+- From 640px the bar has `--space-3` above and below its row.
+- From 640px the small title is a full-width glass strip along the bar's bottom edge, centred, fading in once the large title has scrolled under the bar. It's absolutely positioned against the sticky bar, so it overlays the content and the list doesn't move when it appears. It carries the bar's bottom line; the bar itself has none on desktop. It stays `aria-hidden` and ignores taps.
+
+Alternatives:
+- Keep the phone outline and lighten the shadow: clearer bar edge on a plain screen, but it still reads as a card, not glass
+- A see-through active pill: more colour through the bar, but its label can't be shown to stay readable over mid-tone swatches
+- Grow the bar by a title row when the title appears: one glass element, but the list jumps by the row's height at the switch point
+- Reserve the title row's space all the time: no jump, but an empty band at the top of every page
+
+Consequences:
+Positive: the phone and desktop bars look like the same glass; desktop keeps the page name in view while scrolling.
+Trade-off: the phone bar's edge on a plain screen is only the tint change, and with reduced transparency (solid Surface on a Surface-coloured page) it shows no edge at all, only its items. The title strip covers about 40px of the list while it shows. The bar and the strip are two glass layers that meet at an edge.
