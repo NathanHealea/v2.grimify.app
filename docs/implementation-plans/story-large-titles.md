@@ -1,7 +1,7 @@
 ---
 type: story
 slug: large-titles
-status: staged
+status: released
 branch: story/large-titles
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/story-large-titles
 created: 2026-10-08
@@ -10,7 +10,7 @@ commit_type:         # optional override for the merge commit type (default: sto
 version: 0.12.0
 review_approved: 2026-10-08
 pr:                  # set by `wi pr`
-tag:                 # set by `wi release`; the tag sits on the merge commit
+tag: v0.12.0
 ---
 
 # Large page titles
@@ -136,3 +136,4 @@ Gives every screen an iOS-style large title, as in the owner-approved preview (h
 - 2026-10-08 — R4 reworded: the header border appears with the small title (tied to the large title), not on any scroll.
 - 2026-10-08 — Staged: verification passed; version 0.11.0 → 0.12.0; no changelog file.
 - 2026-10-08 — Review approved.
+- 2026-10-08 — Released 0.12.0 as v0.12.0.
