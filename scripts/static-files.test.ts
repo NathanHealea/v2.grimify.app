@@ -205,3 +205,15 @@ describe("wrangler.json", () => {
     expect(env.stage).not.toHaveProperty("name");
   });
 });
+
+describe("CLAUDE.md", () => {
+  it("work items use dev as their base", () => {
+    const text = readFileSync(new URL("../CLAUDE.md", import.meta.url), "utf8");
+    const match = /^## Work Item Workflow\s*$([\s\S]*?)(?=^## |(?![\s\S]))/m.exec(text);
+    if (!match) throw new Error("No '## Work Item Workflow' section in CLAUDE.md");
+    const section = match[1];
+
+    expect(section).toMatch(/^- base_branch: dev$/m);
+    expect(section.match(/base_branch/g)).toHaveLength(1);
+  });
+});
