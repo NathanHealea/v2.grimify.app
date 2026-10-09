@@ -1,4 +1,5 @@
 import "@/styles/index.css";
+import "@/zod-config";
 
 import { ClerkProvider, useAuth } from "@clerk/react";
 import { RouterProvider } from "@tanstack/react-router";

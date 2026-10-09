@@ -88,11 +88,13 @@ Required for all user-data functions.
 Authorization:
 Ownership is checked by deriving `userId` from the identity (see §2).
 
-Headers (Cloudflare Pages `_headers` file):
-- `Content-Security-Policy`: restrict to self, the Convex URL and the auth-provider domains
+Headers (`public/_headers`, served by Cloudflare Pages on every path; `scripts/static-files.test.ts` pins them):
+- `Content-Security-Policy`: `'self'` plus the production Convex deployment (`https` and `wss`), Clerk's Frontend API (`clerk.grimify.app`) and the hosts in [Clerk's CSP list](https://clerk.com/docs/guides/secure/best-practices/csp-headers) (Turnstile, `*.protect.clerk.com`, `img.clerk.com`). No `'unsafe-eval'` or inline scripts; `style-src 'unsafe-inline'` because Clerk injects styles at runtime. `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'self'`.
 - `X-Content-Type-Options: nosniff`
 - `Referrer-Policy: strict-origin-when-cross-origin`
-- `Permissions-Policy`: deny everything except `camera` (only when barcode scanning ships)
+- `Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()`. Allow `camera` when barcode scanning ships.
+
+Crawlers: `public/robots.txt` disallows everything during the private beta. It isn't access control; anyone with the link can open the app.
 
 ---
 
@@ -155,7 +157,7 @@ If photo color-picking ships later: process the image **client-side only** (canv
 - [ ] Server-side validation on all function args
 - [ ] Secrets only in Convex, Cloudflare or GitHub secret stores
 - [ ] `.env.local` gitignored
-- [ ] Security headers configured
+- [x] Security headers configured (`public/_headers`; verify on grimify.app after each change)
 - [ ] Account deletion works end to end (built; manual check on the dev instance pending)
 - [ ] Errors don't expose sensitive details
 - [ ] `npm audit` reviewed; dependencies kept minimal

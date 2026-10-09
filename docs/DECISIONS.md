@@ -845,3 +845,47 @@ Consequences:
 Positive: a clear page heading on every screen, tab titles per page (WCAG 2.4.2, which "Grimify" everywhere failed), and a header that lines up with the content on desktop.
 Trade-off: the title takes about 48px of content height until you scroll. The header's small title and status pills share the bar, so on a narrow phone with both pills showing the small title truncates.
 
+---
+
+## Decision 041 — Deploy from Cloudflare Pages' own build, with Convex first
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+The MVP needs a production home for the private beta. DECISIONS 007 chose Cloudflare Pages from GitHub. The Clerk production instance is on `grimify.app` (Clerk production needs a domain you own), and the Convex production deployment is `nautical-toucan-398`.
+
+Decision:
+Pages builds `main` with `npx convex deploy --cmd 'npm run build' --cmd-url-env-var-name VITE_CONVEX_URL`, using a production-only `CONVEX_DEPLOY_KEY`. The command builds the frontend against the production URL, then pushes the functions; if either fails, the Pages build fails and nothing is published. Preview builds are off until preview deployments are decided. The app is served at `grimify.app`. `public/_headers` sends a CSP limited to the app, Convex production and Clerk's documented hosts, plus `nosniff`, a referrer policy and a deny-all permissions policy. `public/robots.txt` disallows all crawlers during the beta.
+
+Alternatives:
+- GitHub Actions running `npm run check`, then `convex deploy` and Wrangler: blocks a deploy on failing checks, but adds a workflow, a Cloudflare API token and Wrangler for one owner who already runs checks at `wi stage`
+- Pages preview builds against the dev Convex deployment: previews per branch, but previews would share dev data and Clerk's dev instance would need the preview hosts in the CSP
+- Generate `_headers` at build time from `VITE_CONVEX_URL`: no hard-coded deployment name, but a script for a value that rarely changes
+
+Consequences:
+Positive: every `wi release --push` is a deploy, with no extra tooling or secrets outside Pages and Convex; a failed build or function push publishes nothing. Pages publishes `dist/` after the functions are pushed, so for that moment (or if the publish itself fails) production runs new functions with the old frontend.
+Trade-off: nothing re-runs the checks on the server, so a push from a red branch would deploy. The CSP is only exercised on grimify.app, because `vite dev` and `vite preview` don't apply `_headers`; a mistake there breaks sign-in in production only. Moving Convex deployments or Clerk domains means editing `_headers`.
+
+---
+
+## Decision 042 — Run zod jitless, with the bundle kept in import order
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+The production CSP (DECISIONS 041) forbids eval. Zod 4 checks whether eval works by calling `new Function("")` and catching the error, so the app still works, but the browser reports a CSP violation on every load. That would hide real Clerk violations in the live checks. Calling `z.config({ jitless: true })` first in `main.tsx` wasn't enough: Rolldown put zod and the route schemas in a shared chunk that ran before `main.tsx`'s own code, and a build served with the CSP still showed three violations.
+
+Decision:
+`src/zod-config.ts` sets `z.config({ jitless: true })`, and `src/main.tsx` imports it before anything else that could build a schema. `build.rolldownOptions.output.strictExecutionOrder` is on, so the bundle runs modules in source order. Served under the production CSP, the build reports no eval violations on Paints, search and My Paints.
+
+Alternatives:
+- A `src/lib/zod.ts` wrapper that every schema imports: `src/features/catalog/schema.ts` also runs under plain Node for the catalog build and can only import packages
+- Set zod's internal `globalThis.__zod_globalConfig` from a separate module script in `index.html`: no bundle cost, but relies on an undocumented name a zod upgrade could break silently
+- Accept the violation and exclude it from the live checks: trains people to ignore CSP violations
+
+Consequences:
+Positive: a clean console under the CSP, so any violation in the live checks is real. Import order in `main.tsx` means what it says.
+Trade-off: Rolldown wraps modules with init helpers, about 32 KB more JavaScript (about 11.5 KB gzipped, 5%). Zod validates the few search-param schemas without its compiled fast path. The bundle also splits differently: the route files' eager parts get their own preloaded chunks, and `.page-title` moves to a stylesheet linked before `index.css`. It still wins today (`h1.page-title` beats the bare `h1`), but a future single-class rule in `index.css` on the same element would now beat it.
+

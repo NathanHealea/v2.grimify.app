@@ -1,0 +1,145 @@
+// @vitest-environment node
+import { readFileSync } from "node:fs";
+
+import { describe, expect, it } from "vitest";
+
+const publicDir = new URL("../public/", import.meta.url);
+
+function readPublic(name: string): string {
+  return readFileSync(new URL(name, publicDir), "utf8");
+}
+
+type HeaderRule = { pattern: string; headers: Map<string, string> };
+
+// Cloudflare Pages format: an unindented URL pattern, then indented `Name: value` lines.
+function parseHeaders(text: string): HeaderRule[] {
+  const rules: HeaderRule[] = [];
+  for (const line of text.split(/\r?\n/)) {
+    if (line.trim() === "" || line.trim().startsWith("#")) continue;
+    if (!/^\s/.test(line)) {
+      rules.push({ pattern: line.trim(), headers: new Map() });
+      continue;
+    }
+    const rule = rules.at(-1);
+    if (!rule) throw new Error(`Header line before any URL pattern: ${line}`);
+    const colon = line.indexOf(":");
+    if (colon === -1) throw new Error(`Header line without a colon: ${line}`);
+    rule.headers.set(line.slice(0, colon).trim().toLowerCase(), line.slice(colon + 1).trim());
+  }
+  return rules;
+}
+
+function allPathsHeaders(): Map<string, string> {
+  const rule = parseHeaders(readPublic("_headers")).find((r) => r.pattern === "/*");
+  if (!rule) throw new Error("No /* rule in public/_headers");
+  return rule.headers;
+}
+
+function parseCsp(value: string): Map<string, string[]> {
+  const directives = new Map<string, string[]>();
+  for (const part of value.split(";")) {
+    const [name, ...sources] = part.trim().split(/\s+/);
+    if (!name) continue;
+    directives.set(name.toLowerCase(), sources);
+  }
+  return directives;
+}
+
+function csp(): Map<string, string[]> {
+  const value = allPathsHeaders().get("content-security-policy");
+  if (value === undefined) throw new Error("No Content-Security-Policy on /*");
+  return parseCsp(value);
+}
+
+describe("public/_headers", () => {
+  it("the CSP allows only the app, Convex production and Clerk hosts", () => {
+    const expected: Record<string, string[]> = {
+      "default-src": ["'self'"],
+      "script-src": [
+        "'self'",
+        "https://clerk.grimify.app",
+        "https://challenges.cloudflare.com",
+        "https://*.protect.clerk.com",
+      ],
+      "connect-src": [
+        "'self'",
+        "https://nautical-toucan-398.convex.cloud",
+        "wss://nautical-toucan-398.convex.cloud",
+        "https://clerk.grimify.app",
+        "https://*.protect.clerk.com:*",
+      ],
+      "img-src": ["'self'", "data:", "https://img.clerk.com"],
+      "style-src": ["'self'", "'unsafe-inline'"],
+      "worker-src": ["'self'", "blob:"],
+      "frame-src": ["https://challenges.cloudflare.com", "https://*.protect.clerk.com"],
+      "form-action": ["'self'"],
+      "frame-ancestors": ["'none'"],
+      "base-uri": ["'self'"],
+      "object-src": ["'none'"],
+      "manifest-src": ["'self'"],
+    };
+
+    const directives = csp();
+
+    expect(new Set(directives.keys())).toEqual(new Set(Object.keys(expected)));
+    for (const [name, sources] of Object.entries(expected)) {
+      expect(new Set(directives.get(name)), name).toEqual(new Set(sources));
+    }
+  });
+
+  it("the CSP never allows eval, inline scripts, wildcards or framing", () => {
+    const raw = allPathsHeaders().get("content-security-policy") ?? "";
+    const directives = csp();
+    const scriptSrc = directives.get("script-src") ?? [];
+
+    expect(raw).not.toContain("'unsafe-eval'");
+    expect(scriptSrc).not.toContain("'unsafe-inline'");
+    expect(scriptSrc).not.toContain("*");
+    expect(scriptSrc).not.toContain("http:");
+    expect(scriptSrc).not.toContain("data:");
+    expect(directives.get("frame-ancestors")).toEqual(["'none'"]);
+    expect(raw).not.toContain("clerk.accounts.dev");
+    expect(raw).not.toContain("proper-bloodhound-699");
+  });
+
+  it("the site sends nosniff, a referrer policy and a deny-all permissions policy", () => {
+    const headers = allPathsHeaders();
+
+    expect(headers.get("x-content-type-options")).toBe("nosniff");
+    expect(headers.get("referrer-policy")).toBe("strict-origin-when-cross-origin");
+    // Structured-header dictionary: a repeated key's last value wins, so check the final value per key.
+    const permissions = new Map(
+      (headers.get("permissions-policy") ?? "").split(",").map((entry) => {
+        const [key, value] = entry.trim().split("=");
+        return [key, value] as const;
+      }),
+    );
+    for (const feature of ["camera", "microphone", "geolocation", "payment"]) {
+      expect(permissions.get(feature), feature).toBe("()");
+    }
+  });
+
+  it("_headers stays within Cloudflare's limits", () => {
+    const text = readPublic("_headers");
+
+    for (const line of text.split(/\r?\n/)) {
+      expect(line.length).toBeLessThanOrEqual(2000);
+    }
+    expect(parseHeaders(text).length).toBeLessThanOrEqual(100);
+  });
+
+  it("has a single rule, so no path can detach the headers", () => {
+    expect(parseHeaders(readPublic("_headers")).map((rule) => rule.pattern)).toEqual(["/*"]);
+  });
+});
+
+describe("public/robots.txt", () => {
+  it("robots.txt disallows every crawler", () => {
+    const lines = readPublic("robots.txt")
+      .split(/\r?\n/)
+      .map((l) => l.trim())
+      .filter((l) => l !== "" && !l.startsWith("#"));
+
+    expect(lines).toEqual(["User-agent: *", "Disallow: /"]);
+  });
+});

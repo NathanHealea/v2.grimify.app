@@ -43,6 +43,9 @@ export default defineConfig({
       devOptions: { enabled: false },
     }),
   ],
+  // src/zod-config.ts must run before any schema is built; without this Rolldown runs the shared
+  // chunk holding zod and the route schemas first (DECISIONS 042).
+  build: { rolldownOptions: { output: { strictExecutionOrder: true } } },
   resolve: {
     alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) },
   },
