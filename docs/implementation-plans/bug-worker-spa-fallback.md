@@ -17,7 +17,7 @@ tag:                 # set by `wi release`; the tag sits on the merge commit
 
 ## Summary
 
-Opening or reloading any URL other than `/` on grimify.app (for example `/paints` or a paint's page) returns an empty 404. The site is hosted on a Cloudflare Worker with static assets, not a Pages project, because Cloudflare's dashboard now creates Workers by default and is folding Pages into Workers. A Worker without configuration doesn't fall back to `index.html` like Pages does. A `wrangler.jsonc` turns on single-page-app fallback, and the docs are corrected from Pages to Workers.
+Opening or reloading any URL other than `/` on grimify.app (for example `/paints` or a paint's page) returns an empty 404. The site is hosted on a Cloudflare Worker with static assets, not a Pages project, because Cloudflare's dashboard now creates Workers by default and is folding Pages into Workers. A Worker without configuration doesn't fall back to `index.html` like Pages does. A `wrangler.json` turns on single-page-app fallback, and the docs are corrected from Pages to Workers.
 
 ## Context
 
@@ -34,7 +34,7 @@ Opening or reloading any URL other than `/` on grimify.app (for example `/paints
 
 **In scope**
 
-- `wrangler.jsonc` at the repo root: Worker name, compatibility date, assets directory `./dist`, SPA fallback. No `main` script.
+- `wrangler.json` at the repo root: Worker name, compatibility date, assets directory `./dist`, SPA fallback. No `main` script.
 - A unit test pinning that config.
 - Docs: ENVIRONMENT.md Production section rewritten for Workers Builds; DECISIONS 043 (Workers static assets instead of Pages, amending 007 and 041); SECURITY, TESTING, ARCHITECTURE, ROADMAP wording.
 
@@ -58,14 +58,14 @@ Opening or reloading any URL other than `/` on grimify.app (for example `/paints
 - **AC1** (R1) — Given the deployed site, when I run `curl -s -o /dev/null -w "%{http_code}" https://grimify.app/paints`, then it prints `200`, and pasting a paint URL into a new private window opens that paint.
 - **AC2** (R2) — Given the deployed site, when I fetch `/robots.txt` and `/manifest.webmanifest`, then I get those files, not HTML.
 - **AC3** (R3) — Given the deployed site, when I run `curl -sI https://grimify.app/paints`, then the CSP, `nosniff`, `Referrer-Policy` and `Permissions-Policy` are present.
-- **AC4** (R4) — Given `wrangler.jsonc`, when I read it, then it has no `main` key.
+- **AC4** (R4) — Given `wrangler.json`, when I read it, then it has no `main` key.
 - **AC5** (R5) — Given only ENVIRONMENT.md, when I rebuild the Worker from it, then every setting matches the dashboard, with no secret value written down.
 
 ## Test plan
 
 | ID | Covers | Test | File | Asserts |
 |----|--------|------|------|---------|
-| T1 | R1 | `serves index.html for every unmatched path` | `scripts/static-files.test.ts` | `wrangler.jsonc` parses as JSON; `assets.not_found_handling` is `"single-page-application"`; `assets.directory` is `"./dist"` (Vite's `build.outDir` default; the config sets none) |
+| T1 | R1 | `serves index.html for every unmatched path` | `scripts/static-files.test.ts` | `wrangler.json` parses as JSON; `assets.not_found_handling` is `"single-page-application"`; `assets.directory` is `"./dist"` (Vite's `build.outDir` default; the config sets none) |
 | T2 | R4 | `deploys assets only, as the v2-grimify-app Worker` | `scripts/static-files.test.ts` | No `main`; `name` is `"v2-grimify-app"`; `compatibility_date` is a `YYYY-MM-DD` date; top-level keys are exactly `name`, `compatibility_date`, `assets` |
 | T3 | R3 | existing T1–T7 | `scripts/static-files.test.ts` | Unchanged: `_headers` still pins the CSP and headers |
 
@@ -73,8 +73,8 @@ The bug's regression check is live, not unit: R1–R3 depend on Cloudflare servi
 
 ## Implementation plan
 
-1. [ ] Add `wrangler.jsonc` (name, compatibility date, `assets.directory` `./dist`, `not_found_handling` SPA) and its tests — touches `wrangler.jsonc`, `scripts/static-files.test.ts` — tests T1, T2, T3
-2. [ ] Correct the docs from Pages to Workers: ENVIRONMENT.md Production section, DECISIONS 043, and Pages wording in SECURITY, TESTING, ARCHITECTURE, ROADMAP — touches `docs/ENVIRONMENT.md`, `docs/DECISIONS.md`, `docs/SECURITY.md`, `docs/TESTING.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md` — tests none (docs)
+1. [x] Add `wrangler.json` (name, compatibility date, `assets.directory` `./dist`, `not_found_handling` SPA) and its tests — touches `wrangler.json`, `scripts/static-files.test.ts` — tests T1, T2, T3
+2. [x] Correct the docs from Pages to Workers: ENVIRONMENT.md Production section, DECISIONS 043, and Pages wording in SECURITY, TESTING, ARCHITECTURE, ROADMAP — touches `docs/ENVIRONMENT.md`, `docs/DECISIONS.md`, `docs/SECURITY.md`, `docs/TESTING.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md` — tests none (docs)
 
 After release (owner): push, let the Worker build `main`, then run AC1–AC3.
 
@@ -84,7 +84,7 @@ After release (owner): push, let the Worker build `main`, then run AC1–AC3.
 
 ## Risks and open questions
 
-- **Wrangler takes over from its defaults.** Today `npx wrangler deploy` runs with no config and somehow finds `dist/`. With `wrangler.jsonc` present, the file wins. If the name doesn't match `v2-grimify-app`, Wrangler deploys a new, second Worker without the custom domains. T2 pins the name, but only the first deploy proves it.
+- **Wrangler takes over from its defaults.** Today `npx wrangler deploy` runs with no config and somehow finds `dist/`. With `wrangler.json` present, the file wins. If the name doesn't match `v2-grimify-app`, Wrangler deploys a new, second Worker without the custom domains. T2 pins the name, but only the first deploy proves it.
 - **Assets-only config without `main`:** Cloudflare's SPA example has none, but the main static-assets page doesn't say outright that `main` is optional. Verified only by the deploy.
 - **The SPA rule also answers missing hashed assets with `index.html`** (200, HTML). A stale tab requesting an old chunk gets HTML instead of a 404, and the module load fails with a MIME-type error rather than a 404. The service worker's update prompt is the existing recovery path.
 - **`npx wrangler deploy` is unpinned**: each build downloads the latest Wrangler. A breaking Wrangler release or a compromised package would land in the production deploy. Pinning means adding `wrangler` as a dev dependency, which needs the owner's approval; not in this item.
@@ -95,3 +95,4 @@ After release (owner): push, let the Worker build `main`, then run AC1–AC3.
 - 2026-10-08 — Planned.
 - 2026-10-08 — Plan approved.
 - 2026-10-08 — Started on branch bug/worker-spa-fallback from origin/main.
+- 2026-10-08 — Config file is wrangler.json, not .jsonc: Prettier adds trailing commas to .jsonc, which JSON.parse in the test rejects; Wrangler reads either.
