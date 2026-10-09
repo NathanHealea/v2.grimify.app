@@ -167,7 +167,7 @@
 .app-shell__tab-list {
   display: flex;
   gap: var(--space-1);
-  min-height: calc(var(--tab-bar-height) - 2 * var(--space-1) - 2 * var(--border-width));
+  min-height: calc(var(--tab-bar-height) - 2 * var(--space-1));
   padding: 0;
   list-style: none;
 }
@@ -236,6 +236,16 @@
       calc(var(--space-4) + env(safe-area-inset-left)),
       calc((100% - var(--content-max-width)) / 2 + var(--space-4))
     );
+  }
+
+  /* The glass sits on a layer behind the bar's items, not on the bar: an element with a
+     backdrop-filter is the backdrop root for everything inside it (Filter Effects 2), so the title
+     strip would only blur the bar, not the page under it. */
+  .app-shell__bar::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    content: "";
     background: var(--color-background);
   }
 
@@ -246,7 +256,8 @@
     top: 100%;
     right: 0;
     left: 0;
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-2) calc(var(--space-4) + env(safe-area-inset-right)) var(--space-2)
+      calc(var(--space-4) + env(safe-area-inset-left));
     text-align: center;
     background: var(--color-background);
     border-bottom: var(--border-width) solid var(--color-border);
@@ -254,7 +265,7 @@
 
   @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) and
     (color: color-mix(in srgb, currentcolor 50%, transparent)) {
-    .app-shell__bar,
+    .app-shell__bar::before,
     .app-shell__title {
       background: var(--color-glass);
       /* stylelint-disable-next-line property-no-vendor-prefix -- Safari before 18 only knows the prefixed name */
@@ -264,7 +275,7 @@
   }
 
   @media (prefers-reduced-transparency: reduce) {
-    .app-shell__bar,
+    .app-shell__bar::before,
     .app-shell__title {
       background: var(--color-background);
       /* stylelint-disable-next-line property-no-vendor-prefix -- matches the rule above */

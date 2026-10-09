@@ -10,16 +10,19 @@ const bar = (page: Page) => page.locator(".app-shell__bar");
 const nav = (page: Page) => page.getByRole("navigation", { name: "Main" });
 
 // Copied from nav.spec.ts: any CSS colour syntax comes back as sRGB bytes once painted.
-async function computedColor(target: Locator, property: string): Promise<Rgba> {
-  return target.evaluate((element, prop) => {
-    const value = getComputedStyle(element).getPropertyValue(prop);
-    const ctx = document.createElement("canvas").getContext("2d", { willReadFrequently: true });
-    if (!ctx) throw new Error("no 2d canvas context");
-    ctx.fillStyle = value;
-    ctx.fillRect(0, 0, 1, 1);
-    const [r, g, b, a] = ctx.getImageData(0, 0, 1, 1).data;
-    return { r, g, b, a: a / 255 };
-  }, property);
+async function computedColor(target: Locator, property: string, pseudo?: string): Promise<Rgba> {
+  return target.evaluate(
+    (element, [prop, pseudoElt]) => {
+      const value = getComputedStyle(element, pseudoElt).getPropertyValue(prop);
+      const ctx = document.createElement("canvas").getContext("2d", { willReadFrequently: true });
+      if (!ctx) throw new Error("no 2d canvas context");
+      ctx.fillStyle = value;
+      ctx.fillRect(0, 0, 1, 1);
+      const [r, g, b, a] = ctx.getImageData(0, 0, 1, 1).data;
+      return { r, g, b, a: a / 255 };
+    },
+    [property, pseudo ?? null] as const,
+  );
 }
 
 function over(top: Rgba, bottom: Rgba): Rgba {
@@ -73,12 +76,12 @@ function middle({ y, height }: { y: number; height: number }): number {
   return y + height / 2;
 }
 
-async function backdropFilter(target: Locator): Promise<string> {
-  return target.evaluate((el) => {
-    const style = getComputedStyle(el);
+async function backdropFilter(target: Locator, pseudo?: string): Promise<string> {
+  return target.evaluate((el, pseudoElt) => {
+    const style = getComputedStyle(el, pseudoElt);
     // Safari before 18 reports only the prefixed property; an empty value means none applies.
     return style.backdropFilter || style.getPropertyValue("-webkit-backdrop-filter") || "none";
-  });
+  }, pseudo ?? null);
 }
 
 async function expectAligned(page: Page, width: number) {
@@ -341,7 +344,7 @@ test("merges the header and nav into one bar on desktop", async ({
       .soft(spans.right, `bar ends at the window edge at ${width}px`)
       .toBeCloseTo(viewportWidth, 0);
     if (browserName === "chromium") {
-      const filter = await backdropFilter(bar(page));
+      const filter = await backdropFilter(bar(page), "::before");
       expect.soft(filter, `bar blur at ${width}px`).toContain("blur(16px)");
       // Chromium serialises saturate(180%) as saturate(1.8).
       expect.soft(filter, `bar saturation at ${width}px`).toContain("saturate(1.8)");
@@ -549,11 +552,14 @@ test("makes the title row solid with reduced transparency", async ({ page, brows
   await page.evaluate(() => window.scrollTo(0, 300));
   await expect(smallTitle(page)).toBeVisible();
 
-  const glass = await computedColor(bar(page), "background-color");
+  const glass = await computedColor(bar(page), "background-color", "::before");
   expect
     .soft((await computedColor(smallTitle(page), "background-color")).a, "title row glass")
     .toBeCloseTo(glass.a, 2);
   expect.soft(await backdropFilter(smallTitle(page)), "title row blur").toContain("blur(16px)");
+  // A backdrop-filter on the bar would make it the title row's backdrop root, so the row would
+  // blur only the bar and the list would show through it sharp.
+  expect.soft(await backdropFilter(bar(page)), "no filter on the bar itself").toBe("none");
 
   // Playwright 1.63's emulateMedia has no reducedTransparency option, so set the media feature directly.
   const cdp = await page.context().newCDPSession(page);
@@ -602,7 +608,7 @@ test("keeps the desktop bar readable", async ({ page }) => {
 
     // A blur over one solid colour is that colour, so blending the glass over black and white
     // gives the same backdrop as a solid swatch scrolled under the bar.
-    const glass = await computedColor(bar(page), "background-color");
+    const glass = await computedColor(bar(page), "background-color", "::before");
     const backdrops = [
       over(glass, { r: 0, g: 0, b: 0, a: 1 }),
       over(glass, { r: 255, g: 255, b: 255, a: 1 }),
@@ -700,6 +706,6 @@ test("makes the desktop bar solid with reduced transparency", async ({ page, bro
   ).toBe(true);
 
   await expect(bar(page)).toHaveCount(1);
-  expect(await backdropFilter(bar(page))).toBe("none");
-  expect((await computedColor(bar(page), "background-color")).a).toBe(1);
+  expect(await backdropFilter(bar(page), "::before")).toBe("none");
+  expect((await computedColor(bar(page), "background-color", "::before")).a).toBe(1);
 });

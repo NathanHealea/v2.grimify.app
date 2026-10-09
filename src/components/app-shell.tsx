@@ -42,7 +42,7 @@ function Shell({ children }: Props) {
   const header = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
 
-  // The small header title appears once the large one has slid under the header (DECISIONS 040).
+  // The small title appears once the large one has slid under the header, or the bar from 640px (DECISIONS 040, 046).
   useEffect(() => {
     const element = pageTitle?.element;
     if (!element) return;
