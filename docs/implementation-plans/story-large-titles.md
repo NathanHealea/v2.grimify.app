@@ -75,7 +75,7 @@ Gives every screen an iOS-style large title, as in the owner-approved preview (h
 - **AC1** (R1, R2) — Given Paints on a phone, when it opens, then "Paints" is large above the search box. When I scroll, a small "Paints" fades into the header. When I scroll back up, it fades out.
 - **AC2** (R1, R2) — Given a paint page, when I scroll past the swatch and name, then the header shows "‹ Paints" and the paint's name.
 - **AC3** (R3) — Given VoiceOver, when I open Settings, then "Settings, heading level 1" is read once.
-- **AC4** (R5) — Given a 1440px window, when I look at Paints, then the large title, the small header title and the search box share a left edge.
+- **AC4** (R5) — Given a 1440px window, when I look at Paints, then the large title, the header's back-link column and the search box share a left edge, the status pills end at the content's right edge, and the small header title is centred on the content column.
 - **AC5** (R6) — Given I open Mephiston Red, when I look at the browser tab, then it reads "Mephiston Red · Grimify".
 - **AC6** (R4) — Given swatches scrolling under the header, when I look at it, then they show through blurred, and the title stays readable.
 
@@ -87,7 +87,7 @@ Gives every screen an iOS-style large title, as in the owner-approved preview (h
 | T2 | R2 | `shows the small title once the large one scrolls away` | `src/components/app-shell.test.tsx` | The header carries `data-scrolled="false"` initially; after `triggerIntersection` reports the large title not intersecting → `"true"`; intersecting again → `"false"` |
 | T3 | R1, R6 | `names the page in the tab` | `src/components/page-title.test.tsx` | `PageTitle` with "Mephiston Red" sets `document.title` to "Mephiston Red · Grimify"; on unmount it returns to "Grimify"; a title change updates it |
 | T4 | R1, R6 | `titles the paint page with the paint's name` | `src/features/catalog/paint-detail.test.tsx` | The paint page's `h1` is the paint's name via the large-title component; the tab title is "<name> · Grimify"; the missing paint → "Paint not found · Grimify" |
-| E1 | R2, R4, R5 | `collapses the title and lines the header up` | `tests/e2e/header.spec.ts` | Pixel 7: the small title's computed opacity is 0 at the top, 1 after scrolling 300px. 1440px and 768px: the large title's, small title's and search box's left edges match within 1px; the header box spans the viewport. Chromium: the header's `backdrop-filter` has `blur(16px)` |
+| E1 | R2, R4, R5 | `collapses the title and lines the header up` | `tests/e2e/header.spec.ts` | Pixel 7: the small title's computed opacity is 0 at the top, 1 after scrolling 300px. 1440px and 768px: the large title's, the header's first column's and the search box's left edges match the content column within 1px, the status column's right edge matches it, and the small title is centred on the column within 2px; the header box spans the viewport. Chromium: the header's `backdrop-filter` has `blur(16px)` |
 | E2 | R7 | `keeps the header title readable` | `tests/e2e/header.spec.ts` | Same method as story-glass-nav E3: the small title colour vs. glass blended over black and over white ≥ 4.5:1, light and dark |
 | E3 | R1, R6 | existing specs updated | `tests/e2e/offline.spec.ts`, `catalog.spec.ts` | Specs that read the header `h1` (e.g. "Mephiston Red" level-1 heading) still pass; adjust selectors only where the heading moved from the header to `main` |
 
@@ -97,11 +97,11 @@ Gives every screen an iOS-style large title, as in the owner-approved preview (h
 
 ## Implementation plan
 
-1. [ ] `PageTitle` component: renders the large `h1`, sets `document.title`, and registers the title and its element with the shell through a small context; plus the `--text-display` tokens — touches `src/components/page-title.tsx`, `src/components/page-title.css`, `src/components/page-title.test.tsx`, `src/styles/tokens.css` — tests T3
-2. [ ] Shell header: the small `aria-hidden` title from the context, `data-scrolled` driven by an `IntersectionObserver` on the large title, the fade, the glass background and conditional border, and column alignment at 640px and up; list routes render `PageTitle` from `staticData.title` — touches `src/components/app-shell.tsx`, `src/components/app-shell.css`, `src/components/app-shell.test.tsx` — tests T1, T2
-3. [ ] Paint detail uses `PageTitle` for its name and its missing state — touches `src/features/catalog/paint-detail.tsx`, `src/features/catalog/paint-detail.css`, `src/features/catalog/paint-detail.test.tsx` — tests T4
-4. [ ] Playwright header spec, and existing specs adjusted where the `h1` moved — touches `tests/e2e/header.spec.ts`, `tests/e2e/offline.spec.ts`, `tests/e2e/catalog.spec.ts` — tests E1, E2, E3
-5. [ ] Docs:
+1. [x] `PageTitle` component: renders the large `h1`, sets `document.title`, and registers the title and its element with the shell through a small context; plus the `--text-display` tokens — touches `src/components/page-title.tsx`, `src/components/page-title.css`, `src/components/page-title.test.tsx`, `src/styles/tokens.css` — tests T3
+2. [x] Shell header: the small `aria-hidden` title from the context, `data-scrolled` driven by an `IntersectionObserver` on the large title, the fade, the glass background and conditional border, and column alignment at 640px and up; list routes render `PageTitle` from `staticData.title` — touches `src/components/app-shell.tsx`, `src/components/app-shell.css`, `src/components/app-shell.test.tsx` — tests T1, T2
+3. [x] Paint detail uses `PageTitle` for its name and its missing state — touches `src/features/catalog/paint-detail.tsx`, `src/features/catalog/paint-detail.css`, `src/features/catalog/paint-detail.test.tsx` — tests T4
+4. [x] Playwright header spec, and existing specs adjusted where the `h1` moved — touches `tests/e2e/header.spec.ts`, `tests/e2e/offline.spec.ts`, `tests/e2e/catalog.spec.ts` — tests E1, E2, E3
+5. [x] Docs:
     - **DESIGN_SYSTEM:** §4 the display size, §11 the header and large title.
     - **UX_FLOWS:** screen titles.
     - **DECISIONS 040:** large titles with a collapsing header.
@@ -132,3 +132,4 @@ Gives every screen an iOS-style large title, as in the owner-approved preview (h
 - 2026-10-08 — Planned. The owner chose large iOS-style titles everywhere, from the preview, with the desktop title inside the content's max width. Replaces the dropped header-alignment draft.
 - 2026-10-08 — Plan approved.
 - 2026-10-08 — Started on branch story/large-titles from origin/main.
+- 2026-10-08 — E1/AC4 reworded: the small title is centred, so it's checked as centred on the content column, with the header's outer columns aligned to the column edges.
