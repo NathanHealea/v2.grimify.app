@@ -1,0 +1,3 @@
+# Private beta: keep crawlers out until the app is public (DECISIONS 041).
+User-agent: *
+Disallow: /
