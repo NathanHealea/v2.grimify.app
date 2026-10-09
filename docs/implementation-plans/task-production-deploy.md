@@ -8,7 +8,7 @@ created: 2026-10-08
 approved: 2026-10-08
 commit_type:         # optional override for the merge commit type (default: story=feat, bug=fix, task=chore)
 version: 0.12.1
-review_approved:     # set by `wi accept`
+review_approved: 2026-10-08
 pr:                  # set by `wi pr`
 tag:                 # set by `wi release`; the tag sits on the merge commit
 ---
@@ -123,3 +123,4 @@ After release (owner, not a commit): create the Pages project and set the variab
 - 2026-10-08 — The src/lib/zod.ts wrapper was abandoned before commit: src/features/catalog/schema.ts also runs under plain Node and may only import packages. Re-review LOWs fixed in docs: Must-not-change wording, deploy atomicity wording, CSS order trade-off in DECISIONS 042.
 - 2026-10-08 — Test audit: 18/25 mutants killed; tightened T3, T5, T6 and added T7, all 7 survivors now killed (M9 by the parser and T7).
 - 2026-10-08 — Staged: verification passed; version 0.12.0 → 0.12.1; no changelog file.
+- 2026-10-08 — Review approved.
