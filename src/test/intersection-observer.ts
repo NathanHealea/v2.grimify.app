@@ -26,8 +26,8 @@ export class FakeIntersectionObserver {
   }
 }
 
-export function triggerIntersection() {
+export function triggerIntersection(isIntersecting = true) {
   for (const { callback, observed } of [...observers]) {
-    if (observed) callback([{ isIntersecting: true }]);
+    if (observed) callback([{ isIntersecting }]);
   }
 }
