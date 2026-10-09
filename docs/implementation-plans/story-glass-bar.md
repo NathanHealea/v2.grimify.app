@@ -95,9 +95,9 @@ Playwright runs as iPhone 15 (WebKit) and Pixel 7 (Chromium); desktop cases set 
 
 ## Implementation plan
 
-1. [ ] One glass bar from 640px: wrap the nav and header in a `div.app-shell__bar` (`display: contents` below 640px, so nothing changes on phones); from 640px it's the sticky full-width glass grid, the header joins it through `subgrid`, the nav loses its own glass, border, shadow and fixed position, the nav-reserve strip goes, and the small title is hidden — touches `src/components/app-shell.tsx`, `src/components/app-shell.css`, `tests/e2e/header.spec.ts`, `tests/e2e/nav.spec.ts` — tests T4, T5, T6, T7, T8, T9, T10, T11
-2. [ ] Thinner glass with a saturation boost: per-theme `--color-glass` alpha and a `--glass-saturate` token, used by every glass rule — touches `src/styles/tokens.css`, `src/components/app-shell.css`, `tests/e2e/nav.spec.ts` — tests T1, T2, T3
-3. [ ] Docs: DECISIONS 045 amending 039 and 040; DESIGN_SYSTEM §11 (header, nav bar, contrast) and the tokens table; UX_FLOWS page-title line — touches `docs/DECISIONS.md`, `docs/DESIGN_SYSTEM.md`, `docs/UX_FLOWS.md` — tests none (docs only)
+1. [x] One glass bar from 640px: wrap the nav and header in a `div.app-shell__bar` (`display: contents` below 640px, so nothing changes on phones); from 640px it's the sticky full-width glass grid, the header joins it through `subgrid`, the nav loses its own glass, border, shadow and fixed position, the nav-reserve strip goes, and the small title is hidden — touches `src/components/app-shell.tsx`, `src/components/app-shell.css`, `tests/e2e/header.spec.ts`, `tests/e2e/nav.spec.ts` — tests T4, T5, T6, T7, T8, T9, T10, T11
+2. [x] Thinner glass with a saturation boost: per-theme `--color-glass` alpha and a `--glass-saturate` token, used by every glass rule — touches `src/styles/tokens.css`, `src/components/app-shell.css`, `tests/e2e/nav.spec.ts` — tests T1, T2, T3
+3. [x] Docs: DECISIONS 045 amending 039 and 040; DESIGN_SYSTEM §11 (header, nav bar, contrast) and the tokens table; UX_FLOWS page-title line — touches `docs/DECISIONS.md`, `docs/DESIGN_SYSTEM.md`, `docs/UX_FLOWS.md` — tests none (docs only)
 
 **Must not change:** the landmarks ("Main" `nav`, `banner`, `main`) and their DOM order; tab routes, labels and `aria-current`; the `PageTitle` `h1` and tab titles; the phone layout apart from glass values.
 
@@ -119,3 +119,5 @@ Playwright runs as iPhone 15 (WebKit) and Pixel 7 (Chromium); desktop cases set 
 - 2026-10-09 — Planned.
 - 2026-10-09 — Plan approved.
 - 2026-10-09 — Started on branch story/glass-bar from origin/dev.
+- 2026-10-09 — Step 1 done. T4 checks the status-pill group against the tabs' row (both pills stack at 768px, allowed by R6) and T5 allows the bar's 1px border; T4 also checks the large title against the content column.
+- 2026-10-09 — All steps done; full e2e suite 36 passed, 4 skipped (Chromium-only on WebKit).
