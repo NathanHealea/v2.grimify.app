@@ -3,10 +3,10 @@
 > Status: **Draft v0.2**. Auth = Clerk.
 > Vite only exposes variables prefixed `VITE_` to the browser. **Everything with `VITE_` is public.**
 
-## Public Variables (browser bundle, `.env.local` / Cloudflare Worker build)
+## Public Variables (browser bundle, `.env.local` / deploy settings)
 
 ```bash
-VITE_CONVEX_URL=              # https://<deployment>.convex.cloud (set automatically by `npx convex dev` / `convex deploy`)
+VITE_CONVEX_URL=              # https://<deployment>.convex.cloud (set automatically by `npx convex dev` / `convex deploy`); the build writes its host into the CSP
 VITE_CLERK_PUBLISHABLE_KEY=   # pk_test_… (dev) / pk_live_… (prod)
 VITE_APP_URL=                 # e.g. http://localhost:5173 / https://grimify.app
 ```
@@ -24,10 +24,14 @@ CLERK_JWT_ISSUER_DOMAIN=      # Clerk Frontend API URL, shown when you activate 
                               # .../tokens/convex returns 404 and Convex treats everyone as signed out.
 ```
 
-### CI / hosting secrets (Cloudflare Worker build settings or GitHub Actions secrets)
+### Deploy settings (local only, one file per environment)
+`npm run deploy:<env>` reads `.env.deploy.<env>.local` (`dev`, `stage` or `prod`). The files are git-ignored (`.env.*`); never commit them.
 ```bash
-CONVEX_DEPLOY_KEY=            # production deploy key from the Convex dashboard
+CONVEX_DEPLOY_KEY=            # production-type deploy key for that environment's Convex deployment: prod:<deployment>|…
+                              # (npx convex deployment token create <name> --deployment <ref> --save-env .env.deploy.<env>.local)
+VITE_CLERK_PUBLISHABLE_KEY=   # pk_live_… from the Clerk production instance; the same in all three files
 ```
+The deploy refuses a missing file or variable, a `pk_test_` key, or a deploy key for any deployment other than the one `scripts/deploy.ts` records for that environment.
 
 ### Local only, and CI secrets
 ```bash
@@ -42,71 +46,87 @@ CLERK_SECRET_KEY=             # sk_test_… from the Clerk dev instance; Playwri
 
 ## Environments
 
-| Environment | Frontend | Convex deployment |
-|---|---|---|
-| Local | `npm run dev` (localhost:5173) | personal dev deployment (`npx convex dev`) |
-| Preview | Off: the Worker builds only `main` (DECISIONS 041, 043) | **TBD:** Convex preview deployments, or share dev |
-| Production | `https://grimify.app` | `nautical-toucan-398` |
+| Environment | Branch | Site | Cloudflare Worker | Convex deployment | Clerk |
+|---|---|---|---|---|---|
+| Local | any | `npm run dev` (localhost:5173) | none | personal dev deployment (`npx convex dev`) | dev instance |
+| Dev | `dev` | `https://dev.grimify.app` | `v2-grimify-app-dev` | `develop` (name recorded in `scripts/deploy.ts`) | production instance |
+| Stage | `stage` | `https://stage.grimify.app` | `v2-grimify-app-stage` | `stage` (name recorded in `scripts/deploy.ts`) | production instance |
+| Production | `main` | `https://grimify.app` | `v2-grimify-app` | `nautical-toucan-398` | production instance |
+
+Dev and stage sign in with real production accounts (Clerk allows this on subdomains of the production domain), but keep their own collections: nothing they write reaches production data. Every environment shows the live catalog, because the catalog is built into the app. Signing in on one `*.grimify.app` site signs you in on all of them. **Delete account on dev or stage deletes the real account.**
 
 ---
 
-## Production
+## Deploying
 
-Pushing `main` deploys production (DECISIONS 041, 043). The site is the Cloudflare Worker `v2-grimify-app`, an assets-only Worker configured by `wrangler.json`. Workers Builds runs two commands on each commit:
-1. The build command builds the frontend against the production Convex URL, then pushes the functions (`npx convex deploy --help`). If either step fails, the build stops.
-2. The deploy command (`npx wrangler deploy`) uploads `dist/` to the Worker. The functions are already live by then, so they briefly serve the old frontend; if the deploy command fails, they keep serving it until the next good deploy.
-
-First-time setup, in this order (connecting the repo starts a build of `main` straight away, and the function push fails while the issuer is unset):
-1. Clerk production instance: domain and Convex integration (below).
-2. `npx convex env set --prod CLERK_JWT_ISSUER_DOMAIN` (below).
-3. Create the Worker from the repo with the settings and variables below. Its first build is the first production deploy.
-
-### Cloudflare Worker (`v2-grimify-app`)
-
-Workers & Pages → `v2-grimify-app` → Settings → Build:
-
-| Setting | Value |
-|---|---|
-| Git repository | `NathanHealea/v2.grimify.app` |
-| Branch control | `main`. Builds for other branches stay off (Settings → Build → Branch control and the Previews Base tab): every build runs `convex deploy` with the production key, so a branch build would deploy that branch's functions to production. |
-| Build command | `npx convex deploy --cmd 'npm run build' --cmd-url-env-var-name VITE_CONVEX_URL` |
-| Deploy command | `npx wrangler deploy` (reads `wrangler.json`: assets from `./dist`, single-page-app fallback) |
-| Root directory | `/` |
-| Node.js | From `.nvmrc` (`24`) |
-| Custom domain | `grimify.app` (Settings → Domains & Routes). An apex domain must be a zone on the same Cloudflare account. `www.grimify.app` redirects to it with a Cloudflare redirect rule rather than serving the app, so there's one origin for sign-in, storage and the installed app. |
-
-Build variables (Settings → Build → Variables and secrets). Only these two:
-
-| Name | Type | Value |
-|---|---|---|
-| `CONVEX_DEPLOY_KEY` | Secret | Convex dashboard → `nautical-toucan-398` → Settings → generate a production deploy key |
-| `VITE_CLERK_PUBLISHABLE_KEY` | Variable | `pk_live_…` from the Clerk production instance. The part after `pk_live_` decodes (base64) to `clerk.grimify.app$`. |
-
-Don't set `VITE_CONVEX_URL`, `CONVEX_DEPLOYMENT`, `CLERK_SECRET_KEY` or `CLERK_JWT_ISSUER_DOMAIN` here: `convex deploy` passes the URL to the build, the issuer lives on the Convex deployment, and the browser build never needs a Clerk secret. The deploy key must be a Secret, never a plain Variable.
-
-`wrangler.json`'s `name` must stay `v2-grimify-app`; another name makes `wrangler deploy` create a second Worker without the domains.
-
-### Convex production
-
-Set the issuer once (the CLI prompts for the value when it's left off):
+Each environment deploys with one command, run from its branch with everything committed and pushed (DECISIONS 044):
 
 ```bash
-npx convex env set --prod CLERK_JWT_ISSUER_DOMAIN   # https://clerk.grimify.app
-npx convex env list --prod                          # check it
-npx convex function-spec --prod                     # after a deploy: lists the app's functions
+npm run deploy:dev     # from dev
+npm run deploy:stage   # from stage
+npm run deploy:prod    # from main
 ```
 
-`npx convex deploy` from a laptop also deploys production (it targets the project's production deployment when `CONVEX_DEPLOYMENT` is set), but production deploys normally come from the Worker's build.
+`scripts/deploy.ts` checks the branch, a clean tree, `HEAD` matching `origin/<branch>`, and the settings file, then:
+1. `npx --no convex deploy --env-file .env.deploy.<env>.local --cmd 'npm run build' --cmd-url-env-var-name VITE_CONVEX_URL`: builds the frontend against that environment's Convex URL, then pushes the functions. If either fails, it stops.
+2. Checks `dist/_headers` names that environment's Convex deployment. A mismatch stops before anything reaches Cloudflare.
+3. `npx --no wrangler deploy --env <dev|stage|"">` (an empty `--env` is production): uploads `dist/` to the Worker. The functions are already live by then, so they briefly serve the old frontend; if this step fails, they keep serving it until the next good deploy.
+
+What the deploy keeps out:
+- `.env.local`: the deploy sets `GRIMIFY_DEPLOY`, and the build then loads no `.env` files, so your personal dev values never ship.
+- `CONVEX_DEPLOYMENT`: Convex's help says it sends `convex deploy` to the project's production deployment. The settings file is passed with `--env-file` (which replaces `.env.local` for choosing the target) and the variable is removed from the deploy's environment. The build check in step 2 guards only the Cloudflare upload; by then the functions are already pushed.
+- The Convex deploy key: Convex reads it from the settings file, so the build and Wrangler never see it.
+- Unpinned tools: `npx --no` fails if `node_modules` is missing (run `npm ci`) instead of downloading the latest Convex or Wrangler.
+
+### One-time setup
+
+Run once, in this order. Everything is a command except step 2 and part of step 8, which are in the Cloudflare dashboard.
+
+1. Log Wrangler in to the Cloudflare account that owns `grimify.app`: `npx wrangler login`.
+2. Turn off the Worker's Git connection: Workers & Pages → `v2-grimify-app` → Settings → Build → disconnect the repository. Otherwise every push to `main` deploys a second time, from Workers Builds.
+3. Production settings: `npx convex deployment token create deploy-prod --prod --save-env .env.deploy.prod.local`, then add `VITE_CLERK_PUBLISHABLE_KEY=pk_live_…` to the file.
+4. Dev and stage Convex deployments, in the existing project. The reference is `develop`, not `dev`, because `dev` means your personal dev deployment to the Convex CLI:
+   ```bash
+   npx convex deployment create develop --type prod
+   npx convex deployment create stage --type prod
+   npx convex deployment token create deploy-dev --deployment develop --save-env .env.deploy.dev.local
+   npx convex deployment token create deploy-stage --deployment stage --save-env .env.deploy.stage.local
+   ```
+   Add `VITE_CLERK_PUBLISHABLE_KEY=pk_live_…` to both files.
+5. Point each at production Clerk (the CLI prompts for the value, `https://clerk.grimify.app`):
+   ```bash
+   npx convex env set --deployment develop CLERK_JWT_ISSUER_DOMAIN
+   npx convex env set --deployment stage CLERK_JWT_ISSUER_DOMAIN
+   ```
+6. Create the long-lived branches from `main` and push them: `git branch dev main && git branch stage main && git push -u origin dev stage`.
+7. On `dev`, record the two deployment names (the part between `prod:` and `|` in each key) as `convexDeployment` for `dev` and `stage` in `scripts/deploy.ts`, commit and push. Until then their deploys refuse with "isn't set up yet". Promote it to `stage` (DEPLOYMENT.md § Branches) before the first `deploy:stage`.
+8. Deploy each environment once. The first `deploy:dev` and `deploy:stage` create their Workers, DNS records and certificates (`routes` in `wrangler.json`). Run the first `deploy:prod` watching its output: `grimify.app` was attached in the dashboard and is now declared in `wrangler.json`. Once it works, retire the old production key: delete the `CONVEX_DEPLOY_KEY` secret from the Worker's build variables (Settings → Build → Variables and secrets), and revoke the key itself with `npx convex deployment token delete '<the old key>' --prod` (single quotes, because the key contains `|`; without `--prod` it targets your personal dev deployment).
+
+Never put `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ACCOUNT_ID` in `.env.local`: Wrangler loads `.env.local` on every run, and those would override `wrangler login`.
+
+### Cloudflare Workers
+
+`wrangler.json` defines all three. Production is the top level; `env.dev` and `env.stage` become the Workers `v2-grimify-app-dev` and `v2-grimify-app-stage`. Each serves `./dist` with the single-page-app fallback and declares its domain as a custom domain. The top-level `name` must stay `v2-grimify-app`; another name makes `wrangler deploy` create a new Worker without the domain. `www.grimify.app` redirects to the apex with a Cloudflare redirect rule rather than serving the app, so there's one origin for sign-in, storage and the installed app.
+
+### Convex
+
+Check an environment's Convex settings by deployment reference (`develop`, `stage`, or `--prod`):
+
+```bash
+npx convex env list --deployment stage
+npx convex function-spec --prod                     # production, after a deploy
+```
 
 ### Clerk production instance
 
 Same settings as dev (see Rules), plus:
 - Domain `grimify.app`, with the DNS records from Clerk dashboard → Domains. The Frontend API host (`clerk.grimify.app`) is in `public/_headers`; if it differs, change the CSP there.
 - Integrations → Convex activated, or `.../tokens/convex` returns 404 and everyone looks signed out.
+- Dev and stage need no Clerk change: they're subdomains of `grimify.app` using the same keys.
 
 ### Content-Security-Policy
 
-`public/_headers` names the production Convex deployment and Clerk host. Moving to another Convex deployment or Clerk domain means editing it and `scripts/static-files.test.ts`. `vite dev` and `vite preview` don't apply it, so check the console on grimify.app after changing it, in a private window or with the service worker unregistered. The service worker serves `index.html` from its cache with the headers it was cached with, so an installed app keeps the old policy until a release changes `index.html` and the user taps Reload.
+`public/_headers` is a template: the build fills `{{CONVEX_HOST}}` from `VITE_CONVEX_URL` (`scripts/csp-headers.ts`), so each environment's CSP names only its own Convex deployment. The build fails on a missing or non-Convex URL. Moving Clerk domains means editing `_headers` and `scripts/static-files.test.ts`. `vite dev` and `vite preview` don't apply it, so check the console on the deployed site after changing it, in a private window or with the service worker unregistered. The service worker serves `index.html` from its cache with the headers it was cached with, so an installed app keeps the old policy until a release changes `index.html` and the user taps Reload.
 
 ---
 

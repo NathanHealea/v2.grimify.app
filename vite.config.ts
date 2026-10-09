@@ -6,6 +6,8 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 import { defineConfig } from "vitest/config";
 
+import { cspHeaders } from "./scripts/csp-headers.ts";
+
 const { version } = JSON.parse(
   readFileSync(new URL("./package.json", import.meta.url), "utf8"),
 ) as {
@@ -13,6 +15,8 @@ const { version } = JSON.parse(
 };
 
 export default defineConfig({
+  // A deploy builds only from its own settings (scripts/deploy.ts); .env.local's dev values must not ship.
+  envDir: process.env.GRIMIFY_DEPLOY ? false : undefined,
   // Settings › About shows it; `wi stage` bumps package.json, so the build always matches the release.
   define: { __APP_VERSION__: JSON.stringify(version) },
   // The router plugin must run before the React plugin.
@@ -42,6 +46,7 @@ export default defineConfig({
       },
       devOptions: { enabled: false },
     }),
+    cspHeaders(),
   ],
   // src/zod-config.ts must run before any schema is built; without this Rolldown runs the shared
   // chunk holding zod and the route schemas first (DECISIONS 042).

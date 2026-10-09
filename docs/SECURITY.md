@@ -80,7 +80,7 @@ Rate limiting:
 Not required for MVP. If abuse appears, add the `@convex-dev/rate-limiter` component to mutations. The auth provider rate-limits code emails.
 
 CORS:
-Not applicable. The Convex client handles its own origin; there are no custom HTTP endpoints. If Convex HTTP actions are added later, allow only the production and preview origins.
+Not applicable. The Convex client handles its own origin; there are no custom HTTP endpoints. If Convex HTTP actions are added later, allow only the grimify.app, stage.grimify.app and dev.grimify.app origins.
 
 Authentication:
 Required for all user-data functions.
@@ -89,10 +89,12 @@ Authorization:
 Ownership is checked by deriving `userId` from the identity (see §2).
 
 Headers (`public/_headers`, applied by the Cloudflare Worker to every static response, including the single-page-app fallback; `scripts/static-files.test.ts` pins them):
-- `Content-Security-Policy`: `'self'` plus the production Convex deployment (`https` and `wss`), Clerk's Frontend API (`clerk.grimify.app`) and the hosts in [Clerk's CSP list](https://clerk.com/docs/guides/secure/best-practices/csp-headers) (Turnstile, `*.protect.clerk.com`, `img.clerk.com`). No `'unsafe-eval'` or inline scripts; `style-src 'unsafe-inline'` because Clerk injects styles at runtime. `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'self'`.
+- `Content-Security-Policy`: `'self'` plus the build's own Convex deployment (`https` and `wss`; the build fills `{{CONVEX_HOST}}` from `VITE_CONVEX_URL` and fails on anything but `https://<name>.convex.cloud`, and the deploy checks it names that environment's deployment), Clerk's Frontend API (`clerk.grimify.app`) and the hosts in [Clerk's CSP list](https://clerk.com/docs/guides/secure/best-practices/csp-headers) (Turnstile, `*.protect.clerk.com`, `img.clerk.com`). No `'unsafe-eval'` or inline scripts; `style-src 'unsafe-inline'` because Clerk injects styles at runtime. `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'self'`.
 - `X-Content-Type-Options: nosniff`
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()`. Allow `camera` when barcode scanning ships.
+
+Environments: dev.grimify.app and stage.grimify.app use the production Clerk instance with their own Convex deployments, so they hold real account IDs (no student or personnel data) and get the same care as production. Deploy keys live only in git-ignored `.env.deploy.<env>.local` files; the deploy script never prints them.
 
 Crawlers: `public/robots.txt` disallows everything during the private beta. It isn't access control; anyone with the link can open the app.
 
@@ -108,10 +110,10 @@ Encryption:
 In transit via HTTPS (Cloudflare and Convex); at rest by the providers.
 
 Retention:
-Kept until the user deletes their account.
+Kept until the user deletes their account. Dev and stage (dev.grimify.app, stage.grimify.app) sign in with the same production accounts but keep their own Convex data, so one person can have rows in up to three deployments.
 
 Deletion:
-"Delete account" in Settings (type DELETE to confirm) → `users.deleteAccount` removes all Convex data → the device record is cleared → Clerk's `user.delete()` removes the auth account (DECISIONS 037). Collections over 500 rows finish deleting in scheduled batches seconds later. If the Clerk step fails, the account exists with no data and the user is told to retry; a retry completes it. Needs "Allow users to delete their accounts" on in the Clerk instance (ENVIRONMENT.md).
+"Delete account" in Settings (type DELETE to confirm) → `users.deleteAccount` removes all Convex data → the device record is cleared → Clerk's `user.delete()` removes the auth account (DECISIONS 037). Collections over 500 rows finish deleting in scheduled batches seconds later. If the Clerk step fails, the account exists with no data and the user is told to retry; a retry completes it. Needs "Allow users to delete their accounts" on in the Clerk instance (ENVIRONMENT.md). **Gap:** deletion clears only the Convex deployment of the site it runs on. Deleting on grimify.app leaves any dev or stage rows; deleting on dev or stage deletes the production Clerk account and leaves the production rows with no way to sign in and clear them (DECISIONS 044; issue #20).
 
 Signing out clears the device record only after Clerk's sign-out succeeds; while it runs, nothing is saved to the device or sent (DECISIONS 038).
 

@@ -52,7 +52,7 @@ function csp(): Map<string, string[]> {
 }
 
 describe("public/_headers", () => {
-  it("the CSP allows only the app, Convex production and Clerk hosts", () => {
+  it("the CSP template allows only the app, the build's Convex host and Clerk hosts", () => {
     const expected: Record<string, string[]> = {
       "default-src": ["'self'"],
       "script-src": [
@@ -63,8 +63,8 @@ describe("public/_headers", () => {
       ],
       "connect-src": [
         "'self'",
-        "https://nautical-toucan-398.convex.cloud",
-        "wss://nautical-toucan-398.convex.cloud",
+        "https://{{CONVEX_HOST}}",
+        "wss://{{CONVEX_HOST}}",
         "https://clerk.grimify.app",
         "https://*.protect.clerk.com:*",
       ],
@@ -85,6 +85,7 @@ describe("public/_headers", () => {
     for (const [name, sources] of Object.entries(expected)) {
       expect(new Set(directives.get(name)), name).toEqual(new Set(sources));
     }
+    expect(readPublic("_headers")).not.toContain("convex.cloud");
   });
 
   it("the CSP never allows eval, inline scripts, wildcards or framing", () => {
@@ -167,10 +168,78 @@ describe("wrangler.json", () => {
     expect(config).not.toHaveProperty("main");
     expect(config.name).toBe("v2-grimify-app");
     expect(config.compatibility_date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-    expect(Object.keys(config).sort()).toEqual(["assets", "compatibility_date", "name"]);
+    expect(Object.keys(config).sort()).toEqual([
+      "assets",
+      "compatibility_date",
+      "env",
+      "name",
+      "routes",
+    ]);
     expect(Object.keys(config.assets as object).sort()).toEqual([
       "directory",
       "not_found_handling",
     ]);
+  });
+
+  it("wrangler.json deploys three assets-only Workers on their domains", () => {
+    const config = readWrangler();
+    const spaAssets = { directory: "./dist", not_found_handling: "single-page-application" };
+
+    expect(config.name).toBe("v2-grimify-app");
+    expect(config).not.toHaveProperty("main");
+    expect(config.routes).toEqual([{ pattern: "grimify.app", custom_domain: true }]);
+
+    const env = config.env as Record<string, Record<string, unknown>>;
+    expect(Object.keys(env).sort()).toEqual(["dev", "stage"]);
+
+    expect(Object.keys(env.dev).sort()).toEqual(["assets", "routes"]);
+    expect(env.dev.assets).toEqual(spaAssets);
+    expect(env.dev.routes).toEqual([{ pattern: "dev.grimify.app", custom_domain: true }]);
+    expect(env.dev).not.toHaveProperty("main");
+    expect(env.dev).not.toHaveProperty("name");
+
+    expect(Object.keys(env.stage).sort()).toEqual(["assets", "routes"]);
+    expect(env.stage.assets).toEqual(spaAssets);
+    expect(env.stage.routes).toEqual([{ pattern: "stage.grimify.app", custom_domain: true }]);
+    expect(env.stage).not.toHaveProperty("main");
+    expect(env.stage).not.toHaveProperty("name");
+  });
+});
+
+describe("CLAUDE.md", () => {
+  it("work items use dev as their base", () => {
+    const text = readFileSync(new URL("../CLAUDE.md", import.meta.url), "utf8");
+    const match = /^## Work Item Workflow\s*$([\s\S]*?)(?=^## |(?![\s\S]))/m.exec(text);
+    if (!match) throw new Error("No '## Work Item Workflow' section in CLAUDE.md");
+    const section = match[1];
+
+    expect(section).toMatch(/^- base_branch: dev$/m);
+    expect(section.match(/base_branch/g)).toHaveLength(1);
+  });
+});
+
+describe("vite.config.ts", () => {
+  it("deploy builds don't load .env files", () => {
+    const config = readFileSync(new URL("../vite.config.ts", import.meta.url), "utf8");
+
+    expect(config).toMatch(/^\s*envDir: process\.env\.GRIMIFY_DEPLOY \? false : undefined,$/m);
+  });
+});
+
+describe("build and deploy wiring", () => {
+  it("the build runs the CSP plugin", () => {
+    const config = readFileSync(new URL("../vite.config.ts", import.meta.url), "utf8");
+
+    expect(config).toMatch(/^\s*cspHeaders\(\),$/m);
+  });
+
+  it("each deploy script runs its own environment", () => {
+    const { scripts } = JSON.parse(
+      readFileSync(new URL("../package.json", import.meta.url), "utf8"),
+    ) as { scripts: Record<string, string> };
+
+    for (const env of ["dev", "stage", "prod"]) {
+      expect(scripts[`deploy:${env}`], env).toBe(`node scripts/deploy.ts ${env}`);
+    }
   });
 });

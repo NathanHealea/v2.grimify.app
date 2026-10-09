@@ -1,6 +1,6 @@
-# Cloudflare response headers (Workers static assets) (docs/SECURITY.md §5). Clerk's sources: clerk.com/docs/guides/secure/best-practices/csp-headers
+# Cloudflare response headers (Workers static assets) (docs/SECURITY.md §5). The build fills in {{CONVEX_HOST}} (scripts/csp-headers.ts). Clerk's sources: clerk.com/docs/guides/secure/best-practices/csp-headers
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://clerk.grimify.app https://challenges.cloudflare.com https://*.protect.clerk.com; connect-src 'self' https://nautical-toucan-398.convex.cloud wss://nautical-toucan-398.convex.cloud https://clerk.grimify.app https://*.protect.clerk.com:*; img-src 'self' data: https://img.clerk.com; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; frame-src https://challenges.cloudflare.com https://*.protect.clerk.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; manifest-src 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://clerk.grimify.app https://challenges.cloudflare.com https://*.protect.clerk.com; connect-src 'self' https://{{CONVEX_HOST}} wss://{{CONVEX_HOST}} https://clerk.grimify.app https://*.protect.clerk.com:*; img-src 'self' data: https://img.clerk.com; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; frame-src https://challenges.cloudflare.com https://*.protect.clerk.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; manifest-src 'self'
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
