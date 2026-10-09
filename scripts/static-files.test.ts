@@ -143,3 +143,34 @@ describe("public/robots.txt", () => {
     expect(lines).toEqual(["User-agent: *", "Disallow: /"]);
   });
 });
+
+describe("wrangler.json", () => {
+  function readWrangler(): Record<string, unknown> {
+    return JSON.parse(readFileSync(new URL("../wrangler.json", import.meta.url), "utf8")) as Record<
+      string,
+      unknown
+    >;
+  }
+
+  it("serves index.html for every unmatched path", () => {
+    const config = readWrangler();
+
+    expect(config.assets).toEqual({
+      directory: "./dist",
+      not_found_handling: "single-page-application",
+    });
+  });
+
+  it("deploys assets only, as the v2-grimify-app Worker", () => {
+    const config = readWrangler();
+
+    expect(config).not.toHaveProperty("main");
+    expect(config.name).toBe("v2-grimify-app");
+    expect(config.compatibility_date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(Object.keys(config).sort()).toEqual(["assets", "compatibility_date", "name"]);
+    expect(Object.keys(config.assets as object).sort()).toEqual([
+      "directory",
+      "not_found_handling",
+    ]);
+  });
+});
