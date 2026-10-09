@@ -286,7 +286,7 @@ The PWA manifest, icons and any Cloudflare Pages project use Grimify when those 
 ## Decision 014 — Floating nav bar: bottom on mobile, top on tablet and desktop
 
 Date: 2026-10-06
-Status: Accepted
+Status: Accepted; amended by 045 (from 640px the nav is part of one full-width sticky glass bar, not a floating pill)
 
 Context:
 The app is mobile-first, but it also has to work on a desktop. DESIGN_SYSTEM §11 left desktop navigation TBD, with a left rail as the working idea.
@@ -946,7 +946,7 @@ Date: 2026-10-09
 Status: Accepted
 
 Context:
-On a phone the owner found the nav bar "looks solid when colors are under the bar": the 16px blur mixes small swatches with the gaps between them, and 70% Surface on top (039) left almost nothing showing. On desktop the nav floated in a strip the sticky glass header reserved, so content never passed behind the nav and the screen showed two stacked glass layers. The owner asked for "one cohesive glass effect navbar" on desktop and chose a full-width bar with the back link, tabs and status pills in one row.
+On a phone the owner found the nav bar "looks solid when colors are under the bar": the 16px blur mixes small swatches with the gaps between them, and 70% Surface on top (039) left almost nothing showing. On desktop the nav (placed at the top by 014) floated in a strip the sticky glass header reserved, so content never passed behind the nav and the screen showed two stacked glass layers. The owner asked for "one cohesive glass effect navbar" on desktop and chose a full-width bar with the back link, tabs and status pills in one row.
 
 Decision:
 - `--color-glass` is the thinnest Surface that keeps text at 4.5:1 over black or white behind it: 50% in light mode, 62% in dark (white text needs more cover). Every glass surface adds `saturate(var(--glass-saturate))`, 180%, behind the blur so colour shows through.

@@ -222,7 +222,7 @@ Header:
 Sticky bar in three columns: back link | small title | status pills. When space runs short the small title gives way first; the back link keeps its width and the status pills wrap rather than leave the screen. The small title is a 16px semibold copy of the page title, centred, truncated with an ellipsis when space runs out, `aria-hidden` (the `h1` is the accessible title), and ignores taps. It's hidden while the large title is visible and fades in (`--duration-title`, 180ms) once the large title has scrolled under the header (`data-scrolled="true"`, an `IntersectionObserver`). On phones the header uses the nav's glass (`--color-glass`, blur and saturation, same solid fallbacks; solid `--color-background` otherwise). Its bottom border shows together with the small title, once the large title has scrolled under it. The back link's focus ring uses `--color-text`, as the nav's does, since the grey ring falls under 3:1 on glass. From 640px the header joins the nav in one glass bar (below) and the small title isn't shown. Respect `env(safe-area-inset-top)`. Detail screens show a back button (`staticData.back`): chevron plus the parent's name, named "Back to Paints". It goes back when the previous history entry is in the app, otherwise it opens the parent. Installed iOS apps have no browser back button, so this is the only way back there.
 
 Navigation bar:
-One floating nav bar on every screen and every breakpoint, with three destinations:
+One nav bar on every screen and every breakpoint: floating at the bottom on phones, part of the top glass bar from 640px. Three destinations:
 1. **Paints** (catalog + smart search: name, hex, brand, hue)
 2. **My Paints** (owned / wishlist)
 3. **Settings** (account, theme, about)
@@ -308,8 +308,8 @@ Icon Style: Outline (stroke 2); filled variant only for active toggles
 ## 14. Responsive Design
 
 Mobile (default): single column, floating nav bar at the bottom (§11)
-Tablet: two-column list/detail where useful; floating nav bar at the top
-Desktop: max content width ~1024px, centered; floating nav bar at the top
+Tablet: two-column list/detail where useful; nav in the full-width glass bar at the top (§11)
+Desktop: max content width ~1024px, centered; nav in the full-width glass bar at the top (§11)
 
 Breakpoints (use in `@media` queries in component CSS; CSS custom properties can't be used in media queries, so use these literal values):
 - Mobile: < 640px
