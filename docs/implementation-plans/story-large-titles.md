@@ -1,13 +1,13 @@
 ---
 type: story
 slug: large-titles
-status: in-progress
+status: staged
 branch: story/large-titles
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/story-large-titles
 created: 2026-10-08
 approved: 2026-10-08
 commit_type:         # optional override for the merge commit type (default: story=feat, bug=fix, task=chore)
-version:             # set by `wi stage`
+version: 0.12.0
 review_approved:     # set by `wi accept`
 pr:                  # set by `wi pr`
 tag:                 # set by `wi release`; the tag sits on the merge commit
@@ -61,7 +61,7 @@ Gives every screen an iOS-style large title, as in the owner-approved preview (h
   - **Missing paint:** "This paint isn't in the catalog".
 - **R2** — The sticky header keeps its height, its back link and its status pills. It shows a small copy of the title (16px, semibold), hidden while the large title is visible and fading in (opacity, 180ms) once the large title has scrolled under the header. It hides again when you scroll back. With `prefers-reduced-motion`, it switches without a fade.
 - **R3** — The small header title is `aria-hidden="true"`, so screen readers hear the title once, as the `h1`.
-- **R4** — The header uses the glass treatment from story-glass-nav (`--color-glass`, `--glass-blur`, the same solid fallback). Its bottom border shows only once the page has scrolled under it (it's transparent at the top).
+- **R4** — The header uses the glass treatment from story-glass-nav (`--color-glass`, `--glass-blur`, the same solid fallback). Its bottom border shows together with the small title, once the large title has scrolled under the header (it's transparent at the top).
 - **R5** — At 640px and up, the header's contents (back link, small title, status pills) and the large title line up with the content column's edges at any window width. The header's background still spans the window.
 - **R6** — The document title is "<page title> · Grimify". On a paint's page it's "<paint name> · Grimify", on a missing paint "Paint not found · Grimify", and "Grimify" while the title isn't known yet.
 - **R7** — Accessibility (WCAG 2.1 AA):
@@ -133,3 +133,5 @@ Gives every screen an iOS-style large title, as in the owner-approved preview (h
 - 2026-10-08 — Plan approved.
 - 2026-10-08 — Started on branch story/large-titles from origin/main.
 - 2026-10-08 — E1/AC4 reworded: the small title is centred, so it's checked as centred on the content column, with the header's outer columns aligned to the column edges.
+- 2026-10-08 — R4 reworded: the header border appears with the small title (tied to the large title), not on any scroll.
+- 2026-10-08 — Staged: verification passed; version 0.11.0 → 0.12.0; no changelog file.
