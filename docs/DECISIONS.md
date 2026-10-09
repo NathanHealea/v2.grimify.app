@@ -864,7 +864,7 @@ Alternatives:
 - Generate `_headers` at build time from `VITE_CONVEX_URL`: no hard-coded deployment name, but a script for a value that rarely changes
 
 Consequences:
-Positive: every `wi release --push` is a deploy, with no extra tooling or secrets outside Pages and Convex; functions and frontend ship together or not at all.
+Positive: every `wi release --push` is a deploy, with no extra tooling or secrets outside Pages and Convex; a failed build or function push publishes nothing. Pages publishes `dist/` after the functions are pushed, so for that moment (or if the publish itself fails) production runs new functions with the old frontend.
 Trade-off: nothing re-runs the checks on the server, so a push from a red branch would deploy. The CSP is only exercised on grimify.app, because `vite dev` and `vite preview` don't apply `_headers`; a mistake there breaks sign-in in production only. Moving Convex deployments or Clerk domains means editing `_headers`.
 
 ---
@@ -887,5 +887,5 @@ Alternatives:
 
 Consequences:
 Positive: a clean console under the CSP, so any violation in the live checks is real. Import order in `main.tsx` means what it says.
-Trade-off: Rolldown wraps modules with init helpers, about 32 KB more JavaScript (about 11.5 KB gzipped, 5%). Zod validates the few search-param schemas without its compiled fast path.
+Trade-off: Rolldown wraps modules with init helpers, about 32 KB more JavaScript (about 11.5 KB gzipped, 5%). Zod validates the few search-param schemas without its compiled fast path. The bundle also splits differently: the route files' eager parts get their own preloaded chunks, and `.page-title` moves to a stylesheet linked before `index.css`. It still wins today (`h1.page-title` beats the bare `h1`), but a future single-class rule in `index.css` on the same element would now beat it.
 

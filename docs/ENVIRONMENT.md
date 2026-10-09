@@ -52,7 +52,7 @@ CLERK_SECRET_KEY=             # sk_test_… from the Clerk dev instance; Playwri
 
 ## Production
 
-Pushing `main` deploys production (DECISIONS 041). Cloudflare Pages builds the commit. Its build command first builds the frontend against the production Convex URL, then pushes the functions (`npx convex deploy --help`); if either step fails, the build fails and Pages publishes nothing.
+Pushing `main` deploys production (DECISIONS 041). Cloudflare Pages builds the commit. Its build command first builds the frontend against the production Convex URL, then pushes the functions (`npx convex deploy --help`); if either step fails, the build fails and Pages publishes nothing. Pages publishes the frontend after the functions are live, so the new functions briefly serve the old frontend.
 
 First-time setup, in this order (creating the Pages project starts a build of `main` straight away, and the push fails while the issuer is unset):
 1. Clerk production instance: domain and Convex integration (below).
