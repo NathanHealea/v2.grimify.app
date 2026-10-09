@@ -112,11 +112,14 @@ export function planDeploy(
   for (const [key, value] of Object.entries(baseEnv)) {
     if (value !== undefined && key !== "CONVEX_DEPLOYMENT") childEnv[key] = value;
   }
-  childEnv.CONVEX_DEPLOY_KEY = deployKey;
+  // Convex reads the deploy key from --env-file, so it stays out of the build's and Wrangler's environment.
   childEnv.VITE_CLERK_PUBLISHABLE_KEY = publishableKey;
+  childEnv.GRIMIFY_DEPLOY = env;
 
-  const wrangler = ["npx", "wrangler", "deploy"];
-  if (environment.wranglerEnv !== null) wrangler.push("--env", environment.wranglerEnv);
+  // --no: a missing local install fails instead of downloading an unpinned package.
+  const wrangler = ["npx", "--no", "wrangler", "deploy"];
+  // An empty --env names the top-level (production) Worker; Wrangler warns when it's left out.
+  wrangler.push("--env", environment.wranglerEnv ?? "");
 
   return {
     env,
@@ -127,6 +130,7 @@ export function planDeploy(
         kind: "run",
         argv: [
           "npx",
+          "--no",
           "convex",
           "deploy",
           "--env-file",
@@ -195,6 +199,10 @@ function git(...args: string[]): string {
 }
 
 function readGitState(branch: string): GitState {
+  const current = git("rev-parse", "--abbrev-ref", "HEAD");
+  const dirty = git("status", "--porcelain") !== "";
+  // planDeploy refuses these first, so don't contact GitHub for them.
+  if (current !== branch || dirty) return { branch: current, dirty, ahead: 0, behind: 0 };
   try {
     git("fetch", "--quiet", "origin", branch);
   } catch {
@@ -203,12 +211,7 @@ function readGitState(branch: string): GitState {
   const [behind, ahead] = git("rev-list", "--left-right", "--count", `origin/${branch}...HEAD`)
     .split(/\s+/)
     .map(Number);
-  return {
-    branch: git("rev-parse", "--abbrev-ref", "HEAD"),
-    dirty: git("status", "--porcelain") !== "",
-    ahead: ahead ?? 0,
-    behind: behind ?? 0,
-  };
+  return { branch: current, dirty, ahead: ahead ?? 0, behind: behind ?? 0 };
 }
 
 async function readSettings(file: string): Promise<Record<string, string> | undefined> {

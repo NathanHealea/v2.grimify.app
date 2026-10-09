@@ -113,6 +113,7 @@ describe("planDeploy", () => {
         kind: "run",
         argv: [
           "npx",
+          "--no",
           "convex",
           "deploy",
           "--env-file",
@@ -124,11 +125,11 @@ describe("planDeploy", () => {
         ],
       },
       { kind: "check-build", deployment: "happy-otter-123" },
-      { kind: "run", argv: ["npx", "wrangler", "deploy", "--env", "dev"] },
+      { kind: "run", argv: ["npx", "--no", "wrangler", "deploy", "--env", "dev"] },
     ]);
   });
 
-  it("plans prod against its own settings file and without a wrangler env", () => {
+  it("plans prod against its own settings file and the top-level Worker", () => {
     const plan = planDeploy(
       "prod",
       cleanGit("main"),
@@ -141,6 +142,7 @@ describe("planDeploy", () => {
       kind: "run",
       argv: [
         "npx",
+        "--no",
         "convex",
         "deploy",
         "--env-file",
@@ -152,10 +154,13 @@ describe("planDeploy", () => {
       ],
     });
     expect(plan.steps[1]).toEqual({ kind: "check-build", deployment: "nautical-toucan-398" });
-    expect(plan.steps[2]).toEqual({ kind: "run", argv: ["npx", "wrangler", "deploy"] });
+    expect(plan.steps[2]).toEqual({
+      kind: "run",
+      argv: ["npx", "--no", "wrangler", "deploy", "--env", ""],
+    });
   });
 
-  it("passes the settings' keys to the commands and drops the local CONVEX_DEPLOYMENT", () => {
+  it("passes the publishable key, keeps the deploy key in the settings file and drops the local CONVEX_DEPLOYMENT", () => {
     const plan = planDeploy(
       "dev",
       cleanGit("dev"),
@@ -171,9 +176,10 @@ describe("planDeploy", () => {
 
     expect(plan.childEnv).toEqual({
       PATH: "/bin",
-      CONVEX_DEPLOY_KEY: DEV_DEPLOY_KEY,
       VITE_CLERK_PUBLISHABLE_KEY: LIVE_CLERK_KEY,
+      GRIMIFY_DEPLOY: "dev",
     });
+    expect(Object.values(plan.childEnv).join("\n")).not.toContain(DEV_DEPLOY_KEY);
   });
 
   it("refuses an unknown environment", () => {
@@ -297,7 +303,7 @@ describe("runPlan", () => {
 
     expect(code).toBe(0);
     expect(headerReads()).toBe(1);
-    expect(calls.map((c) => c.argv[1])).toEqual(["convex", "wrangler"]);
+    expect(calls.map((c) => c.argv[2])).toEqual(["convex", "wrangler"]);
     for (const call of calls) expect(call.env).toEqual(plan.childEnv);
   });
 
@@ -321,7 +327,7 @@ describe("runPlan", () => {
       const code = await runPlan(devPlan(), io);
 
       expect(code).toBe(1);
-      expect(calls.map((c) => c.argv[1])).toEqual(["convex"]);
+      expect(calls.map((c) => c.argv[2])).toEqual(["convex"]);
     }
   });
 });
