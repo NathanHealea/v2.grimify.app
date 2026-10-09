@@ -197,5 +197,18 @@ test("keeps the back link clear of a long paint name on a narrow phone", async (
     pillBox.x,
   );
   expect(pillBox.x + pillBox.width, "pill stays on screen").toBeLessThanOrEqual(320);
+
+  // Both pills at once (a real pending change needs sign-in, so the text is set directly).
+  await page
+    .locator(".app-shell__pending")
+    .evaluate((el) => (el.textContent = "3 changes waiting to sync"));
+  for (const status of await page.getByRole("banner").getByRole("status").all()) {
+    const right = await status.evaluate((el) => el.getBoundingClientRect().right);
+    expect(right, "status pill stays on screen").toBeLessThanOrEqual(320);
+  }
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth),
+    "no sideways scroll",
+  ).toBeLessThanOrEqual(320);
   await context.setOffline(false);
 });

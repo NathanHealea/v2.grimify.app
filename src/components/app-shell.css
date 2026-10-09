@@ -7,14 +7,15 @@
   min-height: 100dvh;
 }
 
-/* Back link | small title | status pills. The outer columns never shrink below their content and
-   share the rest equally, so the title stays centred and is the one to truncate when space runs out. */
+/* Back link | small title | status pills. The title is the first to give way (it truncates); the
+   back link keeps its width, and the pills wrap before they'd leave the screen. Otherwise the outer
+   columns share the space equally, so the title stays centred. */
 .app-shell__header {
   position: sticky;
   top: 0;
   z-index: var(--z-header);
   display: grid;
-  grid-template-columns: minmax(max-content, 1fr) minmax(0, max-content) minmax(max-content, 1fr);
+  grid-template-columns: minmax(max-content, 1fr) minmax(0, max-content) minmax(min-content, 1fr);
   gap: var(--space-2);
   align-items: center;
   min-height: calc(var(--header-height) + env(safe-area-inset-top));
@@ -58,6 +59,7 @@
 
 .app-shell__header-end {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-2);
   align-items: center;
   justify-content: flex-end;
