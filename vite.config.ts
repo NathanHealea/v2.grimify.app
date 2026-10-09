@@ -6,7 +6,7 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 import { defineConfig } from "vitest/config";
 
-import { cspHeaders } from "./scripts/csp-headers";
+import { cspHeaders } from "./scripts/csp-headers.ts";
 
 const { version } = JSON.parse(
   readFileSync(new URL("./package.json", import.meta.url), "utf8"),

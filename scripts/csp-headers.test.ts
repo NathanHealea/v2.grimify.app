@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 
 import { describe, expect, it } from "vitest";
 
-import { convexHost, renderHeaders } from "./csp-headers";
+import { convexHost, renderHeaders } from "./csp-headers.ts";
 
 const template = readFileSync(new URL("../public/_headers", import.meta.url), "utf8");
 
