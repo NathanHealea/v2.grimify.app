@@ -559,7 +559,16 @@ test("makes the title row solid with reduced transparency", async ({ page, brows
   expect.soft(await backdropFilter(smallTitle(page)), "title row blur").toContain("blur(16px)");
   // A backdrop-filter on the bar would make it the title row's backdrop root, so the row would
   // blur only the bar and the list would show through it sharp.
-  expect.soft(await backdropFilter(bar(page)), "no filter on the bar itself").toBe("none");
+  const rooted = await smallTitle(page).evaluate((title) => {
+    const roots: string[] = [];
+    for (let el = title.parentElement; el; el = el.parentElement) {
+      const style = getComputedStyle(el);
+      const filter = style.backdropFilter || style.getPropertyValue("-webkit-backdrop-filter");
+      if (filter && filter !== "none") roots.push(el.className || el.tagName);
+    }
+    return roots;
+  });
+  expect.soft(rooted, "no backdrop filter above the title row").toEqual([]);
 
   // Playwright 1.63's emulateMedia has no reducedTransparency option, so set the media feature directly.
   const cdp = await page.context().newCDPSession(page);
