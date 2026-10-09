@@ -18,8 +18,13 @@ describe("zod config", () => {
     const imports = importSpecifiers(mainSource);
     const index = imports.findIndex((entry) => entry.specifier === "@/zod-config");
     expect(index).toBeGreaterThanOrEqual(0);
-    expect(imports.slice(0, index).every((entry) => entry.bare)).toBe(true);
+    expect(
+      imports.slice(0, index).every((entry) => entry.bare && entry.specifier.endsWith(".css")),
+    ).toBe(true);
 
-    expect(viteConfigSource).toMatch(/strictExecutionOrder:\s*true/);
+    const uncommented = viteConfigSource.replace(/^\s*\/\/.*$/gm, "");
+    expect(uncommented).toMatch(
+      /rolldownOptions:\s*\{\s*output:\s*\{\s*strictExecutionOrder:\s*true/,
+    );
   });
 });

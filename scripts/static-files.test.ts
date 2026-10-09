@@ -107,10 +107,16 @@ describe("public/_headers", () => {
 
     expect(headers.get("x-content-type-options")).toBe("nosniff");
     expect(headers.get("referrer-policy")).toBe("strict-origin-when-cross-origin");
-    const permissions = (headers.get("permissions-policy") ?? "").split(",").map((p) => p.trim());
-    expect(permissions).toEqual(
-      expect.arrayContaining(["camera=()", "microphone=()", "geolocation=()", "payment=()"]),
+    // Structured-header dictionary: a repeated key's last value wins, so check the final value per key.
+    const permissions = new Map(
+      (headers.get("permissions-policy") ?? "").split(",").map((entry) => {
+        const [key, value] = entry.trim().split("=");
+        return [key, value] as const;
+      }),
     );
+    for (const feature of ["camera", "microphone", "geolocation", "payment"]) {
+      expect(permissions.get(feature), feature).toBe("()");
+    }
   });
 
   it("_headers stays within Cloudflare's limits", () => {
@@ -121,6 +127,10 @@ describe("public/_headers", () => {
     }
     expect(parseHeaders(text).length).toBeLessThanOrEqual(100);
   });
+
+  it("has a single rule, so no path can detach the headers", () => {
+    expect(parseHeaders(readPublic("_headers")).map((rule) => rule.pattern)).toEqual(["/*"]);
+  });
 });
 
 describe("public/robots.txt", () => {
@@ -130,8 +140,6 @@ describe("public/robots.txt", () => {
       .map((l) => l.trim())
       .filter((l) => l !== "" && !l.startsWith("#"));
 
-    const agent = lines.indexOf("User-agent: *");
-    expect(agent).toBeGreaterThanOrEqual(0);
-    expect(lines[agent + 1]).toBe("Disallow: /");
+    expect(lines).toEqual(["User-agent: *", "Disallow: /"]);
   });
 });
