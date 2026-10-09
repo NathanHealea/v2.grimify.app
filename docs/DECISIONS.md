@@ -802,3 +802,25 @@ Alternatives:
 Consequences:
 Positive: a failed sign-out loses nothing; a successful one leaves nothing behind.
 Trade-off: while sign-out is pending, a change made on another tab or a server update isn't saved to this device until it finishes or fails.
+
+---
+
+## Decision 039 — Frosted glass nav bar with one-line items
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+Before the first deploy the owner asked for a glass look on the nav bar and for labels that don't stack. On phones each item put its icon above its label, and on desktop "My Paints" wrapped onto two lines because the content-sized bar squeezed equal-share items. Placement stays as DECISIONS 014 set it.
+
+Decision:
+The bar's background is Surface at 70% (`--color-glass`) with a 16px background blur (`--glass-blur`), solid where the browser can't blur or reduced transparency is requested. Inactive items use the text colour instead of muted grey. Every item shows its icon beside its label on one line, never wrapping, sized by content.
+
+Alternatives:
+- Lighter glass (about 40%) with a stronger blur: closer to iOS, but text over busy swatches drops under 4.5:1
+- Keep muted inactive labels: the active/inactive difference is stronger, but fails contrast on glass over dark content
+
+Consequences:
+Positive: a lighter-feeling bar that keeps every label readable, tested over black and white in both themes.
+Trade-off: inactive and active items differ by the filled pill alone, no longer also by text colour. Safari doesn't report reduced transparency, so people who set it on iPhone still see glass. `backdrop-filter` on a fixed bar costs repaints while scrolling on low-end phones.
+

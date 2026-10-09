@@ -79,6 +79,7 @@ tests/
 └── e2e/                # Playwright specs
     ├── catalog.spec.ts
     ├── collection.spec.ts
+    ├── nav.spec.ts     # nav layout per width, glass and fallback, contrast over black/white
     └── offline.spec.ts
 ```
 
