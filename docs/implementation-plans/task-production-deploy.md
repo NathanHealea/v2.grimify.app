@@ -1,7 +1,7 @@
 ---
 type: task
 slug: production-deploy
-status: staged
+status: released
 branch: task/production-deploy
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/task-production-deploy
 created: 2026-10-08
@@ -10,7 +10,7 @@ commit_type:         # optional override for the merge commit type (default: sto
 version: 0.12.1
 review_approved: 2026-10-08
 pr:                  # set by `wi pr`
-tag:                 # set by `wi release`; the tag sits on the merge commit
+tag: v0.12.1
 ---
 
 # Deploy to Cloudflare Pages and Convex production
@@ -124,3 +124,4 @@ After release (owner, not a commit): create the Pages project and set the variab
 - 2026-10-08 — Test audit: 18/25 mutants killed; tightened T3, T5, T6 and added T7, all 7 survivors now killed (M9 by the parser and T7).
 - 2026-10-08 — Staged: verification passed; version 0.12.0 → 0.12.1; no changelog file.
 - 2026-10-08 — Review approved.
+- 2026-10-08 — Released 0.12.1 as v0.12.1.
