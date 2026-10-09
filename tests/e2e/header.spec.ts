@@ -360,10 +360,10 @@ test("scrolls content under the desktop bar", async ({ page }) => {
   const shell = await box(bar(page));
   const banner = await box(header(page));
   expect.soft(shell.y, "bar at the top of the window").toBeCloseTo(0, 0);
-  // The bar's own bottom border is the only extra height.
+  // Only the bar's 12px padding above and below the row, and at most a 1px border, add height.
   expect
     .soft(shell.height, "no strip reserved above the header")
-    .toBeLessThanOrEqual(banner.height + 1);
+    .toBeLessThanOrEqual(banner.height + 2 * 12 + 1);
 
   // Between the column's left edge and the first tab: inside the bar, clear of its controls.
   const column = await contentBox(page.locator("main"));
@@ -381,26 +381,216 @@ test("scrolls content under the desktop bar", async ({ page }) => {
   expect.soft(stack.contentBehind, "page content is behind the bar").toBe(true);
 });
 
-test("drops the small title on desktop", async ({ page }) => {
+test("spaces the desktop bar", async ({ page }) => {
+  await page.goto("/paints");
+  const tabs = nav(page).locator(".app-shell__tab");
+  await expect(tabs).toHaveCount(3);
+
+  for (const width of [1280, 768]) {
+    await page.setViewportSize({ width, height: 900 });
+    await expect(bar(page)).toHaveCount(1);
+    const space = await bar(page).evaluate((el) => {
+      const style = getComputedStyle(el);
+      const { top, bottom } = el.getBoundingClientRect();
+      return {
+        paddingTop: style.paddingTop,
+        paddingBottom: style.paddingBottom,
+        top,
+        // Absolutely positioned children (the title row) don't extend this box.
+        bottom: bottom - parseFloat(style.borderBottomWidth),
+      };
+    });
+    expect.soft(space.paddingTop, `bar padding-top at ${width}px`).toBe("12px");
+    expect.soft(space.paddingBottom, `bar padding-bottom at ${width}px`).toBe("12px");
+
+    const tab = await tabs.first().evaluate((el) => {
+      const { top, bottom } = el.getBoundingClientRect();
+      return { top, bottom };
+    });
+    expect
+      .soft(tab.top - space.top, `room above the tabs at ${width}px`)
+      .toBeGreaterThanOrEqual(12);
+    expect
+      .soft(space.bottom - tab.bottom, `room below the tabs at ${width}px`)
+      .toBeGreaterThanOrEqual(12);
+  }
+});
+
+test("shows the title along the bottom of the desktop bar", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto("/paints");
   await expect(largeTitle(page)).toHaveText("Paints");
   await expect(page.getByRole("main").getByRole("status")).toHaveText("2,837 paints");
-  // Opacity 0 still counts as visible to Playwright, so the faded-out title fails this too.
-  await expect.soft(smallTitle(page), "small title at the top").toBeHidden();
-
   await expect(bar(page)).toHaveCount(1);
-  const border = await computedColor(bar(page), "--color-border");
-  expect((await computedColor(bar(page), "border-bottom-color")).a, "no border at the top").toBe(0);
+  await expect.poll(() => opacity(smallTitle(page)), { message: "faded out at the top" }).toBe(0);
 
   await page.evaluate(() => window.scrollTo(0, 300));
+  await expect(smallTitle(page), "shown once the large title is under the bar").toBeVisible();
+  await expect.poll(() => opacity(smallTitle(page)), { message: "faded in" }).toBe(1);
+  await expect(smallTitle(page)).toHaveText("Paints");
+
+  const viewportWidth = await page.evaluate(() => document.documentElement.clientWidth);
+  const barBottom = await bar(page).evaluate((el) => el.getBoundingClientRect().bottom);
+  const row = await smallTitle(page).evaluate((el) => {
+    const { top, left, right } = el.getBoundingClientRect();
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const text = range.getBoundingClientRect();
+    return { top, left, right, textCentre: (text.left + text.right) / 2 };
+  });
+  expect
+    .soft(Math.abs(row.top - barBottom), "title row starts at the bar's bottom edge")
+    .toBeLessThanOrEqual(1);
+  expect
+    .soft(Math.abs(row.textCentre - viewportWidth / 2), "title centred in the window")
+    .toBeLessThanOrEqual(2);
+  expect.soft(row.left, "title row starts at the window edge").toBeCloseTo(0, 0);
+  expect.soft(row.right, "title row ends at the window edge").toBeCloseTo(viewportWidth, 0);
+
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await expect.poll(() => opacity(smallTitle(page)), { message: "fades out again" }).toBe(0);
+});
+
+test("doesn't move content when the title row appears", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/paints");
+  await expect(page.getByRole("main").getByRole("status")).toHaveText("2,837 paints");
+  await expect(bar(page)).toHaveCount(1);
+  const firstRow = page.locator(".paint-row").first();
+  await expect(firstRow).toBeVisible();
+
+  // The title row turns on once the large title's bottom has passed the bar's bottom edge.
+  const switchAt = await page.evaluate(() => {
+    const title = document.querySelector("main h1.page-title");
+    const shell = document.querySelector(".app-shell__bar");
+    if (!title || !shell) throw new Error("missing large title or bar");
+    return (
+      title.getBoundingClientRect().bottom + window.scrollY - shell.getBoundingClientRect().height
+    );
+  });
+  const measure = async () => ({
+    barHeight: await bar(page).evaluate((el) => el.getBoundingClientRect().height),
+    rowOffset: await firstRow.evaluate((el) => el.getBoundingClientRect().top + window.scrollY),
+  });
+
+  await page.evaluate((y) => window.scrollTo(0, y), switchAt - 8);
+  await expect(bar(page)).toHaveAttribute("data-scrolled", "false");
+  await expect.poll(() => opacity(smallTitle(page))).toBe(0);
+  const before = await measure();
+
+  await page.evaluate((y) => window.scrollTo(0, y), switchAt + 8);
+  await expect(bar(page)).toHaveAttribute("data-scrolled", "true");
+  await expect(smallTitle(page), "title row on after the switch").toBeVisible();
+  await expect.poll(() => opacity(smallTitle(page))).toBe(1);
+  const after = await measure();
+
+  expect.soft(after.barHeight, "bar height").toBeCloseTo(before.barHeight, 0);
+  expect
+    .soft(after.rowOffset, "first paint row's place in the page")
+    .toBeCloseTo(before.rowOffset, 0);
+});
+
+test("draws the bar's line under the title row", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/paints");
+  await expect(page.getByRole("main").getByRole("status")).toHaveText("2,837 paints");
+  await expect(bar(page)).toHaveCount(1);
+  const border = await computedColor(bar(page), "--color-border");
+  // A line shows only with width, colour and an element that isn't faded out.
+  const lineShows = async (target: Locator) => {
+    const [width, fade] = await target.evaluate((el) => {
+      const style = getComputedStyle(el);
+      return [parseFloat(style.borderBottomWidth), Number(style.opacity)];
+    });
+    return width > 0 && fade > 0 && (await computedColor(target, "border-bottom-color")).a > 0;
+  };
+
+  expect.soft(await lineShows(bar(page)), "no bar line at the top").toBe(false);
+  expect.soft(await lineShows(smallTitle(page)), "no title row line at the top").toBe(false);
+
+  await page.evaluate(() => window.scrollTo(0, 300));
+  await expect(smallTitle(page), "title row shown after scrolling").toBeVisible();
   await expect
-    .poll(() => computedColor(bar(page), "border-bottom-color"), {
-      message: "border once the title is under the bar",
+    .poll(() => computedColor(smallTitle(page), "border-bottom-color"), {
+      message: "line under the title row",
     })
     .toEqual(border);
-  await expect.soft(smallTitle(page), "small title after scrolling").toBeHidden();
-  await expect(page.getByRole("heading", { level: 1, name: "Paints" })).toHaveCount(1);
+  expect
+    .soft(
+      await smallTitle(page).evaluate((el) => getComputedStyle(el).borderBottomWidth),
+      "title row line width",
+    )
+    .toBe("1px");
+  expect.soft(await lineShows(bar(page)), "no line on the bar itself").toBe(false);
+});
+
+test("lets taps through the title row", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/paints");
+  await expect(page.getByRole("main").getByRole("status")).toHaveText("2,837 paints");
+  await page.evaluate(() => window.scrollTo(0, 300));
+  await expect(smallTitle(page)).toBeVisible();
+  await expect.poll(() => opacity(smallTitle(page))).toBe(1);
+
+  await expect(smallTitle(page)).toHaveAttribute("aria-hidden", "true");
+  const row = await box(smallTitle(page));
+  const inMain = await page.evaluate(
+    ([x, y]) => !!document.elementFromPoint(x, y)?.closest("main"),
+    [row.x + row.width / 2, middle(row)],
+  );
+  expect(inMain, "a tap on the title row reaches the content under it").toBe(true);
+});
+
+test("makes the title row solid with reduced transparency", async ({ page, browserName }) => {
+  test.skip(browserName !== "chromium", "reduced transparency is emulated through Chromium's CDP");
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/paints");
+  await expect(page.getByRole("main").getByRole("status")).toHaveText("2,837 paints");
+  await page.evaluate(() => window.scrollTo(0, 300));
+  await expect(smallTitle(page)).toBeVisible();
+
+  const glass = await computedColor(bar(page), "background-color");
+  expect
+    .soft((await computedColor(smallTitle(page), "background-color")).a, "title row glass")
+    .toBeCloseTo(glass.a, 2);
+  expect.soft(await backdropFilter(smallTitle(page)), "title row blur").toContain("blur(16px)");
+
+  // Playwright 1.63's emulateMedia has no reducedTransparency option, so set the media feature directly.
+  const cdp = await page.context().newCDPSession(page);
+  await cdp.send("Emulation.setEmulatedMedia", {
+    features: [{ name: "prefers-reduced-transparency", value: "reduce" }],
+  });
+  expect(
+    await page.evaluate(() => matchMedia("(prefers-reduced-transparency: reduce)").matches),
+  ).toBe(true);
+
+  expect(await backdropFilter(smallTitle(page))).toBe("none");
+  expect((await computedColor(smallTitle(page), "background-color")).a).toBe(1);
+});
+
+test("keeps the desktop title readable", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  for (const colorScheme of ["light", "dark"] as const) {
+    await page.emulateMedia({ colorScheme });
+    await page.goto("/paints");
+    await expect(page.getByRole("main").getByRole("status")).toHaveText("2,837 paints");
+    await page.evaluate(() => window.scrollTo(0, 300));
+    await expect(smallTitle(page), `${colorScheme} title row shown`).toBeVisible();
+
+    // A blur over one solid colour is that colour, so blending the glass over black and white
+    // gives the same backdrop as a solid swatch scrolled under the title row.
+    const glass = await computedColor(smallTitle(page), "background-color");
+    const text = await computedColor(smallTitle(page), "color");
+    for (const backdrop of [
+      over(glass, { r: 0, g: 0, b: 0, a: 1 }),
+      over(glass, { r: 255, g: 255, b: 255, a: 1 }),
+    ]) {
+      expect(
+        contrast(over(text, backdrop), backdrop),
+        `${colorScheme} desktop title`,
+      ).toBeGreaterThanOrEqual(4.5);
+    }
+  }
 });
 
 test("keeps the desktop bar readable", async ({ page }) => {

@@ -38,6 +38,7 @@ function Shell({ children }: Props) {
     select: (matches) => matches.findLast((match) => match.staticData.back)?.staticData.back,
   });
   const pageTitle = usePageTitle();
+  const bar = useRef<HTMLDivElement>(null);
   const header = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
 
@@ -45,8 +46,10 @@ function Shell({ children }: Props) {
   useEffect(() => {
     const element = pageTitle?.element;
     if (!element) return;
+    // From 640px the bar is taller than the header; on phones it has no box, so its height is 0.
+    const cover = Math.max(bar.current?.offsetHeight ?? 0, header.current?.offsetHeight ?? 0);
     const observer = new IntersectionObserver(([entry]) => setScrolled(!entry.isIntersecting), {
-      rootMargin: `-${header.current?.offsetHeight ?? 0}px 0px 0px 0px`,
+      rootMargin: `-${cover}px 0px 0px 0px`,
     });
     observer.observe(element);
     return () => {
@@ -57,7 +60,7 @@ function Shell({ children }: Props) {
 
   return (
     <div className="app-shell">
-      <div className="app-shell__bar" data-scrolled={scrolled}>
+      <div ref={bar} className="app-shell__bar" data-scrolled={scrolled}>
         <nav className="app-shell__tabs" aria-label="Main">
           <ul className="app-shell__tab-list">
             {TABS.map(({ to, label, Icon }) => (

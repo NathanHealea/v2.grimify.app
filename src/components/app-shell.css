@@ -235,7 +235,7 @@
     grid-template-columns: minmax(max-content, 1fr) max-content minmax(min-content, 1fr);
     gap: var(--space-2);
     align-items: center;
-    padding-top: env(safe-area-inset-top);
+    padding-block: calc(env(safe-area-inset-top) + var(--space-3)) var(--space-3);
     padding-right: max(
       calc(var(--space-4) + env(safe-area-inset-right)),
       calc((100% - var(--content-max-width)) / 2 + var(--space-4))
@@ -245,17 +245,25 @@
       calc((100% - var(--content-max-width)) / 2 + var(--space-4))
     );
     background: var(--color-background);
-    border-bottom: var(--border-width) solid transparent;
-    transition: border-color var(--duration-fast) var(--easing-standard);
+  }
 
-    &[data-scrolled="true"] {
-      border-bottom-color: var(--color-border);
-    }
+  /* The tabs fill the middle of the bar, so the small title gets its own glass strip under it. It
+     overlays the content rather than growing the bar, so the list doesn't jump when it appears. */
+  .app-shell__title {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    padding: var(--space-2) var(--space-4);
+    text-align: center;
+    background: var(--color-background);
+    border-bottom: var(--border-width) solid var(--color-border);
   }
 
   @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) and
     (color: color-mix(in srgb, currentcolor 50%, transparent)) {
-    .app-shell__bar {
+    .app-shell__bar,
+    .app-shell__title {
       background: var(--color-glass);
       /* stylelint-disable-next-line property-no-vendor-prefix -- Safari before 18 only knows the prefixed name */
       -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
@@ -264,7 +272,8 @@
   }
 
   @media (prefers-reduced-transparency: reduce) {
-    .app-shell__bar {
+    .app-shell__bar,
+    .app-shell__title {
       background: var(--color-background);
       /* stylelint-disable-next-line property-no-vendor-prefix -- matches the rule above */
       -webkit-backdrop-filter: none;
@@ -290,11 +299,6 @@
 
   .app-shell__header-start {
     grid-column: 1;
-  }
-
-  /* The tabs fill the middle of the bar, so there's no room for it. */
-  .app-shell__title {
-    display: none;
   }
 
   .app-shell__header-end {
