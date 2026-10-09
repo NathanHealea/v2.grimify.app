@@ -15,6 +15,8 @@ const { version } = JSON.parse(
 };
 
 export default defineConfig({
+  // A deploy builds only from its own settings (scripts/deploy.ts); .env.local's dev values must not ship.
+  envDir: process.env.GRIMIFY_DEPLOY ? false : undefined,
   // Settings › About shows it; `wi stage` bumps package.json, so the build always matches the release.
   define: { __APP_VERSION__: JSON.stringify(version) },
   // The router plugin must run before the React plugin.

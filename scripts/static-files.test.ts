@@ -217,3 +217,11 @@ describe("CLAUDE.md", () => {
     expect(section.match(/base_branch/g)).toHaveLength(1);
   });
 });
+
+describe("vite.config.ts", () => {
+  it("deploy builds don't load .env files", () => {
+    const config = readFileSync(new URL("../vite.config.ts", import.meta.url), "utf8");
+
+    expect(config).toMatch(/^\s*envDir: process\.env\.GRIMIFY_DEPLOY \? false : undefined,$/m);
+  });
+});
