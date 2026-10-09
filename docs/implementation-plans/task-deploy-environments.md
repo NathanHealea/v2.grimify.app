@@ -1,7 +1,7 @@
 ---
 type: task
 slug: deploy-environments
-status: staged
+status: released
 branch: task/deploy-environments
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/task-deploy-environments
 created: 2026-10-09
@@ -10,7 +10,7 @@ commit_type:         # optional override for the merge commit type (default: sto
 version: 0.12.3
 review_approved: 2026-10-09
 pr:                  # set by `wi pr`
-tag:                 # set by `wi release`; the tag sits on the merge commit
+tag: v0.12.3
 ---
 
 # Dev and stage environments with command-line deploys
@@ -199,3 +199,4 @@ Vitest, `// @vitest-environment node`, files beside the code they test, followin
 - 2026-10-09 — Test audit: 46 mutants, 14 survived; added tests for all, spot-checked 7 survivors now killed. 65 script tests.
 - 2026-10-09 — Staged: verification passed; version 0.12.2 → 0.12.3; no changelog file.
 - 2026-10-09 — Review approved.
+- 2026-10-09 — Released 0.12.3 as v0.12.3.
