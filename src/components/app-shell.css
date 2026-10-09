@@ -140,9 +140,7 @@
   z-index: var(--z-tab-bar);
   padding: var(--space-1);
   background: var(--color-surface);
-  border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-md);
 }
 
 /* Glass only where the blur and the colour mix both work; without either the bar would be hard to read. */
@@ -216,12 +214,6 @@
   flex-shrink: 0;
   width: var(--icon-size-tab);
   height: var(--icon-size-tab);
-}
-
-@media (prefers-color-scheme: dark) {
-  .app-shell__tabs {
-    box-shadow: none;
-  }
 }
 
 @media (width >= 640px) {
@@ -311,8 +303,6 @@
     grid-column: 2;
     grid-row: 1;
     background: transparent;
-    border: 0;
-    box-shadow: none;
     /* stylelint-disable-next-line property-no-vendor-prefix -- matches the glass rule */
     -webkit-backdrop-filter: none;
     backdrop-filter: none;

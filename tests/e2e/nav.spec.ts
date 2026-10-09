@@ -69,6 +69,42 @@ test("frosts the bar where it can", async ({ page, browserName }) => {
   expect((await computedColor(bar, "background-color")).a).toBe(1);
 });
 
+test("keeps the phone bar plain glass", async ({ page }) => {
+  const bar = nav(page);
+  for (const [colorScheme, alpha] of [
+    ["light", 0.5],
+    ["dark", 0.62],
+  ] as const) {
+    await page.emulateMedia({ colorScheme });
+    await page.goto("/paints");
+    await expect(bar).toBeVisible();
+
+    const look = await bar.evaluate((el) => {
+      const style = getComputedStyle(el);
+      return {
+        borders: [
+          style.borderTopWidth,
+          style.borderRightWidth,
+          style.borderBottomWidth,
+          style.borderLeftWidth,
+        ],
+        shadow: style.boxShadow,
+      };
+    });
+    expect.soft(look.borders, `${colorScheme} border widths`).toEqual(["0px", "0px", "0px", "0px"]);
+    expect.soft(look.shadow, `${colorScheme} shadow`).toBe("none");
+    expect
+      .soft((await computedColor(bar, "background-color")).a, `${colorScheme} glass alpha`)
+      .toBeCloseTo(alpha, 2);
+
+    const active = bar.locator('.app-shell__tab[aria-current="page"]');
+    await expect(active).toHaveCount(1);
+    expect
+      .soft((await computedColor(active, "background-color")).a, `${colorScheme} active pill alpha`)
+      .toBe(1);
+  }
+});
+
 test("keeps nav text readable over any swatch", async ({ page }) => {
   for (const colorScheme of ["light", "dark"] as const) {
     await page.emulateMedia({ colorScheme });
