@@ -80,7 +80,7 @@ What the deploy keeps out:
 
 ### One-time setup
 
-Run once, in this order. Each step is a command; none needs a dashboard except turning off the old Git connection.
+Run once, in this order. Everything is a command except step 2 and part of step 8, which are in the Cloudflare dashboard.
 
 1. Log Wrangler in to the Cloudflare account that owns `grimify.app`: `npx wrangler login`.
 2. Turn off the Worker's Git connection: Workers & Pages → `v2-grimify-app` → Settings → Build → disconnect the repository. Otherwise every push to `main` deploys a second time, from Workers Builds.
@@ -98,11 +98,11 @@ Run once, in this order. Each step is a command; none needs a dashboard except t
    npx convex env set --deployment develop CLERK_JWT_ISSUER_DOMAIN
    npx convex env set --deployment stage CLERK_JWT_ISSUER_DOMAIN
    ```
-6. Record the two deployment names (the part between `prod:` and `|` in each key) as `convexDeployment` for `dev` and `stage` in `scripts/deploy.ts`, and commit that on `dev`. Until then their deploys refuse with "isn't set up yet".
-7. After the first `deploy:prod` works, retire the old production key: delete the `CONVEX_DEPLOY_KEY` secret from the Worker's build variables (Settings → Build → Variables and secrets), and revoke that key with `npx convex deployment token delete <its name or the key itself>`.
-8. Create the long-lived branches from `main` and push them: `git branch dev main && git branch stage main && git push -u origin dev stage`.
+6. Create the long-lived branches from `main` and push them: `git branch dev main && git branch stage main && git push -u origin dev stage`.
+7. On `dev`, record the two deployment names (the part between `prod:` and `|` in each key) as `convexDeployment` for `dev` and `stage` in `scripts/deploy.ts`, commit and push. Until then their deploys refuse with "isn't set up yet". Promote it to `stage` (DEPLOYMENT.md § Branches) before the first `deploy:stage`.
+8. Deploy each environment once. The first `deploy:dev` and `deploy:stage` create their Workers, DNS records and certificates (`routes` in `wrangler.json`). Run the first `deploy:prod` watching its output: `grimify.app` was attached in the dashboard and is now declared in `wrangler.json`. Once it works, retire the old production key: delete the `CONVEX_DEPLOY_KEY` secret from the Worker's build variables (Settings → Build → Variables and secrets), and revoke the key itself with `npx convex deployment token delete '<the old key>' --prod` (single quotes, because the key contains `|`; without `--prod` it targets your personal dev deployment).
 
-The first `deploy:dev` and `deploy:stage` create their Workers, DNS records and certificates (`routes` in `wrangler.json`). Run the first `deploy:prod` watching its output: `grimify.app` was attached in the dashboard and is now declared in `wrangler.json`.
+Never put `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ACCOUNT_ID` in `.env.local`: Wrangler loads `.env.local` on every run, and those would override `wrangler login`.
 
 ### Cloudflare Workers
 
