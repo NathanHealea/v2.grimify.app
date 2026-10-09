@@ -17,13 +17,13 @@ Dev and stage each have their own Convex deployment and sign in with production 
 
 ## Hosting Setup
 
-Frontend: three assets-only Cloudflare Workers (no Worker code; DECISIONS 043), defined in `wrangler.json` and deployed from your machine by `npm run deploy:<env>` (DECISIONS 044). Workers Builds isn't used; the repo's Git connection is off.
+Frontend: three assets-only Cloudflare Workers (no Worker code; DECISIONS 043), defined in `wrangler.json` and deployed from your machine by `npm run deploy:<env>` (DECISIONS 044). Workers Builds isn't used; the repo's Git connection is turned off during one-time setup (ENVIRONMENT.md § One-time setup). Until then, a push to `main` also deploys from Workers Builds.
 - Each Worker serves `./dist` with `not_found_handling: "single-page-application"`, so unknown paths get `index.html` with 200. Confirm deep links like `/paints/<id>` load directly.
 - Custom domains are declared in `wrangler.json` (`routes` with `custom_domain: true`); `wrangler deploy` creates their DNS records and certificates.
 - Wrangler is a pinned dev dependency, so every deploy uses the lockfile's version.
 - Security headers: `public/_headers` (see SECURITY.md §5). The build fills in the environment's Convex host; the CSP must allow Clerk's Frontend API and script domains (production instance), or sign-in is blocked.
 
-Backend: Convex Cloud (free plan). One project with three production-type deployments: `nautical-toucan-398` (production), `develop` and `stage`.
+Backend: Convex Cloud (free plan). One project with three production-type deployments: `nautical-toucan-398` (production) and the deployments referenced as `develop` and `stage`. `scripts/deploy.ts` records each by its deployment name (`<word>-<animal>-<number>`), not its reference.
 
 CI: none. Checks run locally at `wi stage` (`npm run check`, `npm run build`), and deploys run from a clean, pushed branch.
 
@@ -39,11 +39,11 @@ story/… bug/… task/…  →  dev  →  stage  →  main
 - Work items (`wi start`) branch from `dev` and `wi release` merges them into `dev` (`base_branch: dev`). Deploy dev to try them.
 - Promote dev to stage when it's ready for a final check:
   ```bash
-  git switch stage && git pull && git merge --no-ff dev && git push && npm run deploy:stage
+  git fetch && git switch stage && git merge --ff-only origin/stage && git merge --no-ff origin/dev && git push && npm run deploy:stage
   ```
 - Promote stage to production:
   ```bash
-  git switch main && git pull && git merge --no-ff stage && git push && npm run deploy:prod
+  git fetch && git switch main && git merge --ff-only origin/main && git merge --no-ff origin/stage && git push && npm run deploy:prod
   ```
 - Hotfix: `wi` supports one base branch, so a hotfix is done by hand. Branch from `main`, fix, run `npm run check` and `npm run build`, merge into `main`, push, `npm run deploy:prod`. Then merge `main` into `stage` and `stage` into `dev` so the fix isn't lost on the next promotion.
 - Version tags come from `wi release`, so they sit on merges into `dev`; promotion carries those commits up unchanged.

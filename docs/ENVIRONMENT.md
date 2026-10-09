@@ -68,11 +68,15 @@ npm run deploy:prod    # from main
 ```
 
 `scripts/deploy.ts` checks the branch, a clean tree, `HEAD` matching `origin/<branch>`, and the settings file, then:
-1. `npx convex deploy --env-file .env.deploy.<env>.local --cmd 'npm run build' --cmd-url-env-var-name VITE_CONVEX_URL`: builds the frontend against that environment's Convex URL, then pushes the functions. If either fails, it stops.
+1. `npx --no convex deploy --env-file .env.deploy.<env>.local --cmd 'npm run build' --cmd-url-env-var-name VITE_CONVEX_URL`: builds the frontend against that environment's Convex URL, then pushes the functions. If either fails, it stops.
 2. Checks `dist/_headers` names that environment's Convex deployment. A mismatch stops before anything reaches Cloudflare.
-3. `npx wrangler deploy [--env dev|stage]`: uploads `dist/` to the Worker. The functions are already live by then, so they briefly serve the old frontend; if this step fails, they keep serving it until the next good deploy.
+3. `npx --no wrangler deploy --env <dev|stage|"">` (an empty `--env` is production): uploads `dist/` to the Worker. The functions are already live by then, so they briefly serve the old frontend; if this step fails, they keep serving it until the next good deploy.
 
-`CONVEX_DEPLOYMENT` (from `.env.local`) is removed from the deploy's environment and the settings file is passed with `--env-file`, so your personal dev deployment can't redirect a push.
+What the deploy keeps out:
+- `.env.local`: the deploy sets `GRIMIFY_DEPLOY`, and the build then loads no `.env` files, so your personal dev values never ship.
+- `CONVEX_DEPLOYMENT`: Convex's help says it sends `convex deploy` to the project's production deployment. The settings file is passed with `--env-file` (which replaces `.env.local` for choosing the target) and the variable is removed from the deploy's environment. The build check in step 2 guards only the Cloudflare upload; by then the functions are already pushed.
+- The Convex deploy key: Convex reads it from the settings file, so the build and Wrangler never see it.
+- Unpinned tools: `npx --no` fails if `node_modules` is missing (run `npm ci`) instead of downloading the latest Convex or Wrangler.
 
 ### One-time setup
 
@@ -95,7 +99,8 @@ Run once, in this order. Each step is a command; none needs a dashboard except t
    npx convex env set --deployment stage CLERK_JWT_ISSUER_DOMAIN
    ```
 6. Record the two deployment names (the part between `prod:` and `|` in each key) as `convexDeployment` for `dev` and `stage` in `scripts/deploy.ts`, and commit that on `dev`. Until then their deploys refuse with "isn't set up yet".
-7. Create the long-lived branches from `main` and push them: `git branch dev main && git branch stage main && git push -u origin dev stage`.
+7. After the first `deploy:prod` works, retire the old production key: delete the `CONVEX_DEPLOY_KEY` secret from the Worker's build variables (Settings → Build → Variables and secrets), and revoke that key with `npx convex deployment token delete <its name or the key itself>`.
+8. Create the long-lived branches from `main` and push them: `git branch dev main && git branch stage main && git push -u origin dev stage`.
 
 The first `deploy:dev` and `deploy:stage` create their Workers, DNS records and certificates (`routes` in `wrangler.json`). Run the first `deploy:prod` watching its output: `grimify.app` was attached in the dashboard and is now declared in `wrangler.json`.
 
