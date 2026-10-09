@@ -38,12 +38,23 @@ function contrast(a: Rgba, b: Rgba): number {
 
 test("frosts the bar where it can", async ({ page, browserName }) => {
   test.skip(browserName !== "chromium", "reduced transparency is emulated through Chromium's CDP");
-  await page.goto("/paints");
   const bar = nav(page);
-  await expect(bar).toBeVisible();
+  for (const [colorScheme, alpha] of [
+    ["light", 0.5],
+    ["dark", 0.62],
+  ] as const) {
+    await page.emulateMedia({ colorScheme });
+    await page.goto("/paints");
+    await expect(bar).toBeVisible();
 
-  expect(await bar.evaluate((el) => getComputedStyle(el).backdropFilter)).toContain("blur(16px)");
-  expect((await computedColor(bar, "background-color")).a).toBeCloseTo(0.7, 2);
+    // Chromium serialises saturate(180%) as saturate(1.8).
+    const filter = await bar.evaluate((el) => getComputedStyle(el).backdropFilter);
+    expect.soft(filter, `${colorScheme} blur`).toContain("blur(16px)");
+    expect.soft(filter, `${colorScheme} saturation`).toContain("saturate(1.8)");
+    expect
+      .soft((await computedColor(bar, "background-color")).a, `${colorScheme} glass alpha`)
+      .toBeCloseTo(alpha, 2);
+  }
 
   // Playwright 1.63's emulateMedia has no reducedTransparency option, so set the media feature directly.
   const cdp = await page.context().newCDPSession(page);

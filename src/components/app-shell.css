@@ -38,8 +38,8 @@
   .app-shell__header {
     background: var(--color-glass);
     /* stylelint-disable-next-line property-no-vendor-prefix -- Safari before 18 only knows the prefixed name */
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   }
 }
 
@@ -151,8 +151,8 @@
   .app-shell__tabs {
     background: var(--color-glass);
     /* stylelint-disable-next-line property-no-vendor-prefix -- Safari before 18 only knows the prefixed name */
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   }
 }
 
@@ -258,8 +258,8 @@
     .app-shell__bar {
       background: var(--color-glass);
       /* stylelint-disable-next-line property-no-vendor-prefix -- Safari before 18 only knows the prefixed name */
-      -webkit-backdrop-filter: blur(var(--glass-blur));
-      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
     }
   }
 

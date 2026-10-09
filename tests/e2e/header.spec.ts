@@ -130,9 +130,9 @@ test("collapses the title and lines the header up", async ({ page, browserName }
   await expectAligned(page, device.width);
 
   if (browserName === "chromium") {
-    expect(await header(page).evaluate((el) => getComputedStyle(el).backdropFilter)).toContain(
-      "blur(16px)",
-    );
+    const filter = await header(page).evaluate((el) => getComputedStyle(el).backdropFilter);
+    expect(filter).toContain("blur(16px)");
+    expect(filter).toContain("saturate(1.8)");
   }
 });
 
@@ -341,9 +341,10 @@ test("merges the header and nav into one bar on desktop", async ({
       .soft(spans.right, `bar ends at the window edge at ${width}px`)
       .toBeCloseTo(viewportWidth, 0);
     if (browserName === "chromium") {
-      expect
-        .soft(await backdropFilter(bar(page)), `bar blur at ${width}px`)
-        .toContain("blur(16px)");
+      const filter = await backdropFilter(bar(page));
+      expect.soft(filter, `bar blur at ${width}px`).toContain("blur(16px)");
+      // Chromium serialises saturate(180%) as saturate(1.8).
+      expect.soft(filter, `bar saturation at ${width}px`).toContain("saturate(1.8)");
     }
   }
   await context.setOffline(false);
