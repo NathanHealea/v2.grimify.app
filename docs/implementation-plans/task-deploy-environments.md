@@ -66,7 +66,7 @@ Cloudflare facts this plan relies on (checked 2026-10-09):
 - **Hotfix base branch in `wi`:** `wi` supports one `base_branch`. Hotfix items follow a documented manual flow. Changing the `wi` tool itself happens outside this repo.
 - **Seeding dev or stage data:** each starts empty, and collections come from signing in and using it.
 - **Hiding Delete account outside production:** see Risks; a follow-up issue if wanted.
-- **One-time account setup:** creating the Convex projects and keys, `wrangler login`, and disconnecting Git from the Worker are the owner's steps (listed in DEPLOYMENT.md). The code can't do them.
+- **One-time account setup:** creating the Convex deployments and keys, `wrangler login`, and disconnecting Git from the Worker are the owner's steps (listed in DEPLOYMENT.md as commands). The code doesn't run them.
 
 ## Requirements
 
@@ -112,7 +112,7 @@ Vitest, `// @vitest-environment node`, files beside the code they test, followin
 | ID | Covers | Test | File | Asserts |
 |----|--------|------|------|---------|
 | T1 | R1 | `maps each environment to its branch, Worker, domain and wrangler env` | `scripts/deploy.test.ts` | dev→`dev`/`v2-grimify-app-dev`/`--env dev`; stage→`stage`/…; prod→`main`/`v2-grimify-app`/no `--env` |
-| T2 | R1, R4 | `plans convex deploy, then wrangler deploy, in that order` | `scripts/deploy.test.ts` | planned commands for dev are exactly `npx convex deploy --cmd 'npm run build' --cmd-url-env-var-name VITE_CONVEX_URL` then `npx wrangler deploy --env dev`; the env passed to them carries both keys |
+| T2 | R1, R4 | `plans convex deploy, then wrangler deploy, in that order` | `scripts/deploy.test.ts` | planned steps for dev are exactly `npx convex deploy --env-file .env.deploy.dev.local --cmd 'npm run build' --cmd-url-env-var-name VITE_CONVEX_URL`, the build check, then `npx wrangler deploy --env dev`; the env passed to them carries both keys |
 | T3 | R2 | `refuses an unknown environment` | `scripts/deploy.test.ts` | `deploy:qa` throws naming the valid three |
 | T4 | R2 | `refuses the wrong branch` | `scripts/deploy.test.ts` | prod from `dev` throws "runs from main; you are on dev"; dev from `main` throws |
 | T5 | R2 | `refuses a dirty tree or a HEAD that differs from origin` | `scripts/deploy.test.ts` | dirty → throws; ahead → throws "push first"; behind → throws "pull first" |
@@ -120,6 +120,7 @@ Vitest, `// @vitest-environment node`, files beside the code they test, followin
 | T7 | R3 | `refuses a test Clerk key` | `scripts/deploy.test.ts` | `pk_test_…` throws |
 | T8 | R3 | `refuses another environment's Convex key without printing it` | `scripts/deploy.test.ts` | prod key for dev throws naming the expected deployment; the message doesn't contain the key; a `preview:`/`dev:` key throws |
 | T9 | R4 | `stops at the first failed command` | `scripts/deploy.test.ts` | with a runner stub where step 1 exits 1, step 2 never runs and the result is non-zero |
+| T15 | R3, R4 | `refuses to upload a build made for another Convex deployment` | `scripts/deploy.test.ts` | the plan checks `dist/_headers` between `convex deploy` and `wrangler deploy`; a CSP naming any other deployment throws and wrangler never runs |
 | T10 | R5 | `writes the build's Convex host into the CSP` | `scripts/csp-headers.test.ts` | for `https://happy-otter-123.convex.cloud`, connect-src contains exactly that host over https and wss, and every other directive equals production's set |
 | T11 | R6 | `rejects a missing or non-Convex URL` | `scripts/csp-headers.test.ts` | undefined, `http://…convex.cloud`, `https://evil.example`, `https://a.convex.cloud.evil.example` all throw |
 | T12 | R5 | existing CSP tests, updated | `scripts/static-files.test.ts` | the template in `public/_headers` holds the placeholder and production's other directives; never eval, inline scripts, wildcards or framing; no dev Clerk host |
@@ -130,18 +131,18 @@ Vitest, `// @vitest-environment node`, files beside the code they test, followin
 
 ## Implementation plan
 
-1. [ ] Make the CSP name the build's Convex deployment. `public/_headers` gets a `{{CONVEX_HOST}}` placeholder. A small Vite plugin (`scripts/csp-headers.ts`, used from `vite.config.ts`) checks `VITE_CONVEX_URL` and writes the host into `dist/_headers` after the build; a bad URL fails the build. The static-file tests are updated. Touches `public/_headers`, `scripts/csp-headers.ts`, `scripts/csp-headers.test.ts`, `vite.config.ts`, `scripts/static-files.test.ts`. Tests T10, T11, T12.
-2. [ ] Add Wrangler environments `dev` and `stage`, and custom-domain routes for all three, in `wrangler.json`. Touches `wrangler.json`, `scripts/static-files.test.ts`. Tests T13.
-3. [ ] Add `scripts/deploy.ts`:
+1. [x] Make the CSP name the build's Convex deployment. `public/_headers` gets a `{{CONVEX_HOST}}` placeholder. A small Vite plugin (`scripts/csp-headers.ts`, used from `vite.config.ts`) checks `VITE_CONVEX_URL` and writes the host into `dist/_headers` after the build; a bad URL fails the build. The static-file tests are updated. Touches `public/_headers`, `scripts/csp-headers.ts`, `scripts/csp-headers.test.ts`, `vite.config.ts`, `scripts/static-files.test.ts`. Tests T10, T11, T12.
+2. [x] Add Wrangler environments `dev` and `stage`, and custom-domain routes for all three, in `wrangler.json`. Touches `wrangler.json`, `scripts/static-files.test.ts`. Tests T13.
+3. [x] Add `scripts/deploy.ts`:
    - an environment table, including each one's expected Convex deployment name;
    - pure checks over git state and the parsed `.env.deploy.<env>.local`;
    - a plan of two commands, run in order with an injected runner;
    - the `deploy:dev`, `deploy:stage` and `deploy:prod` npm scripts;
    - `wrangler` as an exact-pinned dev dependency (owner-approved).
 
-   The dev and stage deployment names stay as clearly marked placeholders until the owner creates them; the script refuses to deploy while a name is a placeholder. Touches `scripts/deploy.ts`, `scripts/deploy.test.ts`, `package.json`, `package-lock.json`. Tests T1–T9.
-4. [ ] Set `base_branch: dev` in CLAUDE.md's Work Item Workflow, and change "Workers Builds" to the deploy commands in CLAUDE.md and AGENTS.md. Touches `CLAUDE.md`, `docs/AGENTS.md`, `scripts/static-files.test.ts`. Tests T14.
-5. [ ] Docs:
+   The dev and stage deployment names stay as clearly marked placeholders until the owner creates them; the script refuses to deploy while a name is a placeholder. Touches `scripts/deploy.ts`, `scripts/deploy.test.ts`, `package.json`, `package-lock.json`. Tests T1–T9, T15.
+4. [x] Set `base_branch: dev` in CLAUDE.md's Work Item Workflow, and change "Workers Builds" to the deploy commands in CLAUDE.md and AGENTS.md. Touches `CLAUDE.md`, `docs/AGENTS.md`, `scripts/static-files.test.ts`. Tests T14.
+5. [x] Docs:
    - ENVIRONMENT.md: the environments table, the `.env.deploy.<env>.local` variables, and one-time setup;
    - DEPLOYMENT.md: deploy commands, branch model, promoting `dev → stage → main`, hotfix flow, rollback for each environment;
    - TESTING.md: post-deploy checks for each environment;
@@ -153,7 +154,7 @@ Vitest, `// @vitest-environment node`, files beside the code they test, followin
 **After release:** owner steps, documented in DEPLOYMENT.md, not part of the build.
 - **Create the branches:** make `dev` and `stage` from `main` and push them. This publishes them, so do it only on the owner's say-so.
 - **Disconnect Git:** in Workers Builds, turn off the Git connection on `v2-grimify-app`, or every push to `main` deploys a second time.
-- **Convex:** create projects for dev and stage, generate their production deploy keys, and set `CLERK_JWT_ISSUER_DOMAIN` on each. Then fill in the deployment names in a small follow-up commit on `dev`.
+- **Convex:** in the existing project, `npx convex deployment create develop --type prod` and `npx convex deployment create stage --type prod`; mint keys with `npx convex deployment token create <name> --deployment <ref> --save-env .env.deploy.<env>.local`; set `CLERK_JWT_ISSUER_DOMAIN` on each. Then fill in the deployment names in a small follow-up commit on `dev`. (The reference is `develop`, not `dev`, because `dev` already means a personal dev deployment to the Convex CLI.)
 - **Local settings:** write the three `.env.deploy.<env>.local` files, and run `npx wrangler login` once.
 
 **Must not change:**
@@ -170,12 +171,14 @@ Vitest, `// @vitest-environment node`, files beside the code they test, followin
 
 ## Risks and open questions
 
+- **`.env.local` could redirect a deploy (found in build, 2026-10-09).** `.env.local` sets `CONVEX_DEPLOYMENT`, and `npx convex deploy --help` says that variable targets the project's production deployment; it doesn't say which wins when a deploy key is also set. The script passes the environment's settings file with `--env-file` (which overrides `.env.local`), removes `CONVEX_DEPLOYMENT` from the child environment, and checks the built CSP names the expected deployment before Wrangler runs (T15). The first real deploy should be `deploy:dev`, watching which deployment Convex reports.
+
 - **Wrangler pinning (decided 2026-10-09).** The owner approved adding `wrangler` as an exact-pinned dev dependency in step 3, so deploys use the lockfile's version rather than whatever `npx` downloads.
 - **Delete account deletes the real account.** Dev and stage use production Clerk, so Settings → Delete account on dev.grimify.app deletes the person's production Clerk account. Their production collection is left orphaned until a prod session cleans up, or for good. To be filed as an issue; this item doesn't change it.
 - **Shared sign-in across subdomains.** Clerk's production session cookie covers `*.grimify.app`, so being signed in on one environment signs you in on all three. That's expected, but a dev bug that corrupts session state affects production sign-in in that browser.
 - **Dev and stage data hold real account IDs.** Rows in the dev and stage Convex deployments are keyed by production Clerk user IDs. The data is hobby paint collections only, so there are no student or personnel records and FERPA doesn't apply. But the deployments do hold personal account identifiers, so they get the same access controls as production.
-- **Convex free plan.** Two more projects must fit the free plan's project and deployment limits, and free deployments may pause when idle; the latter is already a TBD in DEPLOYMENT.md. To be confirmed by the owner when creating them.
-- **Convex deploy key format.** R3's deployment check assumes production keys look like `prod:<deployment-name>|<secret>`. Step 3 confirms this against Convex's docs before relying on it. If the format isn't documented, the check falls back to `npx convex deploy --dry-run` output, or the requirement is revised with the owner.
+- **Convex free plan.** Two more production-type deployments in the project must fit the free plan's limits, and free deployments may pause when idle; the latter is already a TBD in DEPLOYMENT.md. `deployment create` will refuse if the plan doesn't allow it.
+- **Convex deploy key format (checked 2026-10-09).** Production keys are `prod:<deployment-name>|<secret>` ([Convex: deploy key types](https://docs.convex.dev/cli/deploy-key-types)); R3's check reads the name before the `|`.
 - **Assets inheritance.** It's unclear whether Wrangler environments inherit `assets`, so each environment sets it explicitly, and T13 pins that.
 - **Moving the domain into `wrangler.json`.** `grimify.app` was attached in the dashboard. Declaring it in `wrangler.json` should match, but the first `deploy:prod` may report or replace the dashboard entry. The owner runs it watching the output, with the dashboard Rollback ready.
 - **Hotfixes.** `wi` has one base branch, so a hotfix item would branch from `dev`. The documented flow is: branch from `main` by hand, merge into `main`, deploy prod, then merge `main` into `stage` and `dev`.
@@ -187,3 +190,6 @@ Vitest, `// @vitest-environment node`, files beside the code they test, followin
 - 2026-10-09 — Owner approved; pin wrangler as a dev dependency (step 3).
 - 2026-10-09 — Plan approved.
 - 2026-10-09 — Started on branch task/deploy-environments from origin/main.
+- 2026-10-09 — Convex 1.46's CLI creates named prod-type deployments in the same project (deployment create) and mints keys (deployment token create), so dev and stage use deployments 'develop' and 'stage' in the existing project instead of new projects; setup needs no dashboard. Requirements unchanged.
+- 2026-10-09 — Added T15: a check between convex deploy and wrangler deploy that the built CSP names the environment's Convex deployment, because .env.local's CONVEX_DEPLOYMENT could otherwise redirect convex deploy.
+- 2026-10-09 — Build done: steps 1-5 committed, 54 script tests pass, wi verify green. No real deploy run; one-time setup and first deploys are the owner's.
