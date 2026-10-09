@@ -17,7 +17,7 @@ tag:                 # set by `wi release`; the tag sits on the merge commit
 
 ## Summary
 
-Puts Grimify on `https://grimify.app` for the private beta. Cloudflare Pages builds `main` from GitHub with `npx convex deploy --cmd 'npm run build'`, so each pushed release deploys the Convex functions to production and then builds the frontend against them. The site ships security headers (a Content-Security-Policy that allows only the app, Convex production and Clerk's production hosts) and a `robots.txt` that keeps search engines out until the app goes public. ENVIRONMENT.md gains every production setting, so the deployment can be rebuilt from the docs.
+Puts Grimify on `https://grimify.app` for the private beta. Cloudflare Pages builds `main` from GitHub with `npx convex deploy --cmd 'npm run build' --cmd-url-env-var-name VITE_CONVEX_URL`, so each pushed release deploys the Convex functions to production and then builds the frontend against them. The site ships security headers (a Content-Security-Policy that allows only the app, Convex production and Clerk's production hosts) and a `robots.txt` that keeps search engines out until the app goes public. ENVIRONMENT.md gains every production setting, so the deployment can be rebuilt from the docs.
 
 ## Context
 
@@ -86,8 +86,8 @@ Puts Grimify on `https://grimify.app` for the private beta. Cloudflare Pages bui
 
 ## Implementation plan
 
-1. [ ] Add `public/_headers` (CSP, nosniff, Referrer-Policy, Permissions-Policy on `/*`) and `public/robots.txt` (disallow all), with their tests — touches `public/_headers`, `public/robots.txt`, `scripts/static-files.test.ts` — tests T1, T2, T3, T4, T5
-2. [ ] Document production: ENVIRONMENT.md Production section (Pages settings, variables, dashboard checklist, the Convex terminal commands), SECURITY.md headers and checklist, DECISIONS 041, TESTING.md live checklist, ROADMAP — touches `docs/ENVIRONMENT.md`, `docs/SECURITY.md`, `docs/DECISIONS.md`, `docs/TESTING.md`, `docs/ROADMAP.md` — tests none (docs)
+1. [x] Add `public/_headers` (CSP, nosniff, Referrer-Policy, Permissions-Policy on `/*`) and `public/robots.txt` (disallow all), with their tests — touches `public/_headers`, `public/robots.txt`, `scripts/static-files.test.ts` — tests T1, T2, T3, T4, T5
+2. [x] Document production: ENVIRONMENT.md Production section (Pages settings, variables, dashboard checklist, the Convex terminal commands), SECURITY.md headers and checklist, DECISIONS 041, TESTING.md live checklist, ROADMAP — touches `docs/ENVIRONMENT.md`, `docs/SECURITY.md`, `docs/DECISIONS.md`, `docs/TESTING.md`, `docs/ROADMAP.md` — tests none (docs)
 
 After release (owner, not a commit): create the Pages project and set the variables per ENVIRONMENT.md, then push the release; run AC1–AC6 on the live site and file any failure as an issue.
 
@@ -111,3 +111,4 @@ After release (owner, not a commit): create the Pages project and set the variab
 - 2026-10-08 — Planned.
 - 2026-10-08 — Plan approved.
 - 2026-10-08 — Started on branch task/production-deploy from origin/main.
+- 2026-10-08 — Step 1: CSP also sets img-src data:, base-uri 'self', object-src 'none', manifest-src 'self' (hardening beyond Clerk's list; T1 pins them). Build command names --cmd-url-env-var-name VITE_CONVEX_URL explicitly rather than relying on detection.
