@@ -139,3 +139,63 @@ test("keeps the header title readable", async ({ page }) => {
     }
   }
 });
+
+test("keeps the back link's focus ring visible on the glass", async ({ page }) => {
+  for (const colorScheme of ["light", "dark"] as const) {
+    await page.emulateMedia({ colorScheme });
+    await page.goto("/paints/citadel-base-mephiston-red");
+    const back = page.getByRole("link", { name: "Back to Paints" });
+    await back.focus();
+    expect(await back.evaluate((el) => el.matches(":focus-visible"))).toBe(true);
+
+    const glass = await computedColor(header(page), "background-color");
+    const ring = await computedColor(back, "outline-color");
+    for (const backdrop of [
+      over(glass, { r: 0, g: 0, b: 0, a: 1 }),
+      over(glass, { r: 255, g: 255, b: 255, a: 1 }),
+    ]) {
+      expect(
+        contrast(over(ring, backdrop), backdrop),
+        `${colorScheme} back link ring`,
+      ).toBeGreaterThanOrEqual(3);
+    }
+  }
+});
+
+test("keeps the back link clear of a long paint name on a narrow phone", async ({
+  page,
+  context,
+}) => {
+  await page.setViewportSize({ width: 320, height: 640 });
+  // The catalog's longest name, 59 characters.
+  await page.goto(
+    "/paints/ak-interactive-acrylics-figure-golden-olive-waffen-spring-summer-light-green-spots-52",
+  );
+  const back = page.getByRole("link", { name: "Back to Paints" });
+  await expect(smallTitle(page)).toHaveText(/Golden Olive/);
+  const link = await back.boundingBox();
+  const title = await smallTitle(page).boundingBox();
+  if (!link || !title) throw new Error("missing back link or title box");
+  expect(title.x, "title starts after the back link").toBeGreaterThanOrEqual(link.x + link.width);
+  // Taps across the whole back link reach the link, not the title.
+  for (const fraction of [0.25, 0.5, 0.9]) {
+    const hit = await page.evaluate(
+      ([x, y]) => document.elementFromPoint(x, y)?.closest("a")?.textContent ?? null,
+      [link.x + link.width * fraction, link.y + link.height / 2],
+    );
+    expect(hit, `tap at ${fraction} of the back link`).toContain("Paints");
+  }
+
+  // The Offline pill takes its own room; the title truncates instead of running under it.
+  await context.setOffline(true);
+  const pill = page.getByRole("banner").getByRole("status").filter({ hasText: "Offline" });
+  await expect(pill).toHaveText("Offline");
+  const pillBox = await pill.boundingBox();
+  const squeezed = await smallTitle(page).boundingBox();
+  if (!pillBox || !squeezed) throw new Error("missing pill or title box");
+  expect(squeezed.x + squeezed.width, "title ends before the Offline pill").toBeLessThanOrEqual(
+    pillBox.x,
+  );
+  expect(pillBox.x + pillBox.width, "pill stays on screen").toBeLessThanOrEqual(320);
+  await context.setOffline(false);
+});
