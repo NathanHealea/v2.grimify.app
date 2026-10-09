@@ -4,6 +4,7 @@ import { Link } from "@tanstack/react-router";
 import { Copy } from "lucide-react";
 import { useMemo, useState } from "react";
 
+import { PageTitle } from "@/components/page-title";
 import { PaintRow } from "@/components/paint-row";
 import { PaintSwatch } from "@/components/paint-swatch";
 import { usePaintFlags } from "@/features/collection/collection-provider";
@@ -44,7 +45,7 @@ function PaintDetailContent({
   if (!paint) {
     return (
       <div className="paint-detail__missing">
-        <h1>This paint isn't in the catalog</h1>
+        <PageTitle documentTitle="Paint not found">This paint isn't in the catalog</PageTitle>
         <Link to="/paints">Browse paints</Link>
       </div>
     );
@@ -112,7 +113,7 @@ function PaintFacts({
       </div>
 
       <div className="paint-detail__facts">
-        <h1 className="paint-detail__name">{paint.name}</h1>
+        <PageTitle>{paint.name}</PageTitle>
         <p className="paint-detail__meta">{facts.join(" · ")}</p>
         {paint.discontinued && <p className="paint-detail__badge">Discontinued</p>}
         {paint.aliases && paint.aliases.length > 0 && (

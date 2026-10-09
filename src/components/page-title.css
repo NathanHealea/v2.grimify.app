@@ -1,0 +1,8 @@
+.page-title {
+  font-size: var(--text-display);
+  font-weight: var(--weight-heavy);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}

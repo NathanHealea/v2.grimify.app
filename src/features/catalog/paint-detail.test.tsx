@@ -1,7 +1,7 @@
 import { fireEvent, screen, within } from "@testing-library/react";
 import { useQuery } from "convex/react";
 import { type FunctionReference, getFunctionName } from "convex/server";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { catalogOf, catalogPaint } from "@/test/catalog-fixture";
 import { renderRoute } from "@/test/render-route";
@@ -44,6 +44,27 @@ function serve() {
 }
 
 describe("PaintDetail", () => {
+  afterEach(() => {
+    document.title = "";
+  });
+
+  it("titles the paint page with the paint's name", async () => {
+    serve();
+    const router = renderRoute(`/paints/${red.id}`);
+
+    const title = await screen.findByRole("heading", { level: 1, name: "Mephiston Red" });
+    expect(title).toHaveClass("page-title");
+    await vi.waitFor(() => expect(document.title).toBe("Mephiston Red · Grimify"));
+
+    await router.navigate({ to: "/paints/$paintId", params: { paintId: "not-a-paint" } });
+    const missing = await screen.findByRole("heading", {
+      level: 1,
+      name: "This paint isn't in the catalog",
+    });
+    expect(missing).toHaveClass("page-title");
+    await vi.waitFor(() => expect(document.title).toBe("Paint not found · Grimify"));
+  });
+
   it("shows the paint and copies its hex", async () => {
     serve();
     const writeText = vi.fn(() => Promise.resolve());

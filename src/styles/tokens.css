@@ -34,11 +34,13 @@
 
   /* Typography */
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", roboto, sans-serif;
+  --text-display: 34px;
   --text-h1: 24px;
   --text-h2: 20px;
   --text-h3: 16px;
   --text-body: 16px;
   --text-small: 13px;
+  --leading-display: 40px;
   --leading-h1: 32px;
   --leading-h2: 28px;
   --leading-h3: 24px;
@@ -47,6 +49,8 @@
   --weight-regular: 400;
   --weight-semibold: 600;
   --weight-bold: 700;
+  --weight-heavy: 800;
+  --tracking-display: -0.02em;
 
   /* Spacing */
   --space-1: 4px;
@@ -97,6 +101,7 @@
 
   /* Motion and state */
   --duration-fast: 150ms;
+  --duration-title: 180ms;
   --duration-medium: 250ms;
   --easing-standard: ease-out;
   --opacity-disabled: 0.5;

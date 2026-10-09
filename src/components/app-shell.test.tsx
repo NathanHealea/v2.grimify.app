@@ -2,6 +2,7 @@ import { act, cleanup, screen, within } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import type { CollectionState } from "@/features/collection/collection-provider";
+import { triggerIntersection } from "@/test/intersection-observer";
 import { renderRoute } from "@/test/render-route";
 
 const collection = vi.hoisted(() => ({ state: undefined as CollectionState | undefined }));
@@ -113,5 +114,37 @@ describe("AppShell", () => {
     collection.state = withPending(3);
     renderRoute("/settings");
     expect(await statusTexts()).toEqual(["", "3 changes waiting to sync"]);
+  });
+
+  it("renders one large title and a hidden copy in the header", async () => {
+    renderRoute("/settings");
+
+    const main = await screen.findByRole("main");
+    const headings = await within(main).findAllByRole("heading", { level: 1 });
+    expect(headings.map((heading) => heading.textContent)).toEqual(["Settings"]);
+    expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
+
+    const header = screen.getByRole("banner");
+    expect(header.querySelector("h1")).toBeNull();
+    const smallTitle = header.querySelector(".app-shell__title");
+    expect(smallTitle).toHaveTextContent("Settings");
+    expect(smallTitle).toHaveAttribute("aria-hidden", "true");
+  });
+
+  it("shows the small title once the large one scrolls away", async () => {
+    renderRoute("/settings");
+
+    await within(await screen.findByRole("main")).findByRole("heading", {
+      level: 1,
+      name: "Settings",
+    });
+    const header = screen.getByRole("banner");
+    expect(header).toHaveAttribute("data-scrolled", "false");
+
+    act(() => triggerIntersection(false));
+    expect(header).toHaveAttribute("data-scrolled", "true");
+
+    act(() => triggerIntersection(true));
+    expect(header).toHaveAttribute("data-scrolled", "false");
   });
 });
