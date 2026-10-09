@@ -173,29 +173,7 @@ test("lays the nav out per screen size", async ({ page }) => {
   await expectOneLineItems(page, 320);
   await expectBottomBar(page, 320);
 
+  // The desktop layout is the shared bar, checked in header.spec.ts.
   await page.setViewportSize({ width: 1280, height: 800 });
   await expectOneLineItems(page, 1280);
-  const bar = await box(nav(page));
-  expect.soft(bar.y, "top inset").toBeCloseTo(SPACE_3, 0);
-  expect.soft(Math.abs(bar.x - (1280 - (bar.x + bar.width))), "bar centred").toBeLessThanOrEqual(1);
-  expect.soft(bar.width, "bar narrower than viewport").toBeLessThan(1280);
-  // Sized to its items: no item is stretched beyond its icon, label and padding.
-  const spare = await nav(page)
-    .locator(".app-shell__tab")
-    .evaluateAll((tabs) =>
-      tabs.map((tab) => {
-        const style = getComputedStyle(tab);
-        const icon = tab.querySelector("svg")?.getBoundingClientRect();
-        const label = tab.querySelector("span")?.getBoundingClientRect();
-        if (!icon || !label) throw new Error("tab without icon or label");
-        const content = label.right - icon.left;
-        return (
-          tab.getBoundingClientRect().width -
-          content -
-          parseFloat(style.paddingLeft) -
-          parseFloat(style.paddingRight)
-        );
-      }),
-    );
-  for (const extra of spare) expect.soft(extra, "bar sized to its items").toBeLessThanOrEqual(1);
 });
