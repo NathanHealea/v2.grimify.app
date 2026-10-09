@@ -1,13 +1,13 @@
 ---
 type: bug
 slug: worker-spa-fallback
-status: in-progress
+status: staged
 branch: bug/worker-spa-fallback
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/bug-worker-spa-fallback
 created: 2026-10-08
 approved: 2026-10-08
 commit_type:         # optional override for the merge commit type (default: story=feat, bug=fix, task=chore)
-version:             # set by `wi stage`
+version: 0.12.2
 review_approved:     # set by `wi accept`
 pr:                  # set by `wi pr`
 tag:                 # set by `wi release`; the tag sits on the merge commit
@@ -78,7 +78,7 @@ The bug's regression check is live, not unit: R1–R3 depend on Cloudflare servi
 
 After release (owner): push, let the Worker build `main`, then run AC1–AC3.
 
-**Must not change:** `public/_headers`, `public/robots.txt`, application code, `vite.config.ts`, the Convex schema and functions, `package.json`.
+**Must not change:** the header rules in `public/_headers` (its comment is updated), `public/robots.txt`, application code, `vite.config.ts`, the Convex schema and functions, `package.json`.
 
 **High-risk steps:** None in the branch. The push after release redeploys production; if the config is wrong, the deploy command fails and the current version stays live (inferred from how Workers Builds runs the deploy step; not verified).
 
@@ -96,3 +96,5 @@ After release (owner): push, let the Worker build `main`, then run AC1–AC3.
 - 2026-10-08 — Plan approved.
 - 2026-10-08 — Started on branch bug/worker-spa-fallback from origin/main.
 - 2026-10-08 — Config file is wrangler.json, not .jsonc: Prettier adds trailing commas to .jsonc, which JSON.parse in the test rejects; Wrangler reads either.
+- 2026-10-08 — Stage review: fixed DEPLOYMENT.md (HIGH, still Pages), stack lines in CLAUDE/AGENTS/DATABASE/PRD, deploy-failure and branch-build caveats, www as redirect, stale _headers comments. Left: unpinned wrangler (needs a dependency).
+- 2026-10-08 — Staged: verification passed; version 0.12.1 → 0.12.2; no changelog file.
