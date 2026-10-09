@@ -8,7 +8,7 @@
 ```bash
 VITE_CONVEX_URL=              # https://<deployment>.convex.cloud (set automatically by `npx convex dev` / `convex deploy`)
 VITE_CLERK_PUBLISHABLE_KEY=   # pk_test_… (dev) / pk_live_… (prod)
-VITE_APP_URL=                 # e.g. http://localhost:5173 / https://<project>.pages.dev
+VITE_APP_URL=                 # e.g. http://localhost:5173 / https://grimify.app
 ```
 
 ---
@@ -45,8 +45,57 @@ CLERK_SECRET_KEY=             # sk_test_… from the Clerk dev instance; Playwri
 | Environment | Frontend | Convex deployment |
 |---|---|---|
 | Local | `npm run dev` (localhost:5173) | personal dev deployment (`npx convex dev`) |
-| Preview | Cloudflare Pages preview URL per branch/PR | **TBD:** Convex preview deployments, or share dev |
-| Production | `https://<project>.pages.dev` (custom domain TBD) | production deployment |
+| Preview | Off: Pages builds only `main` (DECISIONS 041) | **TBD:** Convex preview deployments, or share dev |
+| Production | `https://grimify.app` | `nautical-toucan-398` |
+
+---
+
+## Production
+
+Pushing `main` deploys production (DECISIONS 041). Cloudflare Pages builds the commit; its build command deploys the Convex functions first and builds the frontend only if that succeeds.
+
+### Cloudflare Pages project
+
+| Setting | Value |
+|---|---|
+| Git repository | `NathanHealea/v2.grimify.app` |
+| Production branch | `main` |
+| Preview branches | None (Settings → Builds & deployments → automatic preview deployments: **None**) |
+| Build command | `npx convex deploy --cmd 'npm run build' --cmd-url-env-var-name VITE_CONVEX_URL` |
+| Build output directory | `dist` |
+| Node.js | From `.nvmrc` (`24`); the build image ignores `engines` and defaults to 22 |
+| Custom domain | `grimify.app`. An apex domain must be a zone on the same Cloudflare account. |
+
+Production variables (Settings → Variables and Secrets, Production only):
+
+| Name | Type | Value |
+|---|---|---|
+| `CONVEX_DEPLOY_KEY` | Secret | Convex dashboard → `nautical-toucan-398` → Settings → Deploy key |
+| `VITE_CLERK_PUBLISHABLE_KEY` | Plaintext | `pk_live_…` from the Clerk production instance |
+
+`VITE_CONVEX_URL` isn't set in Pages: `convex deploy` passes it to the build.
+
+### Convex production
+
+Set the issuer once (the CLI prompts for the value when it's left off):
+
+```bash
+npx convex env set --prod CLERK_JWT_ISSUER_DOMAIN   # https://clerk.grimify.app
+npx convex env list --prod                          # check it
+npx convex function-spec --prod                     # after a deploy: lists the app's functions
+```
+
+`npx convex deploy` from a laptop also deploys production (it targets the project's production deployment when `CONVEX_DEPLOYMENT` is set), but production deploys normally come from the Pages build.
+
+### Clerk production instance
+
+Same settings as dev (see Rules), plus:
+- Domain `grimify.app`, with the DNS records from Clerk dashboard → Domains. The Frontend API host (`clerk.grimify.app`) is in `public/_headers`; if it differs, change the CSP there.
+- Integrations → Convex activated, or `.../tokens/convex` returns 404 and everyone looks signed out.
+
+### Content-Security-Policy
+
+`public/_headers` names the production Convex deployment and Clerk host. Moving to another Convex deployment or Clerk domain means editing it and `scripts/static-files.test.ts`. `vite dev` and `vite preview` don't apply it, so check the console on grimify.app after changing it.
 
 ---
 

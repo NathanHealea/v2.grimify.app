@@ -17,7 +17,7 @@
 - Own / Want toggles (independent) + My Paints tab, with Favorites (added in review, DECISIONS 033)
 - Offline outbox for Own/Want/Favorite changes (DECISIONS 035, 036)
 - Settings: sign out, delete account, about/data sources (DECISIONS 037, 038)
-- Deploy to Cloudflare Pages + Convex production
+- Deploy to Cloudflare Pages + Convex production at grimify.app (DECISIONS 041)
 - Ask PaintPad for permission to use the derived hex data (DECISIONS 015); before anything public
 - Private beta with friends
 

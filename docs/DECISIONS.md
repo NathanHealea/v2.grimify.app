@@ -845,3 +845,24 @@ Consequences:
 Positive: a clear page heading on every screen, tab titles per page (WCAG 2.4.2, which "Grimify" everywhere failed), and a header that lines up with the content on desktop.
 Trade-off: the title takes about 48px of content height until you scroll. The header's small title and status pills share the bar, so on a narrow phone with both pills showing the small title truncates.
 
+---
+
+## Decision 041 — Deploy from Cloudflare Pages' own build, with Convex first
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+The MVP needs a production home for the private beta. DECISIONS 007 chose Cloudflare Pages from GitHub. The Clerk production instance is on `grimify.app` (Clerk production needs a domain you own), and the Convex production deployment is `nautical-toucan-398`.
+
+Decision:
+Pages builds `main` with `npx convex deploy --cmd 'npm run build' --cmd-url-env-var-name VITE_CONVEX_URL`, using a production-only `CONVEX_DEPLOY_KEY`. Functions deploy first; a failed Convex deploy stops the build, so nothing is published. Preview builds are off until preview deployments are decided. The app is served at `grimify.app`. `public/_headers` sends a CSP limited to the app, Convex production and Clerk's documented hosts, plus `nosniff`, a referrer policy and a deny-all permissions policy. `public/robots.txt` disallows all crawlers during the beta.
+
+Alternatives:
+- GitHub Actions running `npm run check`, then `convex deploy` and Wrangler: blocks a deploy on failing checks, but adds a workflow, a Cloudflare API token and Wrangler for one owner who already runs checks at `wi stage`
+- Pages preview builds against the dev Convex deployment: previews per branch, but previews would share dev data and Clerk's dev instance would need the preview hosts in the CSP
+- Generate `_headers` at build time from `VITE_CONVEX_URL`: no hard-coded deployment name, but a script for a value that rarely changes
+
+Consequences:
+Positive: every `wi release --push` is a deploy, with no extra tooling or secrets outside Pages and Convex; functions and frontend always ship together.
+Trade-off: nothing re-runs the checks on the server, so a push from a red branch would deploy. The CSP is only exercised on grimify.app, because `vite dev` and `vite preview` don't apply `_headers`; a mistake there breaks sign-in in production only. Moving Convex deployments or Clerk domains means editing `_headers`.
