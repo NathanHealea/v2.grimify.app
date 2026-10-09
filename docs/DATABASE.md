@@ -10,7 +10,7 @@ Database:
 - **User data:** Convex (document database with a TypeScript schema)
 
 Hosting:
-- Catalog: Cloudflare Pages (static file)
+- Catalog: Cloudflare Worker static assets (static file)
 - User data: Convex Cloud (free plan)
 
 ---

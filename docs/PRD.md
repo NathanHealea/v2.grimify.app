@@ -239,7 +239,7 @@ Secondary Metrics:
 ## 10. Constraints
 
 Technical:
-- Free-tier services only (Cloudflare Pages, Convex free plan, free auth tier)
+- Free-tier services only (Cloudflare Workers, Convex free plan, free auth tier)
 - Must work as an installed iOS PWA (affects auth and storage choices)
 - TypeScript throughout
 
