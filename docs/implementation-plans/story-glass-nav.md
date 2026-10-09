@@ -8,7 +8,7 @@ created: 2026-10-08
 approved: 2026-10-08
 commit_type:         # optional override for the merge commit type (default: story=feat, bug=fix, task=chore)
 version: 0.11.0
-review_approved:     # set by `wi accept`
+review_approved: 2026-10-08
 pr:                  # set by `wi pr`
 tag:                 # set by `wi release`; the tag sits on the merge commit
 ---
@@ -123,3 +123,4 @@ Restyles the floating nav bar before the first deploy. It gets a frosted-glass b
 - 2026-10-08 — Started on branch story/glass-nav from origin/main.
 - 2026-10-08 — Step 1: E3 failed once on iPhone 15 on the first run (cold server), then passed 27 runs including --repeat-each 8; cause not found, no retry added.
 - 2026-10-08 — Staged: verification passed; version 0.10.0 → 0.11.0; no changelog file.
+- 2026-10-08 — Review approved.
