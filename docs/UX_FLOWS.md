@@ -24,6 +24,8 @@ Routes (TanStack Router):
 - `/settings`
 - `/sign-in`
 
+Page titles (DECISIONS 040): every screen opens with its name as a large title at the top of the content (Paints, My Paints, Settings; a paint's page uses the paint's name). As it scrolls under the header, a small copy fades into the header. The browser tab and app switcher read "<title> · Grimify" ("Paint not found · Grimify" for an unknown paint ID).
+
 ---
 
 ## Flow 1 — First Visit & Install

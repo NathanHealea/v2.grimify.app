@@ -824,3 +824,24 @@ Consequences:
 Positive: a lighter-feeling bar that keeps every label readable, tested over black and white in both themes.
 Trade-off: inactive and active items differ by the filled pill alone, no longer also by text colour. Safari doesn't report reduced transparency, so people who set it on iPhone still see glass. `backdrop-filter` on a fixed bar costs repaints while scrolling on low-end phones.
 
+---
+
+## Decision 040 — Large page titles with a collapsing glass header
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+The owner asked for more modern page titles and for the desktop title not to sit at the far left of the window. A preview of iOS-style large titles was approved for every screen size.
+
+Decision:
+Each screen's title is a large `PageTitle` (34px, weight 800) at the top of the content, the screen's only `h1`, which also names the browser tab "<title> · Grimify". The sticky header keeps the back link and status pills and shows a small, `aria-hidden` copy of the title once the large one has scrolled under it. The header uses the nav's glass (DECISIONS 039). From 640px its contents line up with the content column.
+
+Alternatives:
+- Keep the compact title in the header and only align it on desktop: smaller change, but the owner chose the large-title look
+- A large title that shrinks continuously with scroll position: closer to iOS, but needs scroll-linked animation and more paint work for little gain over a fade
+
+Consequences:
+Positive: a clear page heading on every screen, tab titles per page (WCAG 2.4.2, which "Grimify" everywhere failed), and a header that lines up with the content on desktop.
+Trade-off: the title takes about 48px of content height until you scroll. The header's small title and status pills share the bar, so on a narrow phone with both pills showing the small title truncates.
+

@@ -100,13 +100,14 @@ Same as body (no display font; keeps the clean look and works offline)
 
 | Style | Size / Weight / Line Height |
 |---|---|
+| Display (page title) | 34px / 800 / 40px, `-0.02em` tracking |
 | H1 | 24px / 700 / 32px |
 | H2 | 20px / 600 / 28px |
 | H3 | 16px / 600 / 24px |
 | Body | 16px / 400 / 24px (inputs must be ≥16px to prevent iOS zoom) |
 | Small | 13px / 400 / 18px |
 
-Token names *(Proposed)*: `--font-sans`; `--text-h1|h2|h3|body|small`; `--leading-h1|h2|h3|body|small`; `--weight-regular|semibold|bold`.
+Token names *(Proposed)*: `--font-sans`; `--text-display|h1|h2|h3|body|small`; `--leading-display|h1|h2|h3|body|small`; `--weight-regular|semibold|bold|heavy`; `--tracking-display`. The display size is used only by `PageTitle`, the screen's one `h1`.
 
 ---
 
@@ -214,8 +215,11 @@ Detected brand / hue / hex appear as removable pill chips under the search box (
 
 ## 11. Navigation
 
+Large title (DECISIONS 040):
+Each screen's title is a `PageTitle`: its one `h1`, in display type at the top of `<main>` (route `staticData.title`, or the paint's name on a paint's page). It also sets the tab title "<title> · Grimify". It wraps rather than clipping at 320px and with large text.
+
 Header:
-Compact top bar with the screen title and a contextual action (e.g., filter button). Respect `env(safe-area-inset-top)`. Detail screens show a back button instead of a title (`staticData.back`): chevron plus the parent's name, named "Back to Paints". It goes back when the previous history entry is in the app, otherwise it opens the parent. Installed iOS apps have no browser back button, so this is the only way back there.
+Sticky bar in three columns: back link | small title | status pills. The small title is a 16px semibold copy of the page title, centred, truncated with an ellipsis, and `aria-hidden` (the `h1` is the accessible title). It's hidden while the large title is visible and fades in (`--duration-title`, 180ms) once the large title has scrolled under the header (`data-scrolled="true"`, an `IntersectionObserver`). The header uses the nav's glass (`--color-glass`, `--glass-blur`, same solid fallbacks; solid `--color-background` otherwise). Its bottom border shows only once content has scrolled under it. From 640px its contents line up with the content column (`--content-max-width`) while its background spans the window. Respect `env(safe-area-inset-top)`. Detail screens show a back button (`staticData.back`): chevron plus the parent's name, named "Back to Paints". It goes back when the previous history entry is in the app, otherwise it opens the parent. Installed iOS apps have no browser back button, so this is the only way back there.
 
 Navigation bar:
 One floating nav bar on every screen and every breakpoint, with three destinations:
