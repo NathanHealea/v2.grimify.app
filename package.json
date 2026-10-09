@@ -48,7 +48,8 @@
     "typescript-eslint": "8.71.1",
     "vite": "8.3.3",
     "vite-plugin-pwa": "2.0.0",
-    "vitest": "5.0.3"
+    "vitest": "5.0.3",
+    "wrangler": "4.149.0"
   },
   "scripts": {
     "dev": "vite",
@@ -62,7 +63,10 @@
     "check": "npm run lint && npm run typecheck && npm test && npm run catalog:validate",
     "catalog:validate": "node scripts/build-catalog.ts --validate",
     "catalog:build": "node scripts/build-catalog.ts --build",
-    "catalog:ids": "node scripts/build-catalog.ts --record-ids"
+    "catalog:ids": "node scripts/build-catalog.ts --record-ids",
+    "deploy:dev": "node scripts/deploy.ts dev",
+    "deploy:stage": "node scripts/deploy.ts stage",
+    "deploy:prod": "node scripts/deploy.ts prod"
   },
   "allowScripts": {
     "fsevents@2.3.3": true
