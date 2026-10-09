@@ -1,7 +1,7 @@
 ---
 type: bug
 slug: worker-spa-fallback
-status: staged
+status: released
 branch: bug/worker-spa-fallback
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/bug-worker-spa-fallback
 created: 2026-10-08
@@ -10,7 +10,7 @@ commit_type:         # optional override for the merge commit type (default: sto
 version: 0.12.2
 review_approved: 2026-10-08
 pr:                  # set by `wi pr`
-tag:                 # set by `wi release`; the tag sits on the merge commit
+tag: v0.12.2
 ---
 
 # Deep links return 404 on the Cloudflare Worker
@@ -99,3 +99,4 @@ After release (owner): push, let the Worker build `main`, then run AC1–AC3.
 - 2026-10-08 — Stage review: fixed DEPLOYMENT.md (HIGH, still Pages), stack lines in CLAUDE/AGENTS/DATABASE/PRD, deploy-failure and branch-build caveats, www as redirect, stale _headers comments. Left: unpinned wrangler (needs a dependency).
 - 2026-10-08 — Staged: verification passed; version 0.12.1 → 0.12.2; no changelog file.
 - 2026-10-08 — Review approved.
+- 2026-10-08 — Released 0.12.2 as v0.12.2.
