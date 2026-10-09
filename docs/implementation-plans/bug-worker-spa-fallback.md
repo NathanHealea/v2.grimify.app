@@ -8,7 +8,7 @@ created: 2026-10-08
 approved: 2026-10-08
 commit_type:         # optional override for the merge commit type (default: story=feat, bug=fix, task=chore)
 version: 0.12.2
-review_approved:     # set by `wi accept`
+review_approved: 2026-10-08
 pr:                  # set by `wi pr`
 tag:                 # set by `wi release`; the tag sits on the merge commit
 ---
@@ -98,3 +98,4 @@ After release (owner): push, let the Worker build `main`, then run AC1–AC3.
 - 2026-10-08 — Config file is wrangler.json, not .jsonc: Prettier adds trailing commas to .jsonc, which JSON.parse in the test rejects; Wrangler reads either.
 - 2026-10-08 — Stage review: fixed DEPLOYMENT.md (HIGH, still Pages), stack lines in CLAUDE/AGENTS/DATABASE/PRD, deploy-failure and branch-build caveats, www as redirect, stale _headers comments. Left: unpinned wrangler (needs a dependency).
 - 2026-10-08 — Staged: verification passed; version 0.12.1 → 0.12.2; no changelog file.
+- 2026-10-08 — Review approved.
