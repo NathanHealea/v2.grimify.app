@@ -6,6 +6,8 @@ const header = (page: Page) => page.getByRole("banner");
 const smallTitle = (page: Page) => header(page).locator(".app-shell__title");
 const largeTitle = (page: Page) => page.locator("main h1.page-title");
 const searchBox = (page: Page) => page.getByRole("searchbox", { name: "Search paints" });
+const bar = (page: Page) => page.locator(".app-shell__bar");
+const nav = (page: Page) => page.getByRole("navigation", { name: "Main" });
 
 // Copied from nav.spec.ts: any CSS colour syntax comes back as sRGB bytes once painted.
 async function computedColor(target: Locator, property: string): Promise<Rgba> {
@@ -61,14 +63,30 @@ async function rect(target: Locator) {
   });
 }
 
+async function box(target: Locator) {
+  const rect = await target.boundingBox();
+  if (!rect) throw new Error("element has no layout box");
+  return rect;
+}
+
+function middle({ y, height }: { y: number; height: number }): number {
+  return y + height / 2;
+}
+
+async function backdropFilter(target: Locator): Promise<string> {
+  return target.evaluate((el) => {
+    const style = getComputedStyle(el);
+    // Safari before 18 reports only the prefixed property; an empty value means none applies.
+    return style.backdropFilter || style.getPropertyValue("-webkit-backdrop-filter") || "none";
+  });
+}
+
 async function expectAligned(page: Page, width: number) {
-  await page.setViewportSize({ width, height: 900 });
   const column = await contentBox(page.locator("main"));
   const start = await rect(header(page).locator(".app-shell__header-start"));
   const end = await rect(header(page).locator(".app-shell__header-end"));
   const large = await rect(largeTitle(page));
   const search = await rect(searchBox(page));
-  const small = await rect(smallTitle(page));
 
   expect
     .soft(Math.abs(large.left - column.left), `large title at ${width}px`)
@@ -82,11 +100,6 @@ async function expectAligned(page: Page, width: number) {
   expect
     .soft(Math.abs(end.right - column.right), `header end at ${width}px`)
     .toBeLessThanOrEqual(1);
-  const columnCentre = (column.left + column.right) / 2;
-  const smallCentre = (small.left + small.right) / 2;
-  expect
-    .soft(Math.abs(smallCentre - columnCentre), `small title centred at ${width}px`)
-    .toBeLessThanOrEqual(2);
 
   const viewportWidth = await page.evaluate(() => document.documentElement.clientWidth);
   const bar = await rect(header(page));
@@ -105,16 +118,21 @@ test("collapses the title and lines the header up", async ({ page, browserName }
   await expect.poll(() => opacity(smallTitle(page))).toBe(0);
   await page.evaluate(() => window.scrollTo(0, 300));
   await expect.poll(() => opacity(smallTitle(page))).toBe(1);
+  expect(
+    await header(page).evaluate((el) => el.getBoundingClientRect().top),
+    "header sticks",
+  ).toBeCloseTo(0, 0);
   await page.evaluate(() => window.scrollTo(0, 0));
   await expect.poll(() => opacity(smallTitle(page))).toBe(0);
 
-  await expectAligned(page, 1440);
-  await expectAligned(page, 768);
+  const device = page.viewportSize();
+  if (!device) throw new Error("no viewport");
+  await expectAligned(page, device.width);
 
   if (browserName === "chromium") {
-    expect(await header(page).evaluate((el) => getComputedStyle(el).backdropFilter)).toContain(
-      "blur(16px)",
-    );
+    const filter = await header(page).evaluate((el) => getComputedStyle(el).backdropFilter);
+    expect(filter).toContain("blur(16px)");
+    expect(filter).toContain("saturate(1.8)");
   }
 });
 
@@ -211,4 +229,287 @@ test("keeps the back link clear of a long paint name on a narrow phone", async (
     "no sideways scroll",
   ).toBeLessThanOrEqual(320);
   await context.setOffline(false);
+});
+
+test("merges the header and nav into one bar on desktop", async ({
+  page,
+  context,
+  browserName,
+}) => {
+  await page.goto("/paints/citadel-base-mephiston-red");
+  const back = page.getByRole("link", { name: "Back to Paints" });
+  await expect(back).toBeVisible();
+  await context.setOffline(true);
+  const offline = page.locator(".app-shell__offline");
+  await expect(offline).toHaveText("Offline");
+  // A real pending change needs sign-in, so the text is set directly.
+  const pending = page.locator(".app-shell__pending");
+  await pending.evaluate((el) => (el.textContent = "3 changes waiting to sync"));
+  const tabs = nav(page).locator(".app-shell__tab");
+  await expect(tabs).toHaveCount(3);
+
+  for (const width of [1280, 768]) {
+    await page.setViewportSize({ width, height: 900 });
+    const viewportWidth = await page.evaluate(() => document.documentElement.clientWidth);
+
+    const row = middle(await box(tabs.first()));
+    // With both pills showing they may stack where the column is narrow (R6), so the group is
+    // what shares the row.
+    for (const [name, target] of [
+      ["back link", back],
+      ["status pills", header(page).locator(".app-shell__header-end")],
+    ] as const) {
+      expect
+        .soft(
+          Math.abs(middle(await box(target)) - row),
+          `${name} shares the tabs' row at ${width}px`,
+        )
+        .toBeLessThanOrEqual(2);
+    }
+
+    const column = await contentBox(page.locator("main"));
+    const start = await rect(header(page).locator(".app-shell__header-start"));
+    const end = await rect(header(page).locator(".app-shell__header-end"));
+    expect
+      .soft(Math.abs(start.left - column.left), `back link at the column's left at ${width}px`)
+      .toBeLessThanOrEqual(1);
+    expect
+      .soft(Math.abs(end.right - column.right), `pills at the column's right at ${width}px`)
+      .toBeLessThanOrEqual(1);
+    const large = await rect(largeTitle(page));
+    expect
+      .soft(Math.abs(large.left - column.left), `large title at the column's left at ${width}px`)
+      .toBeLessThanOrEqual(1);
+
+    const first = await rect(tabs.first());
+    const last = await rect(tabs.last());
+    expect
+      .soft(
+        Math.abs((first.left + last.right) / 2 - viewportWidth / 2),
+        `tabs centred in the window at ${width}px`,
+      )
+      .toBeLessThanOrEqual(2);
+    // Sized to their items: no tab is stretched beyond its icon, label and padding.
+    const spare = await tabs.evaluateAll((items) =>
+      items.map((tab) => {
+        const style = getComputedStyle(tab);
+        const icon = tab.querySelector("svg")?.getBoundingClientRect();
+        const label = tab.querySelector("span")?.getBoundingClientRect();
+        if (!icon || !label) throw new Error("tab without icon or label");
+        return (
+          tab.getBoundingClientRect().width -
+          (label.right - icon.left) -
+          parseFloat(style.paddingLeft) -
+          parseFloat(style.paddingRight)
+        );
+      }),
+    );
+    for (const extra of spare) {
+      expect.soft(extra, `tabs sized to their items at ${width}px`).toBeLessThanOrEqual(1);
+    }
+
+    expect
+      .soft((await computedColor(nav(page), "background-color")).a, `nav background at ${width}px`)
+      .toBe(0);
+    const navFrame = await nav(page).evaluate((el) => {
+      const style = getComputedStyle(el);
+      return {
+        border: [
+          style.borderTopWidth,
+          style.borderRightWidth,
+          style.borderBottomWidth,
+          style.borderLeftWidth,
+        ],
+        shadow: style.boxShadow,
+      };
+    });
+    expect.soft(navFrame.border, `nav border at ${width}px`).toEqual(["0px", "0px", "0px", "0px"]);
+    expect.soft(navFrame.shadow, `nav shadow at ${width}px`).toBe("none");
+    expect.soft(await backdropFilter(nav(page)), `nav blur at ${width}px`).toBe("none");
+    expect
+      .soft(
+        (await computedColor(header(page), "background-color")).a,
+        `header background at ${width}px`,
+      )
+      .toBe(0);
+    expect.soft(await backdropFilter(header(page)), `header blur at ${width}px`).toBe("none");
+
+    await expect(bar(page)).toHaveCount(1);
+    const spans = await rect(bar(page));
+    expect.soft(spans.left, `bar starts at the window edge at ${width}px`).toBeCloseTo(0, 0);
+    expect
+      .soft(spans.right, `bar ends at the window edge at ${width}px`)
+      .toBeCloseTo(viewportWidth, 0);
+    if (browserName === "chromium") {
+      const filter = await backdropFilter(bar(page));
+      expect.soft(filter, `bar blur at ${width}px`).toContain("blur(16px)");
+      // Chromium serialises saturate(180%) as saturate(1.8).
+      expect.soft(filter, `bar saturation at ${width}px`).toContain("saturate(1.8)");
+    }
+  }
+  await context.setOffline(false);
+});
+
+test("scrolls content under the desktop bar", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/paints");
+  await expect(page.getByRole("main").getByRole("status")).toHaveText("2,837 paints");
+  await page.evaluate(() => window.scrollTo(0, 300));
+
+  await expect(bar(page)).toHaveCount(1);
+  const shell = await box(bar(page));
+  const banner = await box(header(page));
+  expect.soft(shell.y, "bar at the top of the window").toBeCloseTo(0, 0);
+  // The bar's own bottom border is the only extra height.
+  expect
+    .soft(shell.height, "no strip reserved above the header")
+    .toBeLessThanOrEqual(banner.height + 1);
+
+  // Between the column's left edge and the first tab: inside the bar, clear of its controls.
+  const column = await contentBox(page.locator("main"));
+  const firstTab = await box(nav(page).locator(".app-shell__tab").first());
+  const point: [number, number] = [(column.left + firstTab.x) / 2, middle(shell)];
+  const stack = await page.evaluate(([x, y]) => {
+    const main = document.querySelector("main");
+    const hits = document.elementsFromPoint(x, y);
+    return {
+      topInBar: hits[0]?.closest(".app-shell__bar") !== null,
+      contentBehind: hits.some((el) => el !== main && !!main?.contains(el)),
+    };
+  }, point);
+  expect.soft(stack.topInBar, "the bar is on top").toBe(true);
+  expect.soft(stack.contentBehind, "page content is behind the bar").toBe(true);
+});
+
+test("drops the small title on desktop", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/paints");
+  await expect(largeTitle(page)).toHaveText("Paints");
+  await expect(page.getByRole("main").getByRole("status")).toHaveText("2,837 paints");
+  // Opacity 0 still counts as visible to Playwright, so the faded-out title fails this too.
+  await expect.soft(smallTitle(page), "small title at the top").toBeHidden();
+
+  await expect(bar(page)).toHaveCount(1);
+  const border = await computedColor(bar(page), "--color-border");
+  expect((await computedColor(bar(page), "border-bottom-color")).a, "no border at the top").toBe(0);
+
+  await page.evaluate(() => window.scrollTo(0, 300));
+  await expect
+    .poll(() => computedColor(bar(page), "border-bottom-color"), {
+      message: "border once the title is under the bar",
+    })
+    .toEqual(border);
+  await expect.soft(smallTitle(page), "small title after scrolling").toBeHidden();
+  await expect(page.getByRole("heading", { level: 1, name: "Paints" })).toHaveCount(1);
+});
+
+test("keeps the desktop bar readable", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  for (const colorScheme of ["light", "dark"] as const) {
+    await page.emulateMedia({ colorScheme });
+    await page.goto("/paints/citadel-base-mephiston-red");
+    await expect(bar(page)).toHaveCount(1);
+
+    // A blur over one solid colour is that colour, so blending the glass over black and white
+    // gives the same backdrop as a solid swatch scrolled under the bar.
+    const glass = await computedColor(bar(page), "background-color");
+    const backdrops = [
+      over(glass, { r: 0, g: 0, b: 0, a: 1 }),
+      over(glass, { r: 255, g: 255, b: 255, a: 1 }),
+    ];
+    const inactive = nav(page).locator('.app-shell__tab:not([aria-current="page"]) span');
+    await expect(inactive).toHaveCount(2);
+    const active = nav(page).locator('.app-shell__tab[aria-current="page"]');
+    await expect(active).toHaveCount(1);
+
+    const labels = await Promise.all((await inactive.all()).map((l) => computedColor(l, "color")));
+    const pill = await computedColor(active, "background-color");
+    for (const backdrop of backdrops) {
+      for (const label of labels) {
+        expect(
+          contrast(over(label, backdrop), backdrop),
+          `${colorScheme} tab label`,
+        ).toBeGreaterThanOrEqual(4.5);
+      }
+      expect(
+        contrast(over(pill, backdrop), backdrop),
+        `${colorScheme} active pill`,
+      ).toBeGreaterThanOrEqual(3);
+    }
+
+    // WebKit doesn't Tab to links by default; a script focus with no pointer use still counts as keyboard focus.
+    for (const [name, target] of [
+      ["tab", inactive.first().locator("..")],
+      ["back link", page.getByRole("link", { name: "Back to Paints" })],
+    ] as const) {
+      await target.focus();
+      expect(await target.evaluate((el) => el.matches(":focus-visible"))).toBe(true);
+      const ring = await computedColor(target, "outline-color");
+      for (const backdrop of backdrops) {
+        expect(
+          contrast(over(ring, backdrop), backdrop),
+          `${colorScheme} ${name} focus ring`,
+        ).toBeGreaterThanOrEqual(3);
+      }
+    }
+  }
+});
+
+test("fits the desktop bar at 640px", async ({ page, context }) => {
+  await page.setViewportSize({ width: 640, height: 800 });
+  await page.goto("/paints/citadel-base-mephiston-red");
+  const back = page.getByRole("link", { name: "Back to Paints" });
+  await expect(back).toBeVisible();
+  await context.setOffline(true);
+  const offline = page.locator(".app-shell__offline");
+  await expect(offline).toHaveText("Offline");
+  const pending = page.locator(".app-shell__pending");
+  await pending.evaluate((el) => (el.textContent = "3 changes waiting to sync"));
+  await expect(bar(page)).toHaveCount(1);
+
+  const parts = [
+    ["back link", await box(back)],
+    ["nav", await box(nav(page))],
+    ["Offline pill", await box(offline)],
+    ["pending pill", await box(pending)],
+  ] as const;
+  for (const [i, [name, a]] of parts.entries()) {
+    expect.soft(a.x + a.width, `${name} stays on screen`).toBeLessThanOrEqual(640);
+    for (const [other, b] of parts.slice(i + 1)) {
+      const overlaps =
+        a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+      expect.soft(overlaps, `${name} clear of ${other}`).toBe(false);
+    }
+  }
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth),
+    "no sideways scroll",
+  ).toBeLessThanOrEqual(640);
+
+  for (const label of await nav(page).locator(".app-shell__tab span").all()) {
+    const lineHeight = await label.evaluate((el) => parseFloat(getComputedStyle(el).lineHeight));
+    expect
+      .soft((await box(label)).height, `${await label.innerText()} on one line`)
+      .toBeLessThanOrEqual(lineHeight + 1);
+  }
+  await context.setOffline(false);
+});
+
+test("makes the desktop bar solid with reduced transparency", async ({ page, browserName }) => {
+  test.skip(browserName !== "chromium", "reduced transparency is emulated through Chromium's CDP");
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/paints");
+
+  // Playwright 1.63's emulateMedia has no reducedTransparency option, so set the media feature directly.
+  const cdp = await page.context().newCDPSession(page);
+  await cdp.send("Emulation.setEmulatedMedia", {
+    features: [{ name: "prefers-reduced-transparency", value: "reduce" }],
+  });
+  expect(
+    await page.evaluate(() => matchMedia("(prefers-reduced-transparency: reduce)").matches),
+  ).toBe(true);
+
+  await expect(bar(page)).toHaveCount(1);
+  expect(await backdropFilter(bar(page))).toBe("none");
+  expect((await computedColor(bar(page), "background-color")).a).toBe(1);
 });

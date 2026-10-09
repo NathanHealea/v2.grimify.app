@@ -142,10 +142,10 @@ Tokens: `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-pill`
 | `--swatch-size` / `--row-min-height` | 40px / 56px | paint rows (§10) |
 | `--icon-size-sm` | 14px | swatch type marker, chip icons |
 | `--content-max-width` | 1024px | centered content on wide screens (§14) |
-| `--z-header` / `--z-tab-bar` / `--z-sheet` / `--z-toast` | 10 / 20 / 50 / 100 | stacking order; the nav bar sits above the sticky header it overlaps on tablet and desktop |
+| `--z-header` / `--z-tab-bar` / `--z-sheet` / `--z-toast` | 10 / 20 / 50 / 100 | stacking order; from 640px the nav sits above the header inside the bar so it gets the taps |
 | `--duration-fast` / `--easing-standard` | 150ms / ease-out | hover and state transitions |
 | `--opacity-disabled` | 0.5 | disabled controls |
-| `--color-glass` / `--glass-blur` | Surface at 70% / 16px | frosted bars (§11, DECISIONS 039) |
+| `--color-glass` / `--glass-blur` / `--glass-saturate` | Surface at 50% (62% dark) / 16px / 180% | frosted bars (§11, DECISIONS 039, 045) |
 
 ---
 
@@ -219,29 +219,29 @@ Large title (DECISIONS 040):
 Each screen's title is a `PageTitle`: its one `h1`, in display type at the top of `<main>` (route `staticData.title`, or the paint's name on a paint's page). It also sets the tab title "<title> · Grimify". It wraps rather than clipping at 320px and with large text.
 
 Header:
-Sticky bar in three columns: back link | small title | status pills. When space runs short the small title gives way first; the back link keeps its width and the status pills wrap rather than leave the screen. The small title is a 16px semibold copy of the page title, centred, truncated with an ellipsis when space runs out, `aria-hidden` (the `h1` is the accessible title), and ignores taps. It's hidden while the large title is visible and fades in (`--duration-title`, 180ms) once the large title has scrolled under the header (`data-scrolled="true"`, an `IntersectionObserver`). The header uses the nav's glass (`--color-glass`, `--glass-blur`, same solid fallbacks; solid `--color-background` otherwise). Its bottom border shows together with the small title, once the large title has scrolled under it. The back link's focus ring uses `--color-text`, as the nav's does, since the grey ring falls under 3:1 on glass. From 640px its contents line up with the content column (`--content-max-width`) while its background spans the window. Respect `env(safe-area-inset-top)`. Detail screens show a back button (`staticData.back`): chevron plus the parent's name, named "Back to Paints". It goes back when the previous history entry is in the app, otherwise it opens the parent. Installed iOS apps have no browser back button, so this is the only way back there.
+Sticky bar in three columns: back link | small title | status pills. When space runs short the small title gives way first; the back link keeps its width and the status pills wrap rather than leave the screen. The small title is a 16px semibold copy of the page title, centred, truncated with an ellipsis when space runs out, `aria-hidden` (the `h1` is the accessible title), and ignores taps. It's hidden while the large title is visible and fades in (`--duration-title`, 180ms) once the large title has scrolled under the header (`data-scrolled="true"`, an `IntersectionObserver`). On phones the header uses the nav's glass (`--color-glass`, blur and saturation, same solid fallbacks; solid `--color-background` otherwise). Its bottom border shows together with the small title, once the large title has scrolled under it. The back link's focus ring uses `--color-text`, as the nav's does, since the grey ring falls under 3:1 on glass. From 640px the header joins the nav in one glass bar (below) and the small title isn't shown. Respect `env(safe-area-inset-top)`. Detail screens show a back button (`staticData.back`): chevron plus the parent's name, named "Back to Paints". It goes back when the previous history entry is in the app, otherwise it opens the parent. Installed iOS apps have no browser back button, so this is the only way back there.
 
 Navigation bar:
-One floating nav bar on every screen and every breakpoint, with three destinations:
+One nav bar on every screen and every breakpoint: floating at the bottom on phones, part of the top glass bar from 640px. Three destinations:
 1. **Paints** (catalog + smart search: name, hex, brand, hue)
 2. **My Paints** (owned / wishlist)
 3. **Settings** (account, theme, about)
 
 Position by breakpoint (§14):
 - Mobile (< 640px): fixed to the bottom of the screen, inset `--space-3` from the left, right and bottom edges, plus `env(safe-area-inset-bottom)`. Spans the width between the insets.
-- Tablet and desktop (≥ 640px): fixed to the top of the screen, inset `--space-3` from the top edge plus `env(safe-area-inset-top)`. Centered, sized to its content, never wider than `--content-max-width`. The screen header sits below it.
+- Tablet and desktop (≥ 640px, DECISIONS 045): part of one sticky full-width glass bar at the top (`.app-shell__bar`), in three columns: back link | tabs | status pills. The tabs are centred in the window and sized to their content; the back link and pills line up with the content column (`--content-max-width`) while the glass spans the window. The nav and header have no background, border, shadow or blur of their own there. The header spans the row through `subgrid` and the nav sits above it in the middle column. With both status pills in a narrow window they stack in their column and the bar grows taller. The bar's bottom border shows once the large title has scrolled under it. Respects `env(safe-area-inset-top)`.
 
 Look:
-- "Floating" means detached from the screen edges: `1px solid var(--color-border)`, `--shadow-md` (border only in dark mode, per §7), `--radius-pill` *(Proposed)*.
-- Frosted glass (DECISIONS 039): `--color-glass` background with `backdrop-filter: blur(var(--glass-blur))`. Solid Surface where `backdrop-filter` isn't supported or `prefers-reduced-transparency: reduce` matches (Chrome reports it; Safari doesn't, and there the glass stays, kept readable by the contrast floor below).
+- On phones, "floating" means detached from the screen edges: `1px solid var(--color-border)`, `--shadow-md` (border only in dark mode, per §7), `--radius-pill` *(Proposed)*.
+- Frosted glass (DECISIONS 039, 045): `--color-glass` background with `backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate))`; the desktop bar uses the same glass. Solid Surface (Background for the desktop bar) where `backdrop-filter` isn't supported or `prefers-reduced-transparency: reduce` matches (Chrome reports it; Safari doesn't, and there the glass stays, kept readable by the contrast floor below).
 - Height `--tab-bar-height`. Each item shows a 24px icon (`--icon-size-tab`) beside a visible text label on one line at every width (`--space-1` apart on phones, `--space-2` from 640px). Items size by their content and share the spare width, so all three fit on one line at 320px. With large system text a label wraps instead of staying on one line. Known limit: at 200% text the three items don't fit on narrow phones (in Chrome the bar overflows by about 64px at 320px and 24px at 360px, so Settings runs past the edge), and wrapped labels make the bar taller than the space reserved for it. Items are at least 44×44px.
 - Active item: `aria-current="page"` and a filled pill: `--color-primary` background, `--radius-pill`, icon and label in `--color-primary-foreground`. Inactive items: `--color-text` on the bar, no background (muted grey falls under 4.5:1 on glass over a dark swatch). The active style is keyed on `[aria-current="page"]`, not a router class or data attribute, so the look and the announced state can't disagree.
 - Focus ring: drawn outside the item with the global positive offset, so it sits on the glass. Nav items use `--color-text` for the ring instead of `--color-ring`, since the grey ring falls under 3:1 on glass over dark content. The bar's `--space-1` padding leaves room for the ring.
-- Contrast (SC 1.4.11, 1.4.3): pill vs. Surface 17.9:1 light / 17.2:1 dark; label on pill 17.2:1. On glass, measured against the glass blended over black and over white (`tests/e2e/nav.spec.ts`): inactive labels at least 4.5:1, the pill and the focus ring at least 3:1, in both themes. The glass needs both `backdrop-filter` and `color-mix()`; without either the bar is solid. Don't use a Secondary background as the marker (1.09:1 on Surface).
+- Contrast (SC 1.4.11, 1.4.3): pill vs. Surface 17.9:1 light / 17.2:1 dark; label on pill 17.2:1. On glass, measured against the glass blended over black and over white (`tests/e2e/nav.spec.ts`, and `tests/e2e/header.spec.ts` for the desktop bar): inactive labels at least 4.5:1, the pill and the focus ring at least 3:1, in both themes. The glass needs both `backdrop-filter` and `color-mix()`; without either the bar is solid. Don't use a Secondary background as the marker (1.09:1 on Surface).
 - Fallback if the filled pill competes with swatches: an outline pill (Primary border, no fill, Primary text), which still passes 3:1.
 
 Behavior:
-- Page content is never hidden behind the bar. On mobile, `main` is padded at the bottom by the bar height, its inset and the bottom safe-area inset. On tablet and desktop, the sticky header grows its top padding by the strip the bar floats in (top safe-area inset, inset, bar height, inset), so its background covers that strip and content never scrolls past above the header.
+- Page content is never hidden behind the bar. On mobile, `main` is padded at the bottom by the bar height, its inset and the bottom safe-area inset. On tablet and desktop the bar is sticky in the page flow, so `main` starts below it and content scrolls under its glass.
 - The bar is a `<nav aria-label="Main">` that comes before `<main>` in the DOM at every breakpoint, so keyboard focus order matches the desktop layout. Moving it to the bottom on mobile is CSS only.
 - No show/hide on scroll in MVP *(Proposed)*.
 
@@ -308,8 +308,8 @@ Icon Style: Outline (stroke 2); filled variant only for active toggles
 ## 14. Responsive Design
 
 Mobile (default): single column, floating nav bar at the bottom (§11)
-Tablet: two-column list/detail where useful; floating nav bar at the top
-Desktop: max content width ~1024px, centered; floating nav bar at the top
+Tablet: two-column list/detail where useful; nav in the full-width glass bar at the top (§11)
+Desktop: max content width ~1024px, centered; nav in the full-width glass bar at the top (§11)
 
 Breakpoints (use in `@media` queries in component CSS; CSS custom properties can't be used in media queries, so use these literal values):
 - Mobile: < 640px
