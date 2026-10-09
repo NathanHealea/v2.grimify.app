@@ -1,13 +1,13 @@
 ---
 type: story
 slug: glass-bar
-status: in-progress
+status: staged
 branch: story/glass-bar
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/story-glass-bar
 created: 2026-10-09
 approved: 2026-10-09
 commit_type:         # optional override for the merge commit type (default: story=feat, bug=fix, task=chore)
-version:             # set by `wi stage`
+version: 0.13.0
 review_approved:     # set by `wi accept`
 pr:                  # set by `wi pr`
 tag:                 # set by `wi release`; the tag sits on the merge commit
@@ -121,3 +121,4 @@ Playwright runs as iPhone 15 (WebKit) and Pixel 7 (Chromium); desktop cases set 
 - 2026-10-09 — Started on branch story/glass-bar from origin/dev.
 - 2026-10-09 — Step 1 done. T4 checks the status-pill group against the tabs' row (both pills stack at 768px, allowed by R6) and T5 allows the bar's 1px border; T4 also checks the large title against the content column.
 - 2026-10-09 — All steps done; full e2e suite 36 passed, 4 skipped (Chromium-only on WebKit).
+- 2026-10-09 — Staged: verification passed; version 0.12.3 → 0.13.0; no changelog file.
