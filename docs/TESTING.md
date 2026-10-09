@@ -58,6 +58,7 @@ Automated tools can't fully cover installed iOS PWA behavior:
 - [ ] Update prompt appears after a new deploy
 
 ### Production checks (grimify.app, after the first deploy and after any `public/_headers` change)
+Run them in a private window or with the service worker unregistered: a cached `index.html` keeps the CSP it was cached with.
 - [ ] `curl -sI https://grimify.app/paints` shows the CSP, `nosniff`, `Referrer-Policy` and `Permissions-Policy`
 - [ ] `https://grimify.app/robots.txt` reads `User-agent: *` / `Disallow: /`
 - [ ] A paint URL pasted into a new tab loads the paint, not a 404

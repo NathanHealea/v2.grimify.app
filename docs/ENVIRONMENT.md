@@ -52,7 +52,12 @@ CLERK_SECRET_KEY=             # sk_test_… from the Clerk dev instance; Playwri
 
 ## Production
 
-Pushing `main` deploys production (DECISIONS 041). Cloudflare Pages builds the commit; its build command deploys the Convex functions first and builds the frontend only if that succeeds.
+Pushing `main` deploys production (DECISIONS 041). Cloudflare Pages builds the commit. Its build command first builds the frontend against the production Convex URL, then pushes the functions (`npx convex deploy --help`); if either step fails, the build fails and Pages publishes nothing.
+
+First-time setup, in this order (creating the Pages project starts a build of `main` straight away, and the push fails while the issuer is unset):
+1. Clerk production instance: domain and Convex integration (below).
+2. `npx convex env set --prod CLERK_JWT_ISSUER_DOMAIN` (below).
+3. Create the Pages project with the settings and variables below. Its first build is the first production deploy.
 
 ### Cloudflare Pages project
 
@@ -95,7 +100,7 @@ Same settings as dev (see Rules), plus:
 
 ### Content-Security-Policy
 
-`public/_headers` names the production Convex deployment and Clerk host. Moving to another Convex deployment or Clerk domain means editing it and `scripts/static-files.test.ts`. `vite dev` and `vite preview` don't apply it, so check the console on grimify.app after changing it.
+`public/_headers` names the production Convex deployment and Clerk host. Moving to another Convex deployment or Clerk domain means editing it and `scripts/static-files.test.ts`. `vite dev` and `vite preview` don't apply it, so check the console on grimify.app after changing it, in a private window or with the service worker unregistered. The service worker serves `index.html` from its cache with the headers it was cached with, so an installed app keeps the old policy until a release changes `index.html` and the user taps Reload.
 
 ---
 
