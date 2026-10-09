@@ -86,9 +86,9 @@ Playwright (iPhone 15 WebKit, Pixel 7 Chromium); desktop cases set the viewport.
 
 ## Implementation plan
 
-1. [ ] Desktop title row and spacing: from 640px the bar gets `--space-3` block padding; the small title is shown again, positioned below the bar's row as a full-width glass strip (absolutely positioned against the sticky bar, so it overlays content), carrying the bottom border; the bar's own border goes on desktop; the observer's `rootMargin` uses the bar's height when it has one — touches `src/components/app-shell.tsx`, `src/components/app-shell.css`, `tests/e2e/header.spec.ts` — tests T2, T3, T4, T5, T6, T7, T8, T9
-2. [ ] Plain glass phone nav: remove the nav's border and shadow below 640px (and the now-unused dark-mode shadow rule) — touches `src/components/app-shell.css`, `tests/e2e/nav.spec.ts` — tests T1, T9
-3. [ ] Docs: DECISIONS 046 amending 045; DESIGN_SYSTEM §11 (header, nav bar look, behaviour); UX_FLOWS page-title line — touches `docs/DECISIONS.md`, `docs/DESIGN_SYSTEM.md`, `docs/UX_FLOWS.md` — tests none (docs only)
+1. [x] Desktop title row and spacing: from 640px the bar gets `--space-3` block padding; the small title is shown again, positioned below the bar's row as a full-width glass strip (absolutely positioned against the sticky bar, so it overlays content), carrying the bottom border; the bar's own border goes on desktop; the observer's `rootMargin` uses the bar's height when it has one — touches `src/components/app-shell.tsx`, `src/components/app-shell.css`, `tests/e2e/header.spec.ts` — tests T2, T3, T4, T5, T6, T7, T8, T9
+2. [x] Plain glass phone nav: remove the nav's border and shadow below 640px (and the now-unused dark-mode shadow rule) — touches `src/components/app-shell.css`, `tests/e2e/nav.spec.ts` — tests T1, T9
+3. [x] Docs: DECISIONS 046 amending 045; DESIGN_SYSTEM §11 (header, nav bar look, behaviour); UX_FLOWS page-title line — touches `docs/DECISIONS.md`, `docs/DESIGN_SYSTEM.md`, `docs/UX_FLOWS.md` — tests none (docs only)
 
 **Must not change:** landmarks and their DOM order; tab routes, labels and `aria-current`; the `PageTitle` `h1`; glass tokens; the phone header.
 
