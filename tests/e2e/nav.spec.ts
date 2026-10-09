@@ -129,6 +129,11 @@ async function expectOneLineItems(page: Page, width: number) {
     const labelEl = tab.locator("span");
     const label = await box(labelEl);
     const lineHeight = await labelEl.evaluate((el) => parseFloat(getComputedStyle(el).lineHeight));
+    const item = await box(tab);
+    expect.soft(item.width, `${name}: target width`).toBeGreaterThanOrEqual(44);
+    expect.soft(item.height, `${name}: target height`).toBeGreaterThanOrEqual(44);
+    expect.soft(icon.width, `${name}: icon width`).toBeCloseTo(24, 0);
+    expect.soft(icon.height, `${name}: icon height`).toBeCloseTo(24, 0);
 
     expect
       .soft(
@@ -150,8 +155,8 @@ async function expectBottomBar(page: Page, width: number) {
     .soft(viewport.width - (bar.x + bar.width), `right inset at ${width}px`)
     .toBeCloseTo(SPACE_3, 0);
   expect
-    .soft(bar.y + bar.height, `bottom above viewport at ${width}px`)
-    .toBeLessThan(viewport.height);
+    .soft(viewport.height - (bar.y + bar.height), `bottom inset at ${width}px`)
+    .toBeCloseTo(SPACE_3, 0);
 }
 
 test("lays the nav out per screen size", async ({ page }) => {
@@ -171,7 +176,26 @@ test("lays the nav out per screen size", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
   await expectOneLineItems(page, 1280);
   const bar = await box(nav(page));
-  expect.soft(bar.y, "bar at the top").toBeLessThanOrEqual(SPACE_3 + 1);
+  expect.soft(bar.y, "top inset").toBeCloseTo(SPACE_3, 0);
   expect.soft(Math.abs(bar.x - (1280 - (bar.x + bar.width))), "bar centred").toBeLessThanOrEqual(1);
   expect.soft(bar.width, "bar narrower than viewport").toBeLessThan(1280);
+  // Sized to its items: no item is stretched beyond its icon, label and padding.
+  const spare = await nav(page)
+    .locator(".app-shell__tab")
+    .evaluateAll((tabs) =>
+      tabs.map((tab) => {
+        const style = getComputedStyle(tab);
+        const icon = tab.querySelector("svg")?.getBoundingClientRect();
+        const label = tab.querySelector("span")?.getBoundingClientRect();
+        if (!icon || !label) throw new Error("tab without icon or label");
+        const content = label.right - icon.left;
+        return (
+          tab.getBoundingClientRect().width -
+          content -
+          parseFloat(style.paddingLeft) -
+          parseFloat(style.paddingRight)
+        );
+      }),
+    );
+  for (const extra of spare) expect.soft(extra, "bar sized to its items").toBeLessThanOrEqual(1);
 });
