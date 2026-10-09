@@ -866,3 +866,26 @@ Alternatives:
 Consequences:
 Positive: every `wi release --push` is a deploy, with no extra tooling or secrets outside Pages and Convex; functions and frontend ship together or not at all.
 Trade-off: nothing re-runs the checks on the server, so a push from a red branch would deploy. The CSP is only exercised on grimify.app, because `vite dev` and `vite preview` don't apply `_headers`; a mistake there breaks sign-in in production only. Moving Convex deployments or Clerk domains means editing `_headers`.
+
+---
+
+## Decision 042 — Run zod jitless, with the bundle kept in import order
+
+Date: 2026-10-08
+Status: Accepted
+
+Context:
+The production CSP (DECISIONS 041) forbids eval. Zod 4 checks whether eval works by calling `new Function("")` and catching the error, so the app still works, but the browser reports a CSP violation on every load. That would hide real Clerk violations in the live checks. Calling `z.config({ jitless: true })` first in `main.tsx` wasn't enough: Rolldown put zod and the route schemas in a shared chunk that ran before `main.tsx`'s own code, and a build served with the CSP still showed three violations.
+
+Decision:
+`src/zod-config.ts` sets `z.config({ jitless: true })`, and `src/main.tsx` imports it before anything else that could build a schema. `build.rolldownOptions.output.strictExecutionOrder` is on, so the bundle runs modules in source order. Served under the production CSP, the build reports no eval violations on Paints, search and My Paints.
+
+Alternatives:
+- A `src/lib/zod.ts` wrapper that every schema imports: `src/features/catalog/schema.ts` also runs under plain Node for the catalog build and can only import packages
+- Set zod's internal `globalThis.__zod_globalConfig` from a separate module script in `index.html`: no bundle cost, but relies on an undocumented name a zod upgrade could break silently
+- Accept the violation and exclude it from the live checks: trains people to ignore CSP violations
+
+Consequences:
+Positive: a clean console under the CSP, so any violation in the live checks is real. Import order in `main.tsx` means what it says.
+Trade-off: Rolldown wraps modules with init helpers, about 32 KB more JavaScript (about 11.5 KB gzipped, 5%). Zod validates the few search-param schemas without its compiled fast path.
+
