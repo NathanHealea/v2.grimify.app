@@ -8,44 +8,43 @@ Development:
 `http://localhost:5173` + personal Convex dev deployment
 
 Staging / Preview:
-Cloudflare Pages preview deployment per branch/PR (`https://<branch>.<project>.pages.dev`)
+None. The Worker builds only `main` (DECISIONS 041, 043); preview deployments are **TBD**.
 
 Production:
-`https://<project>.pages.dev` (**TBD:** project name / custom domain)
+`https://grimify.app` (Cloudflare Worker `v2-grimify-app`)
 
 ---
 
 ## Hosting Setup
 
-Frontend: Cloudflare Pages connected to the GitHub repo
-- Production branch: `main`
-- Build command: `npx convex deploy --cmd 'npm run build'`
-  (deploys Convex functions and schema, sets `VITE_CONVEX_URL`, then builds the frontend)
-- Output directory: `dist`
-- Build env vars: `CONVEX_DEPLOY_KEY` (secret), `VITE_CLERK_PUBLISHABLE_KEY`
-- SPA fallback: Cloudflare Pages serves `index.html` for unknown paths when there's no `404.html`. Confirm deep links like `/paints/<id>` load directly.
+Frontend: Cloudflare Worker `v2-grimify-app` (static assets, no Worker code; DECISIONS 043), built from the GitHub repo by Workers Builds. ENVIRONMENT.md § Production lists every setting.
+- Branch: `main` only
+- Build command: `npx convex deploy --cmd 'npm run build' --cmd-url-env-var-name VITE_CONVEX_URL`
+  (builds the frontend against the production URL, then pushes Convex functions and schema)
+- Deploy command: `npx wrangler deploy` (reads `wrangler.json`)
+- Build variables: `CONVEX_DEPLOY_KEY` (Secret), `VITE_CLERK_PUBLISHABLE_KEY`
+- SPA fallback: `wrangler.json` sets `not_found_handling: "single-page-application"`, so unknown paths get `index.html` with 200. Without it a Worker returns an empty 404. Confirm deep links like `/paints/<id>` load directly.
 - Security headers: `public/_headers` (see SECURITY.md §5). The Content-Security-Policy must allow Clerk's Frontend API and script domains (production instance) and the Convex deployment URL, or sign-in and data calls are blocked
 
 Backend: Convex Cloud (free plan); production deployment created in the Convex dashboard.
 
-CI: GitHub Actions on every pull request: `npm ci` → `npm run check` → `npm run build` (without deploy). E2E optional at first.
+CI: none yet. Checks run locally at `wi stage` (`npm run check`, `npm run build`); a GitHub Actions workflow is a possible later item (DECISIONS 041).
 
 ---
 
 ## Deployment Process
 
-1. Open a PR → CI runs lint, typecheck, tests, catalog validation
-2. Cloudflare creates a preview deployment → check it on a phone
-3. Merge to `main`
-4. Cloudflare builds: Convex deploy → frontend build → publish
-5. Smoke test production (see checklist)
-6. Installed PWAs pick up the update via the "Update available" prompt
+1. `wi stage` runs lint, typecheck, tests, catalog validation and the build locally
+2. `wi release --push` merges to `main` and pushes
+3. Workers Builds runs: frontend build → Convex function push → `wrangler deploy`. If the deploy command fails after the push, the new functions run with the old frontend until the next good deploy
+4. Smoke test production (see checklist and TESTING.md production checks)
+5. Installed PWAs pick up the update via the "Update available" prompt
 
 ---
 
 ## Rollback
 
-- **Frontend:** Cloudflare Pages dashboard → Deployments → "Rollback to this deployment"
+- **Frontend:** Workers & Pages → `v2-grimify-app` → Deployments → ⋯ next to a version → **Rollback** (or `wrangler rollback`)
 - **Convex functions:** revert the commit and redeploy. Convex schema changes must be backward-compatible (optional fields) so a frontend rollback doesn't break.
 - **Catalog:** revert the data commit and redeploy. Paint IDs are never removed, so user data is unaffected.
 
@@ -70,5 +69,5 @@ CI: GitHub Actions on every pull request: `npm ci` → `npm run check` → `npm 
 Check these monthly in the dashboards:
 - Convex: function calls, database bandwidth, storage
 - Auth provider: monthly active users
-- Cloudflare Pages: builds per month (500 on free)
+- Cloudflare Workers Builds: build minutes per month (**TBD:** confirm the free allowance)
 - **TBD:** confirm whether Convex free deployments are paused after inactivity and whether a keep-alive is needed

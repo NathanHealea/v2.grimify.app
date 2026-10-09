@@ -11,7 +11,7 @@ function readPublic(name: string): string {
 
 type HeaderRule = { pattern: string; headers: Map<string, string> };
 
-// Cloudflare Pages format: an unindented URL pattern, then indented `Name: value` lines.
+// Cloudflare `_headers` format (Pages and Workers static assets): an unindented URL pattern, then indented `Name: value` lines.
 function parseHeaders(text: string): HeaderRule[] {
   const rules: HeaderRule[] = [];
   for (const line of text.split(/\r?\n/)) {

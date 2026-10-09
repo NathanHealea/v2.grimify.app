@@ -14,7 +14,7 @@ Primary Users:
 Hobby miniature painters, mostly on phones.
 
 Stack (summary; details in ARCHITECTURE.md):
-Vite + React + TypeScript · TanStack Router · shadcn/ui (Radix) styled with plain CSS files, no Tailwind · vite-plugin-pwa · Convex · Clerk · Fuse.js · culori · Zod · Vitest · Playwright · Cloudflare Pages
+Vite + React + TypeScript · TanStack Router · shadcn/ui (Radix) styled with plain CSS files, no Tailwind · vite-plugin-pwa · Convex · Clerk · Fuse.js · culori · Zod · Vitest · Playwright · Cloudflare Workers (static assets)
 
 ---
 

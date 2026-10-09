@@ -54,7 +54,7 @@ CLERK_SECRET_KEY=             # sk_test_… from the Clerk dev instance; Playwri
 
 Pushing `main` deploys production (DECISIONS 041, 043). The site is the Cloudflare Worker `v2-grimify-app`, an assets-only Worker configured by `wrangler.json`. Workers Builds runs two commands on each commit:
 1. The build command builds the frontend against the production Convex URL, then pushes the functions (`npx convex deploy --help`). If either step fails, the build stops.
-2. The deploy command (`npx wrangler deploy`) uploads `dist/` to the Worker. The functions are already live by then, so they briefly serve the old frontend.
+2. The deploy command (`npx wrangler deploy`) uploads `dist/` to the Worker. The functions are already live by then, so they briefly serve the old frontend; if the deploy command fails, they keep serving it until the next good deploy.
 
 First-time setup, in this order (connecting the repo starts a build of `main` straight away, and the function push fails while the issuer is unset):
 1. Clerk production instance: domain and Convex integration (below).
@@ -68,12 +68,12 @@ Workers & Pages → `v2-grimify-app` → Settings → Build:
 | Setting | Value |
 |---|---|
 | Git repository | `NathanHealea/v2.grimify.app` |
-| Branch control | `main` only; no builds for other branches (Previews Base tab) |
+| Branch control | `main`. Builds for other branches stay off (Settings → Build → Branch control and the Previews Base tab): every build runs `convex deploy` with the production key, so a branch build would deploy that branch's functions to production. |
 | Build command | `npx convex deploy --cmd 'npm run build' --cmd-url-env-var-name VITE_CONVEX_URL` |
 | Deploy command | `npx wrangler deploy` (reads `wrangler.json`: assets from `./dist`, single-page-app fallback) |
 | Root directory | `/` |
 | Node.js | From `.nvmrc` (`24`) |
-| Custom domains | `grimify.app` and `www.grimify.app` (Settings → Domains & Routes). An apex domain must be a zone on the same Cloudflare account. |
+| Custom domain | `grimify.app` (Settings → Domains & Routes). An apex domain must be a zone on the same Cloudflare account. `www.grimify.app` redirects to it with a Cloudflare redirect rule rather than serving the app, so there's one origin for sign-in, storage and the installed app. |
 
 Build variables (Settings → Build → Variables and secrets). Only these two:
 

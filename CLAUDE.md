@@ -7,7 +7,7 @@ A mobile-first PWA for miniature painters: search paints across brands, find cro
 @docs/AGENTS.md
 
 ## Quick facts
-- Stack: Vite + React + TypeScript, TanStack Router, shadcn/ui (Radix) + plain CSS files (no Tailwind), vite-plugin-pwa, Convex, Clerk, Cloudflare Pages
+- Stack: Vite + React + TypeScript, TanStack Router, shadcn/ui (Radix) + plain CSS files (no Tailwind), vite-plugin-pwa, Convex, Clerk, Cloudflare Workers (static assets)
 - Paint catalog = JSON in `data/catalog/` (NOT in Convex). Paint IDs never change.
 - Styling: every component has a matching `.css` file (e.g., `button.tsx` + `button.css`). **No styling in .tsx files**: no Tailwind classes, no inline `style`, no CSS-in-JS. One exception: `style` may pass a data value as a CSS custom property, e.g., `style={{ "--swatch-color": paint.hex }}`.
 - Anything marked **TBD** in /docs is undecided. Ask; don't guess.
