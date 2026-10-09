@@ -1,7 +1,7 @@
 ---
 type: story
 slug: glass-bar
-status: staged
+status: released
 branch: story/glass-bar
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/story-glass-bar
 created: 2026-10-09
@@ -10,7 +10,7 @@ commit_type:         # optional override for the merge commit type (default: sto
 version: 0.13.0
 review_approved: 2026-10-09
 pr:                  # set by `wi pr`
-tag:                 # set by `wi release`; the tag sits on the merge commit
+tag: v0.13.0
 ---
 
 # Visible phone glass and one glass bar on desktop
@@ -123,3 +123,4 @@ Playwright runs as iPhone 15 (WebKit) and Pixel 7 (Chromium); desktop cases set 
 - 2026-10-09 — All steps done; full e2e suite 36 passed, 4 skipped (Chromium-only on WebKit).
 - 2026-10-09 — Staged: verification passed; version 0.12.3 → 0.13.0; no changelog file.
 - 2026-10-09 — Review approved.
+- 2026-10-09 — Released 0.13.0 as v0.13.0.
