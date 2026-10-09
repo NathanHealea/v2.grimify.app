@@ -6,6 +6,8 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 import { defineConfig } from "vitest/config";
 
+import { cspHeaders } from "./scripts/csp-headers";
+
 const { version } = JSON.parse(
   readFileSync(new URL("./package.json", import.meta.url), "utf8"),
 ) as {
@@ -42,6 +44,7 @@ export default defineConfig({
       },
       devOptions: { enabled: false },
     }),
+    cspHeaders(),
   ],
   // src/zod-config.ts must run before any schema is built; without this Rolldown runs the shared
   // chunk holding zod and the route schemas first (DECISIONS 042).

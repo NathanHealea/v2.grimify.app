@@ -52,7 +52,7 @@ function csp(): Map<string, string[]> {
 }
 
 describe("public/_headers", () => {
-  it("the CSP allows only the app, Convex production and Clerk hosts", () => {
+  it("the CSP template allows only the app, the build's Convex host and Clerk hosts", () => {
     const expected: Record<string, string[]> = {
       "default-src": ["'self'"],
       "script-src": [
@@ -63,8 +63,8 @@ describe("public/_headers", () => {
       ],
       "connect-src": [
         "'self'",
-        "https://nautical-toucan-398.convex.cloud",
-        "wss://nautical-toucan-398.convex.cloud",
+        "https://{{CONVEX_HOST}}",
+        "wss://{{CONVEX_HOST}}",
         "https://clerk.grimify.app",
         "https://*.protect.clerk.com:*",
       ],
@@ -85,6 +85,7 @@ describe("public/_headers", () => {
     for (const [name, sources] of Object.entries(expected)) {
       expect(new Set(directives.get(name)), name).toEqual(new Set(sources));
     }
+    expect(readPublic("_headers")).not.toContain("convex.cloud");
   });
 
   it("the CSP never allows eval, inline scripts, wildcards or framing", () => {
