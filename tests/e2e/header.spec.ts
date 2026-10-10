@@ -564,8 +564,7 @@ test("lets taps through the title row", async ({ page }) => {
   expect(inMain, "a tap on the title row reaches the content under it").toBe(true);
 });
 
-test("makes the title row solid with reduced transparency", async ({ page, browserName }) => {
-  test.skip(browserName !== "chromium", "reduced transparency is emulated through Chromium's CDP");
+test("puts the title row on the bar's glass", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto("/paints");
   await expect(page.getByRole("main").getByRole("status")).toHaveText("2,837 paints");
@@ -589,6 +588,15 @@ test("makes the title row solid with reduced transparency", async ({ page, brows
     return roots;
   });
   expect.soft(rooted, "no backdrop filter above the title row").toEqual([]);
+});
+
+test("makes the title row solid with reduced transparency", async ({ page, browserName }) => {
+  test.skip(browserName !== "chromium", "reduced transparency is emulated through Chromium's CDP");
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/paints");
+  await expect(page.getByRole("main").getByRole("status")).toHaveText("2,837 paints");
+  await page.evaluate(() => window.scrollTo(0, 300));
+  await expect(smallTitle(page)).toBeVisible();
 
   // Playwright 1.63's emulateMedia has no reducedTransparency option, so set the media feature directly.
   const cdp = await page.context().newCDPSession(page);
