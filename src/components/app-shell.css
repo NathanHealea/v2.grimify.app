@@ -140,9 +140,7 @@
   z-index: var(--z-tab-bar);
   padding: var(--space-1);
   background: var(--color-surface);
-  border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-md);
 }
 
 /* Glass only where the blur and the colour mix both work; without either the bar would be hard to read. */
@@ -169,7 +167,7 @@
 .app-shell__tab-list {
   display: flex;
   gap: var(--space-1);
-  min-height: calc(var(--tab-bar-height) - 2 * var(--space-1) - 2 * var(--border-width));
+  min-height: calc(var(--tab-bar-height) - 2 * var(--space-1));
   padding: 0;
   list-style: none;
 }
@@ -218,12 +216,6 @@
   height: var(--icon-size-tab);
 }
 
-@media (prefers-color-scheme: dark) {
-  .app-shell__tabs {
-    box-shadow: none;
-  }
-}
-
 @media (width >= 640px) {
   /* Back link | tabs | status pills. Equal outer columns keep the tabs centred in the window; the
      padding lines the outer columns up with the content column while the glass spans the window. */
@@ -235,7 +227,7 @@
     grid-template-columns: minmax(max-content, 1fr) max-content minmax(min-content, 1fr);
     gap: var(--space-2);
     align-items: center;
-    padding-top: env(safe-area-inset-top);
+    padding-block: calc(env(safe-area-inset-top) + var(--space-3)) var(--space-3);
     padding-right: max(
       calc(var(--space-4) + env(safe-area-inset-right)),
       calc((100% - var(--content-max-width)) / 2 + var(--space-4))
@@ -244,18 +236,37 @@
       calc(var(--space-4) + env(safe-area-inset-left)),
       calc((100% - var(--content-max-width)) / 2 + var(--space-4))
     );
-    background: var(--color-background);
-    border-bottom: var(--border-width) solid transparent;
-    transition: border-color var(--duration-fast) var(--easing-standard);
+  }
 
-    &[data-scrolled="true"] {
-      border-bottom-color: var(--color-border);
-    }
+  /* The glass sits on a layer behind the bar's items, not on the bar: an element with a
+     backdrop-filter is the backdrop root for everything inside it (Filter Effects 2), so the title
+     strip would only blur the bar, not the page under it. */
+  .app-shell__bar::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    content: "";
+    background: var(--color-background);
+  }
+
+  /* The tabs fill the middle of the bar, so the small title gets its own glass strip under it. It
+     overlays the content rather than growing the bar, so the list doesn't jump when it appears. */
+  .app-shell__title {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    padding: var(--space-2) calc(var(--space-4) + env(safe-area-inset-right)) var(--space-2)
+      calc(var(--space-4) + env(safe-area-inset-left));
+    text-align: center;
+    background: var(--color-background);
+    border-bottom: var(--border-width) solid var(--color-border);
   }
 
   @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) and
     (color: color-mix(in srgb, currentcolor 50%, transparent)) {
-    .app-shell__bar {
+    .app-shell__bar::before,
+    .app-shell__title {
       background: var(--color-glass);
       /* stylelint-disable-next-line property-no-vendor-prefix -- Safari before 18 only knows the prefixed name */
       -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
@@ -264,7 +275,8 @@
   }
 
   @media (prefers-reduced-transparency: reduce) {
-    .app-shell__bar {
+    .app-shell__bar::before,
+    .app-shell__title {
       background: var(--color-background);
       /* stylelint-disable-next-line property-no-vendor-prefix -- matches the rule above */
       -webkit-backdrop-filter: none;
@@ -292,11 +304,6 @@
     grid-column: 1;
   }
 
-  /* The tabs fill the middle of the bar, so there's no room for it. */
-  .app-shell__title {
-    display: none;
-  }
-
   .app-shell__header-end {
     grid-column: 3;
   }
@@ -307,8 +314,6 @@
     grid-column: 2;
     grid-row: 1;
     background: transparent;
-    border: 0;
-    box-shadow: none;
     /* stylelint-disable-next-line property-no-vendor-prefix -- matches the glass rule */
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
