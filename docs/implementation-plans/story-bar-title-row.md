@@ -1,7 +1,7 @@
 ---
 type: story
 slug: bar-title-row
-status: staged
+status: released
 branch: story/bar-title-row
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/story-bar-title-row
 created: 2026-10-09
@@ -10,7 +10,7 @@ commit_type:         # optional override for the merge commit type (default: sto
 version: 0.14.0
 review_approved: 2026-10-09
 pr:                  # set by `wi pr`
-tag:                 # set by `wi release`; the tag sits on the merge commit
+tag: v0.14.0
 ---
 
 # Plain glass phone nav and a title row in the desktop bar
@@ -110,3 +110,4 @@ Playwright (iPhone 15 WebKit, Pixel 7 Chromium); desktop cases set the viewport.
 - 2026-10-09 — Started on branch story/bar-title-row from origin/dev.
 - 2026-10-09 — Staged: verification passed; version 0.13.0 → 0.14.0; no changelog file.
 - 2026-10-09 — Review approved.
+- 2026-10-09 — Released 0.14.0 as v0.14.0.
