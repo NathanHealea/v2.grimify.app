@@ -1,13 +1,13 @@
 ---
 type: story
 slug: bar-title-row
-status: in-progress
+status: staged
 branch: story/bar-title-row
 worktree_path: /Users/nhealea/Personal/Development/grimify-v2-worktrees/story-bar-title-row
 created: 2026-10-09
 approved: 2026-10-09
 commit_type:         # optional override for the merge commit type (default: story=feat, bug=fix, task=chore)
-version:             # set by `wi stage`
+version: 0.14.0
 review_approved:     # set by `wi accept`
 pr:                  # set by `wi pr`
 tag:                 # set by `wi release`; the tag sits on the merge commit
@@ -108,3 +108,4 @@ Playwright (iPhone 15 WebKit, Pixel 7 Chromium); desktop cases set the viewport.
 - 2026-10-09 — Planned.
 - 2026-10-09 — Plan approved.
 - 2026-10-09 — Started on branch story/bar-title-row from origin/dev.
+- 2026-10-09 — Staged: verification passed; version 0.13.0 → 0.14.0; no changelog file.
