@@ -477,12 +477,12 @@ test("doesn't move content when the title row appears", async ({ page }) => {
   });
 
   await page.evaluate((y) => window.scrollTo(0, y), switchAt - 8);
-  await expect(bar(page)).toHaveAttribute("data-scrolled", "false");
+  await expect(header(page)).toHaveAttribute("data-scrolled", "false");
   await expect.poll(() => opacity(smallTitle(page))).toBe(0);
   const before = await measure();
 
   await page.evaluate((y) => window.scrollTo(0, y), switchAt + 8);
-  await expect(bar(page)).toHaveAttribute("data-scrolled", "true");
+  await expect(header(page)).toHaveAttribute("data-scrolled", "true");
   await expect(smallTitle(page), "title row on after the switch").toBeVisible();
   await expect.poll(() => opacity(smallTitle(page))).toBe(1);
   const after = await measure();
